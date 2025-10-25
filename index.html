@@ -7,6 +7,68 @@
     <meta name="description" content="Téléchargez les meilleures applications Android gratuites. Streaming, jeux, utilitaires et plus encore sur Looma App Store.">
     <meta name="keywords" content="applications android, apps gratuites, téléchargement apps, jeux mobiles, streaming">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Import Firebase -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        import { 
+            getAuth, 
+            createUserWithEmailAndPassword, 
+            signInWithEmailAndPassword, 
+            signOut,
+            onAuthStateChanged
+        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+        import { 
+            getDatabase, 
+            ref, 
+            set, 
+            get, 
+            update,
+            push,
+            onValue
+        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyABmWKGHOihq-2A_oywlKke-H4l7Pq_UvM",
+            authDomain: "loomastore.firebaseapp.com",
+            databaseURL: "https://loomastore-default-rtdb.firebaseio.com",
+            projectId: "loomastore",
+            storageBucket: "loomastore.firebasestorage.app",
+            messagingSenderId: "480260251641",
+            appId: "1:480260251641:web:75b1fbea6dc8f33cc16728",
+            measurementId: "G-Z4QXNFLQEY"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const database = getDatabase(app);
+
+        // Make Firebase available globally
+        window.firebase = {
+            auth,
+            database,
+            authFunctions: {
+                createUserWithEmailAndPassword,
+                signInWithEmailAndPassword,
+                signOut,
+                onAuthStateChanged
+            },
+            dbFunctions: {
+                ref,
+                set,
+                get,
+                update,
+                push,
+                onValue
+            }
+        };
+    </script>
+
     <style>
         :root {
             --primary-color: #6a11cb;
@@ -65,11 +127,6 @@
             60% { transform: translateY(-5px); }
         }
 
-        @keyframes shimmer {
-            0% { background-position: -468px 0; }
-            100% { background-position: 468px 0; }
-        }
-
         .animate-fadeIn {
             animation: fadeIn 0.6s ease-out;
         }
@@ -88,12 +145,6 @@
 
         .animate-bounce {
             animation: bounce 2s infinite;
-        }
-
-        .shimmer {
-            background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
-            background-size: 800px 104px;
-            animation: shimmer 1.2s infinite linear;
         }
 
         /* Header Styles */
@@ -519,18 +570,6 @@
             overflow: hidden;
         }
 
-        .app-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite linear;
-        }
-
         .app-logo {
             width: 60px;
             height: 60px;
@@ -722,10 +761,6 @@
             box-shadow: none;
         }
 
-        .coming-soon {
-            background: var(--warning-color);
-        }
-
         .progress-container {
             width: 100%;
             height: 8px;
@@ -750,17 +785,6 @@
             font-weight: bold;
             position: relative;
             overflow: hidden;
-        }
-
-        .progress-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: shimmer 1.5s infinite;
         }
 
         .download-link {
@@ -878,18 +902,6 @@
             position: relative;
             overflow: hidden;
             animation: fadeIn 1s ease-out;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
-            background-size: cover;
-            animation: slideInRight 20s infinite linear;
         }
 
         .hero h2 {
@@ -1099,7 +1111,7 @@
         }
 
         /* Modal Styles */
-        .app-details-modal {
+        .modal {
             display: none;
             position: fixed;
             top: 0;
@@ -1218,6 +1230,82 @@
         .review-date {
             color: var(--gray-color);
             font-size: 0.9rem;
+        }
+
+        /* Auth Modal Styles */
+        .auth-modal {
+            max-width: 400px;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .auth-tab.active {
+            border-bottom-color: var(--primary-color);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.8rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
         }
 
         /* Dark Mode Styles */
@@ -1506,7 +1594,7 @@
             }
         }
 
-        /* Nouvelles animations pour les éléments spécifiques */
+        /* Stats Styles */
         .stats-overview {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1540,110 +1628,6 @@
         .stat-label {
             color: var(--gray-color);
             font-size: 1rem;
-        }
-
-        .recommendation-section {
-            margin: 3rem 0;
-            animation: fadeIn 1s ease-out;
-        }
-
-        .recommendation-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .recommendation-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .recommendation-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .recommendation-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-
-        .recommendation-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            background: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-            animation: pulse 3s infinite;
-        }
-
-        .app-updates {
-            background: white;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            margin-bottom: 2rem;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .update-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem;
-            border-bottom: 1px solid #eee;
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .update-item:hover {
-            background: #f8f9fa;
-            transform: translateX(5px);
-        }
-
-        .update-item:last-child {
-            border-bottom: none;
-        }
-
-        .update-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            background: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            animation: pulse 2s infinite;
-        }
-
-        .update-info {
-            flex: 1;
-        }
-
-        .update-app {
-            font-weight: bold;
-            margin-bottom: 0.3rem;
-        }
-
-        .update-version {
-            color: var(--gray-color);
-            font-size: 0.9rem;
-        }
-
-        .update-date {
-            color: var(--gray-color);
-            font-size: 0.9rem;
         }
 
         .feature-badge {
@@ -1741,27 +1725,6 @@
     </div>
 </nav>
 
-<!-- Navigation Mobile -->
-<div class="mobile-nav" id="mobileNav">
-    <div class="mobile-nav-header">
-        <h2>Menu</h2>
-        <button class="close-modal" id="closeMobileNav">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    <div class="mobile-nav-links">
-        <a href="#" class="nav-link active" data-page="home">Accueil</a>
-        <a href="#" class="nav-link" data-page="apps">Applications</a>
-        <a href="#" class="nav-link" data-page="games">Jeux</a>
-        <a href="#" class="nav-link" data-page="categories">Catégories</a>
-        <a href="#" class="nav-link" data-page="top">Top Apps</a>
-        <a href="#" class="nav-link" data-page="new">Nouveautés</a>
-        <a href="#" class="nav-link" data-page="trending">Tendances</a>
-        <a href="#" class="nav-link" data-page="updates">Mises à jour</a>
-        <a href="#" class="nav-link" data-page="developers">Développeurs</a>
-    </div>
-</div>
-
 <main>
     <!-- Page d'accueil -->
     <div id="home" class="page active">
@@ -1810,16 +1773,6 @@
 
         <div class="app-grid" id="newApps">
             <!-- Nouvelles applications chargées dynamiquement -->
-        </div>
-
-        <!-- Section de recommandations -->
-        <div class="recommendation-section">
-            <div class="section-title">
-                <h2>Recommandations personnalisées</h2>
-            </div>
-            <div class="recommendation-cards" id="recommendations">
-                <!-- Recommandations chargées dynamiquement -->
-            </div>
         </div>
     </div>
 
@@ -1878,7 +1831,7 @@
 </main>
 
 <!-- Modal de détails d'application -->
-<div class="app-details-modal" id="appDetailsModal">
+<div class="modal" id="appDetailsModal">
     <div class="modal-content">
         <span class="close-modal" id="closeModal">&times;</span>
         <div id="appDetailsContent">
@@ -1887,39 +1840,46 @@
     </div>
 </div>
 
-<!-- Modal de partage -->
-<div class="share-modal" id="shareModal">
-    <div class="share-content">
-        <span class="close-modal" id="closeShareModal">&times;</span>
-        <h3>Partager cette application</h3>
-        <p>Partagez cette application avec vos amis et votre réseau</p>
-        
-        <div class="share-options">
-            <div class="share-option" data-platform="facebook">
-                <i class="fab fa-facebook fa-2x"></i>
-                <p>Facebook</p>
-            </div>
-            <div class="share-option" data-platform="twitter">
-                <i class="fab fa-twitter fa-2x"></i>
-                <p>Twitter</p>
-            </div>
-            <div class="share-option" data-platform="whatsapp">
-                <i class="fab fa-whatsapp fa-2x"></i>
-                <p>WhatsApp</p>
-            </div>
-            <div class="share-option" data-platform="telegram">
-                <i class="fab fa-telegram fa-2x"></i>
-                <p>Telegram</p>
-            </div>
-            <div class="share-option" data-platform="email">
-                <i class="fas fa-envelope fa-2x"></i>
-                <p>Email</p>
-            </div>
-            <div class="share-option" data-platform="link">
-                <i class="fas fa-link fa-2x"></i>
-                <p>Copier le lien</p>
-            </div>
+<!-- Modal d'authentification -->
+<div class="modal" id="authModal">
+    <div class="modal-content auth-modal">
+        <span class="close-modal" id="closeAuthModal">&times;</span>
+        <div class="auth-tabs">
+            <div class="auth-tab active" data-tab="login">Connexion</div>
+            <div class="auth-tab" data-tab="register">Inscription</div>
         </div>
+        
+        <form id="loginForm" class="auth-form active">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Mot de passe</label>
+                <input type="password" id="loginPassword" class="form-control" required>
+            </div>
+            <button type="submit" class="submit-btn">Se connecter</button>
+        </form>
+        
+        <form id="registerForm" class="auth-form">
+            <div class="form-group">
+                <label for="registerName">Nom complet</label>
+                <input type="text" id="registerName" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input type="email" id="registerEmail" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="registerPassword">Mot de passe</label>
+                <input type="password" id="registerPassword" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="registerConfirmPassword">Confirmer le mot de passe</label>
+                <input type="password" id="registerConfirmPassword" class="form-control" required>
+            </div>
+            <button type="submit" class="submit-btn">S'inscrire</button>
+        </form>
     </div>
 </div>
 
@@ -2046,8 +2006,8 @@
             isNew: false,
             isFeatured: true,
             isTopRated: true,
-            logo: "https://es.divxland.org/wp-content/themes/apps/download.php?id=2687&key=MjY4N3wxNzYxMzY5MTQzfDIwMDE6MTMwODoyOWZjOjZhMDA6NzUxNzo4M2MyOmU0Mzc6MWYwZnxhODM3MzA3ZjgzN2I2YzdhOGU4MWQ2OWIxN2I0ZGRjMTAxNDY4YzgxMjExOTZjYjRmMzM1MmM0MDhiMWM1Zjcx",
-            downloadLink: "https://es.divxland.org/wp-content/themes/apps/download.php?id=2687&key=MjY4N3wxNzYxMzY5MTQzfDIwMDE6MTMwODoyOWZjOjZhMDA6NzUxNzo4M2MyOmU0Mzc6MWYwZnxhODM3MzA3ZjgzN2I2YzdhOGU4MWQ2OWIxN2I0ZGRjMTAxNDY4YzgxMjExOTZjYjRmMzM1MmM0MDhiMWM1Zjcx",
+            logo: "https://via.placeholder.com/60/e50914/ffffff?text=N",
+            downloadLink: "#",
             screenshots: [
                 "https://via.placeholder.com/300x600/e50914/ffffff?text=Netflix+1",
                 "https://via.placeholder.com/300x600/e50914/ffffff?text=Netflix+2",
@@ -2073,8 +2033,8 @@
             isNew: false,
             isFeatured: true,
             isTopRated: false,
-            logo: "https://www.divxland.org/wp-content/uploads/2025/02/whatsapp-messenger-thumbnail-150x150.png.webp",
-            downloadLink: "https://es.divxland.org/wp-content/themes/apps/download.php?id=2687&key=MjY4N3wxNzYxMzY5MTQzfDIwMDE6MTMwODoyOWZjOjZhMDA6NzUxNzo4M2MyOmU0Mzc6MWYwZnxhODM3MzA3ZjgzN2I2YzdhOGU4MWQ2OWIxN2I0ZGRjMTAxNDY4YzgxMjExOTZjYjRmMzM1MmM0MDhiMWM1Zjcx",
+            logo: "https://via.placeholder.com/60/25D366/ffffff?text=W",
+            downloadLink: "#",
             screenshots: [
                 "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+1",
                 "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+2",
@@ -2100,8 +2060,8 @@
             isNew: true,
             isFeatured: false,
             isTopRated: true,
-            logo: "https://www.divxland.org/wp-content/uploads/2025/03/whatsapp-business-thumbnail-150x150.png.webp",
-            downloadLink: "https://es.divxland.org/wp-content/themes/apps/download.php?id=3290&key=MzI5MHwxNzYxMzY5NjAyfDIwMDE6MTMwODoyOWZjOjZhMDA6NzUxNzo4M2MyOmU0Mzc6MWYwZnwyNDI4OTY2YzlkMTI3MjMxMGZkMGJkZmQ4YjdlN2M1M2VlZGY0YzAzMGJjZWNiNWI0MzM0NzUwNTFmZmI4OGU4",
+            logo: "https://via.placeholder.com/60/25D366/ffffff?text=WB",
+            downloadLink: "#",
             screenshots: [
                 "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+Business+1",
                 "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+Business+2",
@@ -2178,9 +2138,6 @@
         const featuredAppsContainer = document.getElementById('featuredApps');
         const newAppsContainer = document.getElementById('newApps');
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileNav = document.getElementById('mobileNav');
-        const closeMobileNav = document.getElementById('closeMobileNav');
-        const filterButtons = document.querySelectorAll('.filter-btn');
         const connectionStatus = document.getElementById('connectionStatus');
         const navLinks = document.querySelectorAll('.nav-link');
         const pages = document.querySelectorAll('.page');
@@ -2189,9 +2146,6 @@
         const appDetailsModal = document.getElementById('appDetailsModal');
         const closeModal = document.getElementById('closeModal');
         const appDetailsContent = document.getElementById('appDetailsContent');
-        const shareModal = document.getElementById('shareModal');
-        const closeShareModal = document.getElementById('closeShareModal');
-        const shareOptions = document.querySelectorAll('.share-option');
         const darkModeToggle = document.getElementById('darkModeToggle');
         const chatBot = document.getElementById('chatBot');
         const chatWindow = document.getElementById('chatWindow');
@@ -2218,7 +2172,11 @@
         const developerCount = document.getElementById('developerCount');
         const appUpdates = document.getElementById('appUpdates');
         const updatedApps = document.getElementById('updatedApps');
-        const recommendations = document.getElementById('recommendations');
+        const authModal = document.getElementById('authModal');
+        const closeAuthModal = document.getElementById('closeAuthModal');
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
 
         // Variables globales
         let allApps = [...realApps];
@@ -2231,7 +2189,6 @@
         let userFavorites = [];
         let userComments = [];
         let currentRating = 0;
-        let currentAppToShare = null;
         let userDownloads = [];
         let appUpdatesList = [];
 
@@ -2314,137 +2271,6 @@
             developerCount.textContent = uniqueDevelopers.length.toLocaleString();
         }
 
-        // Générer les mises à jour d'applications
-        function generateAppUpdates() {
-            const updates = [];
-            const updateTypes = ["Nouvelle fonctionnalité", "Correction de bugs", "Amélioration des performances", "Mise à jour de sécurité", "Interface utilisateur améliorée"];
-            
-            // Sélectionner 10 applications aléatoires pour les mises à jour
-            const appsToUpdate = [...allApps].sort(() => 0.5 - Math.random()).slice(0, 10);
-            
-            appsToUpdate.forEach(app => {
-                const updateType = updateTypes[Math.floor(Math.random() * updateTypes.length)];
-                const updateDate = new Date(Date.now() - Math.floor(Math.random() * 7) * 24 * 60 * 60 * 1000);
-                const formattedDate = updateDate.toLocaleDateString('fr-FR');
-                
-                updates.push({
-                    appId: app.id,
-                    appName: app.name,
-                    version: app.version,
-                    updateType: updateType,
-                    date: formattedDate,
-                    description: `${updateType} dans la version ${app.version}`
-                });
-            });
-            
-            return updates;
-        }
-
-        // Afficher les mises à jour
-        function displayAppUpdates() {
-            appUpdatesList = generateAppUpdates();
-            
-            appUpdates.innerHTML = '';
-            
-            appUpdatesList.forEach(update => {
-                const app = allApps.find(a => a.id === update.appId);
-                if (!app) return;
-                
-                const updateItem = document.createElement('div');
-                updateItem.className = 'update-item';
-                updateItem.innerHTML = `
-                    <div class="update-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <div class="update-info">
-                        <div class="update-app">${app.name}</div>
-                        <div class="update-version">Version ${update.version} • ${update.updateType}</div>
-                    </div>
-                    <div class="update-date">${update.date}</div>
-                `;
-                
-                updateItem.addEventListener('click', () => {
-                    showAppDetails(app.id);
-                });
-                
-                appUpdates.appendChild(updateItem);
-            });
-            
-            // Afficher les applications mises à jour
-            const updatedAppsList = appUpdatesList.map(update => allApps.find(app => app.id === update.appId)).filter(app => app);
-            displayApps(updatedAppsList, updatedApps, 1);
-        }
-
-        // Générer des recommandations personnalisées
-        function generateRecommendations() {
-            const recommendationTypes = [
-                {
-                    title: "Applications Essentielles",
-                    description: "Les applications indispensables pour votre téléphone",
-                    icon: "fas fa-star",
-                    apps: allApps.filter(app => app.isFeatured).slice(0, 3)
-                },
-                {
-                    title: "Nouveautés Populaires",
-                    description: "Découvrez les dernières applications tendances",
-                    icon: "fas fa-fire",
-                    apps: allApps.filter(app => app.isNew).slice(0, 3)
-                },
-                {
-                    title: "Productivité Maximale",
-                    description: "Boostez votre efficacité avec ces applications",
-                    icon: "fas fa-chart-line",
-                    apps: allApps.filter(app => app.category === "productivite").slice(0, 3)
-                }
-            ];
-            
-            return recommendationTypes;
-        }
-
-        // Afficher les recommandations
-        function displayRecommendations() {
-            const recommendationsData = generateRecommendations();
-            
-            recommendations.innerHTML = '';
-            
-            recommendationsData.forEach(rec => {
-                const recCard = document.createElement('div');
-                recCard.className = 'recommendation-card';
-                recCard.innerHTML = `
-                    <div class="recommendation-header">
-                        <div class="recommendation-icon">
-                            <i class="${rec.icon}"></i>
-                        </div>
-                        <div>
-                            <h3>${rec.title}</h3>
-                            <p>${rec.description}</p>
-                        </div>
-                    </div>
-                    <div class="app-features">
-                        ${rec.apps.map(app => `
-                            <div style="display: flex; align-items: center; margin-bottom: 0.5rem; cursor: pointer;" data-app-id="${app.id}">
-                                <img src="${app.logo}" alt="${app.name}" style="width: 30px; height: 30px; border-radius: 8px; margin-right: 0.5rem;">
-                                <span>${app.name}</span>
-                                <span class="feature-badge ${app.isNew ? 'new' : app.isFeatured ? 'premium' : 'free'}" style="margin-left: auto;">
-                                    ${app.isNew ? 'Nouveau' : app.isFeatured ? 'Premium' : 'Gratuit'}
-                                </span>
-                            </div>
-                        `).join('')}
-                    </div>
-                `;
-                
-                // Ajouter les événements de clic
-                recCard.querySelectorAll('[data-app-id]').forEach(item => {
-                    item.addEventListener('click', function() {
-                        const appId = parseInt(this.getAttribute('data-app-id'));
-                        showAppDetails(appId);
-                    });
-                });
-                
-                recommendations.appendChild(recCard);
-            });
-        }
-
         // Fonctions d'affichage des applications
         function displayApps(apps, container, page = 1) {
             container.innerHTML = '';
@@ -2515,11 +2341,6 @@
                     downloadApp(app.id, this);
                 });
                 
-                const shareBtn = appCard.querySelector('.share-btn');
-                shareBtn.addEventListener('click', function() {
-                    shareApp(app.id);
-                });
-                
                 const favoriteBtn = appCard.querySelector('.favorite-btn');
                 favoriteBtn.addEventListener('click', function() {
                     toggleFavorite(app.id, this);
@@ -2534,146 +2355,6 @@
                     }
                 });
             });
-        }
-
-        // Fonction showAppDetails étendue
-        function showAppDetails(appId) {
-            const app = allApps.find(a => a.id === appId);
-            if (!app) return;
-            
-            const isFavorite = userFavorites.includes(app.id);
-            const appComments = userComments.filter(comment => comment.appId === appId);
-            
-            appDetailsContent.innerHTML = `
-                <div class="app-details-header">
-                    <img src="${app.logo}" alt="${app.name}" class="app-logo" style="width: 100px; height: 100px;">
-                    <div class="app-details-info">
-                        <h2>${app.name}</h2>
-                        <div class="app-category">${app.category} • Développé par ${app.developer}</div>
-                        <div class="app-rating">
-                            <div class="stars">${app.stars}</div>
-                            <div class="rating-value">${app.rating} (${app.downloads.toLocaleString()} téléchargements)</div>
-                        </div>
-                        <p class="app-description">${app.description}</p>
-                        <div style="margin: 1rem 0;">
-                            <span class="feature-badge ${app.inAppPurchases ? 'premium' : 'free'}">
-                                ${app.inAppPurchases ? 'Achats intégrés' : 'Gratuit'}
-                            </span>
-                            <span class="feature-badge" style="background: #6c757d; color: white;">
-                                ${app.ageRating}
-                            </span>
-                            <span class="feature-badge" style="background: #17a2b8; color: white;">
-                                Version ${app.version}
-                            </span>
-                            <span class="feature-badge" style="background: #28a745; color: white;">
-                                Mise à jour: ${app.lastUpdate}
-                            </span>
-                        </div>
-                        <div class="app-actions">
-                            <button class="action-btn share-btn" data-id="${app.id}">
-                                <i class="fas fa-share-alt"></i> Partager
-                            </button>
-                            <button class="action-btn favorite-btn ${isFavorite ? 'active' : ''}" data-id="${app.id}">
-                                <i class="fas fa-heart"></i> Favori
-                            </button>
-                            <button class="downloadBtn" data-id="${app.id}" style="width: auto; display: inline-block;">Télécharger (${app.size})</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="app-screenshots">
-                    ${app.screenshots.map(screenshot => `
-                        <div class="screenshot">
-                            <img src="${screenshot}" alt="Screenshot de ${app.name}">
-                        </div>
-                    `).join('')}
-                </div>
-                
-                <h3>Fonctionnalités</h3>
-                <ul class="app-features">
-                    ${app.features.map(feature => `<li>${feature}</li>`).join('')}
-                </ul>
-                
-                <div class="app-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
-                    <div>
-                        <h4>Informations</h4>
-                        <p><strong>Taille:</strong> ${app.size}</p>
-                        <p><strong>Version:</strong> ${app.version}</p>
-                        <p><strong>Dernière mise à jour:</strong> ${app.lastUpdate}</p>
-                        <p><strong>Développeur:</strong> ${app.developer}</p>
-                    </div>
-                    <div>
-                        <h4>Compatibilité</h4>
-                        <p><strong>Classement:</strong> ${app.ageRating}</p>
-                        <p><strong>Langues:</strong> ${app.languages.join(', ')}</p>
-                        <p><strong>Achats intégrés:</strong> ${app.inAppPurchases ? 'Oui' : 'Non'}</p>
-                    </div>
-                </div>
-                
-                <div class="feedback-section">
-                    <h3>Commentaires et Avis</h3>
-                    <div class="comment-form">
-                        <h4>Laisser un avis</h4>
-                        <form id="appCommentForm">
-                            <div class="form-group">
-                                <label>Note</label>
-                                <div class="stars" id="appCommentRating">
-                                    <i class="far fa-star" data-rating="1"></i>
-                                    <i class="far fa-star" data-rating="2"></i>
-                                    <i class="far fa-star" data-rating="3"></i>
-                                    <i class="far fa-star" data-rating="4"></i>
-                                    <i class="far fa-star" data-rating="5"></i>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="appCommentText">Votre commentaire</label>
-                                <textarea id="appCommentText" class="form-control" rows="3" placeholder="Partagez votre expérience avec cette application..." required></textarea>
-                            </div>
-                            <button type="submit" class="submit-btn">Publier l'avis</button>
-                        </form>
-                    </div>
-                    
-                    <div class="comments-section">
-                        <h4>Avis des utilisateurs (${appComments.length})</h4>
-                        <div id="appCommentsList">
-                            ${appComments.length === 0 ? 
-                                '<p>Aucun commentaire pour le moment. Soyez le premier à donner votre avis !</p>' : 
-                                appComments.map(comment => `
-                                    <div class="comment">
-                                        <div class="comment-header">
-                                            <div class="comment-author">${comment.author}</div>
-                                            <div class="comment-date">${comment.date}</div>
-                                        </div>
-                                        <div class="stars">${"★".repeat(comment.rating)}${"☆".repeat(5-comment.rating)}</div>
-                                        <p>${comment.text}</p>
-                                    </div>
-                                `).join('')
-                            }
-                        </div>
-                    </div>
-                </div>
-            `;
-            
-            // Ajouter les événements
-            const downloadBtn = appDetailsContent.querySelector('.downloadBtn');
-            downloadBtn.addEventListener('click', function() {
-                downloadApp(app.id, this);
-            });
-            
-            const shareBtn = appDetailsContent.querySelector('.share-btn');
-            shareBtn.addEventListener('click', function() {
-                shareApp(app.id);
-            });
-            
-            const favoriteBtn = appDetailsContent.querySelector('.favorite-btn');
-            favoriteBtn.addEventListener('click', function() {
-                toggleFavorite(app.id, this);
-            });
-            
-            // Configurer le système de notation
-            setupRatingSystem('appCommentRating', 'appCommentForm', app.id);
-            
-            appDetailsModal.style.display = 'block';
         }
 
         // Télécharger une application
@@ -2709,6 +2390,7 @@
                     // Ajouter aux téléchargements de l'utilisateur
                     if (currentUser) {
                         userDownloads.push(appId);
+                        saveUserData();
                     }
                 }
                 
@@ -2717,19 +2399,10 @@
             }, 200);
         }
 
-        // Partager une application
-        function shareApp(appId) {
-            const app = allApps.find(a => a.id === appId);
-            if (!app) return;
-            
-            currentAppToShare = app;
-            shareModal.style.display = 'block';
-        }
-
         // Ajouter/retirer des favoris
         function toggleFavorite(appId, button) {
             if (!currentUser) {
-                alert('Veuillez vous connecter pour ajouter aux favoris.');
+                showAuthModal();
                 return;
             }
             
@@ -2742,20 +2415,8 @@
                 button.classList.add('active');
             }
             
-            // Mettre à jour l'affichage des favoris
-            updateFavoritesDisplay();
-        }
-
-        // Mettre à jour l'affichage des favoris
-        function updateFavoritesDisplay() {
-            document.querySelectorAll('.favorite-btn').forEach(btn => {
-                const appId = parseInt(btn.getAttribute('data-id'));
-                if (userFavorites.includes(appId)) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
+            // Sauvegarder les données utilisateur
+            saveUserData();
         }
 
         // Filtrer les applications
@@ -2819,89 +2480,6 @@
             }
         }
 
-        // Configurer le système de notation
-        function setupRatingSystem(ratingElementId, formId, appId = null) {
-            const stars = document.querySelectorAll(`#${ratingElementId} .fa-star`);
-            let currentRating = 0;
-            
-            stars.forEach(star => {
-                star.addEventListener('mouseover', function() {
-                    const rating = parseInt(this.getAttribute('data-rating'));
-                    highlightStars(rating);
-                });
-                
-                star.addEventListener('mouseout', function() {
-                    highlightStars(currentRating);
-                });
-                
-                star.addEventListener('click', function() {
-                    currentRating = parseInt(this.getAttribute('data-rating'));
-                    highlightStars(currentRating);
-                });
-            });
-            
-            function highlightStars(rating) {
-                stars.forEach(star => {
-                    const starRating = parseInt(star.getAttribute('data-rating'));
-                    if (starRating <= rating) {
-                        star.classList.remove('far');
-                        star.classList.add('fas');
-                    } else {
-                        star.classList.remove('fas');
-                        star.classList.add('far');
-                    }
-                });
-            }
-            
-            // Gérer la soumission du formulaire
-            document.getElementById(formId).addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                if (!currentUser) {
-                    alert('Veuillez vous connecter pour poster un commentaire.');
-                    return;
-                }
-                
-                if (currentRating === 0) {
-                    alert('Veuillez donner une note.');
-                    return;
-                }
-                
-                const commentText = document.getElementById(formId === 'commentForm' ? 'commentText' : 'appCommentText').value;
-                const targetAppId = appId || parseInt(commentApp.value);
-                
-                if (!targetAppId) {
-                    alert('Veuillez sélectionner une application.');
-                    return;
-                }
-                
-                const newComment = {
-                    id: Date.now(),
-                    appId: targetAppId,
-                    author: currentUser.name,
-                    rating: currentRating,
-                    text: commentText,
-                    date: new Date().toLocaleDateString('fr-FR')
-                };
-                
-                userComments.push(newComment);
-                
-                // Réinitialiser le formulaire
-                this.reset();
-                currentRating = 0;
-                highlightStars(0);
-                
-                alert('Merci pour votre commentaire !');
-                
-                // Recharger les commentaires
-                if (formId === 'commentForm') {
-                    loadRecentComments();
-                } else {
-                    document.getElementById('appCommentsList').innerHTML = generateAppComments(targetAppId);
-                }
-            });
-        }
-
         // Simuler le statut de connexion
         function simulateConnectionStatus() {
             const statuses = [
@@ -2933,12 +2511,6 @@
             const newApps = allApps.filter(app => app.isNew);
             displayApps(newApps, newAppsContainer);
             
-            // Afficher les mises à jour
-            displayAppUpdates();
-            
-            // Afficher les recommandations
-            displayRecommendations();
-            
             // Initialiser la page applications
             filterApps('all');
             
@@ -2950,6 +2522,192 @@
             
             // Configurer les événements du chat
             setupChat();
+            
+            // Configurer l'authentification Firebase
+            setupFirebaseAuth();
+        }
+
+        // Configuration de l'authentification Firebase
+        function setupFirebaseAuth() {
+            const { onAuthStateChanged, signOut } = window.firebase.authFunctions;
+            
+            // Surveiller les changements d'état d'authentification
+            onAuthStateChanged(window.firebase.auth, (user) => {
+                if (user) {
+                    // Utilisateur connecté
+                    currentUser = {
+                        uid: user.uid,
+                        email: user.email,
+                        name: user.displayName || user.email.split('@')[0]
+                    };
+                    
+                    // Mettre à jour l'interface
+                    updateUserInterface();
+                    
+                    // Charger les données utilisateur
+                    loadUserData();
+                } else {
+                    // Utilisateur déconnecté
+                    currentUser = null;
+                    updateUserInterface();
+                }
+            });
+
+            // Gestionnaire de connexion
+            loginForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const email = document.getElementById('loginEmail').value;
+                const password = document.getElementById('loginPassword').value;
+                
+                try {
+                    const { signInWithEmailAndPassword } = window.firebase.authFunctions;
+                    await signInWithEmailAndPassword(window.firebase.auth, email, password);
+                    authModal.style.display = 'none';
+                    showNotification('Connexion réussie!', 'success');
+                } catch (error) {
+                    showNotification('Erreur de connexion: ' + error.message, 'error');
+                }
+            });
+
+            // Gestionnaire d'inscription
+            registerForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('registerName').value;
+                const email = document.getElementById('registerEmail').value;
+                const password = document.getElementById('registerPassword').value;
+                const confirmPassword = document.getElementById('registerConfirmPassword').value;
+                
+                if (password !== confirmPassword) {
+                    showNotification('Les mots de passe ne correspondent pas', 'error');
+                    return;
+                }
+                
+                try {
+                    const { createUserWithEmailAndPassword } = window.firebase.authFunctions;
+                    await createUserWithEmailAndPassword(window.firebase.auth, email, password);
+                    authModal.style.display = 'none';
+                    showNotification('Inscription réussie!', 'success');
+                } catch (error) {
+                    showNotification('Erreur d\'inscription: ' + error.message, 'error');
+                }
+            });
+
+            // Gestionnaire de déconnexion
+            logoutBtn.addEventListener('click', async () => {
+                try {
+                    await signOut(window.firebase.auth);
+                    showNotification('Déconnexion réussie', 'success');
+                } catch (error) {
+                    showNotification('Erreur de déconnexion', 'error');
+                }
+            });
+        }
+
+        // Mettre à jour l'interface utilisateur
+        function updateUserInterface() {
+            const loginBtn = document.getElementById('loginBtn');
+            const registerBtn = document.getElementById('registerBtn');
+            const userProfile = document.getElementById('userProfile');
+            
+            if (currentUser) {
+                loginBtn.style.display = 'none';
+                registerBtn.style.display = 'none';
+                userProfile.style.display = 'flex';
+                
+                document.getElementById('userName').textContent = currentUser.name;
+                document.getElementById('userAvatar').textContent = currentUser.name.charAt(0).toUpperCase();
+            } else {
+                loginBtn.style.display = 'block';
+                registerBtn.style.display = 'block';
+                userProfile.style.display = 'none';
+            }
+        }
+
+        // Sauvegarder les données utilisateur
+        function saveUserData() {
+            if (!currentUser) return;
+            
+            const { ref, set } = window.firebase.dbFunctions;
+            const userRef = ref(window.firebase.database, 'users/' + currentUser.uid);
+            
+            set(userRef, {
+                favorites: userFavorites,
+                downloads: userDownloads,
+                comments: userComments
+            });
+        }
+
+        // Charger les données utilisateur
+        function loadUserData() {
+            if (!currentUser) return;
+            
+            const { ref, onValue } = window.firebase.dbFunctions;
+            const userRef = ref(window.firebase.database, 'users/' + currentUser.uid);
+            
+            onValue(userRef, (snapshot) => {
+                const data = snapshot.val();
+                if (data) {
+                    userFavorites = data.favorites || [];
+                    userDownloads = data.downloads || [];
+                    userComments = data.comments || [];
+                    
+                    // Mettre à jour l'affichage des favoris
+                    updateFavoritesDisplay();
+                }
+            });
+        }
+
+        // Mettre à jour l'affichage des favoris
+        function updateFavoritesDisplay() {
+            document.querySelectorAll('.favorite-btn').forEach(btn => {
+                const appId = parseInt(btn.getAttribute('data-id'));
+                if (userFavorites.includes(appId)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Afficher le modal d'authentification
+        function showAuthModal() {
+            authModal.style.display = 'block';
+        }
+
+        // Afficher une notification
+        function showNotification(message, type = 'info') {
+            // Créer l'élément de notification
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: var(--border-radius);
+                color: white;
+                z-index: 10000;
+                animation: slideInRight 0.3s ease-out;
+            `;
+            
+            // Appliquer la couleur en fonction du type
+            if (type === 'success') {
+                notification.style.background = 'var(--success-color)';
+            } else if (type === 'error') {
+                notification.style.background = 'var(--danger-color)';
+            } else {
+                notification.style.background = 'var(--primary-color)';
+            }
+            
+            document.body.appendChild(notification);
+            
+            // Supprimer la notification après 3 secondes
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
         }
 
         // Configurer la navigation
@@ -2972,25 +2730,11 @@
                     const pageId = this.getAttribute('data-page');
                     document.getElementById(pageId).classList.add('active');
                     
-                    // Fermer le menu mobile
-                    mobileNav.classList.remove('active');
-                    
                     // Charger le contenu spécifique à la page
                     if (pageId === 'apps') {
                         filterApps(currentFilter);
-                    } else if (pageId === 'updates') {
-                        displayAppUpdates();
                     }
                 });
-            });
-
-            // Menu mobile
-            mobileMenuBtn.addEventListener('click', function() {
-                mobileNav.classList.add('active');
-            });
-
-            closeMobileNav.addEventListener('click', function() {
-                mobileNav.classList.remove('active');
             });
 
             // Recherche d'applications
@@ -3014,9 +2758,9 @@
             });
 
             // Filtrage par catégorie
-            filterButtons.forEach(button => {
+            document.querySelectorAll('.filter-btn').forEach(button => {
                 button.addEventListener('click', function() {
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
                     
                     const filter = this.getAttribute('data-filter');
@@ -3039,21 +2783,34 @@
                 }
             });
 
+            // Boutons d'authentification
+            loginBtn.addEventListener('click', showAuthModal);
+            registerBtn.addEventListener('click', showAuthModal);
+
+            // Tabs d'authentification
+            authTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Mettre à jour les tabs
+                    authTabs.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Afficher le formulaire correspondant
+                    document.querySelectorAll('.auth-form').forEach(form => {
+                        form.classList.remove('active');
+                    });
+                    document.getElementById(tabName + 'Form').classList.add('active');
+                });
+            });
+
             // Fermer les modals
             closeModal.addEventListener('click', function() {
                 appDetailsModal.style.display = 'none';
             });
 
-            closeShareModal.addEventListener('click', function() {
-                shareModal.style.display = 'none';
-            });
-
-            // Options de partage
-            shareOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    const platform = this.getAttribute('data-platform');
-                    shareOnPlatform(platform, currentAppToShare);
-                });
+            closeAuthModal.addEventListener('click', function() {
+                authModal.style.display = 'none';
             });
 
             // Fermer les modals en cliquant à l'extérieur
@@ -3061,16 +2818,18 @@
                 if (e.target === appDetailsModal) {
                     appDetailsModal.style.display = 'none';
                 }
-                if (e.target === shareModal) {
-                    shareModal.style.display = 'none';
-                }
-                if (e.target === mobileNav) {
-                    mobileNav.classList.remove('active');
+                if (e.target === authModal) {
+                    authModal.style.display = 'none';
                 }
                 // Fermer le dropdown utilisateur
                 if (!userProfile.contains(e.target)) {
                     userDropdown.classList.remove('active');
                 }
+            });
+
+            // Dropdown utilisateur
+            userProfile.addEventListener('click', function() {
+                userDropdown.classList.toggle('active');
             });
 
             // Boutons d'exploration
@@ -3138,22 +2897,14 @@
                 const lowerMessage = message.toLowerCase();
                 
                 // Réponses contextuelles
-                if (lowerMessage.includes('looma streaming') || lowerMessage.includes('looma')) {
-                    return 'Looma Streaming est notre application de streaming premium avec du contenu exclusif en qualité 4K. Vous pouvez la télécharger gratuitement sur notre store !';
-                } else if (lowerMessage.includes('netflix')) {
-                    return 'Netflix est disponible sur notre store. C\'est une application de streaming populaire avec un large catalogue de films et séries.';
-                } else if (lowerMessage.includes('whatsapp')) {
-                    return 'Nous avons WhatsApp Messenger et WhatsApp Business disponibles. Les deux applications sont gratuites et offrent une messagerie sécurisée.';
-                } else if (lowerMessage.includes('streaming') || lowerMessage.includes('vidéo')) {
-                    return 'Nous avons plusieurs applications de streaming : Looma Streaming (notre application officielle), Netflix, et bien d\'autres. Quelle catégorie vous intéresse ?';
-                } else if (lowerMessage.includes('partager') || lowerMessage.includes('partage')) {
-                    return 'Vous pouvez partager n\'importe quelle application en cliquant sur le bouton "Partager" sous la carte de l\'application. Plusieurs options sont disponibles !';
-                } else if (lowerMessage.includes('favori') || lowerMessage.includes('favoris')) {
-                    return 'Pour ajouter une application à vos favoris, cliquez sur le cœur sous la carte de l\'application. Vous devez être connecté pour utiliser cette fonctionnalité.';
-                } else if (lowerMessage.includes('télécharger') || lowerMessage.includes('download')) {
-                    return 'Pour télécharger une application, cliquez sur le bouton "Télécharger". Le téléchargement commencera automatiquement.';
-                } else if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut') || lowerMessage.includes('hello')) {
+                if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut') || lowerMessage.includes('hello')) {
                     return 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?';
+                } else if (lowerMessage.includes('application') || lowerMessage.includes('app')) {
+                    return 'Nous avons de nombreuses applications disponibles. Utilisez la barre de recherche pour trouver ce que vous cherchez !';
+                } else if (lowerMessage.includes('télécharger') || lowerMessage.includes('download')) {
+                    return 'Pour télécharger une application, cliquez simplement sur le bouton "Télécharger" sous la carte de l\'application.';
+                } else if (lowerMessage.includes('compte') || lowerMessage.includes('connexion')) {
+                    return 'Vous pouvez créer un compte ou vous connecter en cliquant sur les boutons en haut à droite. Cela vous permettra de sauvegarder vos favoris !';
                 } else {
                     const responses = [
                         'Je ne suis pas sûr de comprendre. Pouvez-vous reformuler votre question ?',
@@ -3166,39 +2917,38 @@
             }
         }
 
-        // Partager sur les plateformes
-        function shareOnPlatform(platform, app) {
-            let shareUrl = '';
-            const text = `Découvrez ${app.name} sur Looma App Store: ${app.description.substring(0, 100)}...`;
+        // Fonction pour afficher les détails de l'application (simplifiée pour cet exemple)
+        function showAppDetails(appId) {
+            const app = allApps.find(a => a.id === appId);
+            if (!app) return;
             
-            switch(platform) {
-                case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
-                    break;
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
-                    break;
-                case 'whatsapp':
-                    shareUrl = `https://wa.me/?text=${encodeURIComponent(text + ' ' + window.location.href)}`;
-                    break;
-                case 'telegram':
-                    shareUrl = `https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(text)}`;
-                    break;
-                case 'email':
-                    shareUrl = `mailto:?subject=${encodeURIComponent(`Découvrez ${app.name}`)}&body=${encodeURIComponent(text + '\n\n' + window.location.href)}`;
-                    break;
-                case 'link':
-                    navigator.clipboard.writeText(window.location.href).then(() => {
-                        alert('Lien copié dans le presse-papier !');
-                    });
-                    shareModal.style.display = 'none';
-                    return;
-            }
+            appDetailsContent.innerHTML = `
+                <div class="app-details-header">
+                    <img src="${app.logo}" alt="${app.name}" class="app-logo" style="width: 100px; height: 100px;">
+                    <div class="app-details-info">
+                        <h2>${app.name}</h2>
+                        <div class="app-category">${app.category} • Développé par ${app.developer}</div>
+                        <div class="app-rating">
+                            <div class="stars">${app.stars}</div>
+                            <div class="rating-value">${app.rating} (${app.downloads.toLocaleString()} téléchargements)</div>
+                        </div>
+                        <p class="app-description">${app.description}</p>
+                        <button class="downloadBtn" data-id="${app.id}">Télécharger (${app.size})</button>
+                    </div>
+                </div>
+                <h3>Fonctionnalités</h3>
+                <ul class="app-features">
+                    ${app.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+            `;
             
-            if (shareUrl) {
-                window.open(shareUrl, '_blank');
-            }
-            shareModal.style.display = 'none';
+            // Ajouter l'événement de téléchargement
+            const downloadBtn = appDetailsContent.querySelector('.downloadBtn');
+            downloadBtn.addEventListener('click', function() {
+                downloadApp(app.id, this);
+            });
+            
+            appDetailsModal.style.display = 'block';
         }
 
         // Initialiser l'application
