@@ -1,0 +1,3209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looma App Store - Applications Android Gratuites</title>
+    <meta name="description" content="Téléchargez les meilleures applications Android gratuites. Streaming, jeux, utilitaires et plus encore sur Looma App Store.">
+    <meta name="keywords" content="applications android, apps gratuites, téléchargement apps, jeux mobiles, streaming">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #6a11cb;
+            --secondary-color: #2575fc;
+            --accent-color: #ff4081;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #28a745;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+            --gray-color: #6c757d;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: var(--dark-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -468px 0; }
+            100% { background-position: 468px 0; }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .animate-slideInLeft {
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        .animate-slideInRight {
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+
+        .shimmer {
+            background: linear-gradient(to right, #f6f7f8 8%, #edeef1 18%, #f6f7f8 33%);
+            background-size: 800px 104px;
+            animation: shimmer 1.2s infinite linear;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1.5rem 2rem;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        header h1 i {
+            margin-right: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        .connection-status {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .connection-status:hover {
+            transform: scale(1.05);
+        }
+
+        .connection-status i {
+            margin-right: 5px;
+        }
+
+        .connection-status.good {
+            color: #4caf50;
+        }
+
+        .connection-status.poor {
+            color: #ff9800;
+        }
+
+        .connection-status.bad {
+            color: #f44336;
+        }
+
+        #searchBar {
+            width: 100%;
+            max-width: 500px;
+            margin: 1rem auto 0;
+            display: block;
+            padding: 0.8rem 1.2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            animation: fadeIn 1s ease-out;
+        }
+
+        #searchBar:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.3);
+            transform: scale(1.02);
+        }
+
+        /* Navigation Styles */
+        nav {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(106, 17, 203, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-links a:hover::before {
+            left: 100%;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background: rgba(106, 17, 203, 0.1);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .mobile-menu-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .user-actions button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .user-actions button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .user-actions button:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+
+        .login-btn {
+            background: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .login-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(106, 17, 203, 0.3);
+        }
+
+        .register-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .register-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(37, 117, 252, 0.3);
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .user-profile:hover {
+            transform: scale(1.05);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            transition: var(--transition);
+            animation: pulse 3s infinite;
+        }
+
+        .user-avatar:hover {
+            animation: bounce 1s;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            min-width: 200px;
+            padding: 0.5rem 0;
+            display: none;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .user-dropdown.active {
+            display: block;
+        }
+
+        .user-dropdown a {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            color: var(--dark-color);
+            transition: var(--transition);
+        }
+
+        .user-dropdown a:hover {
+            background: rgba(106, 17, 203, 0.1);
+            color: var(--primary-color);
+            padding-left: 2rem;
+        }
+
+        .user-dropdown .divider {
+            height: 1px;
+            background: #eee;
+            margin: 0.5rem 0;
+        }
+
+        .developer-badge {
+            background: var(--warning-color);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            margin-left: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .language-selector {
+            margin-left: 1rem;
+        }
+
+        .language-selector select {
+            padding: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            background: white;
+            transition: var(--transition);
+        }
+
+        .language-selector select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.1);
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section-title h2 {
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+
+        .view-all {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .view-all::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .view-all:hover::after {
+            width: 100%;
+        }
+
+        .view-all:hover {
+            transform: translateX(5px);
+        }
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .app-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            z-index: 2;
+            animation: pulse 2s infinite;
+        }
+
+        .app-header {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite linear;
+        }
+
+        .app-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            margin-right: 1rem;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .app-card:hover .app-logo {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .app-title {
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+
+        .app-title h2 {
+            font-size: 1.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .app-title .app-category {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .app-content {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .app-description {
+            margin-bottom: 1.5rem;
+            color: var(--gray-color);
+        }
+
+        .app-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .app-features li {
+            list-style: none;
+            padding: 0.3rem 0;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .app-features li:hover {
+            transform: translateX(5px);
+        }
+
+        .app-features li::before {
+            content: "✓";
+            color: var(--success-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .app-features li:hover::before {
+            transform: scale(1.2);
+        }
+
+        .app-footer {
+            padding: 1.5rem;
+            background-color: rgba(0, 0, 0, 0.03);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .app-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            font-size: 0.8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .action-btn:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+
+        .share-btn {
+            background: #e9ecef;
+            color: var(--dark-color);
+        }
+
+        .share-btn:hover {
+            background: #dee2e6;
+            transform: translateY(-2px);
+        }
+
+        .favorite-btn {
+            background: #e9ecef;
+            color: var(--dark-color);
+        }
+
+        .favorite-btn:hover {
+            background: #dee2e6;
+            transform: translateY(-2px);
+        }
+
+        .favorite-btn.active {
+            background: var(--danger-color);
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+
+        .downloadBtn {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: block;
+            width: 100%;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(106, 17, 203, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .downloadBtn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .downloadBtn:hover::before {
+            left: 100%;
+        }
+
+        .downloadBtn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(106, 17, 203, 0.4);
+        }
+
+        .downloadBtn:active {
+            transform: translateY(0);
+        }
+
+        .downloadBtn:disabled {
+            background: var(--gray-color);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .coming-soon {
+            background: var(--warning-color);
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            width: 0%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        .download-link {
+            display: none;
+            text-align: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            border: 1px dashed var(--primary-color);
+            border-radius: var(--border-radius);
+            transition: var(--transition);
+        }
+
+        .download-link:hover {
+            background-color: rgba(106, 17, 203, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .app-rating {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .stars {
+            color: var(--warning-color);
+            margin-right: 0.5rem;
+        }
+
+        .rating-value {
+            font-weight: 600;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(106, 17, 203, 0.1), transparent);
+            transition: 0.5s;
+        }
+
+        .filter-btn:hover::before {
+            left: 100%;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(106, 17, 203, 0.2);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: var(--gray-color);
+            grid-column: 1 / -1;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .ad-space {
+            height: 100px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            margin: 2rem 0;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            animation: pulse 3s infinite;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .ad-space:hover {
+            transform: scale(1.02);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+            animation: slideInRight 20s infinite linear;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            position: relative;
+            z-index: 1;
+            animation: slideInRight 1s ease-out;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .hero-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+
+        .hero-btn:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+
+        .primary-btn {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .secondary-btn {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .secondary-btn:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .footer-links li:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px) rotate(10deg);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+        }
+
+        /* Page Styles */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .pagination button {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .pagination button.active {
+            background: var(--primary-color);
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .pagination button:hover:not(.active) {
+            background: rgba(106, 17, 203, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Modal Styles */
+        .app-details-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-content {
+            background: white;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            max-width: 800px;
+            position: relative;
+            animation: slideInLeft 0.5s ease-out;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-color);
+            transition: var(--transition);
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-modal:hover {
+            background: #f8f9fa;
+            transform: rotate(90deg);
+        }
+
+        .app-details-header {
+            display: flex;
+            margin-bottom: 2rem;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .app-details-info {
+            flex: 1;
+            padding-left: 2rem;
+        }
+
+        .app-details-info h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .app-screenshots {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .screenshot {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .screenshot:hover {
+            transform: scale(1.05);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .reviews-section {
+            margin-top: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .review {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+            transition: var(--transition);
+        }
+
+        .review:hover {
+            background: #f8f9fa;
+            padding-left: 1rem;
+        }
+
+        .review:last-child {
+            border-bottom: none;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-author {
+            font-weight: bold;
+        }
+
+        .review-date {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        /* Dark Mode Styles */
+        .dark-mode-toggle {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 1rem;
+            transition: var(--transition);
+            animation: pulse 3s infinite;
+        }
+
+        .dark-mode-toggle:hover {
+            transform: rotate(30deg);
+        }
+
+        .dark-mode {
+            background: #121212;
+            color: #e0e0e0;
+        }
+
+        .dark-mode header {
+            background: linear-gradient(to right, #4a148c, #1a237e);
+        }
+
+        .dark-mode nav {
+            background: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .app-card {
+            background: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .dark-mode .app-footer {
+            background: #252525;
+        }
+
+        .dark-mode .filter-btn {
+            background: #252525;
+            color: #e0e0e0;
+            border-color: #6a11cb;
+        }
+
+        .dark-mode .filter-btn.active {
+            background: #6a11cb;
+        }
+
+        .dark-mode .hero {
+            background: linear-gradient(to right, #4a148c, #1a237e);
+        }
+
+        .dark-mode footer {
+            background: #1a1a1a;
+        }
+
+        /* Chat Bot Styles */
+        .chat-bot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: var(--transition);
+            animation: bounce 2s infinite;
+        }
+
+        .chat-bot:hover {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 450px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 100;
+            overflow: hidden;
+            animation: slideInRight 0.5s ease-out;
+        }
+
+        .chat-window.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .close-chat {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-chat:hover {
+            transform: rotate(90deg);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 0.8rem;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .message.bot {
+            background: #f1f1f1;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.user {
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .chat-input input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.1);
+        }
+
+        .chat-input button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .chat-input button:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .typing-indicator {
+            display: none;
+            align-self: flex-start;
+            background: #f1f1f1;
+            padding: 0.8rem;
+            border-radius: 18px;
+            border-bottom-left-radius: 5px;
+            font-style: italic;
+            color: #666;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            main {
+                padding: 1rem;
+            }
+            
+            .app-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filters {
+                gap: 0.5rem;
+            }
+            
+            .filter-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .app-details-header {
+                flex-direction: column;
+            }
+
+            .app-details-info {
+                padding-left: 0;
+                margin-top: 1rem;
+            }
+
+            .chat-window {
+                width: 300px;
+                height: 400px;
+                right: 10px;
+            }
+        }
+
+        /* Nouvelles animations pour les éléments spécifiques */
+        .stats-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .stat-label {
+            color: var(--gray-color);
+            font-size: 1rem;
+        }
+
+        .recommendation-section {
+            margin: 3rem 0;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .recommendation-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .recommendation-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .recommendation-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .recommendation-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            animation: pulse 3s infinite;
+        }
+
+        .app-updates {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .update-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .update-item:hover {
+            background: #f8f9fa;
+            transform: translateX(5px);
+        }
+
+        .update-item:last-child {
+            border-bottom: none;
+        }
+
+        .update-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        .update-info {
+            flex: 1;
+        }
+
+        .update-app {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+
+        .update-version {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        .update-date {
+            color: var(--gray-color);
+            font-size: 0.9rem;
+        }
+
+        .feature-badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .feature-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .feature-badge.premium {
+            background: var(--warning-color);
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .feature-badge.free {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .feature-badge.new {
+            background: var(--accent-color);
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <h1><i class="fas fa-store"></i> Looma App Store</h1>
+        <div>
+            <div class="connection-status" id="connectionStatus">
+                <i class="fas fa-wifi"></i> <span id="connectionText">Connexion excellente</span>
+            </div>
+        </div>
+        <div class="language-selector">
+            <select id="languageSelect">
+                <option value="fr">Français</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+            </select>
+        </div>
+        <button class="dark-mode-toggle" id="darkModeToggle">
+            <i class="fas fa-moon"></i>
+        </button>
+    </div>
+    <input type="text" id="searchBar" placeholder="Chercher une application, un jeu ou une catégorie...">
+</header>
+
+<nav>
+    <div class="nav-container">
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links">
+            <a href="#" class="nav-link active" data-page="home">Accueil</a>
+            <a href="#" class="nav-link" data-page="apps">Applications</a>
+            <a href="#" class="nav-link" data-page="games">Jeux</a>
+            <a href="#" class="nav-link" data-page="categories">Catégories</a>
+            <a href="#" class="nav-link" data-page="top">Top Apps</a>
+            <a href="#" class="nav-link" data-page="new">Nouveautés</a>
+            <a href="#" class="nav-link" data-page="trending">Tendances</a>
+            <a href="#" class="nav-link" data-page="updates">Mises à jour</a>
+            <a href="#" class="nav-link" data-page="developers">Développeurs</a>
+        </div>
+        <div class="user-actions" id="userActions">
+            <button class="login-btn" id="loginBtn">Connexion</button>
+            <button class="register-btn" id="registerBtn">Inscription</button>
+            <div class="user-profile" id="userProfile" style="display: none;">
+                <div class="user-avatar" id="userAvatar">U</div>
+                <span id="userName">Utilisateur</span>
+                <span class="developer-badge" id="developerBadge" style="display: none;">DEV</span>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="#" data-page="profile">Mon Profil</a>
+                    <a href="#" data-page="dashboard" id="dashboardLink">Tableau de Bord</a>
+                    <a href="#" data-page="myapps" id="myAppsLink">Mes Applications</a>
+                    <a href="#" data-page="favorites" id="favoritesLink">Mes Favoris</a>
+                    <a href="#" data-page="downloads" id="downloadsLink">Mes Téléchargements</a>
+                    <div class="divider"></div>
+                    <a href="#" id="logoutBtn">Déconnexion</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Navigation Mobile -->
+<div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav-header">
+        <h2>Menu</h2>
+        <button class="close-modal" id="closeMobileNav">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="mobile-nav-links">
+        <a href="#" class="nav-link active" data-page="home">Accueil</a>
+        <a href="#" class="nav-link" data-page="apps">Applications</a>
+        <a href="#" class="nav-link" data-page="games">Jeux</a>
+        <a href="#" class="nav-link" data-page="categories">Catégories</a>
+        <a href="#" class="nav-link" data-page="top">Top Apps</a>
+        <a href="#" class="nav-link" data-page="new">Nouveautés</a>
+        <a href="#" class="nav-link" data-page="trending">Tendances</a>
+        <a href="#" class="nav-link" data-page="updates">Mises à jour</a>
+        <a href="#" class="nav-link" data-page="developers">Développeurs</a>
+    </div>
+</div>
+
+<main>
+    <!-- Page d'accueil -->
+    <div id="home" class="page active">
+        <div class="hero">
+            <h2>Découvrez les meilleures applications Android</h2>
+            <p>Téléchargez des applications gratuites et premium pour votre mobile. Streaming, jeux, utilitaires et bien plus encore!</p>
+            <div class="hero-buttons">
+                <button class="hero-btn primary-btn" id="exploreBtn">Explorer les applications</button>
+                <button class="hero-btn secondary-btn" id="popularBtn">Applications populaires</button>
+            </div>
+        </div>
+
+        <!-- Statistiques en temps réel -->
+        <div class="stats-overview">
+            <div class="stat-item">
+                <div class="stat-value" id="totalApps">0</div>
+                <div class="stat-label">Applications disponibles</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="totalDownloads">0</div>
+                <div class="stat-label">Téléchargements totaux</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="activeUsers">0</div>
+                <div class="stat-label">Utilisateurs actifs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="developerCount">0</div>
+                <div class="stat-label">Développeurs</div>
+            </div>
+        </div>
+
+        <div class="section-title">
+            <h2>Applications populaires</h2>
+            <a href="#" class="view-all">Voir tout</a>
+        </div>
+
+        <div class="app-grid" id="featuredApps">
+            <!-- Applications populaires chargées dynamiquement -->
+        </div>
+
+        <div class="section-title">
+            <h2>Nouveautés</h2>
+            <a href="#" class="view-all">Voir tout</a>
+        </div>
+
+        <div class="app-grid" id="newApps">
+            <!-- Nouvelles applications chargées dynamiquement -->
+        </div>
+
+        <!-- Section de recommandations -->
+        <div class="recommendation-section">
+            <div class="section-title">
+                <h2>Recommandations personnalisées</h2>
+            </div>
+            <div class="recommendation-cards" id="recommendations">
+                <!-- Recommandations chargées dynamiquement -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Applications -->
+    <div id="apps" class="page">
+        <div class="section-title">
+            <h2>Toutes les applications</h2>
+            <div>
+                <span id="appCount">0 applications</span>
+            </div>
+        </div>
+
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Toutes</button>
+            <button class="filter-btn" data-filter="streaming">Streaming</button>
+            <button class="filter-btn" data-filter="social">Social</button>
+            <button class="filter-btn" data-filter="utilitaire">Utilitaires</button>
+            <button class="filter-btn" data-filter="productivite">Productivité</button>
+            <button class="filter-btn" data-filter="education">Éducation</button>
+            <button class="filter-btn" data-filter="sante">Santé</button>
+            <button class="filter-btn" data-filter="finance">Finance</button>
+            <button class="filter-btn" data-filter="musique">Musique</button>
+            <button class="filter-btn" data-filter="photo">Photo & Vidéo</button>
+        </div>
+
+        <div class="app-grid" id="appsContainer">
+            <!-- Toutes les applications chargées dynamiquement -->
+        </div>
+
+        <div class="pagination" id="pagination">
+            <!-- Pagination générée dynamiquement -->
+        </div>
+    </div>
+
+    <!-- Page Mises à jour -->
+    <div id="updates" class="page">
+        <div class="section-title">
+            <h2>Dernières mises à jour</h2>
+        </div>
+
+        <div class="app-updates" id="appUpdates">
+            <!-- Mises à jour chargées dynamiquement -->
+        </div>
+
+        <div class="section-title">
+            <h2>Applications récemment mises à jour</h2>
+        </div>
+
+        <div class="app-grid" id="updatedApps">
+            <!-- Applications mises à jour chargées dynamiquement -->
+        </div>
+    </div>
+
+    <!-- Autres pages... -->
+
+</main>
+
+<!-- Modal de détails d'application -->
+<div class="app-details-modal" id="appDetailsModal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <div id="appDetailsContent">
+            <!-- Contenu des détails d'application -->
+        </div>
+    </div>
+</div>
+
+<!-- Modal de partage -->
+<div class="share-modal" id="shareModal">
+    <div class="share-content">
+        <span class="close-modal" id="closeShareModal">&times;</span>
+        <h3>Partager cette application</h3>
+        <p>Partagez cette application avec vos amis et votre réseau</p>
+        
+        <div class="share-options">
+            <div class="share-option" data-platform="facebook">
+                <i class="fab fa-facebook fa-2x"></i>
+                <p>Facebook</p>
+            </div>
+            <div class="share-option" data-platform="twitter">
+                <i class="fab fa-twitter fa-2x"></i>
+                <p>Twitter</p>
+            </div>
+            <div class="share-option" data-platform="whatsapp">
+                <i class="fab fa-whatsapp fa-2x"></i>
+                <p>WhatsApp</p>
+            </div>
+            <div class="share-option" data-platform="telegram">
+                <i class="fab fa-telegram fa-2x"></i>
+                <p>Telegram</p>
+            </div>
+            <div class="share-option" data-platform="email">
+                <i class="fas fa-envelope fa-2x"></i>
+                <p>Email</p>
+            </div>
+            <div class="share-option" data-platform="link">
+                <i class="fas fa-link fa-2x"></i>
+                <p>Copier le lien</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Chat Bot -->
+<div class="chat-bot" id="chatBot">
+    <i class="fas fa-robot"></i>
+</div>
+
+<div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+        <h3>Assistant Looma</h3>
+        <button class="close-chat" id="closeChat">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+            Bonjour ! Je suis l'assistant virtuel de Looma App Store. Comment puis-je vous aider aujourd'hui ?
+        </div>
+    </div>
+    <div class="typing-indicator" id="typingIndicator">
+        L'assistant est en train d'écrire...
+    </div>
+    <div class="chat-input">
+        <input type="text" id="chatInput" placeholder="Tapez votre message...">
+        <button id="sendMessage">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Looma App Store</h3>
+            <p>Votre destination pour les meilleures applications mobiles. Découvrez, téléchargez et profitez!</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Liens rapides</h3>
+            <ul class="footer-links">
+                <li><a href="#" data-page="home">Accueil</a></li>
+                <li><a href="#" data-page="apps">Applications</a></li>
+                <li><a href="#" data-page="games">Jeux</a></li>
+                <li><a href="#" data-page="categories">Catégories</a></li>
+                <li><a href="#" data-page="new">Nouveautés</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Support</h3>
+            <ul class="footer-links">
+                <li><a href="#" data-page="help-center">Centre d'aide</a></li>
+                <li><a href="#" data-page="contact">Nous contacter</a></li>
+                <li><a href="#" data-page="privacy">Politique de confidentialité</a></li>
+                <li><a href="#" data-page="terms">Conditions d'utilisation</a></li>
+                <li><a href="#" data-page="faq">FAQ</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Développeurs</h3>
+            <ul class="footer-links">
+                <li><a href="#" data-page="developers">Devenir Développeur</a></li>
+                <li><a href="#" data-page="api-docs">Documentation API</a></li>
+                <li><a href="#" data-page="partnership">Programme de partenariat</a></li>
+                <li><a href="#">Statistiques</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="copyright">
+        <p>&copy; 2023 Looma App Store. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<script>
+    // Applications réelles avec liens de téléchargement et logos
+    const realApps = [
+        {
+            id: 1,
+            name: "Looma Streaming",
+            category: "streaming",
+            rating: "4.8",
+            stars: "★★★★★",
+            description: "Application de streaming vidéo premium avec contenu exclusif et qualité 4K. Regardez vos films et séries préférés partout.",
+            features: ["Streaming 4K Ultra HD", "Contenu exclusif", "Téléchargement hors ligne", "Profils multiples", "Recommandations personnalisées"],
+            downloads: 2500000,
+            size: "89.3 MB",
+            isNew: true,
+            isFeatured: true,
+            isTopRated: true,
+            logo: "https://www.appcreator24.com/srv/imgs/gen/3572123_ico.png?v=11",
+            downloadLink: "https://apk.e-droid.net/apk/app3572123-91crvj.apk?v=11",
+            screenshots: [
+                "https://via.placeholder.com/300x600/6a11cb/ffffff?text=Looma+Streaming+1",
+                "https://via.placeholder.com/300x600/2575fc/ffffff?text=Looma+Streaming+2",
+                "https://via.placeholder.com/300x600/ff4081/ffffff?text=Looma+Streaming+3"
+            ],
+            isOfficial: true,
+            lastUpdate: "2023-11-15",
+            version: "2.5.1",
+            developer: "Looma Team",
+            ageRating: "12+",
+            languages: ["Français", "English", "Español"],
+            inAppPurchases: false
+        },
+        {
+            id: 2,
+            name: "Netflix",
+            category: "streaming",
+            rating: "4.5",
+            stars: "★★★★☆",
+            description: "Regardez des films, séries TV et documentaires en illimité sur votre appareil mobile.",
+            features: ["Streaming HD/4K", "Téléchargement hors ligne", "Profils personnalisés", "Pas de publicité"],
+            downloads: 5000000,
+            size: "78.5 MB",
+            isNew: false,
+            isFeatured: true,
+            isTopRated: true,
+            logo: "https://es.divxland.org/wp-content/themes/apps/download.php?id=2687&key=MjY4N3wxNzYxMzY5MTQzfDIwMDE6MTMwODoyOWZjOjZhMDA6NzUxNzo4M2MyOmU0Mzc6MWYwZnxhODM3MzA3ZjgzN2I2YzdhOGU4MWQ2OWIxN2I0ZGRjMTAxNDY4YzgxMjExOTZjYjRmMzM1MmM0MDhiMWM1Zjcx",
+            downloadLink: "https://es.divxland.org/wp-content/themes/apps/download.php?id=2687&key=MjY4N3wxNzYxMzY5MTQzfDIwMDE6MTMwODoyOWZjOjZhMDA6NzUxNzo4M2MyOmU0Mzc6MWYwZnxhODM3MzA3ZjgzN2I2YzdhOGU4MWQ2OWIxN2I0ZGRjMTAxNDY4YzgxMjExOTZjYjRmMzM1MmM0MDhiMWM1Zjcx",
+            screenshots: [
+                "https://via.placeholder.com/300x600/e50914/ffffff?text=Netflix+1",
+                "https://via.placeholder.com/300x600/e50914/ffffff?text=Netflix+2",
+                "https://via.placeholder.com/300x600/e50914/ffffff?text=Netflix+3"
+            ],
+            lastUpdate: "2023-11-10",
+            version: "8.12.0",
+            developer: "Netflix, Inc.",
+            ageRating: "16+",
+            languages: ["Français", "English", "Español", "Deutsch"],
+            inAppPurchases: true
+        },
+        {
+            id: 3,
+            name: "WhatsApp Messenger",
+            category: "social",
+            rating: "4.3",
+            stars: "★★★★☆",
+            description: "Application de messagerie simple, sécurisée et fiable pour rester en contact avec vos proches.",
+            features: ["Messagerie instantanée", "Appels vocaux et vidéo", "Chats de groupe", "Chiffrement de bout en bout"],
+            downloads: 5000000000,
+            size: "42.1 MB",
+            isNew: false,
+            isFeatured: true,
+            isTopRated: false,
+            logo: "https://www.divxland.org/wp-content/uploads/2025/02/whatsapp-messenger-thumbnail-150x150.png.webp",
+            downloadLink: "https://es.divxland.org/wp-content/themes/apps/download.php?id=2687&key=MjY4N3wxNzYxMzY5MTQzfDIwMDE6MTMwODoyOWZjOjZhMDA6NzUxNzo4M2MyOmU0Mzc6MWYwZnxhODM3MzA3ZjgzN2I2YzdhOGU4MWQ2OWIxN2I0ZGRjMTAxNDY4YzgxMjExOTZjYjRmMzM1MmM0MDhiMWM1Zjcx",
+            screenshots: [
+                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+1",
+                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+2",
+                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+3"
+            ],
+            lastUpdate: "2023-11-08",
+            version: "2.23.23.78",
+            developer: "WhatsApp Inc.",
+            ageRating: "3+",
+            languages: ["Français", "English", "Español", "Deutsch", "Italiano", "Portugais"],
+            inAppPurchases: false
+        },
+        {
+            id: 4,
+            name: "WhatsApp Business",
+            category: "productivite",
+            rating: "4.4",
+            stars: "★★★★☆",
+            description: "Application Business pour les entreprises avec des outils de gestion de clients et d'automatisation.",
+            features: ["Profile d'entreprise", "Messages automatiques", "Statistiques", "Catalogues produits"],
+            downloads: 100000000,
+            size: "45.2 MB",
+            isNew: true,
+            isFeatured: false,
+            isTopRated: true,
+            logo: "https://www.divxland.org/wp-content/uploads/2025/03/whatsapp-business-thumbnail-150x150.png.webp",
+            downloadLink: "https://es.divxland.org/wp-content/themes/apps/download.php?id=3290&key=MzI5MHwxNzYxMzY5NjAyfDIwMDE6MTMwODoyOWZjOjZhMDA6NzUxNzo4M2MyOmU0Mzc6MWYwZnwyNDI4OTY2YzlkMTI3MjMxMGZkMGJkZmQ4YjdlN2M1M2VlZGY0YzAzMGJjZWNiNWI0MzM0NzUwNTFmZmI4OGU4",
+            screenshots: [
+                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+Business+1",
+                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+Business+2",
+                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+Business+3"
+            ],
+            lastUpdate: "2023-11-12",
+            version: "2.23.23.78",
+            developer: "WhatsApp Inc.",
+            ageRating: "3+",
+            languages: ["Français", "English", "Español", "Deutsch", "Italiano"],
+            inAppPurchases: false
+        },
+        {
+            id: 5,
+            name: "Spotify",
+            category: "musique",
+            rating: "4.7",
+            stars: "★★★★★",
+            description: "Écoutez des millions de chansons et podcasts. Créez vos playlists personnalisées.",
+            features: ["Musique illimitée", "Mode hors ligne", "Recommandations personnalisées", "Qualité audio élevée"],
+            downloads: 10000000,
+            size: "65.2 MB",
+            isNew: false,
+            isFeatured: true,
+            isTopRated: true,
+            logo: "https://via.placeholder.com/60/1DB954/ffffff?text=S",
+            downloadLink: "#",
+            screenshots: [
+                "https://via.placeholder.com/300x600/1DB954/ffffff?text=Spotify+1",
+                "https://via.placeholder.com/300x600/1DB954/ffffff?text=Spotify+2",
+                "https://via.placeholder.com/300x600/1DB954/ffffff?text=Spotify+3"
+            ],
+            lastUpdate: "2023-11-12",
+            version: "8.8.42",
+            developer: "Spotify AB",
+            ageRating: "12+",
+            languages: ["Français", "English", "Español", "Deutsch", "Italiano"],
+            inAppPurchases: true
+        },
+        {
+            id: 6,
+            name: "Instagram",
+            category: "social",
+            rating: "4.2",
+            stars: "★★★★☆",
+            description: "Partagez vos moments avec des photos, vidéos et stories. Connectez-vous avec vos amis et influenceurs.",
+            features: ["Partage de photos/vidéos", "Stories éphémères", "Messages directs", "Filtres et effets"],
+            downloads: 1000000000,
+            size: "55.7 MB",
+            isNew: false,
+            isFeatured: false,
+            isTopRated: false,
+            logo: "https://via.placeholder.com/60/E4405F/ffffff?text=I",
+            downloadLink: "#",
+            screenshots: [
+                "https://via.placeholder.com/300x600/E4405F/ffffff?text=Instagram+1",
+                "https://via.placeholder.com/300x600/E4405F/ffffff?text=Instagram+2",
+                "https://via.placeholder.com/300x600/E4405F/ffffff?text=Instagram+3"
+            ],
+            lastUpdate: "2023-11-14",
+            version: "294.0.0.0",
+            developer: "Instagram",
+            ageRating: "12+",
+            languages: ["Français", "English", "Español", "Deutsch", "Italiano"],
+            inAppPurchases: true
+        }
+    ];
+
+    // Initialisation de l'application
+    document.addEventListener('DOMContentLoaded', function() {
+        // Éléments DOM
+        const searchBar = document.getElementById('searchBar');
+        const appsContainer = document.getElementById('appsContainer');
+        const featuredAppsContainer = document.getElementById('featuredApps');
+        const newAppsContainer = document.getElementById('newApps');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const closeMobileNav = document.getElementById('closeMobileNav');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const connectionStatus = document.getElementById('connectionStatus');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        const appCount = document.getElementById('appCount');
+        const pagination = document.getElementById('pagination');
+        const appDetailsModal = document.getElementById('appDetailsModal');
+        const closeModal = document.getElementById('closeModal');
+        const appDetailsContent = document.getElementById('appDetailsContent');
+        const shareModal = document.getElementById('shareModal');
+        const closeShareModal = document.getElementById('closeShareModal');
+        const shareOptions = document.querySelectorAll('.share-option');
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const chatBot = document.getElementById('chatBot');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const sendMessage = document.getElementById('sendMessage');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const userProfile = document.getElementById('userProfile');
+        const userActions = document.getElementById('userActions');
+        const userDropdown = document.getElementById('userDropdown');
+        const developerBadge = document.getElementById('developerBadge');
+        const dashboardLink = document.getElementById('dashboardLink');
+        const myAppsLink = document.getElementById('myAppsLink');
+        const favoritesLink = document.getElementById('favoritesLink');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const exploreBtn = document.getElementById('exploreBtn');
+        const popularBtn = document.getElementById('popularBtn');
+        const totalApps = document.getElementById('totalApps');
+        const totalDownloads = document.getElementById('totalDownloads');
+        const activeUsers = document.getElementById('activeUsers');
+        const developerCount = document.getElementById('developerCount');
+        const appUpdates = document.getElementById('appUpdates');
+        const updatedApps = document.getElementById('updatedApps');
+        const recommendations = document.getElementById('recommendations');
+
+        // Variables globales
+        let allApps = [...realApps];
+        let currentPage = 1;
+        const appsPerPage = 12;
+        let currentFilter = 'all';
+        let isDarkMode = false;
+        let currentUser = null;
+        let chatHistory = [];
+        let userFavorites = [];
+        let userComments = [];
+        let currentRating = 0;
+        let currentAppToShare = null;
+        let userDownloads = [];
+        let appUpdatesList = [];
+
+        // Générer des applications supplémentaires
+        function generateAdditionalApps(count) {
+            const categories = ["streaming", "social", "utilitaire", "productivite", "education", "sante", "finance", "musique", "photo", "jeux"];
+            const appNames = [
+                "Photo Editor Pro", "Music Player Plus", "Video Downloader", "File Manager", "Calendar Pro",
+                "Weather Forecast", "Notes App", "Calculator Advanced", "Clock & Alarm", "Voice Recorder",
+                "PDF Reader", "QR Scanner", "Barcode Generator", "Unit Converter", "Language Translator",
+                "Currency Converter", "Budget Tracker", "Expense Manager", "Investment Portfolio", "Tax Calculator",
+                "Meditation Guide", "Sleep Tracker", "Workout Planner", "Meal Prep", "Recipe Book",
+                "Travel Planner", "Hotel Finder", "Flight Tracker", "Currency Exchange", "Language Learning",
+                "Math Solver", "Science Dictionary", "History Timeline", "Geography Quiz", "Art Gallery",
+                "Music Maker", "Video Editor", "Photo Collage", "Drawing Pad", "Animation Studio"
+            ];
+            
+            const newApps = [];
+            const developers = ["Tech Solutions", "AppWorks Studio", "Digital Dreams", "Mobile Masters", "Code Crafters", "Pixel Perfect", "App Innovators", "Software Wizards"];
+            
+            for (let i = 0; i < count; i++) {
+                const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+                const randomName = appNames[Math.floor(Math.random() * appNames.length)];
+                const randomRating = (3.5 + Math.random() * 1.5).toFixed(1);
+                const randomStars = "★".repeat(Math.floor(randomRating)) + "☆".repeat(5 - Math.floor(randomRating));
+                const randomDownloads = Math.floor(Math.random() * 10000000) + 100000;
+                const randomSize = (10 + Math.random() * 200).toFixed(1) + " MB";
+                const randomColor = Math.floor(Math.random()*16777215).toString(16);
+                const randomDeveloper = developers[Math.floor(Math.random() * developers.length)];
+                const randomVersion = `${Math.floor(Math.random() * 10)}.${Math.floor(Math.random() * 20)}.${Math.floor(Math.random() * 100)}`;
+                const isNew = Math.random() > 0.7;
+                const lastUpdate = new Date(Date.now() - Math.floor(Math.random() * 30) * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+                
+                const newApp = {
+                    id: Date.now() + i,
+                    name: randomName,
+                    category: randomCategory,
+                    rating: randomRating,
+                    stars: randomStars,
+                    description: `Description de ${randomName}. Une application utile pour vos besoins en ${randomCategory}.`,
+                    features: ["Interface intuitive", "Performances optimisées", "Mises à jour régulières", "Support technique"],
+                    downloads: randomDownloads,
+                    size: randomSize,
+                    isNew: isNew,
+                    isFeatured: Math.random() > 0.8,
+                    isTopRated: parseFloat(randomRating) > 4.5,
+                    logo: `https://via.placeholder.com/60/${randomColor}/ffffff?text=${randomName.charAt(0)}`,
+                    downloadLink: "#",
+                    screenshots: [
+                        `https://via.placeholder.com/300x600/${randomColor}/ffffff?text=${randomName}+1`,
+                        `https://via.placeholder.com/300x600/${randomColor}/ffffff?text=${randomName}+2`,
+                        `https://via.placeholder.com/300x600/${randomColor}/ffffff?text=${randomName}+3`
+                    ],
+                    lastUpdate: lastUpdate,
+                    version: randomVersion,
+                    developer: randomDeveloper,
+                    ageRating: "3+",
+                    languages: ["Français", "English"],
+                    inAppPurchases: Math.random() > 0.5,
+                    generated: true
+                };
+                
+                newApps.push(newApp);
+                allApps.push(newApp);
+            }
+            
+            return newApps;
+        }
+
+        // Initialiser les statistiques
+        function initializeStats() {
+            totalApps.textContent = allApps.length.toLocaleString();
+            
+            const totalDownloadsCount = allApps.reduce((sum, app) => sum + app.downloads, 0);
+            totalDownloads.textContent = totalDownloadsCount.toLocaleString();
+            
+            activeUsers.textContent = Math.floor(totalDownloadsCount * 0.3).toLocaleString();
+            
+            const uniqueDevelopers = [...new Set(allApps.map(app => app.developer))];
+            developerCount.textContent = uniqueDevelopers.length.toLocaleString();
+        }
+
+        // Générer les mises à jour d'applications
+        function generateAppUpdates() {
+            const updates = [];
+            const updateTypes = ["Nouvelle fonctionnalité", "Correction de bugs", "Amélioration des performances", "Mise à jour de sécurité", "Interface utilisateur améliorée"];
+            
+            // Sélectionner 10 applications aléatoires pour les mises à jour
+            const appsToUpdate = [...allApps].sort(() => 0.5 - Math.random()).slice(0, 10);
+            
+            appsToUpdate.forEach(app => {
+                const updateType = updateTypes[Math.floor(Math.random() * updateTypes.length)];
+                const updateDate = new Date(Date.now() - Math.floor(Math.random() * 7) * 24 * 60 * 60 * 1000);
+                const formattedDate = updateDate.toLocaleDateString('fr-FR');
+                
+                updates.push({
+                    appId: app.id,
+                    appName: app.name,
+                    version: app.version,
+                    updateType: updateType,
+                    date: formattedDate,
+                    description: `${updateType} dans la version ${app.version}`
+                });
+            });
+            
+            return updates;
+        }
+
+        // Afficher les mises à jour
+        function displayAppUpdates() {
+            appUpdatesList = generateAppUpdates();
+            
+            appUpdates.innerHTML = '';
+            
+            appUpdatesList.forEach(update => {
+                const app = allApps.find(a => a.id === update.appId);
+                if (!app) return;
+                
+                const updateItem = document.createElement('div');
+                updateItem.className = 'update-item';
+                updateItem.innerHTML = `
+                    <div class="update-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <div class="update-info">
+                        <div class="update-app">${app.name}</div>
+                        <div class="update-version">Version ${update.version} • ${update.updateType}</div>
+                    </div>
+                    <div class="update-date">${update.date}</div>
+                `;
+                
+                updateItem.addEventListener('click', () => {
+                    showAppDetails(app.id);
+                });
+                
+                appUpdates.appendChild(updateItem);
+            });
+            
+            // Afficher les applications mises à jour
+            const updatedAppsList = appUpdatesList.map(update => allApps.find(app => app.id === update.appId)).filter(app => app);
+            displayApps(updatedAppsList, updatedApps, 1);
+        }
+
+        // Générer des recommandations personnalisées
+        function generateRecommendations() {
+            const recommendationTypes = [
+                {
+                    title: "Applications Essentielles",
+                    description: "Les applications indispensables pour votre téléphone",
+                    icon: "fas fa-star",
+                    apps: allApps.filter(app => app.isFeatured).slice(0, 3)
+                },
+                {
+                    title: "Nouveautés Populaires",
+                    description: "Découvrez les dernières applications tendances",
+                    icon: "fas fa-fire",
+                    apps: allApps.filter(app => app.isNew).slice(0, 3)
+                },
+                {
+                    title: "Productivité Maximale",
+                    description: "Boostez votre efficacité avec ces applications",
+                    icon: "fas fa-chart-line",
+                    apps: allApps.filter(app => app.category === "productivite").slice(0, 3)
+                }
+            ];
+            
+            return recommendationTypes;
+        }
+
+        // Afficher les recommandations
+        function displayRecommendations() {
+            const recommendationsData = generateRecommendations();
+            
+            recommendations.innerHTML = '';
+            
+            recommendationsData.forEach(rec => {
+                const recCard = document.createElement('div');
+                recCard.className = 'recommendation-card';
+                recCard.innerHTML = `
+                    <div class="recommendation-header">
+                        <div class="recommendation-icon">
+                            <i class="${rec.icon}"></i>
+                        </div>
+                        <div>
+                            <h3>${rec.title}</h3>
+                            <p>${rec.description}</p>
+                        </div>
+                    </div>
+                    <div class="app-features">
+                        ${rec.apps.map(app => `
+                            <div style="display: flex; align-items: center; margin-bottom: 0.5rem; cursor: pointer;" data-app-id="${app.id}">
+                                <img src="${app.logo}" alt="${app.name}" style="width: 30px; height: 30px; border-radius: 8px; margin-right: 0.5rem;">
+                                <span>${app.name}</span>
+                                <span class="feature-badge ${app.isNew ? 'new' : app.isFeatured ? 'premium' : 'free'}" style="margin-left: auto;">
+                                    ${app.isNew ? 'Nouveau' : app.isFeatured ? 'Premium' : 'Gratuit'}
+                                </span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                
+                // Ajouter les événements de clic
+                recCard.querySelectorAll('[data-app-id]').forEach(item => {
+                    item.addEventListener('click', function() {
+                        const appId = parseInt(this.getAttribute('data-app-id'));
+                        showAppDetails(appId);
+                    });
+                });
+                
+                recommendations.appendChild(recCard);
+            });
+        }
+
+        // Fonctions d'affichage des applications
+        function displayApps(apps, container, page = 1) {
+            container.innerHTML = '';
+            
+            if (apps.length === 0) {
+                container.innerHTML = '<div class="no-results">Aucune application trouvée.</div>';
+                return;
+            }
+            
+            const startIndex = (page - 1) * appsPerPage;
+            const endIndex = startIndex + appsPerPage;
+            const appsToShow = apps.slice(startIndex, endIndex);
+            
+            appsToShow.forEach(app => {
+                const isFavorite = userFavorites.includes(app.id);
+                const appCard = document.createElement('div');
+                appCard.className = 'app-card';
+                appCard.innerHTML = `
+                    ${app.isOfficial ? '<div class="app-badge">Officielle</div>' : ''}
+                    ${app.isNew ? '<div class="app-badge">Nouveau</div>' : ''}
+                    ${app.isTopRated ? '<div class="app-badge">Top</div>' : ''}
+                    <div class="app-header">
+                        <img src="${app.logo}" alt="${app.name}" class="app-logo">
+                        <div class="app-title">
+                            <h2>${app.name}</h2>
+                            <div class="app-category">${app.category} • ${app.developer}</div>
+                        </div>
+                    </div>
+                    <div class="app-content">
+                        <p class="app-description">${app.description}</p>
+                        <ul class="app-features">
+                            ${app.features.slice(0, 3).map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                        <div style="margin-top: 1rem;">
+                            <span class="feature-badge ${app.inAppPurchases ? 'premium' : 'free'}">
+                                ${app.inAppPurchases ? 'Achats intégrés' : 'Gratuit'}
+                            </span>
+                            <span class="feature-badge" style="background: #6c757d; color: white;">
+                                ${app.ageRating}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="app-footer">
+                        <div class="app-actions">
+                            <button class="action-btn share-btn" data-id="${app.id}">
+                                <i class="fas fa-share-alt"></i> Partager
+                            </button>
+                            <button class="action-btn favorite-btn ${isFavorite ? 'active' : ''}" data-id="${app.id}">
+                                <i class="fas fa-heart"></i> Favori
+                            </button>
+                        </div>
+                        <div class="progress-container" id="progress-${app.id}">
+                            <div class="progress-bar" id="progress-bar-${app.id}"></div>
+                        </div>
+                        <button class="downloadBtn" data-id="${app.id}">Télécharger (${app.size})</button>
+                        <a href="${app.downloadLink}" class="download-link" id="download-link-${app.id}" download="${app.name}.apk">Ouvrir l'application</a>
+                        <div class="app-rating">
+                            <div class="stars">${app.stars}</div>
+                            <div class="rating-value">${app.rating} (${app.downloads.toLocaleString()})</div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(appCard);
+                
+                // Ajouter les événements
+                const downloadBtn = appCard.querySelector('.downloadBtn');
+                downloadBtn.addEventListener('click', function() {
+                    downloadApp(app.id, this);
+                });
+                
+                const shareBtn = appCard.querySelector('.share-btn');
+                shareBtn.addEventListener('click', function() {
+                    shareApp(app.id);
+                });
+                
+                const favoriteBtn = appCard.querySelector('.favorite-btn');
+                favoriteBtn.addEventListener('click', function() {
+                    toggleFavorite(app.id, this);
+                });
+                
+                appCard.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('downloadBtn') && 
+                        !e.target.classList.contains('share-btn') && 
+                        !e.target.classList.contains('favorite-btn') &&
+                        !e.target.closest('.app-actions')) {
+                        showAppDetails(app.id);
+                    }
+                });
+            });
+        }
+
+        // Fonction showAppDetails étendue
+        function showAppDetails(appId) {
+            const app = allApps.find(a => a.id === appId);
+            if (!app) return;
+            
+            const isFavorite = userFavorites.includes(app.id);
+            const appComments = userComments.filter(comment => comment.appId === appId);
+            
+            appDetailsContent.innerHTML = `
+                <div class="app-details-header">
+                    <img src="${app.logo}" alt="${app.name}" class="app-logo" style="width: 100px; height: 100px;">
+                    <div class="app-details-info">
+                        <h2>${app.name}</h2>
+                        <div class="app-category">${app.category} • Développé par ${app.developer}</div>
+                        <div class="app-rating">
+                            <div class="stars">${app.stars}</div>
+                            <div class="rating-value">${app.rating} (${app.downloads.toLocaleString()} téléchargements)</div>
+                        </div>
+                        <p class="app-description">${app.description}</p>
+                        <div style="margin: 1rem 0;">
+                            <span class="feature-badge ${app.inAppPurchases ? 'premium' : 'free'}">
+                                ${app.inAppPurchases ? 'Achats intégrés' : 'Gratuit'}
+                            </span>
+                            <span class="feature-badge" style="background: #6c757d; color: white;">
+                                ${app.ageRating}
+                            </span>
+                            <span class="feature-badge" style="background: #17a2b8; color: white;">
+                                Version ${app.version}
+                            </span>
+                            <span class="feature-badge" style="background: #28a745; color: white;">
+                                Mise à jour: ${app.lastUpdate}
+                            </span>
+                        </div>
+                        <div class="app-actions">
+                            <button class="action-btn share-btn" data-id="${app.id}">
+                                <i class="fas fa-share-alt"></i> Partager
+                            </button>
+                            <button class="action-btn favorite-btn ${isFavorite ? 'active' : ''}" data-id="${app.id}">
+                                <i class="fas fa-heart"></i> Favori
+                            </button>
+                            <button class="downloadBtn" data-id="${app.id}" style="width: auto; display: inline-block;">Télécharger (${app.size})</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="app-screenshots">
+                    ${app.screenshots.map(screenshot => `
+                        <div class="screenshot">
+                            <img src="${screenshot}" alt="Screenshot de ${app.name}">
+                        </div>
+                    `).join('')}
+                </div>
+                
+                <h3>Fonctionnalités</h3>
+                <ul class="app-features">
+                    ${app.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                
+                <div class="app-info-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                    <div>
+                        <h4>Informations</h4>
+                        <p><strong>Taille:</strong> ${app.size}</p>
+                        <p><strong>Version:</strong> ${app.version}</p>
+                        <p><strong>Dernière mise à jour:</strong> ${app.lastUpdate}</p>
+                        <p><strong>Développeur:</strong> ${app.developer}</p>
+                    </div>
+                    <div>
+                        <h4>Compatibilité</h4>
+                        <p><strong>Classement:</strong> ${app.ageRating}</p>
+                        <p><strong>Langues:</strong> ${app.languages.join(', ')}</p>
+                        <p><strong>Achats intégrés:</strong> ${app.inAppPurchases ? 'Oui' : 'Non'}</p>
+                    </div>
+                </div>
+                
+                <div class="feedback-section">
+                    <h3>Commentaires et Avis</h3>
+                    <div class="comment-form">
+                        <h4>Laisser un avis</h4>
+                        <form id="appCommentForm">
+                            <div class="form-group">
+                                <label>Note</label>
+                                <div class="stars" id="appCommentRating">
+                                    <i class="far fa-star" data-rating="1"></i>
+                                    <i class="far fa-star" data-rating="2"></i>
+                                    <i class="far fa-star" data-rating="3"></i>
+                                    <i class="far fa-star" data-rating="4"></i>
+                                    <i class="far fa-star" data-rating="5"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="appCommentText">Votre commentaire</label>
+                                <textarea id="appCommentText" class="form-control" rows="3" placeholder="Partagez votre expérience avec cette application..." required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Publier l'avis</button>
+                        </form>
+                    </div>
+                    
+                    <div class="comments-section">
+                        <h4>Avis des utilisateurs (${appComments.length})</h4>
+                        <div id="appCommentsList">
+                            ${appComments.length === 0 ? 
+                                '<p>Aucun commentaire pour le moment. Soyez le premier à donner votre avis !</p>' : 
+                                appComments.map(comment => `
+                                    <div class="comment">
+                                        <div class="comment-header">
+                                            <div class="comment-author">${comment.author}</div>
+                                            <div class="comment-date">${comment.date}</div>
+                                        </div>
+                                        <div class="stars">${"★".repeat(comment.rating)}${"☆".repeat(5-comment.rating)}</div>
+                                        <p>${comment.text}</p>
+                                    </div>
+                                `).join('')
+                            }
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Ajouter les événements
+            const downloadBtn = appDetailsContent.querySelector('.downloadBtn');
+            downloadBtn.addEventListener('click', function() {
+                downloadApp(app.id, this);
+            });
+            
+            const shareBtn = appDetailsContent.querySelector('.share-btn');
+            shareBtn.addEventListener('click', function() {
+                shareApp(app.id);
+            });
+            
+            const favoriteBtn = appDetailsContent.querySelector('.favorite-btn');
+            favoriteBtn.addEventListener('click', function() {
+                toggleFavorite(app.id, this);
+            });
+            
+            // Configurer le système de notation
+            setupRatingSystem('appCommentRating', 'appCommentForm', app.id);
+            
+            appDetailsModal.style.display = 'block';
+        }
+
+        // Télécharger une application
+        function downloadApp(appId, button) {
+            const progressContainer = document.getElementById(`progress-${appId}`);
+            const progressBar = document.getElementById(`progress-bar-${appId}`);
+            const downloadLink = document.getElementById(`download-link-${appId}`);
+            
+            // Afficher la barre de progression
+            progressContainer.style.display = 'block';
+            button.disabled = true;
+            button.textContent = 'Téléchargement...';
+            
+            // Simuler le téléchargement
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += Math.random() * 10;
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(interval);
+                    
+                    // Téléchargement terminé
+                    button.textContent = 'Téléchargé';
+                    downloadLink.style.display = 'block';
+                    
+                    // Mettre à jour les statistiques de téléchargement
+                    const app = allApps.find(a => a.id === appId);
+                    if (app) {
+                        app.downloads += 1;
+                        initializeStats(); // Mettre à jour les stats
+                    }
+                    
+                    // Ajouter aux téléchargements de l'utilisateur
+                    if (currentUser) {
+                        userDownloads.push(appId);
+                    }
+                }
+                
+                progressBar.style.width = `${progress}%`;
+                progressBar.textContent = `${Math.round(progress)}%`;
+            }, 200);
+        }
+
+        // Partager une application
+        function shareApp(appId) {
+            const app = allApps.find(a => a.id === appId);
+            if (!app) return;
+            
+            currentAppToShare = app;
+            shareModal.style.display = 'block';
+        }
+
+        // Ajouter/retirer des favoris
+        function toggleFavorite(appId, button) {
+            if (!currentUser) {
+                alert('Veuillez vous connecter pour ajouter aux favoris.');
+                return;
+            }
+            
+            const index = userFavorites.indexOf(appId);
+            if (index > -1) {
+                userFavorites.splice(index, 1);
+                button.classList.remove('active');
+            } else {
+                userFavorites.push(appId);
+                button.classList.add('active');
+            }
+            
+            // Mettre à jour l'affichage des favoris
+            updateFavoritesDisplay();
+        }
+
+        // Mettre à jour l'affichage des favoris
+        function updateFavoritesDisplay() {
+            document.querySelectorAll('.favorite-btn').forEach(btn => {
+                const appId = parseInt(btn.getAttribute('data-id'));
+                if (userFavorites.includes(appId)) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Filtrer les applications
+        function filterApps(filter) {
+            currentFilter = filter;
+            currentPage = 1;
+            
+            let filteredApps = allApps;
+            if (filter !== 'all') {
+                filteredApps = allApps.filter(app => app.category === filter);
+            }
+            
+            displayApps(filteredApps, appsContainer, currentPage);
+            generatePagination(filteredApps.length, currentPage);
+            
+            // Mettre à jour le compteur
+            appCount.textContent = `${filteredApps.length} applications`;
+        }
+
+        // Générer la pagination
+        function generatePagination(totalApps, currentPage) {
+            const totalPages = Math.ceil(totalApps / appsPerPage);
+            pagination.innerHTML = '';
+            
+            if (totalPages <= 1) return;
+            
+            // Bouton précédent
+            if (currentPage > 1) {
+                const prevBtn = document.createElement('button');
+                prevBtn.innerHTML = '&laquo;';
+                prevBtn.addEventListener('click', () => {
+                    currentPage--;
+                    filterApps(currentFilter);
+                });
+                pagination.appendChild(prevBtn);
+            }
+            
+            // Pages
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.textContent = i;
+                if (i === currentPage) {
+                    pageBtn.classList.add('active');
+                }
+                pageBtn.addEventListener('click', () => {
+                    currentPage = i;
+                    filterApps(currentFilter);
+                });
+                pagination.appendChild(pageBtn);
+            }
+            
+            // Bouton suivant
+            if (currentPage < totalPages) {
+                const nextBtn = document.createElement('button');
+                nextBtn.innerHTML = '&raquo;';
+                nextBtn.addEventListener('click', () => {
+                    currentPage++;
+                    filterApps(currentFilter);
+                });
+                pagination.appendChild(nextBtn);
+            }
+        }
+
+        // Configurer le système de notation
+        function setupRatingSystem(ratingElementId, formId, appId = null) {
+            const stars = document.querySelectorAll(`#${ratingElementId} .fa-star`);
+            let currentRating = 0;
+            
+            stars.forEach(star => {
+                star.addEventListener('mouseover', function() {
+                    const rating = parseInt(this.getAttribute('data-rating'));
+                    highlightStars(rating);
+                });
+                
+                star.addEventListener('mouseout', function() {
+                    highlightStars(currentRating);
+                });
+                
+                star.addEventListener('click', function() {
+                    currentRating = parseInt(this.getAttribute('data-rating'));
+                    highlightStars(currentRating);
+                });
+            });
+            
+            function highlightStars(rating) {
+                stars.forEach(star => {
+                    const starRating = parseInt(star.getAttribute('data-rating'));
+                    if (starRating <= rating) {
+                        star.classList.remove('far');
+                        star.classList.add('fas');
+                    } else {
+                        star.classList.remove('fas');
+                        star.classList.add('far');
+                    }
+                });
+            }
+            
+            // Gérer la soumission du formulaire
+            document.getElementById(formId).addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!currentUser) {
+                    alert('Veuillez vous connecter pour poster un commentaire.');
+                    return;
+                }
+                
+                if (currentRating === 0) {
+                    alert('Veuillez donner une note.');
+                    return;
+                }
+                
+                const commentText = document.getElementById(formId === 'commentForm' ? 'commentText' : 'appCommentText').value;
+                const targetAppId = appId || parseInt(commentApp.value);
+                
+                if (!targetAppId) {
+                    alert('Veuillez sélectionner une application.');
+                    return;
+                }
+                
+                const newComment = {
+                    id: Date.now(),
+                    appId: targetAppId,
+                    author: currentUser.name,
+                    rating: currentRating,
+                    text: commentText,
+                    date: new Date().toLocaleDateString('fr-FR')
+                };
+                
+                userComments.push(newComment);
+                
+                // Réinitialiser le formulaire
+                this.reset();
+                currentRating = 0;
+                highlightStars(0);
+                
+                alert('Merci pour votre commentaire !');
+                
+                // Recharger les commentaires
+                if (formId === 'commentForm') {
+                    loadRecentComments();
+                } else {
+                    document.getElementById('appCommentsList').innerHTML = generateAppComments(targetAppId);
+                }
+            });
+        }
+
+        // Simuler le statut de connexion
+        function simulateConnectionStatus() {
+            const statuses = [
+                { text: "Connexion excellente", class: "good" },
+                { text: "Connexion moyenne", class: "poor" },
+                { text: "Connexion faible", class: "bad" }
+            ];
+            
+            setInterval(() => {
+                const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
+                connectionStatus.className = `connection-status ${randomStatus.class}`;
+                document.getElementById('connectionText').textContent = randomStatus.text;
+            }, 10000);
+        }
+
+        // Initialisation
+        function initializeApp() {
+            // Générer des applications supplémentaires
+            generateAdditionalApps(20);
+            
+            // Initialiser les statistiques
+            initializeStats();
+            
+            // Afficher les applications populaires
+            const featuredApps = allApps.filter(app => app.isFeatured);
+            displayApps(featuredApps, featuredAppsContainer);
+            
+            // Afficher les nouvelles applications
+            const newApps = allApps.filter(app => app.isNew);
+            displayApps(newApps, newAppsContainer);
+            
+            // Afficher les mises à jour
+            displayAppUpdates();
+            
+            // Afficher les recommandations
+            displayRecommendations();
+            
+            // Initialiser la page applications
+            filterApps('all');
+            
+            // Simuler la connexion réseau
+            simulateConnectionStatus();
+            
+            // Configurer les événements de navigation
+            setupNavigation();
+            
+            // Configurer les événements du chat
+            setupChat();
+        }
+
+        // Configurer la navigation
+        function setupNavigation() {
+            // Navigation entre les pages
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Retirer la classe active de tous les liens
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    
+                    // Ajouter la classe active au lien cliqué
+                    this.classList.add('active');
+                    
+                    // Masquer toutes les pages
+                    pages.forEach(page => page.classList.remove('active'));
+                    
+                    // Afficher la page correspondante
+                    const pageId = this.getAttribute('data-page');
+                    document.getElementById(pageId).classList.add('active');
+                    
+                    // Fermer le menu mobile
+                    mobileNav.classList.remove('active');
+                    
+                    // Charger le contenu spécifique à la page
+                    if (pageId === 'apps') {
+                        filterApps(currentFilter);
+                    } else if (pageId === 'updates') {
+                        displayAppUpdates();
+                    }
+                });
+            });
+
+            // Menu mobile
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileNav.classList.add('active');
+            });
+
+            closeMobileNav.addEventListener('click', function() {
+                mobileNav.classList.remove('active');
+            });
+
+            // Recherche d'applications
+            searchBar.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                
+                if (searchTerm.length < 2) {
+                    filterApps(currentFilter);
+                    return;
+                }
+                
+                const filteredApps = allApps.filter(app => 
+                    app.name.toLowerCase().includes(searchTerm) || 
+                    app.description.toLowerCase().includes(searchTerm) ||
+                    app.category.toLowerCase().includes(searchTerm)
+                );
+                
+                displayApps(filteredApps, appsContainer, 1);
+                generatePagination(filteredApps.length, 1);
+                appCount.textContent = `${filteredApps.length} applications trouvées`;
+            });
+
+            // Filtrage par catégorie
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.getAttribute('data-filter');
+                    filterApps(filter);
+                });
+            });
+
+            // Mode sombre
+            darkModeToggle.addEventListener('click', function() {
+                isDarkMode = !isDarkMode;
+                document.body.classList.toggle('dark-mode', isDarkMode);
+                
+                const icon = this.querySelector('i');
+                if (isDarkMode) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            });
+
+            // Fermer les modals
+            closeModal.addEventListener('click', function() {
+                appDetailsModal.style.display = 'none';
+            });
+
+            closeShareModal.addEventListener('click', function() {
+                shareModal.style.display = 'none';
+            });
+
+            // Options de partage
+            shareOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const platform = this.getAttribute('data-platform');
+                    shareOnPlatform(platform, currentAppToShare);
+                });
+            });
+
+            // Fermer les modals en cliquant à l'extérieur
+            window.addEventListener('click', function(e) {
+                if (e.target === appDetailsModal) {
+                    appDetailsModal.style.display = 'none';
+                }
+                if (e.target === shareModal) {
+                    shareModal.style.display = 'none';
+                }
+                if (e.target === mobileNav) {
+                    mobileNav.classList.remove('active');
+                }
+                // Fermer le dropdown utilisateur
+                if (!userProfile.contains(e.target)) {
+                    userDropdown.classList.remove('active');
+                }
+            });
+
+            // Boutons d'exploration
+            exploreBtn.addEventListener('click', function() {
+                document.querySelector('[data-page="apps"]').click();
+            });
+
+            popularBtn.addEventListener('click', function() {
+                document.querySelector('[data-page="apps"]').click();
+                // Activer le filtre "Toutes" pour voir toutes les applications
+                document.querySelector('.filter-btn[data-filter="all"]').click();
+            });
+        }
+
+        // Configurer le chat
+        function setupChat() {
+            chatBot.addEventListener('click', function() {
+                chatWindow.classList.toggle('active');
+            });
+
+            closeChat.addEventListener('click', function() {
+                chatWindow.classList.remove('active');
+            });
+
+            sendMessage.addEventListener('click', sendChatMessage);
+            
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendChatMessage();
+                }
+            });
+
+            function sendChatMessage() {
+                const message = chatInput.value.trim();
+                if (message === '') return;
+                
+                // Ajouter le message de l'utilisateur
+                addMessage(message, 'user');
+                chatInput.value = '';
+                
+                // Afficher l'indicateur de frappe
+                typingIndicator.style.display = 'block';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Simuler une réponse du bot
+                setTimeout(() => {
+                    typingIndicator.style.display = 'none';
+                    const response = generateBotResponse(message);
+                    addMessage(response, 'bot');
+                }, 1500);
+            }
+
+            function addMessage(text, sender) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}`;
+                messageDiv.textContent = text;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Ajouter à l'historique
+                chatHistory.push({ sender, text });
+            }
+
+            function generateBotResponse(message) {
+                const lowerMessage = message.toLowerCase();
+                
+                // Réponses contextuelles
+                if (lowerMessage.includes('looma streaming') || lowerMessage.includes('looma')) {
+                    return 'Looma Streaming est notre application de streaming premium avec du contenu exclusif en qualité 4K. Vous pouvez la télécharger gratuitement sur notre store !';
+                } else if (lowerMessage.includes('netflix')) {
+                    return 'Netflix est disponible sur notre store. C\'est une application de streaming populaire avec un large catalogue de films et séries.';
+                } else if (lowerMessage.includes('whatsapp')) {
+                    return 'Nous avons WhatsApp Messenger et WhatsApp Business disponibles. Les deux applications sont gratuites et offrent une messagerie sécurisée.';
+                } else if (lowerMessage.includes('streaming') || lowerMessage.includes('vidéo')) {
+                    return 'Nous avons plusieurs applications de streaming : Looma Streaming (notre application officielle), Netflix, et bien d\'autres. Quelle catégorie vous intéresse ?';
+                } else if (lowerMessage.includes('partager') || lowerMessage.includes('partage')) {
+                    return 'Vous pouvez partager n\'importe quelle application en cliquant sur le bouton "Partager" sous la carte de l\'application. Plusieurs options sont disponibles !';
+                } else if (lowerMessage.includes('favori') || lowerMessage.includes('favoris')) {
+                    return 'Pour ajouter une application à vos favoris, cliquez sur le cœur sous la carte de l\'application. Vous devez être connecté pour utiliser cette fonctionnalité.';
+                } else if (lowerMessage.includes('télécharger') || lowerMessage.includes('download')) {
+                    return 'Pour télécharger une application, cliquez sur le bouton "Télécharger". Le téléchargement commencera automatiquement.';
+                } else if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut') || lowerMessage.includes('hello')) {
+                    return 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?';
+                } else {
+                    const responses = [
+                        'Je ne suis pas sûr de comprendre. Pouvez-vous reformuler votre question ?',
+                        'Je suis là pour vous aider avec Looma App Store. Que souhaitez-vous savoir ?',
+                        'Désolé, je n\'ai pas d\'information sur ce sujet. Contactez-nous pour plus d\'aide.',
+                        'Vous pouvez naviguer dans les différentes catégories pour découvrir de nouvelles applications.'
+                    ];
+                    return responses[Math.floor(Math.random() * responses.length)];
+                }
+            }
+        }
+
+        // Partager sur les plateformes
+        function shareOnPlatform(platform, app) {
+            let shareUrl = '';
+            const text = `Découvrez ${app.name} sur Looma App Store: ${app.description.substring(0, 100)}...`;
+            
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(window.location.href)}`;
+                    break;
+                case 'whatsapp':
+                    shareUrl = `https://wa.me/?text=${encodeURIComponent(text + ' ' + window.location.href)}`;
+                    break;
+                case 'telegram':
+                    shareUrl = `https://t.me/share/url?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(text)}`;
+                    break;
+                case 'email':
+                    shareUrl = `mailto:?subject=${encodeURIComponent(`Découvrez ${app.name}`)}&body=${encodeURIComponent(text + '\n\n' + window.location.href)}`;
+                    break;
+                case 'link':
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        alert('Lien copié dans le presse-papier !');
+                    });
+                    shareModal.style.display = 'none';
+                    return;
+            }
+            
+            if (shareUrl) {
+                window.open(shareUrl, '_blank');
+            }
+            shareModal.style.display = 'none';
+        }
+
+        // Initialiser l'application
+        initializeApp();
+    });
+</script>
+</body>
+</html>
