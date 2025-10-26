@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-     crossorigin="anonymous"></script> <head>google-site-verification=HtzANwm4kiSenV099JrlmpME1A6uHSw677L2fuSFpYc
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Looma App Store - Applications Android Gratuites</title>
     <meta name="description" content="Téléchargez les meilleures applications Android gratuites. Streaming, jeux, utilitaires et plus encore sur Looma App Store.">
     <meta name="keywords" content="applications android, apps gratuites, téléchargement apps, jeux mobiles, streaming">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
+     crossorigin="anonymous"></script>
     
     <!-- Import Firebase -->
     <script type="module">
@@ -893,6 +896,42 @@
             transform: scale(1.02);
         }
 
+        /* Styles pour les publicités AdSense */
+        .adsense-container {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+        }
+
+        .adsense-in-feed {
+            width: 100%;
+            max-width: 1200px;
+            margin: 2rem auto;
+        }
+
+        .adsense-display {
+            width: 100%;
+            max-width: 728px;
+            margin: 2rem auto;
+        }
+
+        .adsense-in-article {
+            width: 100%;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+
+        .adsense-multiplex {
+            width: 100%;
+            max-width: 1000px;
+            margin: 2rem auto;
+        }
+
         .hero {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -1593,6 +1632,10 @@
                 height: 400px;
                 right: 10px;
             }
+
+            .adsense-display {
+                max-width: 300px;
+            }
         }
 
         /* Stats Styles */
@@ -1738,6 +1781,23 @@
             </div>
         </div>
 
+        <!-- Publicité Display -->
+        <div class="adsense-container adsense-display">
+            <!-- Display Ad -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
+                 crossorigin="anonymous"></script>
+            <!-- Display -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5840550895880083"
+                 data-ad-slot="7696475462"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
         <!-- Statistiques en temps réel -->
         <div class="stats-overview">
             <div class="stat-item">
@@ -1763,6 +1823,22 @@
             <a href="#" class="view-all">Voir tout</a>
         </div>
 
+        <!-- Publicité In-Feed -->
+        <div class="adsense-container adsense-in-feed">
+            <!-- In Feed Ad -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-6t+ed+2i-1n-4w"
+                 data-ad-client="ca-pub-5840550895880083"
+                 data-ad-slot="4512743072"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
         <div class="app-grid" id="featuredApps">
             <!-- Applications populaires chargées dynamiquement -->
         </div>
@@ -1772,8 +1848,39 @@
             <a href="#" class="view-all">Voir tout</a>
         </div>
 
+        <!-- Publicité In-Article -->
+        <div class="adsense-container adsense-in-article">
+            <!-- In Article Ad -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="ca-pub-5840550895880083"
+                 data-ad-slot="5601451705"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
         <div class="app-grid" id="newApps">
             <!-- Nouvelles applications chargées dynamiquement -->
+        </div>
+
+        <!-- Publicité Multiplex -->
+        <div class="adsense-container adsense-multiplex">
+            <!-- Multiplex Ad -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="autorelaxed"
+                 data-ad-client="ca-pub-5840550895880083"
+                 data-ad-slot="3518213840"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
 
@@ -1784,6 +1891,22 @@
             <div>
                 <span id="appCount">0 applications</span>
             </div>
+        </div>
+
+        <!-- Publicité Display dans la page Apps -->
+        <div class="adsense-container adsense-display">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
+                 crossorigin="anonymous"></script>
+            <!-- Display -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5840550895880083"
+                 data-ad-slot="7696475462"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
         <div class="filters">
@@ -1799,8 +1922,37 @@
             <button class="filter-btn" data-filter="photo">Photo & Vidéo</button>
         </div>
 
+        <!-- Publicité In-Feed dans la page Apps -->
+        <div class="adsense-container adsense-in-feed">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-6t+ed+2i-1n-4w"
+                 data-ad-client="ca-pub-5840550895880083"
+                 data-ad-slot="4512743072"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
         <div class="app-grid" id="appsContainer">
             <!-- Toutes les applications chargées dynamiquement -->
+        </div>
+
+        <!-- Publicité Multiplex en bas de page -->
+        <div class="adsense-container adsense-multiplex">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="autorelaxed"
+                 data-ad-client="ca-pub-5840550895880083"
+                 data-ad-slot="3518213840"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
         <div class="pagination" id="pagination">
@@ -1814,12 +1966,43 @@
             <h2>Dernières mises à jour</h2>
         </div>
 
+        <!-- Publicité Display dans la page Updates -->
+        <div class="adsense-container adsense-display">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
+                 crossorigin="anonymous"></script>
+            <!-- Display -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-5840550895880083"
+                 data-ad-slot="7696475462"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
         <div class="app-updates" id="appUpdates">
             <!-- Mises à jour chargées dynamiquement -->
         </div>
 
         <div class="section-title">
             <h2>Applications récemment mises à jour</h2>
+        </div>
+
+        <!-- Publicité In-Article dans la page Updates -->
+        <div class="adsense-container adsense-in-article">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block; text-align:center;"
+                 data-ad-layout="in-article"
+                 data-ad-format="fluid"
+                 data-ad-client="ca-pub-5840550895880083"
+                 data-ad-slot="5601451705"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
 
         <div class="app-grid" id="updatedApps">
@@ -1962,6 +2145,16 @@
         <p>&copy; 2023 Looma App Store. Tous droits réservés.</p>
     </div>
 </footer>
+
+<!-- Intégration ChatRace -->
+<script>
+    window.chatraceConfig = {
+        accountId: "2540281",
+        userId: "1000064209",
+        key: "kBOZD9dx5h2pl1Dmpn2j"
+    };
+</script>
+<script src="https://chatrace.com/webchat/chatrace.js"></script>
 
 <script>
     // Applications réelles avec liens de téléchargement et logos
