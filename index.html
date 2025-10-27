@@ -6,11 +6,20 @@
     <title>Looma App Store - Applications Android Gratuites</title>
     <meta name="description" content="Téléchargez les meilleures applications Android gratuites. Streaming, jeux, utilitaires et plus encore sur Looma App Store.">
     <meta name="keywords" content="applications android, apps gratuites, téléchargement apps, jeux mobiles, streaming">
+    
+    <!-- Favicon et icônes -->
+    <link rel="icon" type="image/jpeg" href="https://archive.org/download/1c-4d-5bba-ddc-1-4953-92b-6-089ca-65b-9e-7c/1c4d5bba-ddc1-4953-92b6-089ca65b9e7c.jpeg">
+    <link rel="apple-touch-icon" href="https://archive.org/download/1c-4d-5bba-ddc-1-4953-92b-6-089ca-65b-9e-7c/1c4d5bba-ddc1-4953-92b6-089ca65b9e7c.jpeg">
+    <meta name="theme-color" content="#6a11cb">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
      crossorigin="anonymous"></script>
+    
+    <!-- Adsterra Native Banner -->
+    <script async="async" data-cfasync="false" src="//pl27933489.effectivegatecpm.com/f000f81099cbfe4f209d1ee0574bef28/invoke.js"></script>
     
     <!-- Import Firebase -->
     <script type="module">
@@ -171,10 +180,37 @@
             margin: 0 auto;
         }
 
+        .logo-link {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+
+        .logo-link:hover {
+            transform: scale(1.05);
+        }
+
+        .site-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
+        }
+
+        .logo-link:hover .site-logo {
+            transform: rotate(5deg);
+        }
+
         header h1 {
             font-size: 1.8rem;
             display: flex;
             align-items: center;
+            margin: 0;
         }
 
         header h1 i {
@@ -272,7 +308,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, transparent, rgba(106, 17, 203, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(106, 17, 203, 0.1), transparent);
             transition: left 0.5s;
         }
 
@@ -930,6 +966,24 @@
             width: 100%;
             max-width: 1000px;
             margin: 2rem auto;
+        }
+
+        /* Styles pour Adsterra Native Banner */
+        .adsterra-container {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            border: 2px dashed var(--primary-color);
+        }
+
+        .adsterra-native {
+            width: 100%;
+            max-width: 1200px;
         }
 
         .hero {
@@ -1636,6 +1690,10 @@
             .adsense-display {
                 max-width: 300px;
             }
+
+            .adsterra-container {
+                min-height: 200px;
+            }
         }
 
         /* Stats Styles */
@@ -1711,7 +1769,12 @@
 
 <header>
     <div class="header-content">
-        <h1><i class="fas fa-store"></i> Looma App Store</h1>
+        <a href="#" class="logo-link">
+            <img src="https://archive.org/download/1c-4d-5bba-ddc-1-4953-92b-6-089ca-65b-9e-7c/1c4d5bba-ddc1-4953-92b6-089ca65b9e7c.jpeg" 
+                 alt="Looma App Store" 
+                 class="site-logo">
+            <h1><i class="fas fa-store"></i> Looma App Store</h1>
+        </a>
         <div>
             <div class="connection-status" id="connectionStatus">
                 <i class="fas fa-wifi"></i> <span id="connectionText">Connexion excellente</span>
@@ -1796,6 +1859,11 @@
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
+        </div>
+
+        <!-- Adsterra Native Banner -->
+        <div class="adsterra-container adsterra-native">
+            <div id="container-f000f81099cbfe4f209d1ee0574bef28"></div>
         </div>
 
         <!-- Statistiques en temps réel -->
@@ -1909,6 +1977,11 @@
             </script>
         </div>
 
+        <!-- Adsterra Native Banner -->
+        <div class="adsterra-container adsterra-native">
+            <div id="container-f000f81099cbfe4f209d1ee0574bef28"></div>
+        </div>
+
         <div class="filters">
             <button class="filter-btn active" data-filter="all">Toutes</button>
             <button class="filter-btn" data-filter="streaming">Streaming</button>
@@ -1980,6 +2053,11 @@
             <script>
                  (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
+        </div>
+
+        <!-- Adsterra Native Banner -->
+        <div class="adsterra-container adsterra-native">
+            <div id="container-f000f81099cbfe4f209d1ee0574bef28"></div>
         </div>
 
         <div class="app-updates" id="appUpdates">
@@ -2098,7 +2176,13 @@
 <footer>
     <div class="footer-content">
         <div class="footer-section">
-            <h3>Looma App Store</h3>
+            <a href="#" class="logo-link" style="text-decoration: none; color: white;">
+                <img src="https://archive.org/download/1c-4d-5bba-ddc-1-4953-92b-6-089ca-65b-9e-7c/1c4d5bba-ddc1-4953-92b6-089ca65b9e7c.jpeg" 
+                     alt="Looma App Store" 
+                     class="site-logo"
+                     style="width: 50px; height: 50px;">
+                <h3>Looma App Store</h3>
+            </a>
             <p>Votre destination pour les meilleures applications mobiles. Découvrez, téléchargez et profitez!</p>
             <div class="social-links">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -2170,984 +2254,1138 @@
             downloads: 2500000,
             size: "89.3 MB",
             isNew: true,
-            isFeatured: true,
-            isTopRated: true,
-            logo: "https://www.appcreator24.com/srv/imgs/gen/3572123_ico.png?v=11",
-            downloadLink: "https://apk.e-droid.net/apk/app3572123-91crvj.apk?v=11",
-            screenshots: [
-                "https://via.placeholder.com/300x600/6a11cb/ffffff?text=Looma+Streaming+1",
-                "https://via.placeholder.com/300x600/2575fc/ffffff?text=Looma+Streaming+2",
-                "https://via.placeholder.com/300x600/ff4081/ffffff?text=Looma+Streaming+3"
-            ],
-            isOfficial: true,
-            lastUpdate: "2023-11-15",
-            version: "2.5.1",
-            developer: "Looma Team",
-            ageRating: "12+",
-            languages: ["Français", "English", "Español"],
-            inAppPurchases: false
+            version: "2.1.0",
+            lastUpdated: "2023-12-01",
+            logo: "https://via.placeholder.com/60x60/6a11cb/ffffff?text=LS",
+            downloadUrl: "https://example.com/download/looma-streaming.apk",
+            developer: "Looma Studios",
+            isPremium: true,
+            isFeatured: true
         },
         {
             id: 2,
-            name: "Netflix",
-            category: "streaming",
+            name: "SocialConnect",
+            category: "social",
             rating: "4.5",
             stars: "★★★★☆",
-            description: "Regardez des films, séries TV et documentaires en illimité sur votre appareil mobile.",
-            features: ["Streaming HD/4K", "Téléchargement hors ligne", "Profils personnalisés", "Pas de publicité"],
-            downloads: 5000000,
-            size: "78.5 MB",
-            isNew: false,
-            isFeatured: true,
-            isTopRated: true,
-            logo: "https://via.placeholder.com/60/e50914/ffffff?text=N",
-            downloadLink: "#",
-            screenshots: [
-                "https://via.placeholder.com/300x600/e50914/ffffff?text=Netflix+1",
-                "https://via.placeholder.com/300x600/e50914/ffffff?text=Netflix+2",
-                "https://via.placeholder.com/300x600/e50914/ffffff?text=Netflix+3"
-            ],
-            lastUpdate: "2023-11-10",
-            version: "8.12.0",
-            developer: "Netflix, Inc.",
-            ageRating: "16+",
-            languages: ["Français", "English", "Español", "Deutsch"],
-            inAppPurchases: true
+            description: "Réseau social moderne pour rester connecté avec vos amis et partager vos moments.",
+            features: ["Messagerie instantanée", "Stories éphémères", "Groupes et communautés", "Appels vidéo HD", "Fil d'actualité personnalisé"],
+            downloads: 1850000,
+            size: "45.2 MB",
+            version: "3.2.1",
+            lastUpdated: "2023-11-28",
+            logo: "https://via.placeholder.com/60x60/2575fc/ffffff?text=SC",
+            downloadUrl: "https://example.com/download/socialconnect.apk",
+            developer: "Connect Labs",
+            isPremium: false,
+            isFeatured: true
         },
         {
             id: 3,
-            name: "WhatsApp Messenger",
-            category: "social",
-            rating: "4.3",
-            stars: "★★★★☆",
-            description: "Application de messagerie simple, sécurisée et fiable pour rester en contact avec vos proches.",
-            features: ["Messagerie instantanée", "Appels vocaux et vidéo", "Chats de groupe", "Chiffrement de bout en bout"],
-            downloads: 5000000000,
-            size: "42.1 MB",
-            isNew: false,
-            isFeatured: true,
-            isTopRated: false,
-            logo: "https://via.placeholder.com/60/25D366/ffffff?text=W",
-            downloadLink: "#",
-            screenshots: [
-                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+1",
-                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+2",
-                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+3"
-            ],
-            lastUpdate: "2023-11-08",
-            version: "2.23.23.78",
-            developer: "WhatsApp Inc.",
-            ageRating: "3+",
-            languages: ["Français", "English", "Español", "Deutsch", "Italiano", "Portugais"],
-            inAppPurchases: false
+            name: "PhotoPro Editor",
+            category: "photo",
+            rating: "4.9",
+            stars: "★★★★★",
+            description: "Éditeur photo avancé avec IA pour des retouches professionnelles sur mobile.",
+            features: ["IA de retouche automatique", "Filtres artistiques", "Outils de précision", "Suppression d'objets", "Export HD"],
+            downloads: 3200000,
+            size: "78.5 MB",
+            version: "1.5.3",
+            lastUpdated: "2023-12-05",
+            logo: "https://via.placeholder.com/60x60/ff4081/ffffff?text=PE",
+            downloadUrl: "https://example.com/download/photopro.apk",
+            developer: "Creative Tools Inc",
+            isPremium: true,
+            isFeatured: false
         },
         {
             id: 4,
-            name: "WhatsApp Business",
-            category: "productivite",
-            rating: "4.4",
+            name: "FinanceTracker Pro",
+            category: "finance",
+            rating: "4.6",
             stars: "★★★★☆",
-            description: "Application Business pour les entreprises avec des outils de gestion de clients et d'automatisation.",
-            features: ["Profile d'entreprise", "Messages automatiques", "Statistiques", "Catalogues produits"],
-            downloads: 100000000,
-            size: "45.2 MB",
-            isNew: true,
-            isFeatured: false,
-            isTopRated: true,
-            logo: "https://via.placeholder.com/60/25D366/ffffff?text=WB",
-            downloadLink: "#",
-            screenshots: [
-                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+Business+1",
-                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+Business+2",
-                "https://via.placeholder.com/300x600/25D366/ffffff?text=WhatsApp+Business+3"
-            ],
-            lastUpdate: "2023-11-12",
-            version: "2.23.23.78",
-            developer: "WhatsApp Inc.",
-            ageRating: "3+",
-            languages: ["Français", "English", "Español", "Deutsch", "Italiano"],
-            inAppPurchases: false
+            description: "Gestionnaire de finances personnelles avec tableau de bord complet et analyses détaillées.",
+            features: ["Suivi des dépenses", "Budgets personnalisés", "Rapports détaillés", "Synchronisation bancaire", "Alertes intelligentes"],
+            downloads: 890000,
+            size: "32.1 MB",
+            version: "2.0.4",
+            lastUpdated: "2023-11-25",
+            logo: "https://via.placeholder.com/60x60/28a745/ffffff?text=FT",
+            downloadUrl: "https://example.com/download/financetracker.apk",
+            developer: "Finance Solutions",
+            isPremium: true,
+            isFeatured: true
         },
         {
             id: 5,
-            name: "Spotify",
+            name: "MusicWave",
             category: "musique",
             rating: "4.7",
-            stars: "★★★★★",
-            description: "Écoutez des millions de chansons et podcasts. Créez vos playlists personnalisées.",
-            features: ["Musique illimitée", "Mode hors ligne", "Recommandations personnalisées", "Qualité audio élevée"],
-            downloads: 10000000,
-            size: "65.2 MB",
-            isNew: false,
-            isFeatured: true,
-            isTopRated: true,
-            logo: "https://via.placeholder.com/60/1DB954/ffffff?text=S",
-            downloadLink: "#",
-            screenshots: [
-                "https://via.placeholder.com/300x600/1DB954/ffffff?text=Spotify+1",
-                "https://via.placeholder.com/300x600/1DB954/ffffff?text=Spotify+2",
-                "https://via.placeholder.com/300x600/1DB954/ffffff?text=Spotify+3"
-            ],
-            lastUpdate: "2023-11-12",
-            version: "8.8.42",
-            developer: "Spotify AB",
-            ageRating: "12+",
-            languages: ["Français", "English", "Español", "Deutsch", "Italiano"],
-            inAppPurchases: true
+            stars: "★★★★☆",
+            description: "Service de streaming musical avec des millions de chansons et recommandations personnalisées.",
+            features: ["50 millions de titres", "Recommandations IA", "Mode hors ligne", "Création de playlists", "Qualité audio HD"],
+            downloads: 4200000,
+            size: "67.8 MB",
+            version: "4.2.0",
+            lastUpdated: "2023-12-03",
+            logo: "https://via.placeholder.com/60x60/6f42c1/ffffff?text=MW",
+            downloadUrl: "https://example.com/download/musicwave.apk",
+            developer: "Sound Technologies",
+            isPremium: false,
+            isFeatured: false
         },
         {
             id: 6,
-            name: "Instagram",
-            category: "social",
-            rating: "4.2",
+            name: "HealthMonitor",
+            category: "sante",
+            rating: "4.8",
+            stars: "★★★★★",
+            description: "Application de suivi santé complète avec monitoring d'activité et conseils personnalisés.",
+            features: ["Suivi d'activité", "Monitoring du sommeil", "Nutrition et régimes", "Conseils santé", "Intégration wearables"],
+            downloads: 1500000,
+            size: "54.3 MB",
+            version: "3.1.2",
+            lastUpdated: "2023-11-30",
+            logo: "https://via.placeholder.com/60x60/dc3545/ffffff?text=HM",
+            downloadUrl: "https://example.com/download/healthmonitor.apk",
+            developer: "HealthTech Labs",
+            isPremium: false,
+            isFeatured: true
+        },
+        {
+            id: 7,
+            name: "EduLearn Pro",
+            category: "education",
+            rating: "4.9",
+            stars: "★★★★★",
+            description: "Plateforme d'apprentissage avec cours interactifs et suivi de progression détaillé.",
+            features: ["Cours interactifs", "Quiz et exercices", "Certifications", "Apprentissage adaptatif", "Support multi-langues"],
+            downloads: 950000,
+            size: "41.7 MB",
+            version: "2.3.1",
+            lastUpdated: "2023-12-02",
+            logo: "https://via.placeholder.com/60x60/fd7e14/ffffff?text=EL",
+            downloadUrl: "https://example.com/download/edulearn.apk",
+            developer: "EduTech Solutions",
+            isPremium: true,
+            isFeatured: false
+        },
+        {
+            id: 8,
+            name: "Productivity Suite",
+            category: "productivite",
+            rating: "4.4",
             stars: "★★★★☆",
-            description: "Partagez vos moments avec des photos, vidéos et stories. Connectez-vous avec vos amis et influenceurs.",
-            features: ["Partage de photos/vidéos", "Stories éphémères", "Messages directs", "Filtres et effets"],
-            downloads: 1000000000,
-            size: "55.7 MB",
-            isNew: false,
-            isFeatured: false,
-            isTopRated: false,
-            logo: "https://via.placeholder.com/60/E4405F/ffffff?text=I",
-            downloadLink: "#",
-            screenshots: [
-                "https://via.placeholder.com/300x600/E4405F/ffffff?text=Instagram+1",
-                "https://via.placeholder.com/300x600/E4405F/ffffff?text=Instagram+2",
-                "https://via.placeholder.com/300x600/E4405F/ffffff?text=Instagram+3"
-            ],
-            lastUpdate: "2023-11-14",
-            version: "294.0.0.0",
-            developer: "Instagram",
-            ageRating: "12+",
-            languages: ["Français", "English", "Español", "Deutsch", "Italiano"],
-            inAppPurchases: true
+            description: "Suite complète d'outils de productivité pour optimiser votre travail quotidien.",
+            features: ["Gestion de tâches", "Calendrier intelligent", "Notes collaboratives", "Minuteur Pomodoro", "Rapports de productivité"],
+            downloads: 1200000,
+            size: "38.9 MB",
+            version: "1.8.5",
+            lastUpdated: "2023-11-27",
+            logo: "https://via.placeholder.com/60x60/20c997/ffffff?text=PS",
+            downloadUrl: "https://example.com/download/productivitysuite.apk",
+            developer: "Productivity Labs",
+            isPremium: false,
+            isFeatured: true
+        },
+        {
+            id: 9,
+            name: "GameHub",
+            category: "games",
+            rating: "4.6",
+            stars: "★★★★☆",
+            description: "Plateforme de jeux mobiles avec des centaines de jeux gratuits et premium.",
+            features: ["Jeux exclusifs", "Classements en ligne", "Récompenses quotidiennes", "Multijoueur", "Sans publicités"],
+            downloads: 2800000,
+            size: "95.2 MB",
+            version: "5.1.0",
+            lastUpdated: "2023-12-04",
+            logo: "https://via.placeholder.com/60x60/e83e8c/ffffff?text=GH",
+            downloadUrl: "https://example.com/download/gamehub.apk",
+            developer: "Game Studios",
+            isPremium: false,
+            isFeatured: false
+        },
+        {
+            id: 10,
+            name: "Utilitaire Pro",
+            category: "utilitaire",
+            rating: "4.3",
+            stars: "★★★★☆",
+            description: "Collection d'outils utilitaires essentiels pour votre appareil Android.",
+            features: ["Nettoyage de stockage", "Économiseur de batterie", "Gestionnaire de fichiers", "VPN intégré", "Optimiseur système"],
+            downloads: 2100000,
+            size: "29.5 MB",
+            version: "2.7.3",
+            lastUpdated: "2023-11-29",
+            logo: "https://via.placeholder.com/60x60/6c757d/ffffff?text=UP",
+            downloadUrl: "https://example.com/download/utilitairepro.apk",
+            developer: "Utility Tools",
+            isPremium: false,
+            isFeatured: true
         }
     ];
 
+    // État de l'application
+    let currentUser = null;
+    let favoriteApps = new Set();
+    let downloadedApps = new Set();
+    let currentPage = 'home';
+    let currentFilter = 'all';
+    let currentAppsPage = 1;
+    const appsPerPage = 9;
+
     // Initialisation de l'application
     document.addEventListener('DOMContentLoaded', function() {
-        // Éléments DOM
-        const searchBar = document.getElementById('searchBar');
-        const appsContainer = document.getElementById('appsContainer');
-        const featuredAppsContainer = document.getElementById('featuredApps');
-        const newAppsContainer = document.getElementById('newApps');
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const connectionStatus = document.getElementById('connectionStatus');
-        const navLinks = document.querySelectorAll('.nav-link');
-        const pages = document.querySelectorAll('.page');
-        const appCount = document.getElementById('appCount');
-        const pagination = document.getElementById('pagination');
-        const appDetailsModal = document.getElementById('appDetailsModal');
-        const closeModal = document.getElementById('closeModal');
-        const appDetailsContent = document.getElementById('appDetailsContent');
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        const chatBot = document.getElementById('chatBot');
-        const chatWindow = document.getElementById('chatWindow');
-        const closeChat = document.getElementById('closeChat');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatInput = document.getElementById('chatInput');
-        const sendMessage = document.getElementById('sendMessage');
-        const typingIndicator = document.getElementById('typingIndicator');
-        const loginBtn = document.getElementById('loginBtn');
-        const registerBtn = document.getElementById('registerBtn');
-        const userProfile = document.getElementById('userProfile');
-        const userActions = document.getElementById('userActions');
-        const userDropdown = document.getElementById('userDropdown');
-        const developerBadge = document.getElementById('developerBadge');
-        const dashboardLink = document.getElementById('dashboardLink');
-        const myAppsLink = document.getElementById('myAppsLink');
-        const favoritesLink = document.getElementById('favoritesLink');
-        const logoutBtn = document.getElementById('logoutBtn');
-        const exploreBtn = document.getElementById('exploreBtn');
-        const popularBtn = document.getElementById('popularBtn');
-        const totalApps = document.getElementById('totalApps');
-        const totalDownloads = document.getElementById('totalDownloads');
-        const activeUsers = document.getElementById('activeUsers');
-        const developerCount = document.getElementById('developerCount');
-        const appUpdates = document.getElementById('appUpdates');
-        const updatedApps = document.getElementById('updatedApps');
-        const authModal = document.getElementById('authModal');
-        const closeAuthModal = document.getElementById('closeAuthModal');
-        const authTabs = document.querySelectorAll('.auth-tab');
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
+        initializeApp();
+        setupEventListeners();
+        loadFeaturedApps();
+        updateStats();
+        checkAuthState();
+        simulateConnectionQuality();
+    });
 
-        // Variables globales
-        let allApps = [...realApps];
-        let currentPage = 1;
-        const appsPerPage = 12;
-        let currentFilter = 'all';
-        let isDarkMode = false;
-        let currentUser = null;
-        let chatHistory = [];
-        let userFavorites = [];
-        let userComments = [];
-        let currentRating = 0;
-        let userDownloads = [];
-        let appUpdatesList = [];
-
-        // Générer des applications supplémentaires
-        function generateAdditionalApps(count) {
-            const categories = ["streaming", "social", "utilitaire", "productivite", "education", "sante", "finance", "musique", "photo", "jeux"];
-            const appNames = [
-                "Photo Editor Pro", "Music Player Plus", "Video Downloader", "File Manager", "Calendar Pro",
-                "Weather Forecast", "Notes App", "Calculator Advanced", "Clock & Alarm", "Voice Recorder",
-                "PDF Reader", "QR Scanner", "Barcode Generator", "Unit Converter", "Language Translator",
-                "Currency Converter", "Budget Tracker", "Expense Manager", "Investment Portfolio", "Tax Calculator",
-                "Meditation Guide", "Sleep Tracker", "Workout Planner", "Meal Prep", "Recipe Book",
-                "Travel Planner", "Hotel Finder", "Flight Tracker", "Currency Exchange", "Language Learning",
-                "Math Solver", "Science Dictionary", "History Timeline", "Geography Quiz", "Art Gallery",
-                "Music Maker", "Video Editor", "Photo Collage", "Drawing Pad", "Animation Studio"
-            ];
-            
-            const newApps = [];
-            const developers = ["Tech Solutions", "AppWorks Studio", "Digital Dreams", "Mobile Masters", "Code Crafters", "Pixel Perfect", "App Innovators", "Software Wizards"];
-            
-            for (let i = 0; i < count; i++) {
-                const randomCategory = categories[Math.floor(Math.random() * categories.length)];
-                const randomName = appNames[Math.floor(Math.random() * appNames.length)];
-                const randomRating = (3.5 + Math.random() * 1.5).toFixed(1);
-                const randomStars = "★".repeat(Math.floor(randomRating)) + "☆".repeat(5 - Math.floor(randomRating));
-                const randomDownloads = Math.floor(Math.random() * 10000000) + 100000;
-                const randomSize = (10 + Math.random() * 200).toFixed(1) + " MB";
-                const randomColor = Math.floor(Math.random()*16777215).toString(16);
-                const randomDeveloper = developers[Math.floor(Math.random() * developers.length)];
-                const randomVersion = `${Math.floor(Math.random() * 10)}.${Math.floor(Math.random() * 20)}.${Math.floor(Math.random() * 100)}`;
-                const isNew = Math.random() > 0.7;
-                const lastUpdate = new Date(Date.now() - Math.floor(Math.random() * 30) * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
-                
-                const newApp = {
-                    id: Date.now() + i,
-                    name: randomName,
-                    category: randomCategory,
-                    rating: randomRating,
-                    stars: randomStars,
-                    description: `Description de ${randomName}. Une application utile pour vos besoins en ${randomCategory}.`,
-                    features: ["Interface intuitive", "Performances optimisées", "Mises à jour régulières", "Support technique"],
-                    downloads: randomDownloads,
-                    size: randomSize,
-                    isNew: isNew,
-                    isFeatured: Math.random() > 0.8,
-                    isTopRated: parseFloat(randomRating) > 4.5,
-                    logo: `https://via.placeholder.com/60/${randomColor}/ffffff?text=${randomName.charAt(0)}`,
-                    downloadLink: "#",
-                    screenshots: [
-                        `https://via.placeholder.com/300x600/${randomColor}/ffffff?text=${randomName}+1`,
-                        `https://via.placeholder.com/300x600/${randomColor}/ffffff?text=${randomName}+2`,
-                        `https://via.placeholder.com/300x600/${randomColor}/ffffff?text=${randomName}+3`
-                    ],
-                    lastUpdate: lastUpdate,
-                    version: randomVersion,
-                    developer: randomDeveloper,
-                    ageRating: "3+",
-                    languages: ["Français", "English"],
-                    inAppPurchases: Math.random() > 0.5,
-                    generated: true
-                };
-                
-                newApps.push(newApp);
-                allApps.push(newApp);
-            }
-            
-            return newApps;
+    function initializeApp() {
+        // Charger les favoris depuis le localStorage
+        const savedFavorites = localStorage.getItem('favoriteApps');
+        if (savedFavorites) {
+            favoriteApps = new Set(JSON.parse(savedFavorites));
         }
 
-        // Initialiser les statistiques
-        function initializeStats() {
-            totalApps.textContent = allApps.length.toLocaleString();
-            
-            const totalDownloadsCount = allApps.reduce((sum, app) => sum + app.downloads, 0);
-            totalDownloads.textContent = totalDownloadsCount.toLocaleString();
-            
-            activeUsers.textContent = Math.floor(totalDownloadsCount * 0.3).toLocaleString();
-            
-            const uniqueDevelopers = [...new Set(allApps.map(app => app.developer))];
-            developerCount.textContent = uniqueDevelopers.length.toLocaleString();
+        // Charger les apps téléchargées depuis le localStorage
+        const savedDownloads = localStorage.getItem('downloadedApps');
+        if (savedDownloads) {
+            downloadedApps = new Set(JSON.parse(savedDownloads));
         }
 
-        // Fonctions d'affichage des applications
-        function displayApps(apps, container, page = 1) {
-            container.innerHTML = '';
-            
-            if (apps.length === 0) {
-                container.innerHTML = '<div class="no-results">Aucune application trouvée.</div>';
-                return;
-            }
-            
-            const startIndex = (page - 1) * appsPerPage;
-            const endIndex = startIndex + appsPerPage;
-            const appsToShow = apps.slice(startIndex, endIndex);
-            
-            appsToShow.forEach(app => {
-                const isFavorite = userFavorites.includes(app.id);
-                const appCard = document.createElement('div');
-                appCard.className = 'app-card';
-                appCard.innerHTML = `
-                    ${app.isOfficial ? '<div class="app-badge">Officielle</div>' : ''}
-                    ${app.isNew ? '<div class="app-badge">Nouveau</div>' : ''}
-                    ${app.isTopRated ? '<div class="app-badge">Top</div>' : ''}
-                    <div class="app-header">
-                        <img src="${app.logo}" alt="${app.name}" class="app-logo">
-                        <div class="app-title">
-                            <h2>${app.name}</h2>
-                            <div class="app-category">${app.category} • ${app.developer}</div>
-                        </div>
-                    </div>
-                    <div class="app-content">
-                        <p class="app-description">${app.description}</p>
-                        <ul class="app-features">
-                            ${app.features.slice(0, 3).map(feature => `<li>${feature}</li>`).join('')}
-                        </ul>
-                        <div style="margin-top: 1rem;">
-                            <span class="feature-badge ${app.inAppPurchases ? 'premium' : 'free'}">
-                                ${app.inAppPurchases ? 'Achats intégrés' : 'Gratuit'}
-                            </span>
-                            <span class="feature-badge" style="background: #6c757d; color: white;">
-                                ${app.ageRating}
-                            </span>
-                        </div>
-                    </div>
-                    <div class="app-footer">
-                        <div class="app-actions">
-                            <button class="action-btn share-btn" data-id="${app.id}">
-                                <i class="fas fa-share-alt"></i> Partager
-                            </button>
-                            <button class="action-btn favorite-btn ${isFavorite ? 'active' : ''}" data-id="${app.id}">
-                                <i class="fas fa-heart"></i> Favori
-                            </button>
-                        </div>
-                        <div class="progress-container" id="progress-${app.id}">
-                            <div class="progress-bar" id="progress-bar-${app.id}"></div>
-                        </div>
-                        <button class="downloadBtn" data-id="${app.id}">Télécharger (${app.size})</button>
-                        <a href="${app.downloadLink}" class="download-link" id="download-link-${app.id}" download="${app.name}.apk">Ouvrir l'application</a>
-                        <div class="app-rating">
-                            <div class="stars">${app.stars}</div>
-                            <div class="rating-value">${app.rating} (${app.downloads.toLocaleString()})</div>
-                        </div>
-                    </div>
-                `;
-                container.appendChild(appCard);
-                
-                // Ajouter les événements
-                const downloadBtn = appCard.querySelector('.downloadBtn');
-                downloadBtn.addEventListener('click', function() {
-                    downloadApp(app.id, this);
-                });
-                
-                const favoriteBtn = appCard.querySelector('.favorite-btn');
-                favoriteBtn.addEventListener('click', function() {
-                    toggleFavorite(app.id, this);
-                });
-                
-                appCard.addEventListener('click', function(e) {
-                    if (!e.target.classList.contains('downloadBtn') && 
-                        !e.target.classList.contains('share-btn') && 
-                        !e.target.classList.contains('favorite-btn') &&
-                        !e.target.closest('.app-actions')) {
-                        showAppDetails(app.id);
-                    }
-                });
-            });
-        }
+        // Afficher la page d'accueil par défaut
+        showPage('home');
+    }
 
-        // Télécharger une application
-        function downloadApp(appId, button) {
-            const progressContainer = document.getElementById(`progress-${appId}`);
-            const progressBar = document.getElementById(`progress-bar-${appId}`);
-            const downloadLink = document.getElementById(`download-link-${appId}`);
-            
-            // Afficher la barre de progression
-            progressContainer.style.display = 'block';
-            button.disabled = true;
-            button.textContent = 'Téléchargement...';
-            
-            // Simuler le téléchargement
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += Math.random() * 10;
-                if (progress >= 100) {
-                    progress = 100;
-                    clearInterval(interval);
-                    
-                    // Téléchargement terminé
-                    button.textContent = 'Téléchargé';
-                    downloadLink.style.display = 'block';
-                    
-                    // Mettre à jour les statistiques de téléchargement
-                    const app = allApps.find(a => a.id === appId);
-                    if (app) {
-                        app.downloads += 1;
-                        initializeStats(); // Mettre à jour les stats
-                    }
-                    
-                    // Ajouter aux téléchargements de l'utilisateur
-                    if (currentUser) {
-                        userDownloads.push(appId);
-                        saveUserData();
-                    }
-                }
-                
-                progressBar.style.width = `${progress}%`;
-                progressBar.textContent = `${Math.round(progress)}%`;
-            }, 200);
-        }
-
-        // Ajouter/retirer des favoris
-        function toggleFavorite(appId, button) {
-            if (!currentUser) {
-                showAuthModal();
-                return;
-            }
-            
-            const index = userFavorites.indexOf(appId);
-            if (index > -1) {
-                userFavorites.splice(index, 1);
-                button.classList.remove('active');
-            } else {
-                userFavorites.push(appId);
-                button.classList.add('active');
-            }
-            
-            // Sauvegarder les données utilisateur
-            saveUserData();
-        }
-
-        // Filtrer les applications
-        function filterApps(filter) {
-            currentFilter = filter;
-            currentPage = 1;
-            
-            let filteredApps = allApps;
-            if (filter !== 'all') {
-                filteredApps = allApps.filter(app => app.category === filter);
-            }
-            
-            displayApps(filteredApps, appsContainer, currentPage);
-            generatePagination(filteredApps.length, currentPage);
-            
-            // Mettre à jour le compteur
-            appCount.textContent = `${filteredApps.length} applications`;
-        }
-
-        // Générer la pagination
-        function generatePagination(totalApps, currentPage) {
-            const totalPages = Math.ceil(totalApps / appsPerPage);
-            pagination.innerHTML = '';
-            
-            if (totalPages <= 1) return;
-            
-            // Bouton précédent
-            if (currentPage > 1) {
-                const prevBtn = document.createElement('button');
-                prevBtn.innerHTML = '&laquo;';
-                prevBtn.addEventListener('click', () => {
-                    currentPage--;
-                    filterApps(currentFilter);
-                });
-                pagination.appendChild(prevBtn);
-            }
-            
-            // Pages
-            for (let i = 1; i <= totalPages; i++) {
-                const pageBtn = document.createElement('button');
-                pageBtn.textContent = i;
-                if (i === currentPage) {
-                    pageBtn.classList.add('active');
-                }
-                pageBtn.addEventListener('click', () => {
-                    currentPage = i;
-                    filterApps(currentFilter);
-                });
-                pagination.appendChild(pageBtn);
-            }
-            
-            // Bouton suivant
-            if (currentPage < totalPages) {
-                const nextBtn = document.createElement('button');
-                nextBtn.innerHTML = '&raquo;';
-                nextBtn.addEventListener('click', () => {
-                    currentPage++;
-                    filterApps(currentFilter);
-                });
-                pagination.appendChild(nextBtn);
-            }
-        }
-
-        // Simuler le statut de connexion
-        function simulateConnectionStatus() {
-            const statuses = [
-                { text: "Connexion excellente", class: "good" },
-                { text: "Connexion moyenne", class: "poor" },
-                { text: "Connexion faible", class: "bad" }
-            ];
-            
-            setInterval(() => {
-                const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
-                connectionStatus.className = `connection-status ${randomStatus.class}`;
-                document.getElementById('connectionText').textContent = randomStatus.text;
-            }, 10000);
-        }
-
-        // Initialisation
-        function initializeApp() {
-            // Générer des applications supplémentaires
-            generateAdditionalApps(20);
-            
-            // Initialiser les statistiques
-            initializeStats();
-            
-            // Afficher les applications populaires
-            const featuredApps = allApps.filter(app => app.isFeatured);
-            displayApps(featuredApps, featuredAppsContainer);
-            
-            // Afficher les nouvelles applications
-            const newApps = allApps.filter(app => app.isNew);
-            displayApps(newApps, newAppsContainer);
-            
-            // Initialiser la page applications
-            filterApps('all');
-            
-            // Simuler la connexion réseau
-            simulateConnectionStatus();
-            
-            // Configurer les événements de navigation
-            setupNavigation();
-            
-            // Configurer les événements du chat
-            setupChat();
-            
-            // Configurer l'authentification Firebase
-            setupFirebaseAuth();
-        }
-
-        // Configuration de l'authentification Firebase
-        function setupFirebaseAuth() {
-            const { onAuthStateChanged, signOut } = window.firebase.authFunctions;
-            
-            // Surveiller les changements d'état d'authentification
-            onAuthStateChanged(window.firebase.auth, (user) => {
-                if (user) {
-                    // Utilisateur connecté
-                    currentUser = {
-                        uid: user.uid,
-                        email: user.email,
-                        name: user.displayName || user.email.split('@')[0]
-                    };
-                    
-                    // Mettre à jour l'interface
-                    updateUserInterface();
-                    
-                    // Charger les données utilisateur
-                    loadUserData();
-                } else {
-                    // Utilisateur déconnecté
-                    currentUser = null;
-                    updateUserInterface();
-                }
-            });
-
-            // Gestionnaire de connexion
-            loginForm.addEventListener('submit', async (e) => {
+    function setupEventListeners() {
+        // Navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
                 e.preventDefault();
-                
-                const email = document.getElementById('loginEmail').value;
-                const password = document.getElementById('loginPassword').value;
-                
-                try {
-                    const { signInWithEmailAndPassword } = window.firebase.authFunctions;
-                    await signInWithEmailAndPassword(window.firebase.auth, email, password);
-                    authModal.style.display = 'none';
-                    showNotification('Connexion réussie!', 'success');
-                } catch (error) {
-                    showNotification('Erreur de connexion: ' + error.message, 'error');
-                }
+                const page = e.target.getAttribute('data-page');
+                showPage(page);
             });
+        });
 
-            // Gestionnaire d'inscription
-            registerForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                
-                const name = document.getElementById('registerName').value;
-                const email = document.getElementById('registerEmail').value;
-                const password = document.getElementById('registerPassword').value;
-                const confirmPassword = document.getElementById('registerConfirmPassword').value;
-                
-                if (password !== confirmPassword) {
-                    showNotification('Les mots de passe ne correspondent pas', 'error');
-                    return;
-                }
-                
-                try {
-                    const { createUserWithEmailAndPassword } = window.firebase.authFunctions;
-                    await createUserWithEmailAndPassword(window.firebase.auth, email, password);
-                    authModal.style.display = 'none';
-                    showNotification('Inscription réussie!', 'success');
-                } catch (error) {
-                    showNotification('Erreur d\'inscription: ' + error.message, 'error');
-                }
+        // Recherche
+        document.getElementById('searchBar').addEventListener('input', handleSearch);
+
+        // Filtres
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentFilter = e.target.getAttribute('data-filter');
+                filterApps();
             });
+        });
 
-            // Gestionnaire de déconnexion
-            logoutBtn.addEventListener('click', async () => {
-                try {
-                    await signOut(window.firebase.auth);
-                    showNotification('Déconnexion réussie', 'success');
-                } catch (error) {
-                    showNotification('Erreur de déconnexion', 'error');
-                }
+        // Boutons d'authentification
+        document.getElementById('loginBtn').addEventListener('click', () => showAuthModal('login'));
+        document.getElementById('registerBtn').addEventListener('click', () => showAuthModal('register'));
+
+        // Modal d'authentification
+        document.getElementById('closeAuthModal').addEventListener('click', () => closeAuthModal());
+        document.getElementById('closeModal').addEventListener('click', () => closeAppDetailsModal());
+
+        // Tabs d'authentification
+        document.querySelectorAll('.auth-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                const tabName = e.target.getAttribute('data-tab');
+                switchAuthTab(tabName);
             });
-        }
+        });
 
-        // Mettre à jour l'interface utilisateur
-        function updateUserInterface() {
-            const loginBtn = document.getElementById('loginBtn');
-            const registerBtn = document.getElementById('registerBtn');
-            const userProfile = document.getElementById('userProfile');
-            
-            if (currentUser) {
-                loginBtn.style.display = 'none';
-                registerBtn.style.display = 'none';
-                userProfile.style.display = 'flex';
-                
-                document.getElementById('userName').textContent = currentUser.name;
-                document.getElementById('userAvatar').textContent = currentUser.name.charAt(0).toUpperCase();
-            } else {
-                loginBtn.style.display = 'block';
-                registerBtn.style.display = 'block';
-                userProfile.style.display = 'none';
-            }
-        }
+        // Formulaires d'authentification
+        document.getElementById('loginForm').addEventListener('submit', handleLogin);
+        document.getElementById('registerForm').addEventListener('submit', handleRegister);
 
-        // Sauvegarder les données utilisateur
-        function saveUserData() {
-            if (!currentUser) return;
-            
-            const { ref, set } = window.firebase.dbFunctions;
-            const userRef = ref(window.firebase.database, 'users/' + currentUser.uid);
-            
-            set(userRef, {
-                favorites: userFavorites,
-                downloads: userDownloads,
-                comments: userComments
-            });
-        }
+        // Déconnexion
+        document.getElementById('logoutBtn').addEventListener('click', handleLogout);
 
-        // Charger les données utilisateur
-        function loadUserData() {
-            if (!currentUser) return;
-            
-            const { ref, onValue } = window.firebase.dbFunctions;
-            const userRef = ref(window.firebase.database, 'users/' + currentUser.uid);
-            
-            onValue(userRef, (snapshot) => {
-                const data = snapshot.val();
-                if (data) {
-                    userFavorites = data.favorites || [];
-                    userDownloads = data.downloads || [];
-                    userComments = data.comments || [];
-                    
-                    // Mettre à jour l'affichage des favoris
-                    updateFavoritesDisplay();
-                }
-            });
-        }
+        // Profil utilisateur
+        document.getElementById('userProfile').addEventListener('click', toggleUserDropdown);
 
-        // Mettre à jour l'affichage des favoris
-        function updateFavoritesDisplay() {
-            document.querySelectorAll('.favorite-btn').forEach(btn => {
-                const appId = parseInt(btn.getAttribute('data-id'));
-                if (userFavorites.includes(appId)) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-        }
+        // Mode sombre
+        document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
 
-        // Afficher le modal d'authentification
-        function showAuthModal() {
-            authModal.style.display = 'block';
-        }
+        // Chat bot
+        document.getElementById('chatBot').addEventListener('click', toggleChat);
+        document.getElementById('closeChat').addEventListener('click', toggleChat);
+        document.getElementById('sendMessage').addEventListener('click', sendChatMessage);
+        document.getElementById('chatInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendChatMessage();
+        });
 
-        // Afficher une notification
-        function showNotification(message, type = 'info') {
-            // Créer l'élément de notification
-            const notification = document.createElement('div');
-            notification.className = `notification ${type}`;
-            notification.textContent = message;
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                padding: 1rem 1.5rem;
-                border-radius: var(--border-radius);
-                color: white;
-                z-index: 10000;
-                animation: slideInRight 0.3s ease-out;
-            `;
-            
-            // Appliquer la couleur en fonction du type
-            if (type === 'success') {
-                notification.style.background = 'var(--success-color)';
-            } else if (type === 'error') {
-                notification.style.background = 'var(--danger-color)';
-            } else {
-                notification.style.background = 'var(--primary-color)';
-            }
-            
-            document.body.appendChild(notification);
-            
-            // Supprimer la notification après 3 secondes
+        // Boutons hero
+        document.getElementById('exploreBtn').addEventListener('click', () => showPage('apps'));
+        document.getElementById('popularBtn').addEventListener('click', () => {
+            showPage('apps');
+            // Filtrer pour montrer les apps populaires
             setTimeout(() => {
-                notification.remove();
-            }, 3000);
-        }
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+                currentFilter = 'all';
+                filterApps();
+            }, 100);
+        });
 
-        // Configurer la navigation
-        function setupNavigation() {
-            // Navigation entre les pages
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    // Retirer la classe active de tous les liens
-                    navLinks.forEach(navLink => navLink.classList.remove('active'));
-                    
-                    // Ajouter la classe active au lien cliqué
-                    this.classList.add('active');
-                    
-                    // Masquer toutes les pages
-                    pages.forEach(page => page.classList.remove('active'));
-                    
-                    // Afficher la page correspondante
-                    const pageId = this.getAttribute('data-page');
-                    document.getElementById(pageId).classList.add('active');
-                    
-                    // Charger le contenu spécifique à la page
-                    if (pageId === 'apps') {
-                        filterApps(currentFilter);
-                    }
-                });
-            });
+        // Menu mobile
+        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
 
-            // Recherche d'applications
-            searchBar.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                
-                if (searchTerm.length < 2) {
-                    filterApps(currentFilter);
-                    return;
-                }
-                
-                const filteredApps = allApps.filter(app => 
-                    app.name.toLowerCase().includes(searchTerm) || 
-                    app.description.toLowerCase().includes(searchTerm) ||
-                    app.category.toLowerCase().includes(searchTerm)
-                );
-                
-                displayApps(filteredApps, appsContainer, 1);
-                generatePagination(filteredApps.length, 1);
-                appCount.textContent = `${filteredApps.length} applications trouvées`;
-            });
+        // Sélecteur de langue
+        document.getElementById('languageSelect').addEventListener('change', handleLanguageChange);
 
-            // Filtrage par catégorie
-            document.querySelectorAll('.filter-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    const filter = this.getAttribute('data-filter');
-                    filterApps(filter);
-                });
-            });
-
-            // Mode sombre
-            darkModeToggle.addEventListener('click', function() {
-                isDarkMode = !isDarkMode;
-                document.body.classList.toggle('dark-mode', isDarkMode);
-                
-                const icon = this.querySelector('i');
-                if (isDarkMode) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                } else {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                }
-            });
-
-            // Boutons d'authentification
-            loginBtn.addEventListener('click', showAuthModal);
-            registerBtn.addEventListener('click', showAuthModal);
-
-            // Tabs d'authentification
-            authTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    const tabName = this.getAttribute('data-tab');
-                    
-                    // Mettre à jour les tabs
-                    authTabs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Afficher le formulaire correspondant
-                    document.querySelectorAll('.auth-form').forEach(form => {
-                        form.classList.remove('active');
-                    });
-                    document.getElementById(tabName + 'Form').classList.add('active');
-                });
-            });
-
-            // Fermer les modals
-            closeModal.addEventListener('click', function() {
-                appDetailsModal.style.display = 'none';
-            });
-
-            closeAuthModal.addEventListener('click', function() {
-                authModal.style.display = 'none';
-            });
-
-            // Fermer les modals en cliquant à l'extérieur
-            window.addEventListener('click', function(e) {
-                if (e.target === appDetailsModal) {
-                    appDetailsModal.style.display = 'none';
-                }
-                if (e.target === authModal) {
-                    authModal.style.display = 'none';
-                }
-                // Fermer le dropdown utilisateur
-                if (!userProfile.contains(e.target)) {
-                    userDropdown.classList.remove('active');
-                }
-            });
-
-            // Dropdown utilisateur
-            userProfile.addEventListener('click', function() {
-                userDropdown.classList.toggle('active');
-            });
-
-            // Boutons d'exploration
-            exploreBtn.addEventListener('click', function() {
-                document.querySelector('[data-page="apps"]').click();
-            });
-
-            popularBtn.addEventListener('click', function() {
-                document.querySelector('[data-page="apps"]').click();
-                // Activer le filtre "Toutes" pour voir toutes les applications
-                document.querySelector('.filter-btn[data-filter="all"]').click();
-            });
-        }
-
-        // Configurer le chat
-        function setupChat() {
-            chatBot.addEventListener('click', function() {
-                chatWindow.classList.toggle('active');
-            });
-
-            closeChat.addEventListener('click', function() {
-                chatWindow.classList.remove('active');
-            });
-
-            sendMessage.addEventListener('click', sendChatMessage);
+        // Fermer les modales en cliquant à l'extérieur
+        window.addEventListener('click', (e) => {
+            const authModal = document.getElementById('authModal');
+            const appModal = document.getElementById('appDetailsModal');
+            const userDropdown = document.getElementById('userDropdown');
             
-            chatInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendChatMessage();
-                }
-            });
+            if (e.target === authModal) closeAuthModal();
+            if (e.target === appModal) closeAppDetailsModal();
+            if (!e.target.closest('.user-profile') && userDropdown.classList.contains('active')) {
+                userDropdown.classList.remove('active');
+            }
+        });
+    }
 
-            function sendChatMessage() {
-                const message = chatInput.value.trim();
-                if (message === '') return;
+    function showPage(pageName) {
+        // Cacher toutes les pages
+        document.querySelectorAll('.page').forEach(page => {
+            page.classList.remove('active');
+        });
+
+        // Désactiver tous les liens de navigation
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        // Afficher la page demandée
+        document.getElementById(pageName).classList.add('active');
+
+        // Activer le lien de navigation correspondant
+        document.querySelector(`.nav-link[data-page="${pageName}"]`).classList.add('active');
+
+        // Mettre à jour l'état actuel
+        currentPage = pageName;
+
+        // Charger le contenu spécifique à la page
+        switch(pageName) {
+            case 'home':
+                loadFeaturedApps();
+                break;
+            case 'apps':
+                loadAllApps();
+                break;
+            case 'updates':
+                loadUpdatedApps();
+                break;
+            case 'games':
+                loadGames();
+                break;
+            case 'categories':
+                loadCategories();
+                break;
+            case 'top':
+                loadTopApps();
+                break;
+            case 'new':
+                loadNewApps();
+                break;
+            case 'trending':
+                loadTrendingApps();
+                break;
+        }
+    }
+
+    function loadFeaturedApps() {
+        const featuredContainer = document.getElementById('featuredApps');
+        const newAppsContainer = document.getElementById('newApps');
+        
+        const featuredApps = realApps.filter(app => app.isFeatured);
+        const newApps = realApps.slice(0, 6); // 6 premières apps comme "nouvelles"
+        
+        featuredContainer.innerHTML = '';
+        newAppsContainer.innerHTML = '';
+        
+        featuredApps.forEach(app => {
+            featuredContainer.appendChild(createAppCard(app));
+        });
+        
+        newApps.forEach(app => {
+            newAppsContainer.appendChild(createAppCard(app));
+        });
+    }
+
+    function loadAllApps() {
+        const appsContainer = document.getElementById('appsContainer');
+        const appCountElement = document.getElementById('appCount');
+        
+        appCountElement.textContent = `${realApps.length} applications`;
+        
+        // Mettre à jour la pagination
+        updatePagination();
+        
+        // Afficher les apps pour la page actuelle
+        displayAppsForCurrentPage();
+    }
+
+    function displayAppsForCurrentPage() {
+        const appsContainer = document.getElementById('appsContainer');
+        appsContainer.innerHTML = '';
+        
+        const filteredApps = filterAppsByCategory();
+        const startIndex = (currentAppsPage - 1) * appsPerPage;
+        const endIndex = startIndex + appsPerPage;
+        const appsToShow = filteredApps.slice(startIndex, endIndex);
+        
+        if (appsToShow.length === 0) {
+            appsContainer.innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                    <h3>Aucune application trouvée</h3>
+                    <p>Essayez de modifier vos filtres ou votre recherche</p>
+                </div>
+            `;
+            return;
+        }
+        
+        appsToShow.forEach(app => {
+            appsContainer.appendChild(createAppCard(app));
+        });
+    }
+
+    function filterAppsByCategory() {
+        if (currentFilter === 'all') {
+            return realApps;
+        }
+        return realApps.filter(app => app.category === currentFilter);
+    }
+
+    function filterApps() {
+        currentAppsPage = 1;
+        displayAppsForCurrentPage();
+        updatePagination();
+    }
+
+    function updatePagination() {
+        const paginationContainer = document.getElementById('pagination');
+        const filteredApps = filterAppsByCategory();
+        const totalPages = Math.ceil(filteredApps.length / appsPerPage);
+        
+        paginationContainer.innerHTML = '';
+        
+        if (totalPages <= 1) return;
+        
+        // Bouton précédent
+        const prevButton = document.createElement('button');
+        prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+        prevButton.disabled = currentAppsPage === 1;
+        prevButton.addEventListener('click', () => {
+            if (currentAppsPage > 1) {
+                currentAppsPage--;
+                displayAppsForCurrentPage();
+                updatePagination();
+            }
+        });
+        paginationContainer.appendChild(prevButton);
+        
+        // Pages
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.textContent = i;
+            pageButton.classList.toggle('active', i === currentAppsPage);
+            pageButton.addEventListener('click', () => {
+                currentAppsPage = i;
+                displayAppsForCurrentPage();
+                updatePagination();
+            });
+            paginationContainer.appendChild(pageButton);
+        }
+        
+        // Bouton suivant
+        const nextButton = document.createElement('button');
+        nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+        nextButton.disabled = currentAppsPage === totalPages;
+        nextButton.addEventListener('click', () => {
+            if (currentAppsPage < totalPages) {
+                currentAppsPage++;
+                displayAppsForCurrentPage();
+                updatePagination();
+            }
+        });
+        paginationContainer.appendChild(nextButton);
+    }
+
+    function createAppCard(app) {
+        const card = document.createElement('div');
+        card.className = 'app-card animate-fadeIn';
+        card.innerHTML = `
+            ${app.isNew ? '<div class="app-badge">Nouveau</div>' : ''}
+            ${app.isPremium ? '<div class="app-badge premium">Premium</div>' : ''}
+            <div class="app-header">
+                <img src="${app.logo}" alt="${app.name}" class="app-logo">
+                <div class="app-title">
+                    <h2>${app.name}</h2>
+                    <div class="app-category">${getCategoryName(app.category)}</div>
+                </div>
+            </div>
+            <div class="app-content">
+                <p class="app-description">${app.description}</p>
+                <ul class="app-features">
+                    ${app.features.slice(0, 3).map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                <div class="app-rating">
+                    <div class="stars">${app.stars}</div>
+                    <div class="rating-value">${app.rating}</div>
+                </div>
+            </div>
+            <div class="app-footer">
+                <div class="app-actions">
+                    <button class="action-btn share-btn" data-app-id="${app.id}">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <button class="action-btn favorite-btn ${favoriteApps.has(app.id) ? 'active' : ''}" 
+                            data-app-id="${app.id}">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+                <button class="downloadBtn" data-app-id="${app.id}">
+                    <i class="fas fa-download"></i> Télécharger
+                </button>
+                <div class="progress-container" id="progress-${app.id}">
+                    <div class="progress-bar" id="progress-bar-${app.id}">0%</div>
+                </div>
+                <a href="#" class="download-link" id="download-link-${app.id}" style="display: none;">
+                    <i class="fas fa-external-link-alt"></i> Ouvrir le fichier
+                </a>
+                <div style="font-size: 0.8rem; color: #666; text-align: center;">
+                    ${app.size} • ${app.downloads.toLocaleString()} téléchargements
+                </div>
+            </div>
+        `;
+        
+        // Ajouter les event listeners
+        const downloadBtn = card.querySelector('.downloadBtn');
+        const favoriteBtn = card.querySelector('.favorite-btn');
+        const shareBtn = card.querySelector('.share-btn');
+        
+        downloadBtn.addEventListener('click', () => handleDownload(app));
+        favoriteBtn.addEventListener('click', () => toggleFavorite(app.id, favoriteBtn));
+        shareBtn.addEventListener('click', () => shareApp(app));
+        
+        // Ajouter un event listener pour ouvrir les détails de l'app
+        card.addEventListener('click', (e) => {
+            if (!e.target.closest('.app-actions') && !e.target.closest('.downloadBtn')) {
+                showAppDetails(app);
+            }
+        });
+        
+        return card;
+    }
+
+    function handleDownload(app) {
+        const downloadBtn = document.querySelector(`.downloadBtn[data-app-id="${app.id}"]`);
+        const progressContainer = document.getElementById(`progress-${app.id}`);
+        const progressBar = document.getElementById(`progress-bar-${app.id}`);
+        const downloadLink = document.getElementById(`download-link-${app.id}`);
+        
+        // Désactiver le bouton
+        downloadBtn.disabled = true;
+        downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Téléchargement...';
+        
+        // Afficher la barre de progression
+        progressContainer.style.display = 'block';
+        
+        // Simuler le téléchargement
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += Math.random() * 10;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(interval);
                 
-                // Ajouter le message de l'utilisateur
-                addMessage(message, 'user');
-                chatInput.value = '';
-                
-                // Afficher l'indicateur de frappe
-                typingIndicator.style.display = 'block';
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                
-                // Simuler une réponse du bot
+                // Téléchargement terminé
                 setTimeout(() => {
-                    typingIndicator.style.display = 'none';
-                    const response = generateBotResponse(message);
-                    addMessage(response, 'bot');
-                }, 1500);
+                    progressContainer.style.display = 'none';
+                    downloadBtn.style.display = 'none';
+                    downloadLink.style.display = 'block';
+                    downloadLink.href = app.downloadUrl;
+                    
+                    // Ajouter aux apps téléchargées
+                    downloadedApps.add(app.id);
+                    localStorage.setItem('downloadedApps', JSON.stringify([...downloadedApps]));
+                    
+                    // Mettre à jour les stats
+                    updateStats();
+                    
+                    // Afficher une notification
+                    showNotification(`"${app.name}" a été téléchargé avec succès!`, 'success');
+                }, 500);
             }
-
-            function addMessage(text, sender) {
-                const messageDiv = document.createElement('div');
-                messageDiv.className = `message ${sender}`;
-                messageDiv.textContent = text;
-                chatMessages.appendChild(messageDiv);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-                
-                // Ajouter à l'historique
-                chatHistory.push({ sender, text });
-            }
-
-            function generateBotResponse(message) {
-                const lowerMessage = message.toLowerCase();
-                
-                // Réponses contextuelles
-                if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut') || lowerMessage.includes('hello')) {
-                    return 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?';
-                } else if (lowerMessage.includes('application') || lowerMessage.includes('app')) {
-                    return 'Nous avons de nombreuses applications disponibles. Utilisez la barre de recherche pour trouver ce que vous cherchez !';
-                } else if (lowerMessage.includes('télécharger') || lowerMessage.includes('download')) {
-                    return 'Pour télécharger une application, cliquez simplement sur le bouton "Télécharger" sous la carte de l\'application.';
-                } else if (lowerMessage.includes('compte') || lowerMessage.includes('connexion')) {
-                    return 'Vous pouvez créer un compte ou vous connecter en cliquant sur les boutons en haut à droite. Cela vous permettra de sauvegarder vos favoris !';
-                } else {
-                    const responses = [
-                        'Je ne suis pas sûr de comprendre. Pouvez-vous reformuler votre question ?',
-                        'Je suis là pour vous aider avec Looma App Store. Que souhaitez-vous savoir ?',
-                        'Désolé, je n\'ai pas d\'information sur ce sujet. Contactez-nous pour plus d\'aide.',
-                        'Vous pouvez naviguer dans les différentes catégories pour découvrir de nouvelles applications.'
-                    ];
-                    return responses[Math.floor(Math.random() * responses.length)];
-                }
-            }
-        }
-
-        // Fonction pour afficher les détails de l'application (simplifiée pour cet exemple)
-        function showAppDetails(appId) {
-            const app = allApps.find(a => a.id === appId);
-            if (!app) return;
             
-            appDetailsContent.innerHTML = `
-                <div class="app-details-header">
-                    <img src="${app.logo}" alt="${app.name}" class="app-logo" style="width: 100px; height: 100px;">
-                    <div class="app-details-info">
-                        <h2>${app.name}</h2>
-                        <div class="app-category">${app.category} • Développé par ${app.developer}</div>
-                        <div class="app-rating">
-                            <div class="stars">${app.stars}</div>
-                            <div class="rating-value">${app.rating} (${app.downloads.toLocaleString()} téléchargements)</div>
-                        </div>
-                        <p class="app-description">${app.description}</p>
-                        <button class="downloadBtn" data-id="${app.id}">Télécharger (${app.size})</button>
+            progressBar.style.width = `${progress}%`;
+            progressBar.textContent = `${Math.round(progress)}%`;
+        }, 100);
+    }
+
+    function toggleFavorite(appId, button) {
+        if (favoriteApps.has(appId)) {
+            favoriteApps.delete(appId);
+            button.classList.remove('active');
+            showNotification('Application retirée des favoris', 'info');
+        } else {
+            favoriteApps.add(appId);
+            button.classList.add('active');
+            showNotification('Application ajoutée aux favoris', 'success');
+        }
+        
+        localStorage.setItem('favoriteApps', JSON.stringify([...favoriteApps]));
+    }
+
+    function shareApp(app) {
+        if (navigator.share) {
+            navigator.share({
+                title: app.name,
+                text: app.description,
+                url: window.location.href
+            });
+        } else {
+            // Fallback pour les navigateurs qui ne supportent pas l'API Web Share
+            const shareUrl = `${window.location.origin}?app=${app.id}`;
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                showNotification('Lien copié dans le presse-papier!', 'success');
+            });
+        }
+    }
+
+    function showAppDetails(app) {
+        const modal = document.getElementById('appDetailsModal');
+        const content = document.getElementById('appDetailsContent');
+        
+        content.innerHTML = `
+            <div class="app-details-header">
+                <img src="${app.logo}" alt="${app.name}" style="width: 100px; height: 100px; border-radius: 20px;">
+                <div class="app-details-info">
+                    <h2>${app.name}</h2>
+                    <div class="app-rating">
+                        <div class="stars">${app.stars}</div>
+                        <div class="rating-value">${app.rating} • ${app.downloads.toLocaleString()} téléchargements</div>
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <span class="feature-badge ${app.isPremium ? 'premium' : 'free'}">
+                            ${app.isPremium ? 'Premium' : 'Gratuit'}
+                        </span>
+                        <span class="feature-badge">${app.size}</span>
+                        <span class="feature-badge">Version ${app.version}</span>
                     </div>
                 </div>
+            </div>
+            
+            <div class="app-content">
+                <p class="app-description">${app.description}</p>
+                
                 <h3>Fonctionnalités</h3>
                 <ul class="app-features">
                     ${app.features.map(feature => `<li>${feature}</li>`).join('')}
                 </ul>
-            `;
+                
+                <h3>Informations</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
+                    <div><strong>Développeur:</strong> ${app.developer}</div>
+                    <div><strong>Catégorie:</strong> ${getCategoryName(app.category)}</div>
+                    <div><strong>Dernière mise à jour:</strong> ${app.lastUpdated}</div>
+                    <div><strong>Version:</strong> ${app.version}</div>
+                </div>
+                
+                <div class="app-screenshots">
+                    <div class="screenshot">
+                        <img src="https://via.placeholder.com/300x600/6a11cb/ffffff?text=Screen+1" alt="Screenshot 1">
+                    </div>
+                    <div class="screenshot">
+                        <img src="https://via.placeholder.com/300x600/2575fc/ffffff?text=Screen+2" alt="Screenshot 2">
+                    </div>
+                    <div class="screenshot">
+                        <img src="https://via.placeholder.com/300x600/ff4081/ffffff?text=Screen+3" alt="Screenshot 3">
+                    </div>
+                </div>
+                
+                <div class="reviews-section">
+                    <h3>Avis des utilisateurs</h3>
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="review-author">Jean D.</div>
+                            <div class="review-date">2023-11-28</div>
+                        </div>
+                        <div class="stars">★★★★★</div>
+                        <p>Excellent! Cette application a changé ma façon de travailler. Interface intuitive et fonctionnalités complètes.</p>
+                    </div>
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="review-author">Marie L.</div>
+                            <div class="review-date">2023-11-25</div>
+                        </div>
+                        <div class="stars">★★★★☆</div>
+                        <p>Très bonne application, mais quelques bugs mineurs à corriger. Dans l'ensemble, je recommande!</p>
+                    </div>
+                </div>
+            </div>
             
-            // Ajouter l'événement de téléchargement
-            const downloadBtn = appDetailsContent.querySelector('.downloadBtn');
-            downloadBtn.addEventListener('click', function() {
-                downloadApp(app.id, this);
-            });
-            
-            appDetailsModal.style.display = 'block';
-        }
+            <div class="app-footer">
+                <button class="downloadBtn" style="width: 100%; margin: 1rem 0;" data-app-id="${app.id}">
+                    <i class="fas fa-download"></i> Télécharger (${app.size})
+                </button>
+            </div>
+        `;
+        
+        // Ajouter l'event listener pour le téléchargement
+        const downloadBtn = content.querySelector('.downloadBtn');
+        downloadBtn.addEventListener('click', () => {
+            handleDownload(app);
+            closeAppDetailsModal();
+        });
+        
+        modal.style.display = 'block';
+    }
 
-        // Initialiser l'application
-        initializeApp();
-    });
+    function closeAppDetailsModal() {
+        document.getElementById('appDetailsModal').style.display = 'none';
+    }
+
+    function showAuthModal(tab = 'login') {
+        const modal = document.getElementById('authModal');
+        modal.style.display = 'block';
+        switchAuthTab(tab);
+    }
+
+    function closeAuthModal() {
+        document.getElementById('authModal').style.display = 'none';
+    }
+
+    function switchAuthTab(tabName) {
+        // Mettre à jour les tabs
+        document.querySelectorAll('.auth-tab').forEach(tab => {
+            tab.classList.toggle('active', tab.getAttribute('data-tab') === tabName);
+        });
+        
+        // Mettre à jour les formulaires
+        document.querySelectorAll('.auth-form').forEach(form => {
+            form.classList.toggle('active', form.id === `${tabName}Form`);
+        });
+    }
+
+    async function handleLogin(e) {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+        
+        try {
+            // Utiliser Firebase Auth pour la connexion
+            const userCredential = await window.firebase.authFunctions.signInWithEmailAndPassword(
+                window.firebase.auth, email, password
+            );
+            
+            currentUser = userCredential.user;
+            showNotification('Connexion réussie!', 'success');
+            closeAuthModal();
+            updateUserInterface();
+            
+        } catch (error) {
+            console.error('Erreur de connexion:', error);
+            showNotification('Erreur de connexion: ' + error.message, 'error');
+        }
+    }
+
+    async function handleRegister(e) {
+        e.preventDefault();
+        const name = document.getElementById('registerName').value;
+        const email = document.getElementById('registerEmail').value;
+        const password = document.getElementById('registerPassword').value;
+        const confirmPassword = document.getElementById('registerConfirmPassword').value;
+        
+        if (password !== confirmPassword) {
+            showNotification('Les mots de passe ne correspondent pas', 'error');
+            return;
+        }
+        
+        try {
+            // Utiliser Firebase Auth pour l'inscription
+            const userCredential = await window.firebase.authFunctions.createUserWithEmailAndPassword(
+                window.firebase.auth, email, password
+            );
+            
+            currentUser = userCredential.user;
+            
+            // Sauvegarder les informations supplémentaires dans la base de données
+            await window.firebase.dbFunctions.set(
+                window.firebase.dbFunctions.ref(window.firebase.database, 'users/' + currentUser.uid),
+                {
+                    name: name,
+                    email: email,
+                    createdAt: new Date().toISOString(),
+                    isDeveloper: false
+                }
+            );
+            
+            showNotification('Inscription réussie!', 'success');
+            closeAuthModal();
+            updateUserInterface();
+            
+        } catch (error) {
+            console.error('Erreur d\'inscription:', error);
+            showNotification('Erreur d\'inscription: ' + error.message, 'error');
+        }
+    }
+
+    async function handleLogout() {
+        try {
+            await window.firebase.authFunctions.signOut(window.firebase.auth);
+            currentUser = null;
+            showNotification('Déconnexion réussie', 'info');
+            updateUserInterface();
+        } catch (error) {
+            console.error('Erreur de déconnexion:', error);
+            showNotification('Erreur de déconnexion', 'error');
+        }
+    }
+
+    function checkAuthState() {
+        window.firebase.authFunctions.onAuthStateChanged(window.firebase.auth, (user) => {
+            if (user) {
+                currentUser = user;
+                // Charger les informations supplémentaires de l'utilisateur
+                loadUserData(user.uid);
+            } else {
+                currentUser = null;
+            }
+            updateUserInterface();
+        });
+    }
+
+    async function loadUserData(userId) {
+        try {
+            const userRef = window.firebase.dbFunctions.ref(window.firebase.database, 'users/' + userId);
+            const snapshot = await window.firebase.dbFunctions.get(userRef);
+            
+            if (snapshot.exists()) {
+                const userData = snapshot.val();
+                document.getElementById('userName').textContent = userData.name;
+                document.getElementById('userAvatar').textContent = userData.name.charAt(0).toUpperCase();
+                
+                // Afficher le badge développeur si applicable
+                if (userData.isDeveloper) {
+                    document.getElementById('developerBadge').style.display = 'inline-block';
+                }
+            }
+        } catch (error) {
+            console.error('Erreur lors du chargement des données utilisateur:', error);
+        }
+    }
+
+    function updateUserInterface() {
+        const userActions = document.getElementById('userActions');
+        const userProfile = document.getElementById('userProfile');
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        
+        if (currentUser) {
+            loginBtn.style.display = 'none';
+            registerBtn.style.display = 'none';
+            userProfile.style.display = 'flex';
+        } else {
+            loginBtn.style.display = 'block';
+            registerBtn.style.display = 'block';
+            userProfile.style.display = 'none';
+        }
+    }
+
+    function toggleUserDropdown() {
+        const dropdown = document.getElementById('userDropdown');
+        dropdown.classList.toggle('active');
+    }
+
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const icon = document.querySelector('#darkModeToggle i');
+        if (document.body.classList.contains('dark-mode')) {
+            icon.className = 'fas fa-sun';
+            localStorage.setItem('darkMode', 'enabled');
+        } else {
+            icon.className = 'fas fa-moon';
+            localStorage.setItem('darkMode', 'disabled');
+        }
+    }
+
+    function toggleChat() {
+        const chatWindow = document.getElementById('chatWindow');
+        chatWindow.classList.toggle('active');
+    }
+
+    function sendChatMessage() {
+        const input = document.getElementById('chatInput');
+        const messagesContainer = document.getElementById('chatMessages');
+        const message = input.value.trim();
+        
+        if (!message) return;
+        
+        // Ajouter le message de l'utilisateur
+        const userMessage = document.createElement('div');
+        userMessage.className = 'message user';
+        userMessage.textContent = message;
+        messagesContainer.appendChild(userMessage);
+        
+        // Effacer l'input
+        input.value = '';
+        
+        // Simuler une réponse du bot
+        simulateBotResponse(message);
+        
+        // Scroll vers le bas
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    function simulateBotResponse(userMessage) {
+        const messagesContainer = document.getElementById('chatMessages');
+        const typingIndicator = document.getElementById('typingIndicator');
+        
+        // Afficher l'indicateur de frappe
+        typingIndicator.style.display = 'block';
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        
+        // Simuler un délai de réponse
+        setTimeout(() => {
+            typingIndicator.style.display = 'none';
+            
+            const botMessage = document.createElement('div');
+            botMessage.className = 'message bot';
+            
+            // Réponses prédéfinies basées sur le message de l'utilisateur
+            const lowerMessage = userMessage.toLowerCase();
+            let response = '';
+            
+            if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut') || lowerMessage.includes('hello')) {
+                response = 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?';
+            } else if (lowerMessage.includes('application') || lowerMessage.includes('app')) {
+                response = 'Nous avons une large sélection d\'applications. Utilisez la barre de recherche ou parcourez les catégories pour trouver ce que vous cherchez !';
+            } else if (lowerMessage.includes('télécharger') || lowerMessage.includes('download')) {
+                response = 'Pour télécharger une application, cliquez simplement sur le bouton "Télécharger" sur la carte de l\'application. Le téléchargement commencera automatiquement.';
+            } else if (lowerMessage.includes('problème') || lowerMessage.includes('bug') || lowerMessage.includes('erreur')) {
+                response = 'Désolé d\'apprendre que vous rencontrez un problème. Vous pouvez contacter notre support technique à support@looma-store.com';
+            } else if (lowerMessage.includes('merci')) {
+                response = 'Je vous en prie ! N\'hésitez pas si vous avez d\'autres questions.';
+            } else {
+                response = 'Je suis là pour vous aider avec le Looma App Store. Vous pouvez me poser des questions sur les applications, les téléchargements, ou toute autre fonctionnalité !';
+            }
+            
+            botMessage.textContent = response;
+            messagesContainer.appendChild(botMessage);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }, 1500);
+    }
+
+    function toggleMobileMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function handleLanguageChange(e) {
+        const selectedLanguage = e.target.value;
+        showNotification(`Langue changée en ${e.target.options[e.target.selectedIndex].text}`, 'info');
+        // Ici, vous implémenteriez la logique de changement de langue
+    }
+
+    function handleSearch(e) {
+        const searchTerm = e.target.value.toLowerCase();
+        
+        if (searchTerm.length < 2) {
+            // Réinitialiser l'affichage si la recherche est trop courte
+            if (currentPage === 'apps') {
+                displayAppsForCurrentPage();
+            }
+            return;
+        }
+        
+        const filteredApps = realApps.filter(app => 
+            app.name.toLowerCase().includes(searchTerm) ||
+            app.description.toLowerCase().includes(searchTerm) ||
+            app.category.toLowerCase().includes(searchTerm) ||
+            app.developer.toLowerCase().includes(searchTerm)
+        );
+        
+        if (currentPage === 'apps') {
+            const appsContainer = document.getElementById('appsContainer');
+            appsContainer.innerHTML = '';
+            
+            if (filteredApps.length === 0) {
+                appsContainer.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                        <h3>Aucun résultat trouvé</h3>
+                        <p>Aucune application ne correspond à "${searchTerm}"</p>
+                    </div>
+                `;
+            } else {
+                filteredApps.forEach(app => {
+                    appsContainer.appendChild(createAppCard(app));
+                });
+            }
+        }
+    }
+
+    function updateStats() {
+        // Mettre à jour les statistiques en temps réel
+        document.getElementById('totalApps').textContent = realApps.length.toLocaleString();
+        document.getElementById('totalDownloads').textContent = realApps.reduce((sum, app) => sum + app.downloads, 0).toLocaleString();
+        document.getElementById('activeUsers').textContent = Math.floor(Math.random() * 10000 + 50000).toLocaleString();
+        document.getElementById('developerCount').textContent = new Set(realApps.map(app => app.developer)).size;
+    }
+
+    function simulateConnectionQuality() {
+        const statusElement = document.getElementById('connectionStatus');
+        const textElement = document.getElementById('connectionText');
+        
+        const qualities = [
+            { text: 'Connexion excellente', class: 'good' },
+            { text: 'Connexion moyenne', class: 'poor' },
+            { text: 'Connexion faible', class: 'bad' }
+        ];
+        
+        // Changer aléatoirement la qualité de connexion toutes les 30 secondes
+        setInterval(() => {
+            const randomQuality = qualities[Math.floor(Math.random() * qualities.length)];
+            statusElement.className = `connection-status ${randomQuality.class}`;
+            textElement.textContent = randomQuality.text;
+        }, 30000);
+    }
+
+    function showNotification(message, type = 'info') {
+        // Créer une notification toast
+        const notification = document.createElement('div');
+        notification.className = `notification ${type}`;
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 1rem 1.5rem;
+            background: ${type === 'success' ? 'var(--success-color)' : 
+                         type === 'error' ? 'var(--danger-color)' : 
+                         type === 'warning' ? 'var(--warning-color)' : 'var(--primary-color)'};
+            color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            z-index: 10000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            max-width: 300px;
+        `;
+        notification.textContent = message;
+        
+        document.body.appendChild(notification);
+        
+        // Animation d'entrée
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+        
+        // Supprimer après 3 secondes
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
+
+    function getCategoryName(category) {
+        const categories = {
+            'streaming': 'Streaming',
+            'social': 'Réseaux sociaux',
+            'utilitaire': 'Utilitaires',
+            'productivite': 'Productivité',
+            'education': 'Éducation',
+            'sante': 'Santé',
+            'finance': 'Finance',
+            'musique': 'Musique',
+            'photo': 'Photo & Vidéo',
+            'games': 'Jeux'
+        };
+        return categories[category] || category;
+    }
+
+    // Charger les autres pages
+    function loadUpdatedApps() {
+        const updatedAppsContainer = document.getElementById('updatedApps');
+        const appUpdatesContainer = document.getElementById('appUpdates');
+        
+        // Trier les apps par date de mise à jour (plus récentes d'abord)
+        const recentlyUpdated = [...realApps]
+            .sort((a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated))
+            .slice(0, 6);
+        
+        updatedAppsContainer.innerHTML = '';
+        recentlyUpdated.forEach(app => {
+            updatedAppsContainer.appendChild(createAppCard(app));
+        });
+        
+        // Journal des mises à jour
+        appUpdatesContainer.innerHTML = `
+            <div style="background: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                <h3 style="margin-bottom: 1rem;">Journal des mises à jour récentes</h3>
+                ${recentlyUpdated.map(app => `
+                    <div style="padding: 1rem; border-bottom: 1px solid #eee; display: flex; align-items: center;">
+                        <img src="${app.logo}" alt="${app.name}" style="width: 40px; height: 40px; border-radius: 10px; margin-right: 1rem;">
+                        <div style="flex: 1;">
+                            <div style="font-weight: bold;">${app.name}</div>
+                            <div style="font-size: 0.9rem; color: #666;">Version ${app.version} • ${app.lastUpdated}</div>
+                        </div>
+                        <span class="feature-badge new">Nouveau</span>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    }
+
+    function loadGames() {
+        // Implémentation similaire pour les jeux
+        showNotification('Page Jeux chargée', 'info');
+    }
+
+    function loadCategories() {
+        // Implémentation similaire pour les catégories
+        showNotification('Page Catégories chargée', 'info');
+    }
+
+    function loadTopApps() {
+        // Implémentation similaire pour les top apps
+        showNotification('Page Top Apps chargée', 'info');
+    }
+
+    function loadNewApps() {
+        // Implémentation similaire pour les nouvelles apps
+        showNotification('Page Nouvelles Apps chargée', 'info');
+    }
+
+    function loadTrendingApps() {
+        // Implémentation similaire pour les apps tendances
+        showNotification('Page Apps Tendances chargée', 'info');
+    }
+
+    // Vérifier le mode sombre au chargement
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+        document.querySelector('#darkModeToggle i').className = 'fas fa-sun';
+    }
+
+    // Initialiser AdSense
+    (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </body>
 </html>
