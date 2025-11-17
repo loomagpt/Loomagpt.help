@@ -1,101 +1,27 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Looma App Store - Applications Android Gratuites</title>
-    <meta name="description" content="Téléchargez les meilleures applications Android gratuites. Streaming, jeux, utilitaires et plus encore sur Looma App Store.">
-    <meta name="keywords" content="applications android, apps gratuites, téléchargement apps, jeux mobiles, streaming">
-    
-    <!-- Favicon et icônes -->
-    <link rel="icon" type="image/jpeg" href="https://archive.org/download/1c-4d-5bba-ddc-1-4953-92b-6-089ca-65b-9e-7c/1c4d5bba-ddc1-4953-92b6-089ca65b9e7c.jpeg">
-    <link rel="apple-touch-icon" href="">
-    <meta name="theme-color" content="#6a11cb">
-    
+    <meta name="monetag" content="69817ad66f0eff17981860c0b815aa58">
+    <title>Multi-AI Chat Interface</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-     crossorigin="anonymous"></script>
-    
-    <!-- Adsterra Native Banner -->
-    <script async="async" data-cfasync="false" src="//pl27933489.effectivegatecpm.com/f000f81099cbfe4f209d1ee0574bef28/invoke.js"></script>
-    
-    <!-- Import Firebase -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
-        import { 
-            getAuth, 
-            createUserWithEmailAndPassword, 
-            signInWithEmailAndPassword, 
-            signOut,
-            onAuthStateChanged
-        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-        import { 
-            getDatabase, 
-            ref, 
-            set, 
-            get, 
-            update,
-            push,
-            onValue
-        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
-
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-            apiKey: "AIzaSyABmWKGHOihq-2A_oywlKke-H4l7Pq_UvM",
-            authDomain: "loomastore.firebaseapp.com",
-            databaseURL: "https://loomastore-default-rtdb.firebaseio.com",
-            projectId: "loomastore",
-            storageBucket: "loomastore.firebasestorage.app",
-            messagingSenderId: "480260251641",
-            appId: "1:480260251641:web:75b1fbea6dc8f33cc16728",
-            measurementId: "G-Z4QXNFLQEY"
-        };
-
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-        const auth = getAuth(app);
-        const database = getDatabase(app);
-
-        // Make Firebase available globally
-        window.firebase = {
-            auth,
-            database,
-            authFunctions: {
-                createUserWithEmailAndPassword,
-                signInWithEmailAndPassword,
-                signOut,
-                onAuthStateChanged
-            },
-            dbFunctions: {
-                ref,
-                set,
-                get,
-                update,
-                push,
-                onValue
-            }
-        };
-    </script>
-
     <style>
         :root {
-            --primary-color: #6a11cb;
-            --secondary-color: #2575fc;
-            --accent-color: #ff4081;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --success-color: #28a745;
-            --warning-color: #ffc107;
-            --danger-color: #dc3545;
-            --gray-color: #6c757d;
-            --border-radius: 12px;
-            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
+            --primary: #10a37f;
+            --primary-dark: #0d8c6c;
+            --deepseek: #6e49ff;
+            --gemini: #8e75e2;
+            --bg-color: #f7f7f8;
+            --sidebar-bg: #202123;
+            --chat-bg: #ffffff;
+            --text-primary: #343541;
+            --text-secondary: #6e6e80;
+            --border-color: #e5e5e7;
+            --user-msg-bg: #ffffff;
+            --ai-msg-bg: #f7f7f8;
+            --error: #ef4444;
+            --warning: #f59e0b;
         }
 
         * {
@@ -106,3286 +32,944 @@
         }
 
         body {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: var(--dark-color);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        .animate-fadeIn {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .animate-slideInLeft {
-            animation: slideInLeft 0.6s ease-out;
-        }
-
-        .animate-slideInRight {
-            animation: slideInRight 0.6s ease-out;
-        }
-
-        .animate-pulse {
-            animation: pulse 2s infinite;
-        }
-
-        .animate-bounce {
-            animation: bounce 2s infinite;
-        }
-
-        /* Header Styles */
-        header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1.5rem 2rem;
-            box-shadow: var(--box-shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            animation: slideInLeft 0.8s ease-out;
-        }
-
-        .header-content {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo-link {
-            text-decoration: none;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: var(--transition);
-        }
-
-        .logo-link:hover {
-            transform: scale(1.05);
-        }
-
-        .site-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: var(--transition);
-        }
-
-        .logo-link:hover .site-logo {
-            transform: rotate(5deg);
-        }
-
-        header h1 {
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-            margin: 0;
-        }
-
-        header h1 i {
-            margin-right: 10px;
-            animation: bounce 2s infinite;
-        }
-
-        .connection-status {
-            display: flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        .connection-status:hover {
-            transform: scale(1.05);
-        }
-
-        .connection-status i {
-            margin-right: 5px;
-        }
-
-        .connection-status.good {
-            color: #4caf50;
-        }
-
-        .connection-status.poor {
-            color: #ff9800;
-        }
-
-        .connection-status.bad {
-            color: #f44336;
-        }
-
-        #searchBar {
-            width: 100%;
-            max-width: 500px;
-            margin: 1rem auto 0;
-            display: block;
-            padding: 0.8rem 1.2rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            animation: fadeIn 1s ease-out;
-        }
-
-        #searchBar:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.3);
-            transform: scale(1.02);
-        }
-
-        /* Navigation Styles */
-        nav {
-            background: white;
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            animation: slideInRight 0.8s ease-out;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            transition: var(--transition);
-            position: relative;
             overflow: hidden;
         }
 
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(106, 17, 203, 0.1), transparent);
-            transition: left 0.5s;
-        }
-
-        .nav-links a:hover::before {
-            left: 100%;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            background: rgba(106, 17, 203, 0.1);
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .mobile-menu-btn:hover {
-            transform: rotate(90deg);
-        }
-
-        .user-actions {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .user-actions button {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .user-actions button::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-
-        .user-actions button:focus:not(:active)::after {
-            animation: ripple 1s ease-out;
-        }
-
-        @keyframes ripple {
-            0% {
-                transform: scale(0, 0);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(20, 20);
-                opacity: 0;
-            }
-        }
-
-        .login-btn {
-            background: transparent;
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-        }
-
-        .login-btn:hover {
-            background: var(--primary-color);
+        .sidebar {
+            width: 280px;
+            background-color: var(--sidebar-bg);
             color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(106, 17, 203, 0.3);
-        }
-
-        .register-btn {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .register-btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(37, 117, 252, 0.3);
-        }
-
-        .user-profile {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            position: relative;
-            transition: var(--transition);
-        }
-
-        .user-profile:hover {
-            transform: scale(1.05);
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            transition: var(--transition);
-            animation: pulse 3s infinite;
-        }
-
-        .user-avatar:hover {
-            animation: bounce 1s;
-        }
-
-        .user-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            min-width: 200px;
-            padding: 0.5rem 0;
-            display: none;
-            z-index: 1000;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .user-dropdown.active {
-            display: block;
-        }
-
-        .user-dropdown a {
-            display: block;
-            padding: 0.8rem 1.5rem;
-            text-decoration: none;
-            color: var(--dark-color);
-            transition: var(--transition);
-        }
-
-        .user-dropdown a:hover {
-            background: rgba(106, 17, 203, 0.1);
-            color: var(--primary-color);
-            padding-left: 2rem;
-        }
-
-        .user-dropdown .divider {
-            height: 1px;
-            background: #eee;
-            margin: 0.5rem 0;
-        }
-
-        .developer-badge {
-            background: var(--warning-color);
-            color: white;
-            font-size: 0.7rem;
-            padding: 0.2rem 0.5rem;
-            border-radius: 10px;
-            margin-left: 0.5rem;
-            animation: pulse 2s infinite;
-        }
-
-        .language-selector {
-            margin-left: 1rem;
-        }
-
-        .language-selector select {
-            padding: 0.5rem;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            background: white;
-            transition: var(--transition);
-        }
-
-        .language-selector select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.1);
-        }
-
-        /* Main Content Styles */
-        main {
-            padding: 2rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            margin-bottom: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .section-title h2 {
-            font-size: 1.5rem;
-            color: var(--dark-color);
-            position: relative;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            border-radius: 2px;
-        }
-
-        .view-all {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            position: relative;
-        }
-
-        .view-all::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .view-all:hover::after {
-            width: 100%;
-        }
-
-        .view-all:hover {
-            transform: translateX(5px);
-        }
-
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .app-card {
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            overflow: hidden;
-            transition: var(--transition);
             display: flex;
             flex-direction: column;
-            position: relative;
-            animation: fadeIn 0.6s ease-out;
+            height: 100%;
+            transition: transform 0.3s ease;
+            z-index: 100;
         }
 
-        .app-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .app-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: var(--accent-color);
-            color: white;
-            padding: 0.3rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            z-index: 2;
-            animation: pulse 2s infinite;
-        }
-
-        .app-header {
-            padding: 1.5rem;
+        .sidebar-header {
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            gap: 10px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            background: linear-gradient(90deg, var(--primary), var(--deepseek), var(--gemini));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .new-chat-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
             color: white;
-            position: relative;
-            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 16px;
+            transition: background-color 0.2s;
         }
 
-        .app-logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
-            margin-right: 1rem;
-            object-fit: cover;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: var(--transition);
-            position: relative;
-            z-index: 1;
+        .new-chat-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .app-card:hover .app-logo {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .app-title {
+        .chat-history {
             flex: 1;
-            position: relative;
-            z-index: 1;
-        }
-
-        .app-title h2 {
-            font-size: 1.4rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .app-title .app-category {
-            font-size: 0.85rem;
-            opacity: 0.9;
-        }
-
-        .app-content {
-            padding: 1.5rem;
-            flex: 1;
-        }
-
-        .app-description {
-            margin-bottom: 1.5rem;
-            color: var(--gray-color);
-        }
-
-        .app-features {
-            margin-bottom: 1.5rem;
-        }
-
-        .app-features li {
-            list-style: none;
-            padding: 0.3rem 0;
-            display: flex;
-            align-items: center;
-            transition: var(--transition);
-        }
-
-        .app-features li:hover {
-            transform: translateX(5px);
-        }
-
-        .app-features li::before {
-            content: "✓";
-            color: var(--success-color);
-            font-weight: bold;
-            margin-right: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .app-features li:hover::before {
-            transform: scale(1.2);
-        }
-
-        .app-footer {
-            padding: 1.5rem;
-            background-color: rgba(0, 0, 0, 0.03);
-            border-top: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .app-actions {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .action-btn {
-            flex: 1;
-            padding: 0.5rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.3rem;
-            font-size: 0.8rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .action-btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-
-        .action-btn:focus:not(:active)::after {
-            animation: ripple 1s ease-out;
-        }
-
-        .share-btn {
-            background: #e9ecef;
-            color: var(--dark-color);
-        }
-
-        .share-btn:hover {
-            background: #dee2e6;
-            transform: translateY(-2px);
-        }
-
-        .favorite-btn {
-            background: #e9ecef;
-            color: var(--dark-color);
-        }
-
-        .favorite-btn:hover {
-            background: #dee2e6;
-            transform: translateY(-2px);
-        }
-
-        .favorite-btn.active {
-            background: var(--danger-color);
-            color: white;
-            animation: pulse 1.5s infinite;
-        }
-
-        .downloadBtn {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: block;
-            width: 100%;
-            margin-bottom: 1rem;
-            box-shadow: 0 4px 10px rgba(106, 17, 203, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .downloadBtn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .downloadBtn:hover::before {
-            left: 100%;
-        }
-
-        .downloadBtn:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(106, 17, 203, 0.4);
-        }
-
-        .downloadBtn:active {
-            transform: translateY(0);
-        }
-
-        .downloadBtn:disabled {
-            background: var(--gray-color);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .progress-container {
-            width: 100%;
-            height: 8px;
-            background-color: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            display: none;
-        }
-
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            width: 0%;
-            border-radius: 4px;
-            transition: width 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.7rem;
-            font-weight: bold;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-link {
-            display: none;
-            text-align: center;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 0.5rem;
-            padding: 0.5rem;
-            border: 1px dashed var(--primary-color);
-            border-radius: var(--border-radius);
-            transition: var(--transition);
-        }
-
-        .download-link:hover {
-            background-color: rgba(106, 17, 203, 0.05);
-            transform: translateY(-2px);
-        }
-
-        .app-rating {
-            display: flex;
-            align-items: center;
-            margin-top: 0.5rem;
-        }
-
-        .stars {
-            color: var(--warning-color);
-            margin-right: 0.5rem;
-        }
-
-        .rating-value {
-            font-weight: 600;
-        }
-
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--primary-color);
-            background: white;
-            color: var(--primary-color);
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .filter-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(106, 17, 203, 0.1), transparent);
-            transition: 0.5s;
-        }
-
-        .filter-btn:hover::before {
-            left: 100%;
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(106, 17, 203, 0.2);
-        }
-
-        .no-results {
-            text-align: center;
-            padding: 2rem;
-            color: var(--gray-color);
-            grid-column: 1 / -1;
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .ad-space {
-            height: 100px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            margin: 2rem 0;
-            border-radius: var(--border-radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.1rem;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-            animation: pulse 3s infinite;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .ad-space:hover {
-            transform: scale(1.02);
-        }
-
-        /* Styles pour les publicités AdSense */
-        .adsense-container {
-            margin: 2rem 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: var(--border-radius);
-            padding: 1rem;
-        }
-
-        .adsense-in-feed {
-            width: 100%;
-            max-width: 1200px;
-            margin: 2rem auto;
-        }
-
-        .adsense-display {
-            width: 100%;
-            max-width: 728px;
-            margin: 2rem auto;
-        }
-
-        .adsense-in-article {
-            width: 100%;
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .adsense-multiplex {
-            width: 100%;
-            max-width: 1000px;
-            margin: 2rem auto;
-        }
-
-        /* Styles pour Adsterra Native Banner */
-        .adsterra-container {
-            margin: 2rem 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 250px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: var(--border-radius);
-            padding: 1rem;
-            border: 2px dashed var(--primary-color);
-        }
-
-        .adsterra-native {
-            width: 100%;
-            max-width: 1200px;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 3rem 2rem;
-            border-radius: var(--border-radius);
-            margin-bottom: 3rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            animation: fadeIn 1s ease-out;
-        }
-
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-            animation: slideInLeft 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            position: relative;
-            z-index: 1;
-            animation: slideInRight 1s ease-out;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        .hero-btn {
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-
-        .hero-btn:focus:not(:active)::after {
-            animation: ripple 1s ease-out;
-        }
-
-        .primary-btn {
-            background: white;
-            color: var(--primary-color);
-        }
-
-        .primary-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .secondary-btn {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .secondary-btn:hover {
-            background: white;
-            color: var(--primary-color);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        /* Footer Styles */
-        footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 3rem 2rem;
-            margin-top: 3rem;
-            animation: fadeIn 1s ease-out;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            position: relative;
-        }
-
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 30px;
-            height: 2px;
-            background: var(--primary-color);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-            transition: var(--transition);
-        }
-
-        .footer-links li:hover {
-            transform: translateX(5px);
-        }
-
-        .footer-links a {
-            color: #adb5bd;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--primary-color);
-            transform: translateY(-5px) rotate(10deg);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #adb5bd;
-        }
-
-        /* Page Styles */
-        .page {
-            display: none;
-            animation: fadeIn 0.5s ease-out;
-        }
-
-        .page.active {
-            display: block;
-        }
-
-        .pagination {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 2rem;
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        .pagination button {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--primary-color);
-            background: white;
-            color: var(--primary-color);
-            border-radius: 5px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .pagination button.active {
-            background: var(--primary-color);
-            color: white;
-            transform: scale(1.1);
-        }
-
-        .pagination button:hover:not(.active) {
-            background: rgba(106, 17, 203, 0.1);
-            transform: translateY(-2px);
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
             overflow-y: auto;
-            animation: fadeIn 0.3s ease-out;
+            padding: 8px;
         }
 
-        .modal-content {
-            background: white;
-            margin: 2rem auto;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            max-width: 800px;
-            position: relative;
-            animation: slideInLeft 0.5s ease-out;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
+        .chat-history-item {
+            padding: 12px;
+            border-radius: 6px;
             cursor: pointer;
-            color: var(--gray-color);
-            transition: var(--transition);
-            width: 30px;
-            height: 30px;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 50%;
+            gap: 8px;
+            transition: background-color 0.2s;
         }
 
-        .close-modal:hover {
-            background: #f8f9fa;
-            transform: rotate(90deg);
+        .chat-history-item:hover {
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .app-details-header {
+        .chat-history-item i {
+            font-size: 14px;
+        }
+
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .api-section {
+            margin-bottom: 16px;
+        }
+
+        .api-section-title {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.7);
             display: flex;
-            margin-bottom: 2rem;
-            animation: fadeIn 0.6s ease-out;
+            align-items: center;
+            gap: 6px;
         }
 
-        .app-details-info {
-            flex: 1;
-            padding-left: 2rem;
-        }
-
-        .app-details-info h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .app-screenshots {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .screenshot {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            transition: var(--transition);
-            cursor: pointer;
-        }
-
-        .screenshot:hover {
-            transform: scale(1.05);
-        }
-
-        .screenshot img {
+        .api-key-input {
             width: 100%;
-            height: auto;
-            display: block;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            margin-bottom: 8px;
+            font-size: 14px;
         }
 
-        .reviews-section {
-            margin-top: 2rem;
-            animation: fadeIn 1s ease-out;
+        .api-key-input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
         }
 
-        .review {
-            border-bottom: 1px solid #eee;
-            padding: 1rem 0;
-            transition: var(--transition);
-        }
-
-        .review:hover {
-            background: #f8f9fa;
-            padding-left: 1rem;
-        }
-
-        .review:last-child {
-            border-bottom: none;
-        }
-
-        .review-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-        }
-
-        .review-author {
-            font-weight: bold;
-        }
-
-        .review-date {
-            color: var(--gray-color);
-            font-size: 0.9rem;
-        }
-
-        /* Auth Modal Styles */
-        .auth-modal {
-            max-width: 400px;
-        }
-
-        .auth-tabs {
-            display: flex;
-            margin-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .auth-tab {
-            flex: 1;
-            padding: 1rem;
-            text-align: center;
+        .save-api-btn {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--primary);
+            border: none;
+            border-radius: 4px;
+            color: white;
             cursor: pointer;
-            transition: var(--transition);
-            border-bottom: 3px solid transparent;
-        }
-
-        .auth-tab.active {
-            border-bottom-color: var(--primary-color);
-            color: var(--primary-color);
-            font-weight: bold;
-        }
-
-        .auth-form {
-            display: none;
-        }
-
-        .auth-form.active {
-            display: block;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
             font-weight: 500;
+            transition: background-color 0.2s;
         }
 
-        .form-control {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: var(--border-radius);
-            transition: var(--transition);
+        .save-api-btn:hover {
+            background-color: var(--primary-dark);
         }
 
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.1);
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 0.8rem;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .submit-btn:hover {
-            background: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Dark Mode Styles */
-        .dark-mode-toggle {
-            background: transparent;
-            border: none;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            margin-left: 1rem;
-            transition: var(--transition);
-            animation: pulse 3s infinite;
-        }
-
-        .dark-mode-toggle:hover {
-            transform: rotate(30deg);
-        }
-
-        .dark-mode {
-            background: #121212;
-            color: #e0e0e0;
-        }
-
-        .dark-mode header {
-            background: linear-gradient(to right, #4a148c, #1a237e);
-        }
-
-        .dark-mode nav {
-            background: #1e1e1e;
-            color: #e0e0e0;
-        }
-
-        .dark-mode .app-card {
-            background: #1e1e1e;
-            color: #e0e0e0;
-        }
-
-        .dark-mode .app-footer {
-            background: #252525;
-        }
-
-        .dark-mode .filter-btn {
-            background: #252525;
-            color: #e0e0e0;
-            border-color: #6a11cb;
-        }
-
-        .dark-mode .filter-btn.active {
-            background: #6a11cb;
-        }
-
-        .dark-mode .hero {
-            background: linear-gradient(to right, #4a148c, #1a237e);
-        }
-
-        .dark-mode footer {
-            background: #1a1a1a;
-        }
-
-        /* Chat Bot Styles */
-        .chat-bot {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            border-radius: 50%;
+        .api-status {
+            font-size: 12px;
+            margin-top: 4px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            z-index: 100;
-            transition: var(--transition);
-            animation: bounce 2s infinite;
+            gap: 4px;
         }
 
-        .chat-bot:hover {
-            transform: scale(1.2) rotate(10deg);
+        .api-status.valid {
+            color: var(--primary);
         }
 
-        .chat-window {
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 350px;
-            height: 450px;
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-            display: none;
-            flex-direction: column;
-            z-index: 100;
-            overflow: hidden;
-            animation: slideInRight 0.5s ease-out;
+        .api-status.invalid {
+            color: var(--error);
         }
 
-        .chat-window.active {
+        .main-content {
+            flex: 1;
             display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
         }
 
         .chat-header {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            padding: 1rem;
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            background-color: var(--chat-bg);
         }
 
-        .chat-header h3 {
-            margin: 0;
-            font-size: 1.1rem;
+        .chat-title {
+            font-size: 18px;
+            font-weight: 600;
         }
 
-        .close-chat {
+        .model-selector {
+            display: flex;
+            gap: 8px;
+            background-color: var(--ai-msg-bg);
+            padding: 6px;
+            border-radius: 8px;
+        }
+
+        .model-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .model-btn.active {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .model-btn.chatgpt.active {
+            color: var(--primary);
+        }
+
+        .model-btn.deepseek.active {
+            color: var(--deepseek);
+        }
+
+        .model-btn.gemini.active {
+            color: var(--gemini);
+        }
+
+        .toggle-sidebar {
             background: none;
             border: none;
-            color: white;
-            font-size: 1.2rem;
+            font-size: 18px;
             cursor: pointer;
-            transition: var(--transition);
+            color: var(--text-secondary);
+            display: none;
         }
 
-        .close-chat:hover {
-            transform: rotate(90deg);
-        }
-
-        .chat-messages {
+        .chat-container {
             flex: 1;
-            padding: 1rem;
             overflow-y: auto;
+            padding: 24px;
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 24px;
         }
 
         .message {
-            max-width: 80%;
-            padding: 0.8rem;
-            border-radius: 18px;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .message.bot {
-            background: #f1f1f1;
-            align-self: flex-start;
-            border-bottom-left-radius: 5px;
-        }
-
-        .message.user {
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            align-self: flex-end;
-            border-bottom-right-radius: 5px;
-        }
-
-        .chat-input {
             display: flex;
-            padding: 1rem;
-            border-top: 1px solid #eee;
+            gap: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-        .chat-input input {
-            flex: 1;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 25px;
-            outline: none;
-            transition: var(--transition);
+        .user-message {
+            flex-direction: row-reverse;
         }
 
-        .chat-input input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.1);
-        }
-
-        .chat-input button {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            margin-left: 0.5rem;
-            cursor: pointer;
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: var(--transition);
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 14px;
         }
 
-        .chat-input button:hover {
-            background: var(--secondary-color);
-            transform: scale(1.1);
+        .user-avatar {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .ai-avatar {
+            background-color: var(--text-secondary);
+            color: white;
+        }
+
+        .ai-avatar.chatgpt {
+            background-color: var(--primary);
+        }
+
+        .ai-avatar.deepseek {
+            background-color: var(--deepseek);
+        }
+
+        .ai-avatar.gemini {
+            background-color: var(--gemini);
+        }
+
+        .message-content {
+            padding: 16px;
+            border-radius: 8px;
+            max-width: 85%;
+            line-height: 1.5;
+        }
+
+        .user-message .message-content {
+            background-color: var(--user-msg-bg);
+            border: 1px solid var(--border-color);
+        }
+
+        .ai-message .message-content {
+            background-color: var(--ai-msg-bg);
+        }
+
+        .message-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .input-container {
+            padding: 24px;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--chat-bg);
+        }
+
+        .input-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .chat-input {
+            width: 100%;
+            padding: 16px 52px 16px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            resize: none;
+            font-size: 16px;
+            line-height: 1.5;
+            max-height: 200px;
+            background-color: white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 2px 6px rgba(16, 163, 127, 0.2);
+        }
+
+        .send-btn {
+            position: absolute;
+            right: 16px;
+            bottom: 16px;
+            background: var(--primary);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+
+        .send-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .send-btn:disabled {
+            background-color: var(--text-secondary);
+            cursor: not-allowed;
         }
 
         .typing-indicator {
-            display: none;
-            align-self: flex-start;
-            background: #f1f1f1;
-            padding: 0.8rem;
-            border-radius: 18px;
-            border-bottom-left-radius: 5px;
-            font-style: italic;
-            color: #666;
-            animation: pulse 1.5s infinite;
+            display: flex;
+            gap: 4px;
+            padding: 8px 16px;
         }
 
-        /* Responsive Styles */
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--text-secondary);
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-5px); }
+        }
+
+        .welcome-message {
+            text-align: center;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .welcome-title {
+            font-size: 28px;
+            margin-bottom: 16px;
+            background: linear-gradient(90deg, var(--primary), var(--deepseek), var(--gemini));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .welcome-text {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .api-setup-steps {
+            text-align: left;
+            margin-top: 24px;
+        }
+
+        .api-step {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-bottom: 4px;
+        }
+
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 200;
+            display: none;
+        }
+
+        .api-modal {
+            background-color: white;
+            border-radius: 12px;
+            padding: 24px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-title {
+            font-size: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            margin-top: 24px;
+        }
+
+        .modal-btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .modal-btn.primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .modal-btn.secondary {
+            background-color: var(--ai-msg-bg);
+            color: var(--text-primary);
+        }
+
+        .ad-container {
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: center;
+            padding: 10px;
+            background: var(--ai-msg-bg);
+            border-radius: 8px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
         @media (max-width: 768px) {
-            header {
-                padding: 1rem;
+            .sidebar {
+                position: absolute;
+                transform: translateX(-100%);
             }
-            
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
+
+            .sidebar.open {
+                transform: translateX(0);
             }
-            
-            header h1 {
-                font-size: 1.5rem;
-            }
-            
-            .nav-container {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-btn {
+
+            .toggle-sidebar {
                 display: block;
             }
-            
-            main {
-                padding: 1rem;
-            }
-            
-            .app-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .filters {
-                gap: 0.5rem;
-            }
-            
-            .filter-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
+
+            .model-selector {
+                display: none;
             }
 
-            .app-details-header {
-                flex-direction: column;
+            .message-content {
+                max-width: 75%;
             }
-
-            .app-details-info {
-                padding-left: 0;
-                margin-top: 1rem;
-            }
-
-            .chat-window {
-                width: 300px;
-                height: 400px;
-                right: 10px;
-            }
-
-            .adsense-display {
-                max-width: 300px;
-            }
-
-            .adsterra-container {
-                min-height: 200px;
-            }
-        }
-
-        /* Stats Styles */
-        .stats-overview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-item {
-            background: white;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: var(--transition);
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .stat-value {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            animation: pulse 2s infinite;
-        }
-
-        .stat-label {
-            color: var(--gray-color);
-            font-size: 1rem;
-        }
-
-        .feature-badge {
-            display: inline-block;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            transition: var(--transition);
-        }
-
-        .feature-badge:hover {
-            transform: scale(1.05);
-        }
-
-        .feature-badge.premium {
-            background: var(--warning-color);
-            color: white;
-            animation: pulse 2s infinite;
-        }
-
-        .feature-badge.free {
-            background: var(--success-color);
-            color: white;
-        }
-
-        .feature-badge.new {
-            background: var(--accent-color);
-            color: white;
-            animation: pulse 1.5s infinite;
         }
     </style>
 </head>
 <body>
-
-<header>
-    <div class="header-content">
-        <a href="#" class="logo-link">
-            <img src="https://archive.org/download/1c-4d-5bba-ddc-1-4953-92b-6-089ca-65b-9e-7c/1c4d5bba-ddc1-4953-92b6-089ca65b9e7c.jpeg" 
-                 alt="Looma App Store" 
-                 class="site-logo">
-            <h1><i class="https://archive.org/download/1c-4d-5bba-ddc-1-4953-92b-6-089ca-65b-9e-7c/1c4d5bba-ddc1-4953-92b6-089ca65b9e7c.jpeg"></i> Looma App Store</h1>
-        </a>
-        <div>
-            <div class="connection-status" id="connectionStatus">
-                <i class="fas fa-wifi"></i> <span id="connectionText">Connexion excellente</span>
-            </div>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">AI Chat</div>
         </div>
-        <div class="language-selector">
-            <select id="languageSelect">
-                <option value="fr">Français</option>
-                <option value="en">English</option>
-                <option value="es">Español</option>
-                <option value="de">Deutsch</option>
-            </select>
-        </div>
-        <button class="dark-mode-toggle" id="darkModeToggle">
-            <i class="fas fa-moon"></i>
+        <button class="new-chat-btn">
+            <i class="fas fa-plus"></i> New Chat
         </button>
-    </div>
-    <input type="text" id="searchBar" placeholder="Chercher une application, un jeu ou une catégorie...">
-</header>
-
-<nav>
-    <div class="nav-container">
-        <button class="mobile-menu-btn" id="mobileMenuBtn">
-            <i class="fas fa-bars"></i>
-        </button>
-        <div class="nav-links">
-            <a href="#" class="nav-link active" data-page="home">Accueil</a>
-            <a href="#" class="nav-link" data-page="apps">Applications</a>
-            <a href="#" class="nav-link" data-page="games">Jeux</a>
-            <a href="#" class="nav-link" data-page="categories">Catégories</a>
-            <a href="#" class="nav-link" data-page="top">Top Apps</a>
-            <a href="#" class="nav-link" data-page="new">Nouveautés</a>
-            <a href="#" class="nav-link" data-page="trending">Tendances</a>
-            <a href="#" class="nav-link" data-page="updates">Mises à jour</a>
-            <a href="#" class="nav-link" data-page="developers">Développeurs</a>
+        <div class="chat-history">
+            <div class="chat-history-item">
+                <i class="fas fa-message"></i> How to create a website
+            </div>
+            <div class="chat-history-item">
+                <i class="fas fa-message"></i> JavaScript best practices
+            </div>
+            <div class="chat-history-item">
+                <i class="fas fa-message"></i> Python data analysis
+            </div>
+            <div class="chat-history-item">
+                <i class="fas fa-message"></i> Machine learning basics
+            </div>
         </div>
-        <div class="user-actions" id="userActions">
-            <button class="login-btn" id="loginBtn">Connexion</button>
-            <button class="register-btn" id="registerBtn">Inscription</button>
-            <div class="user-profile" id="userProfile" style="display: none;">
-                <div class="user-avatar" id="userAvatar">U</div>
-                <span id="userName">Utilisateur</span>
-                <span class="developer-badge" id="developerBadge" style="display: none;">DEV</span>
-                <div class="user-dropdown" id="userDropdown">
-                    <a href="#" data-page="profile">Mon Profil</a>
-                    <a href="#" data-page="dashboard" id="dashboardLink">Tableau de Bord</a>
-                    <a href="#" data-page="myapps" id="myAppsLink">Mes Applications</a>
-                    <a href="#" data-page="favorites" id="favoritesLink">Mes Favoris</a>
-                    <a href="#" data-page="downloads" id="downloadsLink">Mes Téléchargements</a>
-                    <div class="divider"></div>
-                    <a href="#" id="logoutBtn">Déconnexion</a>
+        <div class="sidebar-footer">
+            <div class="api-section">
+                <div class="api-section-title">
+                    <i class="fas fa-key"></i> ChatGPT API Key
+                </div>
+                <input type="password" class="api-key-input" placeholder="sk-...">
+                <button class="save-api-btn">Save Key</button>
+                <div class="api-status">
+                    <i class="fas fa-circle-exclamation"></i> No API key saved
+                </div>
+            </div>
+            <div class="api-section">
+                <div class="api-section-title">
+                    <i class="fas fa-key"></i> DeepSeek API Key
+                </div>
+                <input type="password" class="api-key-input" placeholder="Enter your key">
+                <button class="save-api-btn">Save Key</button>
+                <div class="api-status">
+                    <i class="fas fa-circle-exclamation"></i> No API key saved
+                </div>
+            </div>
+            <div class="api-section">
+                <div class="api-section-title">
+                    <i class="fas fa-key"></i> Gemini API Key
+                </div>
+                <input type="password" class="api-key-input" placeholder="Enter your key">
+                <button class="save-api-btn">Save Key</button>
+                <div class="api-status">
+                    <i class="fas fa-circle-exclamation"></i> No API key saved
                 </div>
             </div>
         </div>
     </div>
-</nav>
 
-<main>
-    <!-- Page d'accueil -->
-    <div id="home" class="page active">
-        <div class="hero">
-            <h2>Découvrez les meilleures applications Android</h2>
-            <p>Téléchargez des applications gratuites et premium pour votre mobile. Streaming, jeux, utilitaires et bien plus encore!</p>
-            <div class="hero-buttons">
-                <button class="hero-btn primary-btn" id="exploreBtn">Explorer les applications</button>
-                <button class="hero-btn secondary-btn" id="popularBtn">Applications populaires</button>
-            </div>
-        </div>
-
-        <!-- Publicité Display -->
-        <div class="adsense-container adsense-display">
-            <!-- Display Ad -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-                 crossorigin="anonymous"></script>
-            <!-- Display -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-5840550895880083"
-                 data-ad-slot="7696475462"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <!-- Adsterra Native Banner -->
-        <div class="adsterra-container adsterra-native">
-            <div id="container-f000f81099cbfe4f209d1ee0574bef28"></div>
-        </div>
-
-        <!-- Statistiques en temps réel -->
-        <div class="stats-overview">
-            <div class="stat-item">
-                <div class="stat-value" id="totalApps">0</div>
-                <div class="stat-label">Applications disponibles</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value" id="totalDownloads">0</div>
-                <div class="stat-label">Téléchargements totaux</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value" id="activeUsers">0</div>
-                <div class="stat-label">Utilisateurs actifs</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value" id="developerCount">0</div>
-                <div class="stat-label">Développeurs</div>
-            </div>
-        </div>
-
-        <div class="section-title">
-            <h2>Applications populaires</h2>
-            <a href="#" class="view-all">Voir tout</a>
-        </div>
-
-        <!-- Publicité In-Feed -->
-        <div class="adsense-container adsense-in-feed">
-            <!-- In Feed Ad -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-                 crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-format="fluid"
-                 data-ad-layout-key="-6t+ed+2i-1n-4w"
-                 data-ad-client="ca-pub-5840550895880083"
-                 data-ad-slot="4512743072"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <div class="app-grid" id="featuredApps">
-            <!-- Applications populaires chargées dynamiquement -->
-        </div>
-
-        <div class="section-title">
-            <h2>Nouveautés</h2>
-            <a href="#" class="view-all">Voir tout</a>
-        </div>
-
-        <!-- Publicité In-Article -->
-        <div class="adsense-container adsense-in-article">
-            <!-- In Article Ad -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-                 crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block; text-align:center;"
-                 data-ad-layout="in-article"
-                 data-ad-format="fluid"
-                 data-ad-client="ca-pub-5840550895880083"
-                 data-ad-slot="5601451705"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <div class="app-grid" id="newApps">
-            <!-- Nouvelles applications chargées dynamiquement -->
-        </div>
-
-        <!-- Publicité Multiplex -->
-        <div class="adsense-container adsense-multiplex">
-            <!-- Multiplex Ad -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-                 crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-format="autorelaxed"
-                 data-ad-client="ca-pub-5840550895880083"
-                 data-ad-slot="3518213840"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-    </div>
-
-    <!-- Page Applications -->
-    <div id="apps" class="page">
-        <div class="section-title">
-            <h2>Toutes les applications</h2>
-            <div>
-                <span id="appCount">0 applications</span>
-            </div>
-        </div>
-
-        <!-- Publicité Display dans la page Apps -->
-        <div class="adsense-container adsense-display">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-                 crossorigin="anonymous"></script>
-            <!-- Display -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-5840550895880083"
-                 data-ad-slot="7696475462"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <!-- Adsterra Native Banner -->
-        <div class="adsterra-container adsterra-native">
-            <div id="container-f000f81099cbfe4f209d1ee0574bef28"></div>
-        </div>
-
-        <div class="filters">
-            <button class="filter-btn active" data-filter="all">Toutes</button>
-            <button class="filter-btn" data-filter="streaming">Streaming</button>
-            <button class="filter-btn" data-filter="social">Social</button>
-            <button class="filter-btn" data-filter="utilitaire">Utilitaires</button>
-            <button class="filter-btn" data-filter="productivite">Productivité</button>
-            <button class="filter-btn" data-filter="education">Éducation</button>
-            <button class="filter-btn" data-filter="sante">Santé</button>
-            <button class="filter-btn" data-filter="finance">Finance</button>
-            <button class="filter-btn" data-filter="musique">Musique</button>
-            <button class="filter-btn" data-filter="photo">Photo & Vidéo</button>
-        </div>
-
-        <!-- Publicité In-Feed dans la page Apps -->
-        <div class="adsense-container adsense-in-feed">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-                 crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-format="fluid"
-                 data-ad-layout-key="-6t+ed+2i-1n-4w"
-                 data-ad-client="ca-pub-5840550895880083"
-                 data-ad-slot="4512743072"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <div class="app-grid" id="appsContainer">
-            <!-- Toutes les applications chargées dynamiquement -->
-        </div>
-
-        <!-- Publicité Multiplex en bas de page -->
-        <div class="adsense-container adsense-multiplex">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-                 crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-format="autorelaxed"
-                 data-ad-client="ca-pub-5840550895880083"
-                 data-ad-slot="3518213840"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <div class="pagination" id="pagination">
-            <!-- Pagination générée dynamiquement -->
-        </div>
-    </div>
-
-    <!-- Page Mises à jour -->
-    <div id="updates" class="page">
-        <div class="section-title">
-            <h2>Dernières mises à jour</h2>
-        </div>
-
-        <!-- Publicité Display dans la page Updates -->
-        <div class="adsense-container adsense-display">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-                 crossorigin="anonymous"></script>
-            <!-- Display -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-5840550895880083"
-                 data-ad-slot="7696475462"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <!-- Adsterra Native Banner -->
-        <div class="adsterra-container adsterra-native">
-            <div id="container-f000f81099cbfe4f209d1ee0574bef28"></div>
-        </div>
-
-        <div class="app-updates" id="appUpdates">
-            <!-- Mises à jour chargées dynamiquement -->
-        </div>
-
-        <div class="section-title">
-            <h2>Applications récemment mises à jour</h2>
-        </div>
-
-        <!-- Publicité In-Article dans la page Updates -->
-        <div class="adsense-container adsense-in-article">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5840550895880083"
-                 crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block; text-align:center;"
-                 data-ad-layout="in-article"
-                 data-ad-format="fluid"
-                 data-ad-client="ca-pub-5840550895880083"
-                 data-ad-slot="5601451705"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
-        <div class="app-grid" id="updatedApps">
-            <!-- Applications mises à jour chargées dynamiquement -->
-        </div>
-    </div>
-
-    <!-- Autres pages... -->
-
-</main>
-
-<!-- Modal de détails d'application -->
-<div class="modal" id="appDetailsModal">
-    <div class="modal-content">
-        <span class="close-modal" id="closeModal">&times;</span>
-        <div id="appDetailsContent">
-            <!-- Contenu des détails d'application -->
-        </div>
-    </div>
-</div>
-
-<!-- Modal d'authentification -->
-<div class="modal" id="authModal">
-    <div class="modal-content auth-modal">
-        <span class="close-modal" id="closeAuthModal">&times;</span>
-        <div class="auth-tabs">
-            <div class="auth-tab active" data-tab="login">Connexion</div>
-            <div class="auth-tab" data-tab="register">Inscription</div>
-        </div>
-        
-        <form id="loginForm" class="auth-form active">
-            <div class="form-group">
-                <label for="loginEmail">Email</label>
-                <input type="email" id="loginEmail" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="loginPassword">Mot de passe</label>
-                <input type="password" id="loginPassword" class="form-control" required>
-            </div>
-            <button type="submit" class="submit-btn">Se connecter</button>
-        </form>
-        
-        <form id="registerForm" class="auth-form">
-            <div class="form-group">
-                <label for="registerName">Nom complet</label>
-                <input type="text" id="registerName" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="registerEmail">Email</label>
-                <input type="email" id="registerEmail" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="registerPassword">Mot de passe</label>
-                <input type="password" id="registerPassword" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="registerConfirmPassword">Confirmer le mot de passe</label>
-                <input type="password" id="registerConfirmPassword" class="form-control" required>
-            </div>
-            <button type="submit" class="submit-btn">S'inscrire</button>
-        </form>
-    </div>
-</div>
-
-<!-- Chat Bot -->
-<div class="chat-bot" id="chatBot">
-    <i class="fas fa-robot"></i>
-</div>
-
-<div class="chat-window" id="chatWindow">
-    <div class="chat-header">
-        <h3>Assistant Looma</h3>
-        <button class="close-chat" id="closeChat">
-            <i class="fas fa-times"></i>
-        </button>
-    </div>
-    <div class="chat-messages" id="chatMessages">
-        <div class="message bot">
-            Bonjour ! Je suis l'assistant virtuel de Looma App Store. Comment puis-je vous aider aujourd'hui ?
-        </div>
-    </div>
-    <div class="typing-indicator" id="typingIndicator">
-        L'assistant est en train d'écrire...
-    </div>
-    <div class="chat-input">
-        <input type="text" id="chatInput" placeholder="Tapez votre message...">
-        <button id="sendMessage">
-            <i class="fas fa-paper-plane"></i>
-        </button>
-    </div>
-</div>
-
-<footer>
-    <div class="footer-content">
-        <div class="footer-section">
-            <a href="#" class="logo-link" style="text-decoration: none; color: white;">
-                <img src="https://archive.org/download/1c-4d-5bba-ddc-1-4953-92b-6-089ca-65b-9e-7c/1c4d5bba-ddc1-4953-92b6-089ca65b9e7c.jpeg" 
-                     alt="Looma App Store" 
-                     class="site-logo"
-                     style="width: 50px; height: 50px;">
-                <h3>Looma App Store</h3>
-            </a>
-            <p>Votre destination pour les meilleures applications mobiles. Découvrez, téléchargez et profitez!</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    <div class="main-content">
+        <div class="chat-header">
+            <button class="toggle-sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="chat-title">New Chat</div>
+            <div class="model-selector">
+                <button class="model-btn chatgpt active">ChatGPT</button>
+                <button class="model-btn deepseek">DeepSeek</button>
+                <button class="model-btn gemini">Gemini</button>
             </div>
         </div>
         
-        <div class="footer-section">
-            <h3>Liens rapides</h3>
-            <ul class="footer-links">
-                <li><a href="#" data-page="home">Accueil</a></li>
-                <li><a href="#" data-page="apps">Applications</a></li>
-                <li><a href="#" data-page="games">Jeux</a></li>
-                <li><a href="#" data-page="categories">Catégories</a></li>
-                <li><a href="#" data-page="new">Nouveautés</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Support</h3>
-            <ul class="footer-links">
-                <li><a href="#" data-page="help-center">Centre d'aide</a></li>
-                <li><a href="#" data-page="contact">Nous contacter</a></li>
-                <li><a href="#" data-page="privacy">Politique de confidentialité</a></li>
-                <li><a href="#" data-page="terms">Conditions d'utilisation</a></li>
-                <li><a href="#" data-page="faq">FAQ</a></li>
-            </ul>
-        </div>
-        
-        <div class="footer-section">
-            <h3>Développeurs</h3>
-            <ul class="footer-links">
-                <li><a href="#" data-page="developers">Devenir Développeur</a></li>
-                <li><a href="#" data-page="api-docs">Documentation API</a></li>
-                <li><a href="#" data-page="partnership">Programme de partenariat</a></li>
-                <li><a href="#">Statistiques</a></li>
-            </ul>
-        </div>
-    </div>
-    
-    <div class="copyright">
-        <p>&copy; 2023 Looma App Store. Tous droits réservés.</p>
-    </div>
-</footer>
-
-<!-- Intégration ChatRace -->
-<script>
-    window.chatraceConfig = {
-        accountId: "2540281",
-        userId: "1000064209",
-        key: "kBOZD9dx5h2pl1Dmpn2j"
-    };
-</script>
-<script src="https://chatrace.com/webchat/chatrace.js"></script>
-
-<script>
-    // Applications réelles avec liens de téléchargement et logos
-    const realApps = [
-        {
-            id: 1,
-            name: "Looma Streaming",
-            category: "streaming",
-            rating: "4.8",
-            stars: "★★★★★",
-            description: "Application de streaming vidéo premium avec contenu exclusif et qualité 4K. Regardez vos films et séries préférés partout.",
-            features: ["Streaming 4K Ultra HD", "Contenu exclusif", "Téléchargement hors ligne", "Profils multiples", "Recommandations personnalisées"],
-            downloads: 2500000,
-            size: "89.3 MB",
-            isNew: true,
-            version: "2.1.0",
-            lastUpdated: "2023-12-01",
-            logo: "https://via.placeholder.com/60x60/6a11cb/ffffff?text=LS",
-            downloadUrl: "https://example.com/download/looma-streaming.apk",
-            developer: "Looma Studios",
-            isPremium: true,
-            isFeatured: true
-        },
-        {
-            id: 2,
-            name: "SocialConnect",
-            category: "social",
-            rating: "4.5",
-            stars: "★★★★☆",
-            description: "Réseau social moderne pour rester connecté avec vos amis et partager vos moments.",
-            features: ["Messagerie instantanée", "Stories éphémères", "Groupes et communautés", "Appels vidéo HD", "Fil d'actualité personnalisé"],
-            downloads: 1850000,
-            size: "45.2 MB",
-            version: "3.2.1",
-            lastUpdated: "2023-11-28",
-            logo: "https://via.placeholder.com/60x60/2575fc/ffffff?text=SC",
-            downloadUrl: "https://example.com/download/socialconnect.apk",
-            developer: "Connect Labs",
-            isPremium: false,
-            isFeatured: true
-        },
-        {
-            id: 3,
-            name: "PhotoPro Editor",
-            category: "photo",
-            rating: "4.9",
-            stars: "★★★★★",
-            description: "Éditeur photo avancé avec IA pour des retouches professionnelles sur mobile.",
-            features: ["IA de retouche automatique", "Filtres artistiques", "Outils de précision", "Suppression d'objets", "Export HD"],
-            downloads: 3200000,
-            size: "78.5 MB",
-            version: "1.5.3",
-            lastUpdated: "2023-12-05",
-            logo: "https://via.placeholder.com/60x60/ff4081/ffffff?text=PE",
-            downloadUrl: "https://example.com/download/photopro.apk",
-            developer: "Creative Tools Inc",
-            isPremium: true,
-            isFeatured: false
-        },
-        {
-            id: 4,
-            name: "FinanceTracker Pro",
-            category: "finance",
-            rating: "4.6",
-            stars: "★★★★☆",
-            description: "Gestionnaire de finances personnelles avec tableau de bord complet et analyses détaillées.",
-            features: ["Suivi des dépenses", "Budgets personnalisés", "Rapports détaillés", "Synchronisation bancaire", "Alertes intelligentes"],
-            downloads: 890000,
-            size: "32.1 MB",
-            version: "2.0.4",
-            lastUpdated: "2023-11-25",
-            logo: "https://via.placeholder.com/60x60/28a745/ffffff?text=FT",
-            downloadUrl: "https://example.com/download/financetracker.apk",
-            developer: "Finance Solutions",
-            isPremium: true,
-            isFeatured: true
-        },
-        {
-            id: 5,
-            name: "MusicWave",
-            category: "musique",
-            rating: "4.7",
-            stars: "★★★★☆",
-            description: "Service de streaming musical avec des millions de chansons et recommandations personnalisées.",
-            features: ["50 millions de titres", "Recommandations IA", "Mode hors ligne", "Création de playlists", "Qualité audio HD"],
-            downloads: 4200000,
-            size: "67.8 MB",
-            version: "4.2.0",
-            lastUpdated: "2023-12-03",
-            logo: "https://via.placeholder.com/60x60/6f42c1/ffffff?text=MW",
-            downloadUrl: "https://example.com/download/musicwave.apk",
-            developer: "Sound Technologies",
-            isPremium: false,
-            isFeatured: false
-        },
-        {
-            id: 6,
-            name: "HealthMonitor",
-            category: "sante",
-            rating: "4.8",
-            stars: "★★★★★",
-            description: "Application de suivi santé complète avec monitoring d'activité et conseils personnalisés.",
-            features: ["Suivi d'activité", "Monitoring du sommeil", "Nutrition et régimes", "Conseils santé", "Intégration wearables"],
-            downloads: 1500000,
-            size: "54.3 MB",
-            version: "3.1.2",
-            lastUpdated: "2023-11-30",
-            logo: "https://via.placeholder.com/60x60/dc3545/ffffff?text=HM",
-            downloadUrl: "https://example.com/download/healthmonitor.apk",
-            developer: "HealthTech Labs",
-            isPremium: false,
-            isFeatured: true
-        },
-        {
-            id: 7,
-            name: "EduLearn Pro",
-            category: "education",
-            rating: "4.9",
-            stars: "★★★★★",
-            description: "Plateforme d'apprentissage avec cours interactifs et suivi de progression détaillé.",
-            features: ["Cours interactifs", "Quiz et exercices", "Certifications", "Apprentissage adaptatif", "Support multi-langues"],
-            downloads: 950000,
-            size: "41.7 MB",
-            version: "2.3.1",
-            lastUpdated: "2023-12-02",
-            logo: "https://via.placeholder.com/60x60/fd7e14/ffffff?text=EL",
-            downloadUrl: "https://example.com/download/edulearn.apk",
-            developer: "EduTech Solutions",
-            isPremium: true,
-            isFeatured: false
-        },
-        {
-            id: 8,
-            name: "Productivity Suite",
-            category: "productivite",
-            rating: "4.4",
-            stars: "★★★★☆",
-            description: "Suite complète d'outils de productivité pour optimiser votre travail quotidien.",
-            features: ["Gestion de tâches", "Calendrier intelligent", "Notes collaboratives", "Minuteur Pomodoro", "Rapports de productivité"],
-            downloads: 1200000,
-            size: "38.9 MB",
-            version: "1.8.5",
-            lastUpdated: "2023-11-27",
-            logo: "https://via.placeholder.com/60x60/20c997/ffffff?text=PS",
-            downloadUrl: "https://example.com/download/productivitysuite.apk",
-            developer: "Productivity Labs",
-            isPremium: false,
-            isFeatured: true
-        },
-        {
-            id: 9,
-            name: "GameHub",
-            category: "games",
-            rating: "4.6",
-            stars: "★★★★☆",
-            description: "Plateforme de jeux mobiles avec des centaines de jeux gratuits et premium.",
-            features: ["Jeux exclusifs", "Classements en ligne", "Récompenses quotidiennes", "Multijoueur", "Sans publicités"],
-            downloads: 2800000,
-            size: "95.2 MB",
-            version: "5.1.0",
-            lastUpdated: "2023-12-04",
-            logo: "https://via.placeholder.com/60x60/e83e8c/ffffff?text=GH",
-            downloadUrl: "https://example.com/download/gamehub.apk",
-            developer: "Game Studios",
-            isPremium: false,
-            isFeatured: false
-        },
-        {
-            id: 10,
-            name: "Utilitaire Pro",
-            category: "utilitaire",
-            rating: "4.3",
-            stars: "★★★★☆",
-            description: "Collection d'outils utilitaires essentiels pour votre appareil Android.",
-            features: ["Nettoyage de stockage", "Économiseur de batterie", "Gestionnaire de fichiers", "VPN intégré", "Optimiseur système"],
-            downloads: 2100000,
-            size: "29.5 MB",
-            version: "2.7.3",
-            lastUpdated: "2023-11-29",
-            logo: "https://via.placeholder.com/60x60/6c757d/ffffff?text=UP",
-            downloadUrl: "https://example.com/download/utilitairepro.apk",
-            developer: "Utility Tools",
-            isPremium: false,
-            isFeatured: true
-        }
-    ];
-
-    // État de l'application
-    let currentUser = null;
-    let favoriteApps = new Set();
-    let downloadedApps = new Set();
-    let currentPage = 'home';
-    let currentFilter = 'all';
-    let currentAppsPage = 1;
-    const appsPerPage = 9;
-
-    // Initialisation de l'application
-    document.addEventListener('DOMContentLoaded', function() {
-        initializeApp();
-        setupEventListeners();
-        loadFeaturedApps();
-        updateStats();
-        checkAuthState();
-        simulateConnectionQuality();
-    });
-
-    function initializeApp() {
-        // Charger les favoris depuis le localStorage
-        const savedFavorites = localStorage.getItem('favoriteApps');
-        if (savedFavorites) {
-            favoriteApps = new Set(JSON.parse(savedFavorites));
-        }
-
-        // Charger les apps téléchargées depuis le localStorage
-        const savedDownloads = localStorage.getItem('downloadedApps');
-        if (savedDownloads) {
-            downloadedApps = new Set(JSON.parse(savedDownloads));
-        }
-
-        // Afficher la page d'accueil par défaut
-        showPage('home');
-    }
-
-    function setupEventListeners() {
-        // Navigation
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const page = e.target.getAttribute('data-page');
-                showPage(page);
-            });
-        });
-
-        // Recherche
-        document.getElementById('searchBar').addEventListener('input', handleSearch);
-
-        // Filtres
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                e.target.classList.add('active');
-                currentFilter = e.target.getAttribute('data-filter');
-                filterApps();
-            });
-        });
-
-        // Boutons d'authentification
-        document.getElementById('loginBtn').addEventListener('click', () => showAuthModal('login'));
-        document.getElementById('registerBtn').addEventListener('click', () => showAuthModal('register'));
-
-        // Modal d'authentification
-        document.getElementById('closeAuthModal').addEventListener('click', () => closeAuthModal());
-        document.getElementById('closeModal').addEventListener('click', () => closeAppDetailsModal());
-
-        // Tabs d'authentification
-        document.querySelectorAll('.auth-tab').forEach(tab => {
-            tab.addEventListener('click', (e) => {
-                const tabName = e.target.getAttribute('data-tab');
-                switchAuthTab(tabName);
-            });
-        });
-
-        // Formulaires d'authentification
-        document.getElementById('loginForm').addEventListener('submit', handleLogin);
-        document.getElementById('registerForm').addEventListener('submit', handleRegister);
-
-        // Déconnexion
-        document.getElementById('logoutBtn').addEventListener('click', handleLogout);
-
-        // Profil utilisateur
-        document.getElementById('userProfile').addEventListener('click', toggleUserDropdown);
-
-        // Mode sombre
-        document.getElementById('darkModeToggle').addEventListener('click', toggleDarkMode);
-
-        // Chat bot
-        document.getElementById('chatBot').addEventListener('click', toggleChat);
-        document.getElementById('closeChat').addEventListener('click', toggleChat);
-        document.getElementById('sendMessage').addEventListener('click', sendChatMessage);
-        document.getElementById('chatInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') sendChatMessage();
-        });
-
-        // Boutons hero
-        document.getElementById('exploreBtn').addEventListener('click', () => showPage('apps'));
-        document.getElementById('popularBtn').addEventListener('click', () => {
-            showPage('apps');
-            // Filtrer pour montrer les apps populaires
-            setTimeout(() => {
-                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-                document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
-                currentFilter = 'all';
-                filterApps();
-            }, 100);
-        });
-
-        // Menu mobile
-        document.getElementById('mobileMenuBtn').addEventListener('click', toggleMobileMenu);
-
-        // Sélecteur de langue
-        document.getElementById('languageSelect').addEventListener('change', handleLanguageChange);
-
-        // Fermer les modales en cliquant à l'extérieur
-        window.addEventListener('click', (e) => {
-            const authModal = document.getElementById('authModal');
-            const appModal = document.getElementById('appDetailsModal');
-            const userDropdown = document.getElementById('userDropdown');
-            
-            if (e.target === authModal) closeAuthModal();
-            if (e.target === appModal) closeAppDetailsModal();
-            if (!e.target.closest('.user-profile') && userDropdown.classList.contains('active')) {
-                userDropdown.classList.remove('active');
-            }
-        });
-    }
-
-    function showPage(pageName) {
-        // Cacher toutes les pages
-        document.querySelectorAll('.page').forEach(page => {
-            page.classList.remove('active');
-        });
-
-        // Désactiver tous les liens de navigation
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-        });
-
-        // Afficher la page demandée
-        document.getElementById(pageName).classList.add('active');
-
-        // Activer le lien de navigation correspondant
-        document.querySelector(`.nav-link[data-page="${pageName}"]`).classList.add('active');
-
-        // Mettre à jour l'état actuel
-        currentPage = pageName;
-
-        // Charger le contenu spécifique à la page
-        switch(pageName) {
-            case 'home':
-                loadFeaturedApps();
-                break;
-            case 'apps':
-                loadAllApps();
-                break;
-            case 'updates':
-                loadUpdatedApps();
-                break;
-            case 'games':
-                loadGames();
-                break;
-            case 'categories':
-                loadCategories();
-                break;
-            case 'top':
-                loadTopApps();
-                break;
-            case 'new':
-                loadNewApps();
-                break;
-            case 'trending':
-                loadTrendingApps();
-                break;
-        }
-    }
-
-    function loadFeaturedApps() {
-        const featuredContainer = document.getElementById('featuredApps');
-        const newAppsContainer = document.getElementById('newApps');
-        
-        const featuredApps = realApps.filter(app => app.isFeatured);
-        const newApps = realApps.slice(0, 6); // 6 premières apps comme "nouvelles"
-        
-        featuredContainer.innerHTML = '';
-        newAppsContainer.innerHTML = '';
-        
-        featuredApps.forEach(app => {
-            featuredContainer.appendChild(createAppCard(app));
-        });
-        
-        newApps.forEach(app => {
-            newAppsContainer.appendChild(createAppCard(app));
-        });
-    }
-
-    function loadAllApps() {
-        const appsContainer = document.getElementById('appsContainer');
-        const appCountElement = document.getElementById('appCount');
-        
-        appCountElement.textContent = `${realApps.length} applications`;
-        
-        // Mettre à jour la pagination
-        updatePagination();
-        
-        // Afficher les apps pour la page actuelle
-        displayAppsForCurrentPage();
-    }
-
-    function displayAppsForCurrentPage() {
-        const appsContainer = document.getElementById('appsContainer');
-        appsContainer.innerHTML = '';
-        
-        const filteredApps = filterAppsByCategory();
-        const startIndex = (currentAppsPage - 1) * appsPerPage;
-        const endIndex = startIndex + appsPerPage;
-        const appsToShow = filteredApps.slice(startIndex, endIndex);
-        
-        if (appsToShow.length === 0) {
-            appsContainer.innerHTML = `
-                <div class="no-results">
-                    <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                    <h3>Aucune application trouvée</h3>
-                    <p>Essayez de modifier vos filtres ou votre recherche</p>
-                </div>
-            `;
-            return;
-        }
-        
-        appsToShow.forEach(app => {
-            appsContainer.appendChild(createAppCard(app));
-        });
-    }
-
-    function filterAppsByCategory() {
-        if (currentFilter === 'all') {
-            return realApps;
-        }
-        return realApps.filter(app => app.category === currentFilter);
-    }
-
-    function filterApps() {
-        currentAppsPage = 1;
-        displayAppsForCurrentPage();
-        updatePagination();
-    }
-
-    function updatePagination() {
-        const paginationContainer = document.getElementById('pagination');
-        const filteredApps = filterAppsByCategory();
-        const totalPages = Math.ceil(filteredApps.length / appsPerPage);
-        
-        paginationContainer.innerHTML = '';
-        
-        if (totalPages <= 1) return;
-        
-        // Bouton précédent
-        const prevButton = document.createElement('button');
-        prevButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
-        prevButton.disabled = currentAppsPage === 1;
-        prevButton.addEventListener('click', () => {
-            if (currentAppsPage > 1) {
-                currentAppsPage--;
-                displayAppsForCurrentPage();
-                updatePagination();
-            }
-        });
-        paginationContainer.appendChild(prevButton);
-        
-        // Pages
-        for (let i = 1; i <= totalPages; i++) {
-            const pageButton = document.createElement('button');
-            pageButton.textContent = i;
-            pageButton.classList.toggle('active', i === currentAppsPage);
-            pageButton.addEventListener('click', () => {
-                currentAppsPage = i;
-                displayAppsForCurrentPage();
-                updatePagination();
-            });
-            paginationContainer.appendChild(pageButton);
-        }
-        
-        // Bouton suivant
-        const nextButton = document.createElement('button');
-        nextButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
-        nextButton.disabled = currentAppsPage === totalPages;
-        nextButton.addEventListener('click', () => {
-            if (currentAppsPage < totalPages) {
-                currentAppsPage++;
-                displayAppsForCurrentPage();
-                updatePagination();
-            }
-        });
-        paginationContainer.appendChild(nextButton);
-    }
-
-    function createAppCard(app) {
-        const card = document.createElement('div');
-        card.className = 'app-card animate-fadeIn';
-        card.innerHTML = `
-            ${app.isNew ? '<div class="app-badge">Nouveau</div>' : ''}
-            ${app.isPremium ? '<div class="app-badge premium">Premium</div>' : ''}
-            <div class="app-header">
-                <img src="${app.logo}" alt="${app.name}" class="app-logo">
-                <div class="app-title">
-                    <h2>${app.name}</h2>
-                    <div class="app-category">${getCategoryName(app.category)}</div>
-                </div>
-            </div>
-            <div class="app-content">
-                <p class="app-description">${app.description}</p>
-                <ul class="app-features">
-                    ${app.features.slice(0, 3).map(feature => `<li>${feature}</li>`).join('')}
-                </ul>
-                <div class="app-rating">
-                    <div class="stars">${app.stars}</div>
-                    <div class="rating-value">${app.rating}</div>
-                </div>
-            </div>
-            <div class="app-footer">
-                <div class="app-actions">
-                    <button class="action-btn share-btn" data-app-id="${app.id}">
-                        <i class="fas fa-share-alt"></i>
-                    </button>
-                    <button class="action-btn favorite-btn ${favoriteApps.has(app.id) ? 'active' : ''}" 
-                            data-app-id="${app.id}">
-                        <i class="fas fa-heart"></i>
-                    </button>
-                </div>
-                <button class="downloadBtn" data-app-id="${app.id}">
-                    <i class="fas fa-download"></i> Télécharger
-                </button>
-                <div class="progress-container" id="progress-${app.id}">
-                    <div class="progress-bar" id="progress-bar-${app.id}">0%</div>
-                </div>
-                <a href="#" class="download-link" id="download-link-${app.id}" style="display: none;">
-                    <i class="fas fa-external-link-alt"></i> Ouvrir le fichier
-                </a>
-                <div style="font-size: 0.8rem; color: #666; text-align: center;">
-                    ${app.size} • ${app.downloads.toLocaleString()} téléchargements
-                </div>
-            </div>
-        `;
-        
-        // Ajouter les event listeners
-        const downloadBtn = card.querySelector('.downloadBtn');
-        const favoriteBtn = card.querySelector('.favorite-btn');
-        const shareBtn = card.querySelector('.share-btn');
-        
-        downloadBtn.addEventListener('click', () => handleDownload(app));
-        favoriteBtn.addEventListener('click', () => toggleFavorite(app.id, favoriteBtn));
-        shareBtn.addEventListener('click', () => shareApp(app));
-        
-        // Ajouter un event listener pour ouvrir les détails de l'app
-        card.addEventListener('click', (e) => {
-            if (!e.target.closest('.app-actions') && !e.target.closest('.downloadBtn')) {
-                showAppDetails(app);
-            }
-        });
-        
-        return card;
-    }
-
-    function handleDownload(app) {
-        const downloadBtn = document.querySelector(`.downloadBtn[data-app-id="${app.id}"]`);
-        const progressContainer = document.getElementById(`progress-${app.id}`);
-        const progressBar = document.getElementById(`progress-bar-${app.id}`);
-        const downloadLink = document.getElementById(`download-link-${app.id}`);
-        
-        // Désactiver le bouton
-        downloadBtn.disabled = true;
-        downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Téléchargement...';
-        
-        // Afficher la barre de progression
-        progressContainer.style.display = 'block';
-        
-        // Simuler le téléchargement
-        let progress = 0;
-        const interval = setInterval(() => {
-            progress += Math.random() * 10;
-            if (progress >= 100) {
-                progress = 100;
-                clearInterval(interval);
-                
-                // Téléchargement terminé
-                setTimeout(() => {
-                    progressContainer.style.display = 'none';
-                    downloadBtn.style.display = 'none';
-                    downloadLink.style.display = 'block';
-                    downloadLink.href = app.downloadUrl;
-                    
-                    // Ajouter aux apps téléchargées
-                    downloadedApps.add(app.id);
-                    localStorage.setItem('downloadedApps', JSON.stringify([...downloadedApps]));
-                    
-                    // Mettre à jour les stats
-                    updateStats();
-                    
-                    // Afficher une notification
-                    showNotification(`"${app.name}" a été téléchargé avec succès!`, 'success');
-                }, 500);
-            }
-            
-            progressBar.style.width = `${progress}%`;
-            progressBar.textContent = `${Math.round(progress)}%`;
-        }, 100);
-    }
-
-    function toggleFavorite(appId, button) {
-        if (favoriteApps.has(appId)) {
-            favoriteApps.delete(appId);
-            button.classList.remove('active');
-            showNotification('Application retirée des favoris', 'info');
-        } else {
-            favoriteApps.add(appId);
-            button.classList.add('active');
-            showNotification('Application ajoutée aux favoris', 'success');
-        }
-        
-        localStorage.setItem('favoriteApps', JSON.stringify([...favoriteApps]));
-    }
-
-    function shareApp(app) {
-        if (navigator.share) {
-            navigator.share({
-                title: app.name,
-                text: app.description,
-                url: window.location.href
-            });
-        } else {
-            // Fallback pour les navigateurs qui ne supportent pas l'API Web Share
-            const shareUrl = `${window.location.origin}?app=${app.id}`;
-            navigator.clipboard.writeText(shareUrl).then(() => {
-                showNotification('Lien copié dans le presse-papier!', 'success');
-            });
-        }
-    }
-
-    function showAppDetails(app) {
-        const modal = document.getElementById('appDetailsModal');
-        const content = document.getElementById('appDetailsContent');
-        
-        content.innerHTML = `
-            <div class="app-details-header">
-                <img src="${app.logo}" alt="${app.name}" style="width: 100px; height: 100px; border-radius: 20px;">
-                <div class="app-details-info">
-                    <h2>${app.name}</h2>
-                    <div class="app-rating">
-                        <div class="stars">${app.stars}</div>
-                        <div class="rating-value">${app.rating} • ${app.downloads.toLocaleString()} téléchargements</div>
-                    </div>
-                    <div style="margin-top: 1rem;">
-                        <span class="feature-badge ${app.isPremium ? 'premium' : 'free'}">
-                            ${app.isPremium ? 'Premium' : 'Gratuit'}
-                        </span>
-                        <span class="feature-badge">${app.size}</span>
-                        <span class="feature-badge">Version ${app.version}</span>
-                    </div>
-                </div>
+        <div class="chat-container">
+            <div class="ad-container">
+                <p>Advertisement Space - Supporting Free AI Access</p>
             </div>
             
-            <div class="app-content">
-                <p class="app-description">${app.description}</p>
+            <div class="welcome-message">
+                <h2 class="welcome-title">Welcome to Multi-AI Chat</h2>
+                <p class="welcome-text">Chat with multiple AI models in one interface. Select your preferred AI model and start a conversation.</p>
                 
-                <h3>Fonctionnalités</h3>
-                <ul class="app-features">
-                    ${app.features.map(feature => `<li>${feature}</li>`).join('')}
-                </ul>
-                
-                <h3>Informations</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1rem 0;">
-                    <div><strong>Développeur:</strong> ${app.developer}</div>
-                    <div><strong>Catégorie:</strong> ${getCategoryName(app.category)}</div>
-                    <div><strong>Dernière mise à jour:</strong> ${app.lastUpdated}</div>
-                    <div><strong>Version:</strong> ${app.version}</div>
-                </div>
-                
-                <div class="app-screenshots">
-                    <div class="screenshot">
-                        <img src="https://via.placeholder.com/300x600/6a11cb/ffffff?text=Screen+1" alt="Screenshot 1">
-                    </div>
-                    <div class="screenshot">
-                        <img src="https://via.placeholder.com/300x600/2575fc/ffffff?text=Screen+2" alt="Screenshot 2">
-                    </div>
-                    <div class="screenshot">
-                        <img src="https://via.placeholder.com/300x600/ff4081/ffffff?text=Screen+3" alt="Screenshot 3">
-                    </div>
-                </div>
-                
-                <div class="reviews-section">
-                    <h3>Avis des utilisateurs</h3>
-                    <div class="review">
-                        <div class="review-header">
-                            <div class="review-author">Jean D.</div>
-                            <div class="review-date">2023-11-28</div>
+                <div class="api-setup-steps">
+                    <div class="api-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4>Get API Keys</h4>
+                            <p>Obtain API keys from OpenAI, DeepSeek, and Google AI Studio.</p>
                         </div>
-                        <div class="stars">★★★★★</div>
-                        <p>Excellent! Cette application a changé ma façon de travailler. Interface intuitive et fonctionnalités complètes.</p>
                     </div>
-                    <div class="review">
-                        <div class="review-header">
-                            <div class="review-author">Marie L.</div>
-                            <div class="review-date">2023-11-25</div>
+                    <div class="api-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4>Configure API Keys</h4>
+                            <p>Enter your API keys in the sidebar to enable each AI model.</p>
                         </div>
-                        <div class="stars">★★★★☆</div>
-                        <p>Très bonne application, mais quelques bugs mineurs à corriger. Dans l'ensemble, je recommande!</p>
+                    </div>
+                    <div class="api-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4>Select Model & Chat</h4>
+                            <p>Choose your preferred AI model and start chatting!</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="app-footer">
-                <button class="downloadBtn" style="width: 100%; margin: 1rem 0;" data-app-id="${app.id}">
-                    <i class="fas fa-download"></i> Télécharger (${app.size})
+        </div>
+        
+        <div class="input-container">
+            <div class="input-wrapper">
+                <textarea class="chat-input" placeholder="Enter your API keys in the sidebar to start chatting..." rows="1" disabled></textarea>
+                <button class="send-btn" disabled>
+                    <i class="fas fa-paper-plane"></i>
                 </button>
             </div>
-        `;
-        
-        // Ajouter l'event listener pour le téléchargement
-        const downloadBtn = content.querySelector('.downloadBtn');
-        downloadBtn.addEventListener('click', () => {
-            handleDownload(app);
-            closeAppDetailsModal();
-        });
-        
-        modal.style.display = 'block';
-    }
+        </div>
+    </div>
 
-    function closeAppDetailsModal() {
-        document.getElementById('appDetailsModal').style.display = 'none';
-    }
+    <div class="overlay">
+        <div class="api-modal">
+            <h3 class="modal-title">
+                <i class="fas fa-key"></i> API Key Required
+            </h3>
+            <p>To use this AI model, you need to provide a valid API key. Please enter your API key in the sidebar.</p>
+            <div class="modal-actions">
+                <button class="modal-btn secondary">Cancel</button>
+                <button class="modal-btn primary">Open Settings</button>
+            </div>
+        </div>
+    </div>
 
-    function showAuthModal(tab = 'login') {
-        const modal = document.getElementById('authModal');
-        modal.style.display = 'block';
-        switchAuthTab(tab);
-    }
-
-    function closeAuthModal() {
-        document.getElementById('authModal').style.display = 'none';
-    }
-
-    function switchAuthTab(tabName) {
-        // Mettre à jour les tabs
-        document.querySelectorAll('.auth-tab').forEach(tab => {
-            tab.classList.toggle('active', tab.getAttribute('data-tab') === tabName);
-        });
-        
-        // Mettre à jour les formulaires
-        document.querySelectorAll('.auth-form').forEach(form => {
-            form.classList.toggle('active', form.id === `${tabName}Form`);
-        });
-    }
-
-    async function handleLogin(e) {
-        e.preventDefault();
-        const email = document.getElementById('loginEmail').value;
-        const password = document.getElementById('loginPassword').value;
-        
-        try {
-            // Utiliser Firebase Auth pour la connexion
-            const userCredential = await window.firebase.authFunctions.signInWithEmailAndPassword(
-                window.firebase.auth, email, password
-            );
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const sidebar = document.querySelector('.sidebar');
+            const toggleSidebarBtn = document.querySelector('.toggle-sidebar');
+            const newChatBtn = document.querySelector('.new-chat-btn');
+            const chatInput = document.querySelector('.chat-input');
+            const sendBtn = document.querySelector('.send-btn');
+            const chatContainer = document.querySelector('.chat-container');
+            const apiKeyInputs = document.querySelectorAll('.api-key-input');
+            const saveApiBtns = document.querySelectorAll('.save-api-btn');
+            const apiStatuses = document.querySelectorAll('.api-status');
+            const modelBtns = document.querySelectorAll('.model-btn');
+            const overlay = document.querySelector('.overlay');
+            const openSettingsBtn = document.querySelector('.modal-btn.primary');
+            const cancelBtn = document.querySelector('.modal-btn.secondary');
             
-            currentUser = userCredential.user;
-            showNotification('Connexion réussie!', 'success');
-            closeAuthModal();
-            updateUserInterface();
+            // Current state
+            let currentModel = 'chatgpt';
+            let apiKeys = {
+                chatgpt: null,
+                deepseek: null,
+                gemini: null
+            };
             
-        } catch (error) {
-            console.error('Erreur de connexion:', error);
-            showNotification('Erreur de connexion: ' + error.message, 'error');
-        }
-    }
-
-    async function handleRegister(e) {
-        e.preventDefault();
-        const name = document.getElementById('registerName').value;
-        const email = document.getElementById('registerEmail').value;
-        const password = document.getElementById('registerPassword').value;
-        const confirmPassword = document.getElementById('registerConfirmPassword').value;
-        
-        if (password !== confirmPassword) {
-            showNotification('Les mots de passe ne correspondent pas', 'error');
-            return;
-        }
-        
-        try {
-            // Utiliser Firebase Auth pour l'inscription
-            const userCredential = await window.firebase.authFunctions.createUserWithEmailAndPassword(
-                window.firebase.auth, email, password
-            );
+            // Toggle sidebar on mobile
+            toggleSidebarBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+            });
             
-            currentUser = userCredential.user;
+            // Auto-resize textarea
+            chatInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
             
-            // Sauvegarder les informations supplémentaires dans la base de données
-            await window.firebase.dbFunctions.set(
-                window.firebase.dbFunctions.ref(window.firebase.database, 'users/' + currentUser.uid),
-                {
-                    name: name,
-                    email: email,
-                    createdAt: new Date().toISOString(),
-                    isDeveloper: false
+            // Send message on button click
+            sendBtn.addEventListener('click', sendMessage);
+            
+            // Send message on Enter key (but allow Shift+Enter for new line)
+            chatInput.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
                 }
-            );
+            });
             
-            showNotification('Inscription réussie!', 'success');
-            closeAuthModal();
-            updateUserInterface();
+            // Save API keys
+            saveApiBtns.forEach((btn, index) => {
+                btn.addEventListener('click', function() {
+                    const apiKey = apiKeyInputs[index].value.trim();
+                    const model = index === 0 ? 'chatgpt' : index === 1 ? 'deepseek' : 'gemini';
+                    
+                    if (apiKey) {
+                        // In a real application, you would securely store the API key
+                        apiKeys[model] = apiKey;
+                        apiStatuses[index].innerHTML = '<i class="fas fa-check-circle"></i> API key saved';
+                        apiStatuses[index].className = 'api-status valid';
+                        apiKeyInputs[index].value = '';
+                        
+                        // Enable chat functionality if at least one API key is set
+                        if (Object.values(apiKeys).some(key => key !== null)) {
+                            sendBtn.disabled = false;
+                            chatInput.disabled = false;
+                            chatInput.placeholder = `Message ${currentModel}...`;
+                        }
+                    } else {
+                        apiStatuses[index].innerHTML = '<i class="fas fa-exclamation-circle"></i> Please enter a valid API key';
+                        apiStatuses[index].className = 'api-status invalid';
+                    }
+                });
+            });
             
-        } catch (error) {
-            console.error('Erreur d\'inscription:', error);
-            showNotification('Erreur d\'inscription: ' + error.message, 'error');
-        }
-    }
-
-    async function handleLogout() {
-        try {
-            await window.firebase.authFunctions.signOut(window.firebase.auth);
-            currentUser = null;
-            showNotification('Déconnexion réussie', 'info');
-            updateUserInterface();
-        } catch (error) {
-            console.error('Erreur de déconnexion:', error);
-            showNotification('Erreur de déconnexion', 'error');
-        }
-    }
-
-    function checkAuthState() {
-        window.firebase.authFunctions.onAuthStateChanged(window.firebase.auth, (user) => {
-            if (user) {
-                currentUser = user;
-                // Charger les informations supplémentaires de l'utilisateur
-                loadUserData(user.uid);
-            } else {
-                currentUser = null;
-            }
-            updateUserInterface();
-        });
-    }
-
-    async function loadUserData(userId) {
-        try {
-            const userRef = window.firebase.dbFunctions.ref(window.firebase.database, 'users/' + userId);
-            const snapshot = await window.firebase.dbFunctions.get(userRef);
-            
-            if (snapshot.exists()) {
-                const userData = snapshot.val();
-                document.getElementById('userName').textContent = userData.name;
-                document.getElementById('userAvatar').textContent = userData.name.charAt(0).toUpperCase();
-                
-                // Afficher le badge développeur si applicable
-                if (userData.isDeveloper) {
-                    document.getElementById('developerBadge').style.display = 'inline-block';
-                }
-            }
-        } catch (error) {
-            console.error('Erreur lors du chargement des données utilisateur:', error);
-        }
-    }
-
-    function updateUserInterface() {
-        const userActions = document.getElementById('userActions');
-        const userProfile = document.getElementById('userProfile');
-        const loginBtn = document.getElementById('loginBtn');
-        const registerBtn = document.getElementById('registerBtn');
-        
-        if (currentUser) {
-            loginBtn.style.display = 'none';
-            registerBtn.style.display = 'none';
-            userProfile.style.display = 'flex';
-        } else {
-            loginBtn.style.display = 'block';
-            registerBtn.style.display = 'block';
-            userProfile.style.display = 'none';
-        }
-    }
-
-    function toggleUserDropdown() {
-        const dropdown = document.getElementById('userDropdown');
-        dropdown.classList.toggle('active');
-    }
-
-    function toggleDarkMode() {
-        document.body.classList.toggle('dark-mode');
-        const icon = document.querySelector('#darkModeToggle i');
-        if (document.body.classList.contains('dark-mode')) {
-            icon.className = 'fas fa-sun';
-            localStorage.setItem('darkMode', 'enabled');
-        } else {
-            icon.className = 'fas fa-moon';
-            localStorage.setItem('darkMode', 'disabled');
-        }
-    }
-
-    function toggleChat() {
-        const chatWindow = document.getElementById('chatWindow');
-        chatWindow.classList.toggle('active');
-    }
-
-    function sendChatMessage() {
-        const input = document.getElementById('chatInput');
-        const messagesContainer = document.getElementById('chatMessages');
-        const message = input.value.trim();
-        
-        if (!message) return;
-        
-        // Ajouter le message de l'utilisateur
-        const userMessage = document.createElement('div');
-        userMessage.className = 'message user';
-        userMessage.textContent = message;
-        messagesContainer.appendChild(userMessage);
-        
-        // Effacer l'input
-        input.value = '';
-        
-        // Simuler une réponse du bot
-        simulateBotResponse(message);
-        
-        // Scroll vers le bas
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
-
-    function simulateBotResponse(userMessage) {
-        const messagesContainer = document.getElementById('chatMessages');
-        const typingIndicator = document.getElementById('typingIndicator');
-        
-        // Afficher l'indicateur de frappe
-        typingIndicator.style.display = 'block';
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        
-        // Simuler un délai de réponse
-        setTimeout(() => {
-            typingIndicator.style.display = 'none';
-            
-            const botMessage = document.createElement('div');
-            botMessage.className = 'message bot';
-            
-            // Réponses prédéfinies basées sur le message de l'utilisateur
-            const lowerMessage = userMessage.toLowerCase();
-            let response = '';
-            
-            if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut') || lowerMessage.includes('hello')) {
-                response = 'Bonjour ! Comment puis-je vous aider aujourd\'hui ?';
-            } else if (lowerMessage.includes('application') || lowerMessage.includes('app')) {
-                response = 'Nous avons une large sélection d\'applications. Utilisez la barre de recherche ou parcourez les catégories pour trouver ce que vous cherchez !';
-            } else if (lowerMessage.includes('télécharger') || lowerMessage.includes('download')) {
-                response = 'Pour télécharger une application, cliquez simplement sur le bouton "Télécharger" sur la carte de l\'application. Le téléchargement commencera automatiquement.';
-            } else if (lowerMessage.includes('problème') || lowerMessage.includes('bug') || lowerMessage.includes('erreur')) {
-                response = 'Désolé d\'apprendre que vous rencontrez un problème. Vous pouvez contacter notre support technique à support@looma-store.com';
-            } else if (lowerMessage.includes('merci')) {
-                response = 'Je vous en prie ! N\'hésitez pas si vous avez d\'autres questions.';
-            } else {
-                response = 'Je suis là pour vous aider avec le Looma App Store. Vous pouvez me poser des questions sur les applications, les téléchargements, ou toute autre fonctionnalité !';
-            }
-            
-            botMessage.textContent = response;
-            messagesContainer.appendChild(botMessage);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }, 1500);
-    }
-
-    function toggleMobileMenu() {
-        const navLinks = document.querySelector('.nav-links');
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-    }
-
-    function handleLanguageChange(e) {
-        const selectedLanguage = e.target.value;
-        showNotification(`Langue changée en ${e.target.options[e.target.selectedIndex].text}`, 'info');
-        // Ici, vous implémenteriez la logique de changement de langue
-    }
-
-    function handleSearch(e) {
-        const searchTerm = e.target.value.toLowerCase();
-        
-        if (searchTerm.length < 2) {
-            // Réinitialiser l'affichage si la recherche est trop courte
-            if (currentPage === 'apps') {
-                displayAppsForCurrentPage();
-            }
-            return;
-        }
-        
-        const filteredApps = realApps.filter(app => 
-            app.name.toLowerCase().includes(searchTerm) ||
-            app.description.toLowerCase().includes(searchTerm) ||
-            app.category.toLowerCase().includes(searchTerm) ||
-            app.developer.toLowerCase().includes(searchTerm)
-        );
-        
-        if (currentPage === 'apps') {
-            const appsContainer = document.getElementById('appsContainer');
-            appsContainer.innerHTML = '';
-            
-            if (filteredApps.length === 0) {
-                appsContainer.innerHTML = `
-                    <div class="no-results">
-                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <h3>Aucun résultat trouvé</h3>
-                        <p>Aucune application ne correspond à "${searchTerm}"</p>
+            // New chat button
+            newChatBtn.addEventListener('click', function() {
+                chatContainer.innerHTML = `
+                    <div class="ad-container">
+                        <p>Advertisement Space - Supporting Free AI Access</p>
+                    </div>
+                    <div class="welcome-message">
+                        <h2 class="welcome-title">New Chat Started</h2>
+                        <p class="welcome-text">You're now chatting with ${currentModel}. Ask me anything!</p>
                     </div>
                 `;
-            } else {
-                filteredApps.forEach(app => {
-                    appsContainer.appendChild(createAppCard(app));
+                chatInput.value = '';
+                chatInput.style.height = 'auto';
+            });
+            
+            // Model selection
+            modelBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const model = this.classList[1]; // chatgpt, deepseek, or gemini
+                    
+                    // Update active button
+                    modelBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Check if API key is available for this model
+                    if (!apiKeys[model]) {
+                        overlay.style.display = 'flex';
+                        currentModel = model;
+                        return;
+                    }
+                    
+                    currentModel = model;
+                    chatInput.placeholder = `Message ${model}...`;
+                    
+                    // Update chat title
+                    document.querySelector('.chat-title').textContent = `${model.charAt(0).toUpperCase() + model.slice(1)} Chat`;
                 });
-            }
-        }
-    }
-
-    function updateStats() {
-        // Mettre à jour les statistiques en temps réel
-        document.getElementById('totalApps').textContent = realApps.length.toLocaleString();
-        document.getElementById('totalDownloads').textContent = realApps.reduce((sum, app) => sum + app.downloads, 0).toLocaleString();
-        document.getElementById('activeUsers').textContent = Math.floor(Math.random() * 10000 + 50000).toLocaleString();
-        document.getElementById('developerCount').textContent = new Set(realApps.map(app => app.developer)).size;
-    }
-
-    function simulateConnectionQuality() {
-        const statusElement = document.getElementById('connectionStatus');
-        const textElement = document.getElementById('connectionText');
-        
-        const qualities = [
-            { text: 'Connexion excellente', class: 'good' },
-            { text: 'Connexion moyenne', class: 'poor' },
-            { text: 'Connexion faible', class: 'bad' }
-        ];
-        
-        // Changer aléatoirement la qualité de connexion toutes les 30 secondes
-        setInterval(() => {
-            const randomQuality = qualities[Math.floor(Math.random() * qualities.length)];
-            statusElement.className = `connection-status ${randomQuality.class}`;
-            textElement.textContent = randomQuality.text;
-        }, 30000);
-    }
-
-    function showNotification(message, type = 'info') {
-        // Créer une notification toast
-        const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 1rem 1.5rem;
-            background: ${type === 'success' ? 'var(--success-color)' : 
-                         type === 'error' ? 'var(--danger-color)' : 
-                         type === 'warning' ? 'var(--warning-color)' : 'var(--primary-color)'};
-            color: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            z-index: 10000;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            max-width: 300px;
-        `;
-        notification.textContent = message;
-        
-        document.body.appendChild(notification);
-        
-        // Animation d'entrée
-        setTimeout(() => {
-            notification.style.transform = 'translateX(0)';
-        }, 100);
-        
-        // Supprimer après 3 secondes
-        setTimeout(() => {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
+            });
+            
+            // Modal actions
+            openSettingsBtn.addEventListener('click', function() {
+                overlay.style.display = 'none';
+                sidebar.classList.add('open');
+            });
+            
+            cancelBtn.addEventListener('click', function() {
+                overlay.style.display = 'none';
+                
+                // Revert to a model that has an API key
+                const availableModel = Object.keys(apiKeys).find(key => apiKeys[key] !== null);
+                if (availableModel) {
+                    modelBtns.forEach(btn => {
+                        btn.classList.remove('active');
+                        if (btn.classList.contains(availableModel)) {
+                            btn.classList.add('active');
+                            currentModel = availableModel;
+                            chatInput.placeholder = `Message ${availableModel}...`;
+                            document.querySelector('.chat-title').textContent = `${availableModel.charAt(0).toUpperCase() + availableModel.slice(1)} Chat`;
+                        }
+                    });
                 }
-            }, 300);
-        }, 3000);
-    }
-
-    function getCategoryName(category) {
-        const categories = {
-            'streaming': 'Streaming',
-            'social': 'Réseaux sociaux',
-            'utilitaire': 'Utilitaires',
-            'productivite': 'Productivité',
-            'education': 'Éducation',
-            'sante': 'Santé',
-            'finance': 'Finance',
-            'musique': 'Musique',
-            'photo': 'Photo & Vidéo',
-            'games': 'Jeux'
-        };
-        return categories[category] || category;
-    }
-
-    // Charger les autres pages
-    function loadUpdatedApps() {
-        const updatedAppsContainer = document.getElementById('updatedApps');
-        const appUpdatesContainer = document.getElementById('appUpdates');
-        
-        // Trier les apps par date de mise à jour (plus récentes d'abord)
-        const recentlyUpdated = [...realApps]
-            .sort((a, b) => new Date(b.lastUpdated) - new Date(a.lastUpdated))
-            .slice(0, 6);
-        
-        updatedAppsContainer.innerHTML = '';
-        recentlyUpdated.forEach(app => {
-            updatedAppsContainer.appendChild(createAppCard(app));
+            });
+            
+            // Function to send message
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (!message) return;
+                
+                // Remove welcome message if it exists
+                const welcomeMessage = document.querySelector('.welcome-message');
+                if (welcomeMessage) {
+                    welcomeMessage.remove();
+                }
+                
+                // Add user message to chat
+                addMessageToChat(message, 'user');
+                
+                // Clear input
+                chatInput.value = '';
+                chatInput.style.height = 'auto';
+                
+                // Show typing indicator
+                showTypingIndicator();
+                
+                // Simulate API response after a delay
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    // In a real application, you would call the AI API here
+                    const response = generateResponse(message, currentModel);
+                    addMessageToChat(response, 'ai', currentModel);
+                }, 1500);
+            }
+            
+            // Function to add message to chat
+            function addMessageToChat(message, sender, model = null) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                
+                const avatarDiv = document.createElement('div');
+                avatarDiv.className = `avatar ${sender}-avatar`;
+                
+                if (sender === 'user') {
+                    avatarDiv.textContent = 'You';
+                    avatarDiv.classList.add('user-avatar');
+                } else {
+                    avatarDiv.textContent = model.charAt(0).toUpperCase();
+                    avatarDiv.classList.add('ai-avatar', model);
+                }
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'message-content';
+                
+                if (sender === 'ai') {
+                    const infoDiv = document.createElement('div');
+                    infoDiv.className = 'message-info';
+                    infoDiv.innerHTML = `<span>${model.charAt(0).toUpperCase() + model.slice(1)}</span> • <span>Just now</span>`;
+                    contentDiv.appendChild(infoDiv);
+                }
+                
+                const textDiv = document.createElement('div');
+                textDiv.textContent = message;
+                contentDiv.appendChild(textDiv);
+                
+                messageDiv.appendChild(avatarDiv);
+                messageDiv.appendChild(contentDiv);
+                
+                chatContainer.appendChild(messageDiv);
+                
+                // Scroll to bottom
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            // Function to show typing indicator
+            function showTypingIndicator() {
+                const typingDiv = document.createElement('div');
+                typingDiv.className = 'message ai-message';
+                typingDiv.id = 'typing-indicator';
+                
+                const avatarDiv = document.createElement('div');
+                avatarDiv.className = `avatar ai-avatar ${currentModel}`;
+                avatarDiv.textContent = currentModel.charAt(0).toUpperCase();
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'message-content';
+                
+                const infoDiv = document.createElement('div');
+                infoDiv.className = 'message-info';
+                infoDiv.innerHTML = `<span>${currentModel.charAt(0).toUpperCase() + currentModel.slice(1)}</span> • <span>Typing...</span>`;
+                contentDiv.appendChild(infoDiv);
+                
+                const typingIndicator = document.createElement('div');
+                typingIndicator.className = 'typing-indicator';
+                
+                for (let i = 0; i < 3; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'typing-dot';
+                    typingIndicator.appendChild(dot);
+                }
+                
+                contentDiv.appendChild(typingIndicator);
+                typingDiv.appendChild(avatarDiv);
+                typingDiv.appendChild(contentDiv);
+                
+                chatContainer.appendChild(typingDiv);
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            }
+            
+            // Function to remove typing indicator
+            function removeTypingIndicator() {
+                const typingIndicator = document.getElementById('typing-indicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+            
+            // Function to generate a simple response (for demo purposes)
+            function generateResponse(userMessage, model) {
+                const responses = {
+                    chatgpt: [
+                        "I understand your question. As ChatGPT, I can help you with a wide range of topics from coding to creative writing.",
+                        "That's an interesting question. Let me provide you with a detailed explanation based on my training data.",
+                        "I'd be happy to help with that. Here's what I know about this topic from my knowledge base.",
+                        "Thanks for your question. I've analyzed the topic and here are my thoughts as an OpenAI model.",
+                        "I can provide some insights on that topic. Let me break it down for you based on my understanding."
+                    ],
+                    deepseek: [
+                        "As DeepSeek AI, I specialize in reasoning and problem-solving. Let me help you analyze this.",
+                        "I understand your query. My architecture is optimized for complex reasoning tasks, so let me break this down.",
+                        "That's a great question. As a DeepSeek model, I'm designed to handle intricate problems with precision.",
+                        "I'd be glad to assist. My training focuses on logical reasoning and detailed explanations.",
+                        "Let me approach this systematically. My capabilities are particularly strong in analytical thinking."
+                    ],
+                    gemini: [
+                        "As Google's Gemini, I can help you with that. I'm designed to handle multimodal tasks and complex reasoning.",
+                        "I understand your question. Gemini is optimized for understanding context and providing comprehensive answers.",
+                        "That's an interesting query. Let me leverage my multimodal capabilities to give you the best response.",
+                        "Thanks for your question. As a Gemini model, I can process and connect information from various domains.",
+                        "I'd be happy to assist. Gemini is particularly strong at understanding nuanced questions and providing detailed answers."
+                    ]
+                };
+                
+                // Check for specific keywords to provide more relevant responses
+                if (userMessage.toLowerCase().includes('api')) {
+                    return "API stands for Application Programming Interface. It's a set of rules that allows different software applications to communicate with each other. APIs enable developers to access specific features or data from a service without needing to understand its internal workings.";
+                } else if (userMessage.toLowerCase().includes('javascript')) {
+                    return "JavaScript is a versatile programming language primarily used for web development. It enables interactive web pages and is an essential part of web applications. Modern JavaScript can also be used for server-side development (Node.js), mobile apps, and even desktop applications.";
+                } else if (userMessage.toLowerCase().includes('python')) {
+                    return "Python is a high-level programming language known for its simplicity and readability. It's widely used in web development, data analysis, artificial intelligence, scientific computing, and automation. Python's extensive library ecosystem makes it a popular choice for various applications.";
+                } else {
+                    // Return a random response specific to the model
+                    const modelResponses = responses[model];
+                    return modelResponses[Math.floor(Math.random() * modelResponses.length)];
+                }
+            }
         });
-        
-        // Journal des mises à jour
-        appUpdatesContainer.innerHTML = `
-            <div style="background: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
-                <h3 style="margin-bottom: 1rem;">Journal des mises à jour récentes</h3>
-                ${recentlyUpdated.map(app => `
-                    <div style="padding: 1rem; border-bottom: 1px solid #eee; display: flex; align-items: center;">
-                        <img src="${app.logo}" alt="${app.name}" style="width: 40px; height: 40px; border-radius: 10px; margin-right: 1rem;">
-                        <div style="flex: 1;">
-                            <div style="font-weight: bold;">${app.name}</div>
-                            <div style="font-size: 0.9rem; color: #666;">Version ${app.version} • ${app.lastUpdated}</div>
-                        </div>
-                        <span class="feature-badge new">Nouveau</span>
-                    </div>
-                `).join('')}
-            </div>
-        `;
-    }
-
-    function loadGames() {
-        // Implémentation similaire pour les jeux
-        showNotification('Page Jeux chargée', 'info');
-    }
-
-    function loadCategories() {
-        // Implémentation similaire pour les catégories
-        showNotification('Page Catégories chargée', 'info');
-    }
-
-    function loadTopApps() {
-        // Implémentation similaire pour les top apps
-        showNotification('Page Top Apps chargée', 'info');
-    }
-
-    function loadNewApps() {
-        // Implémentation similaire pour les nouvelles apps
-        showNotification('Page Nouvelles Apps chargée', 'info');
-    }
-
-    function loadTrendingApps() {
-        // Implémentation similaire pour les apps tendances
-        showNotification('Page Apps Tendances chargée', 'info');
-    }
-
-    // Vérifier le mode sombre au chargement
-    if (localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
-        document.querySelector('#darkModeToggle i').className = 'fas fa-sun';
-    }
-
-    // Initialiser AdSense
-    (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    </script>
 </body>
 </html>
