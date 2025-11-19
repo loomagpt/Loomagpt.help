@@ -15,20 +15,20 @@
         }
 
         :root {
-            --orange: #FF6F00;
-            --dark-orange: #E65100;
+            --primary: #E50914;
+            --primary-dark: #B2070F;
+            --dark: #141414;
+            --dark-light: #2F2F2F;
+            --gray: #808080;
+            --light-gray: #E5E5E5;
             --white: #FFFFFF;
-            --light-gray: #F5F5F5;
-            --medium-gray: #E0E0E0;
-            --dark-gray: #212121;
-            --text-gray: #757575;
-            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            --header-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            --header-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         body {
-            background-color: var(--light-gray);
-            color: var(--dark-gray);
+            background-color: var(--dark);
+            color: var(--white);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -57,7 +57,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
+            background: var(--dark);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -69,16 +69,15 @@
         .splash-logo {
             font-size: 48px;
             font-weight: bold;
-            color: var(--white);
+            color: var(--primary);
             margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .splash-loader {
             width: 50px;
             height: 50px;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid var(--white);
+            border: 4px solid rgba(229, 9, 20, 0.3);
+            border-top: 4px solid var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
         }
@@ -90,31 +89,28 @@
 
         /* ===== HEADER ===== */
         header {
-            background: var(--white);
+            background: var(--dark);
             box-shadow: var(--header-shadow);
             position: sticky;
             top: 0;
             z-index: 100;
+            padding: 12px 0;
         }
 
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 12px 16px;
+            padding: 0 16px;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            color: var(--orange);
+            color: var(--primary);
             display: flex;
             align-items: center;
             gap: 8px;
-        }
-
-        .logo-icon {
-            font-size: 28px;
         }
 
         .header-actions {
@@ -127,7 +123,7 @@
             background: none;
             border: none;
             font-size: 20px;
-            color: var(--dark-gray);
+            color: var(--white);
             cursor: pointer;
             padding: 8px;
             border-radius: 50%;
@@ -135,7 +131,7 @@
         }
 
         .search-btn:hover, .menu-btn:hover {
-            background-color: var(--light-gray);
+            background-color: var(--dark-light);
         }
 
         /* ===== BOTTOM NAVIGATION ===== */
@@ -144,8 +140,8 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: var(--white);
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            background: var(--dark);
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: space-around;
             padding: 12px 0;
@@ -157,7 +153,7 @@
             flex-direction: column;
             align-items: center;
             gap: 4px;
-            color: var(--text-gray);
+            color: var(--gray);
             font-size: 12px;
             text-decoration: none;
             transition: color 0.2s;
@@ -165,7 +161,7 @@
         }
 
         .nav-item.active {
-            color: var(--orange);
+            color: var(--primary);
         }
 
         .nav-icon {
@@ -173,27 +169,70 @@
         }
 
         /* ===== HOME PAGE ===== */
-        .banner {
-            background: linear-gradient(135deg, var(--orange) 0%, var(--dark-orange) 100%);
-            color: var(--white);
-            padding: 40px 20px;
-            text-align: center;
-            border-radius: 0 0 20px 20px;
+        .hero-banner {
+            position: relative;
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 40px;
+            margin-bottom: 40px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
             margin-bottom: 24px;
+            color: var(--light-gray);
         }
 
-        .banner h1 {
-            font-size: 28px;
-            margin-bottom: 8px;
+        .hero-actions {
+            display: flex;
+            gap: 16px;
         }
 
-        .banner p {
-            font-size: 16px;
-            opacity: 0.9;
+        .hero-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .primary-btn {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .primary-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .secondary-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .secondary-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .section-title {
-            font-size: 20px;
+            font-size: 1.5rem;
             font-weight: 600;
             margin: 24px 0 16px;
             padding: 0 16px;
@@ -203,7 +242,7 @@
         }
 
         .see-all {
-            color: var(--orange);
+            color: var(--primary);
             font-size: 14px;
             text-decoration: none;
         }
@@ -223,20 +262,27 @@
 
         .carousel-item {
             flex: 0 0 280px;
-            background: var(--white);
-            border-radius: 12px;
+            background: var(--dark-light);
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .carousel-item:hover {
+            transform: scale(1.05);
         }
 
         .carousel-image {
             width: 100%;
             height: 160px;
-            background: var(--medium-gray);
+            background: var(--gray);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 40px;
+            color: var(--white);
         }
 
         .carousel-content {
@@ -250,7 +296,7 @@
 
         .carousel-content p {
             font-size: 14px;
-            color: var(--text-gray);
+            color: var(--gray);
         }
 
         .apps-grid {
@@ -266,27 +312,34 @@
             }
         }
 
+        @media (min-width: 1024px) {
+            .apps-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
         .app-card {
-            background: var(--white);
-            border-radius: 12px;
+            background: var(--dark-light);
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.3s;
+            cursor: pointer;
         }
 
         .app-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
         }
 
         .app-icon {
             width: 100%;
             height: 120px;
-            background: var(--medium-gray);
+            background: var(--gray);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 40px;
+            color: var(--white);
         }
 
         .app-info {
@@ -304,7 +357,7 @@
 
         .app-developer {
             font-size: 12px;
-            color: var(--text-gray);
+            color: var(--gray);
             margin-bottom: 8px;
         }
 
@@ -316,19 +369,19 @@
         }
 
         .stars {
-            color: var(--orange);
+            color: var(--primary);
         }
 
         .rating-value {
             font-size: 12px;
-            color: var(--text-gray);
+            color: var(--gray);
         }
 
         .download-btn {
-            background: var(--orange);
+            background: var(--primary);
             color: var(--white);
             border: none;
-            border-radius: 20px;
+            border-radius: 4px;
             padding: 8px 16px;
             font-size: 12px;
             font-weight: 600;
@@ -338,7 +391,7 @@
         }
 
         .download-btn:hover {
-            background: var(--dark-orange);
+            background: var(--primary-dark);
         }
 
         .categories-grid {
@@ -349,8 +402,8 @@
         }
 
         .category-card {
-            background: var(--white);
-            border-radius: 12px;
+            background: var(--dark-light);
+            border-radius: 8px;
             padding: 20px;
             text-align: center;
             box-shadow: var(--card-shadow);
@@ -365,6 +418,7 @@
         .category-icon {
             font-size: 32px;
             margin-bottom: 8px;
+            color: var(--primary);
         }
 
         .category-name {
@@ -374,7 +428,7 @@
 
         /* ===== SEARCH PAGE ===== */
         .search-header {
-            background: var(--white);
+            background: var(--dark);
             padding: 16px;
             display: flex;
             align-items: center;
@@ -389,26 +443,28 @@
         .search-input {
             width: 100%;
             padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 24px;
+            background: var(--dark-light);
+            border: 1px solid var(--gray);
+            border-radius: 4px;
             font-size: 16px;
             outline: none;
+            color: var(--white);
         }
 
         .search-input:focus {
-            border-color: var(--orange);
+            border-color: var(--primary);
         }
 
         .cancel-search {
-            color: var(--orange);
+            color: var(--primary);
             font-size: 16px;
             cursor: pointer;
         }
 
         .search-history {
-            background: var(--white);
+            background: var(--dark-light);
             margin: 16px;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 16px;
             box-shadow: var(--card-shadow);
         }
@@ -425,17 +481,22 @@
         }
 
         .history-item {
-            background: var(--light-gray);
+            background: var(--dark);
             padding: 8px 12px;
             border-radius: 16px;
             font-size: 14px;
             cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .history-item:hover {
+            background: var(--primary);
         }
 
         .top-searches {
-            background: var(--white);
+            background: var(--dark-light);
             margin: 16px;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 16px;
             box-shadow: var(--card-shadow);
         }
@@ -450,7 +511,8 @@
             justify-content: space-between;
             align-items: center;
             padding: 12px 0;
-            border-bottom: 1px solid var(--medium-gray);
+            border-bottom: 1px solid var(--gray);
+            cursor: pointer;
         }
 
         .top-search-item:last-child {
@@ -458,7 +520,7 @@
         }
 
         .search-rank {
-            background: var(--orange);
+            background: var(--primary);
             color: var(--white);
             width: 24px;
             height: 24px;
@@ -483,7 +545,7 @@
 
         /* ===== APP DETAILS PAGE ===== */
         .app-header {
-            background: var(--white);
+            background: var(--dark-light);
             padding: 20px;
             display: flex;
             gap: 16px;
@@ -493,13 +555,14 @@
         .app-large-icon {
             width: 80px;
             height: 80px;
-            background: var(--medium-gray);
+            background: var(--gray);
             border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
             flex-shrink: 0;
+            color: var(--white);
         }
 
         .app-header-info {
@@ -517,10 +580,11 @@
             align-items: center;
             gap: 4px;
             margin-bottom: 8px;
+            color: var(--gray);
         }
 
         .verified-badge {
-            color: var(--orange);
+            color: var(--primary);
             font-size: 14px;
         }
 
@@ -529,14 +593,14 @@
             gap: 16px;
             margin-bottom: 16px;
             font-size: 14px;
-            color: var(--text-gray);
+            color: var(--gray);
         }
 
         .install-btn {
-            background: var(--orange);
+            background: var(--primary);
             color: var(--white);
             border: none;
-            border-radius: 24px;
+            border-radius: 4px;
             padding: 12px 24px;
             font-size: 16px;
             font-weight: bold;
@@ -545,13 +609,13 @@
         }
 
         .install-btn:hover {
-            background: var(--dark-orange);
+            background: var(--primary-dark);
         }
 
         .app-screenshots {
-            background: var(--white);
+            background: var(--dark-light);
             margin: 16px;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 16px;
             box-shadow: var(--card-shadow);
         }
@@ -566,19 +630,20 @@
         .screenshot {
             width: 200px;
             height: 350px;
-            background: var(--medium-gray);
+            background: var(--gray);
             border-radius: 8px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
+            color: var(--white);
         }
 
         .app-description {
-            background: var(--white);
+            background: var(--dark-light);
             margin: 16px;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 16px;
             box-shadow: var(--card-shadow);
         }
@@ -591,13 +656,13 @@
         .app-description p {
             font-size: 14px;
             line-height: 1.6;
-            color: var(--text-gray);
+            color: var(--light-gray);
         }
 
         .app-info-details {
-            background: var(--white);
+            background: var(--dark-light);
             margin: 16px;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 16px;
             box-shadow: var(--card-shadow);
         }
@@ -606,7 +671,7 @@
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
-            border-bottom: 1px solid var(--medium-gray);
+            border-bottom: 1px solid var(--gray);
         }
 
         .info-row:last-child {
@@ -614,20 +679,20 @@
         }
 
         .info-label {
-            color: var(--text-gray);
+            color: var(--gray);
         }
 
         .app-reviews {
-            background: var(--white);
+            background: var(--dark-light);
             margin: 16px;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 16px;
             box-shadow: var(--card-shadow);
         }
 
         .review {
             padding: 16px 0;
-            border-bottom: 1px solid var(--medium-gray);
+            border-bottom: 1px solid var(--gray);
         }
 
         .review:last-child {
@@ -646,20 +711,20 @@
         }
 
         .review-date {
-            color: var(--text-gray);
+            color: var(--gray);
             font-size: 12px;
         }
 
         .review-content {
             font-size: 14px;
-            color: var(--text-gray);
+            color: var(--light-gray);
         }
 
         .share-btn {
             position: fixed;
             bottom: 100px;
             right: 20px;
-            background: var(--orange);
+            background: var(--primary);
             color: var(--white);
             width: 56px;
             height: 56px;
@@ -668,14 +733,14 @@
             align-items: center;
             justify-content: center;
             font-size: 20px;
-            box-shadow: 0 4px 12px rgba(255, 111, 0, 0.4);
+            box-shadow: 0 4px 12px rgba(229, 9, 20, 0.4);
             cursor: pointer;
             z-index: 99;
         }
 
         /* ===== PROFILE PAGE ===== */
         .profile-header {
-            background: var(--white);
+            background: var(--dark-light);
             padding: 40px 20px;
             text-align: center;
             margin-bottom: 16px;
@@ -684,13 +749,14 @@
         .profile-avatar {
             width: 80px;
             height: 80px;
-            background: var(--medium-gray);
+            background: var(--gray);
             border-radius: 50%;
             margin: 0 auto 16px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
+            color: var(--white);
         }
 
         .profile-name {
@@ -700,14 +766,14 @@
         }
 
         .profile-email {
-            color: var(--text-gray);
+            color: var(--gray);
             font-size: 14px;
         }
 
         .profile-menu {
-            background: var(--white);
+            background: var(--dark-light);
             margin: 0 16px;
-            border-radius: 12px;
+            border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
         }
@@ -717,7 +783,7 @@
             align-items: center;
             gap: 12px;
             padding: 16px;
-            border-bottom: 1px solid var(--medium-gray);
+            border-bottom: 1px solid var(--gray);
             cursor: pointer;
             transition: background-color 0.2s;
         }
@@ -727,23 +793,24 @@
         }
 
         .menu-item:hover {
-            background: var(--light-gray);
+            background: var(--dark);
         }
 
         .menu-icon {
             font-size: 20px;
             width: 24px;
             text-align: center;
+            color: var(--primary);
         }
 
-        /* ===== LOGIN MODAL ===== */
+        /* ===== AUTH MODAL ===== */
         .modal {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.8);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -759,10 +826,10 @@
         }
 
         .modal-content {
-            background: var(--white);
+            background: var(--dark-light);
             width: 90%;
             max-width: 400px;
-            border-radius: 16px;
+            border-radius: 8px;
             overflow: hidden;
             transform: translateY(20px);
             transition: transform 0.3s;
@@ -773,7 +840,7 @@
         }
 
         .modal-header {
-            background: var(--orange);
+            background: var(--primary);
             color: var(--white);
             padding: 20px;
             text-align: center;
@@ -783,41 +850,50 @@
             padding: 20px;
         }
 
-        .login-options {
+        .auth-options {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .login-btn {
+        .auth-btn {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
             padding: 12px 16px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
-            background: var(--white);
+            border: 1px solid var(--gray);
+            border-radius: 4px;
+            background: var(--dark);
+            color: var(--white);
             cursor: pointer;
             transition: background-color 0.2s;
         }
 
-        .login-btn:hover {
-            background: var(--light-gray);
+        .auth-btn:hover {
+            background: var(--dark-light);
         }
 
-        .login-icon {
+        .auth-icon {
             font-size: 20px;
         }
 
-        .google-btn .login-icon {
-            color: #DB4437;
+        .google-btn {
+            background: #DB4437;
+            border-color: #DB4437;
         }
 
-        .email-btn .login-icon {
-            color: var(--orange);
+        .github-btn {
+            background: #333;
+            border-color: #333;
         }
 
-        .login-form {
+        .email-btn {
+            background: var(--dark);
+            border-color: var(--gray);
+        }
+
+        .auth-form {
             display: none;
             flex-direction: column;
             gap: 12px;
@@ -832,25 +908,28 @@
         .form-label {
             font-size: 14px;
             font-weight: 500;
+            color: var(--light-gray);
         }
 
         .form-input {
             padding: 12px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 8px;
+            background: var(--dark);
+            border: 1px solid var(--gray);
+            border-radius: 4px;
             font-size: 16px;
+            color: var(--white);
         }
 
         .form-input:focus {
-            border-color: var(--orange);
+            border-color: var(--primary);
             outline: none;
         }
 
         .submit-btn {
-            background: var(--orange);
+            background: var(--primary);
             color: var(--white);
             border: none;
-            border-radius: 8px;
+            border-radius: 4px;
             padding: 12px;
             font-size: 16px;
             font-weight: 600;
@@ -859,11 +938,11 @@
         }
 
         .submit-btn:hover {
-            background: var(--dark-orange);
+            background: var(--primary-dark);
         }
 
-        .back-to-options {
-            color: var(--orange);
+        .auth-switch {
+            color: var(--primary);
             text-align: center;
             margin-top: 12px;
             cursor: pointer;
@@ -879,18 +958,19 @@
             align-items: center;
             gap: 12px;
             padding: 20px;
-            border-bottom: 1px solid var(--medium-gray);
+            border-bottom: 1px solid var(--gray);
         }
 
         .install-icon {
             width: 40px;
             height: 40px;
-            background: var(--medium-gray);
+            background: var(--gray);
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 20px;
+            color: var(--white);
         }
 
         .install-info h3 {
@@ -900,7 +980,7 @@
 
         .install-info p {
             font-size: 14px;
-            color: var(--text-gray);
+            color: var(--gray);
         }
 
         .install-progress {
@@ -909,7 +989,7 @@
 
         .progress-bar {
             height: 4px;
-            background: var(--medium-gray);
+            background: var(--dark);
             border-radius: 2px;
             overflow: hidden;
             margin-bottom: 12px;
@@ -917,7 +997,7 @@
 
         .progress-fill {
             height: 100%;
-            background: var(--orange);
+            background: var(--primary);
             width: 0%;
             transition: width 0.3s;
         }
@@ -925,7 +1005,7 @@
         .progress-text {
             text-align: center;
             font-size: 14px;
-            color: var(--text-gray);
+            color: var(--gray);
         }
 
         /* ===== UPDATE MODAL ===== */
@@ -936,12 +1016,12 @@
         .update-header {
             padding: 20px;
             text-align: center;
-            border-bottom: 1px solid var(--medium-gray);
+            border-bottom: 1px solid var(--gray);
         }
 
         .update-icon {
             font-size: 40px;
-            color: var(--orange);
+            color: var(--primary);
             margin-bottom: 12px;
         }
 
@@ -958,33 +1038,33 @@
             flex: 1;
             padding: 12px;
             border: none;
-            border-radius: 8px;
+            border-radius: 4px;
             font-weight: 600;
             cursor: pointer;
         }
 
         .update-now {
-            background: var(--orange);
+            background: var(--primary);
             color: var(--white);
         }
 
         .update-later {
-            background: var(--light-gray);
-            color: var(--dark-gray);
+            background: var(--dark);
+            color: var(--white);
         }
 
         /* ===== ADMIN PANEL ===== */
         .admin-panel {
-            background: var(--white);
+            background: var(--dark-light);
             padding: 20px;
             margin: 16px;
-            border-radius: 12px;
+            border-radius: 8px;
             box-shadow: var(--card-shadow);
         }
 
         .admin-panel h2 {
             margin-bottom: 20px;
-            color: var(--orange);
+            color: var(--primary);
         }
 
         .admin-form {
@@ -999,10 +1079,10 @@
         }
 
         .admin-submit {
-            background: var(--orange);
+            background: var(--primary);
             color: var(--white);
             border: none;
-            border-radius: 8px;
+            border-radius: 4px;
             padding: 12px;
             font-size: 16px;
             font-weight: 600;
@@ -1026,6 +1106,40 @@
         .mb-16 {
             margin-bottom: 16px;
         }
+
+        /* ===== BACK BUTTON ===== */
+        .back-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--white);
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: background-color 0.2s;
+            margin-right: 8px;
+        }
+
+        .back-btn:hover {
+            background-color: var(--dark-light);
+        }
+
+        /* ===== FAVORITE BUTTON ===== */
+        .favorite-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 1;
+            color: var(--gray);
+        }
+
+        .favorite-btn.active {
+            color: var(--primary);
+        }
     </style>
 </head>
 <body>
@@ -1038,13 +1152,18 @@
     <!-- Header -->
     <header>
         <div class="header-container">
-            <div class="logo">
-                <span class="logo-icon">📱</span>
-                LOOMA
-            </div>
+            <div class="logo">LOOMA</div>
             <div class="header-actions">
-                <button class="search-btn" id="search-toggle">🔍</button>
-                <button class="menu-btn" id="menu-toggle">☰</button>
+                <button class="search-btn" id="search-toggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="menu-btn" id="menu-toggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </header>
@@ -1053,9 +1172,15 @@
     <main>
         <!-- Home View -->
         <section id="home" class="view active">
-            <div class="banner">
-                <h1>Discover Amazing Apps</h1>
-                <p>Millions of apps waiting for you</p>
+            <div class="hero-banner">
+                <div class="hero-content">
+                    <h1 class="hero-title">Discover Amazing Apps</h1>
+                    <p class="hero-description">Explore millions of apps, games, and tools for every need. Download now and enhance your digital experience.</p>
+                    <div class="hero-actions">
+                        <button class="hero-btn primary-btn">Explore Now</button>
+                        <button class="hero-btn secondary-btn">Learn More</button>
+                    </div>
+                </div>
             </div>
 
             <div class="section-title">
@@ -1131,26 +1256,51 @@
         <!-- Profile View -->
         <section id="profile" class="view">
             <div class="profile-header">
-                <div class="profile-avatar">👤</div>
+                <div class="profile-avatar">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <div class="profile-name">Guest User</div>
                 <div class="profile-email">Tap to login</div>
             </div>
 
             <div class="profile-menu">
                 <div class="menu-item" id="login-menu">
-                    <div class="menu-icon">🔑</div>
+                    <div class="menu-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 17L15 12L10 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <div>Login / Register</div>
                 </div>
                 <div class="menu-item" id="favorites-menu">
-                    <div class="menu-icon">❤️</div>
+                    <div class="menu-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.84 4.61C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.61C2.1283 5.64169 1.5487 7.04097 1.5487 8.5C1.5487 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.5C22.4518 7.77752 22.3095 7.06211 22.0329 6.39465C21.7563 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <div>My Favorites</div>
                 </div>
                 <div class="menu-item" id="history-menu">
-                    <div class="menu-icon">📥</div>
+                    <div class="menu-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 8V12L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3.05 11C3.27151 9.18063 4.06052 7.4815 5.30078 6.15147C6.54104 4.82144 8.16366 3.93458 9.93211 3.625C11.7006 3.31542 13.5206 3.60026 15.126 4.4375C16.7314 5.27474 18.0334 6.61989 18.833 8.27007C19.6326 9.92025 19.888 11.7849 19.562 13.5901C19.236 15.3953 18.345 17.0434 17.025 18.2633C15.705 19.4832 14.031 20.2066 12.2631 20.3214C10.4952 20.4363 8.73378 19.9357 7.266 18.9L3.5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <div>Download History</div>
                 </div>
                 <div class="menu-item">
-                    <div class="menu-icon">⚙️</div>
+                    <div class="menu-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19.4 15C19.2669 15.3031 19.1341 15.6063 19.0012 15.9094C18.914 16.1053 18.8268 16.3012 18.7396 16.4971C18.6524 16.6929 18.5652 16.8888 18.478 17.0847C18.258 17.588 18.038 18.0913 17.818 18.5946C17.7255 18.8109 17.633 19.0272 17.5405 19.2435C17.448 19.4598 17.3555 19.6761 17.263 19.8924C17.0569 20.4107 16.8508 20.929 16.6447 21.4474C16.4386 21.9657 16.2325 22.484 16.0264 23C15.6716 23 15.3168 23 14.962 23C14.6072 23 14.2524 23 13.8976 23C13.7803 22.7128 13.663 22.4256 13.5457 22.1384C13.4284 21.8512 13.3111 21.564 13.1938 21.2768C13.0765 20.9896 12.9592 20.7024 12.8419 20.4152C12.7246 20.128 12.6073 19.8408 12.49 19.5536C12.3727 19.2664 12.2554 18.9792 12.1381 18.692C12.0208 18.4048 11.9035 18.1176 11.7862 17.8304C11.6689 17.5432 11.5516 17.256 11.4343 16.9688C11.317 16.6816 11.1997 16.3944 11.0824 16.1072C10.9651 15.82 10.8478 15.5328 10.7305 15.2456C10.6132 14.9584 10.4959 14.6712 10.3786 14.384C10.2613 14.0968 10.144 13.8096 10.0267 13.5224C9.90941 13.2352 9.79211 12.948 9.67481 12.6608C9.55751 12.3736 9.44021 12.0864 9.32291 11.7992C9.20561 11.512 9.08831 11.2248 8.97101 10.9376C8.85371 10.6504 8.73641 10.3632 8.61911 10.076C8.50181 9.7888 8.38451 9.5016 8.26721 9.2144C8.14991 8.9272 8.03261 8.64 7.91531 8.3528C7.79801 8.0656 7.68071 7.7784 7.56341 7.4912C7.44611 7.204 7.32881 6.9168 7.21151 6.6296C7.09421 6.3424 6.97691 6.0552 6.85961 5.768C6.74231 5.4808 6.62501 5.1936 6.50771 4.9064C6.39041 4.6192 6.27311 4.332 6.15581 4.0448C6.03851 3.7576 5.92121 3.4704 5.80391 3.1832C5.68661 2.896 5.56931 2.6088 5.45201 2.3216C5.33471 2.0344 5.21741 1.7472 5.10011 1.46C4.98281 1.1728 4.86551 0.8856 4.74821 0.5984C4.63091 0.3112 4.51361 0.024 4.39631 -0.2632C4.01954 -0.2632 3.64277 -0.2632 3.266 -0.2632C2.88923 -0.2632 2.51246 -0.2632 2.13569 -0.2632C1.75892 -0.2632 1.38215 -0.2632 1.00538 -0.2632C0.628615 -0.2632 0.251846 -0.2632 -0.124923 -0.2632C-0.124923 0.124923 -0.124923 0.513846 -0.124923 0.902769C-0.124923 1.29169 -0.124923 1.68062 -0.124923 2.06954C-0.124923 2.45846 -0.124923 2.84738 -0.124923 3.23631C-0.124923 3.62523 -0.124923 4.01415 -0.124923 4.40308C-0.124923 4.792 -0.124923 5.18092 -0.124923 5.56985C-0.124923 5.95877 -0.124923 6.34769 -0.124923 6.73662C-0.124923 7.12554 -0.124923 7.51446 -0.124923 7.90338C-0.124923 8.29231 -0.124923 8.68123 -0.124923 9.07015C-0.124923 9.45908 -0.124923 9.848 -0.124923 10.2369C-0.124923 10.6258 -0.124923 11.0148 -0.124923 11.4037C-0.124923 11.7926 -0.124923 12.1815 -0.124923 12.5705C-0.124923 12.9594 -0.124923 13.3483 -0.124923 13.7372C-0.124923 14.1262 -0.124923 14.5151 -0.124923 14.904C-0.124923 15.2929 -0.124923 15.6818 -0.124923 16.0708C-0.124923 16.4597 -0.124923 16.8486 -0.124923 17.2375C-0.124923 17.6265 -0.124923 18.0154 -0.124923 18.4043C-0.124923 18.7932 -0.124923 19.1822 -0.124923 19.5711C-0.124923 19.96 -0.124923 20.3489 -0.124923 20.7378C-0.124923 21.1268 -0.124923 21.5157 -0.124923 21.9046C-0.124923 22.2935 -0.124923 22.6825 -0.124923 23.0714C0.251846 23.0714 0.628615 23.0714 1.00538 23.0714C1.38215 23.0714 1.75892 23.0714 2.13569 23.0714C2.51246 23.0714 2.88923 23.0714 3.266 23.0714C3.64277 23.0714 4.01954 23.0714 4.39631 23.0714C4.77308 23.0714 5.14985 23.0714 5.52662 23.0714C5.90339 23.0714 6.28016 23.0714 6.65693 23.0714C7.0337 23.0714 7.41047 23.0714 7.78724 23.0714C8.16401 23.0714 8.54078 23.0714 8.91755 23.0714C9.29432 23.0714 9.67109 23.0714 10.0479 23.0714C10.4246 23.0714 10.8014 23.0714 11.1782 23.0714C11.5549 23.0714 11.9317 23.0714 12.3085 23.0714C12.6852 23.0714 13.062 23.0714 13.4388 23.0714C13.8155 23.0714 14.1923 23.0714 14.5691 23.0714C14.9458 23.0714 15.3226 23.0714 15.6994 23.0714C16.0761 23.0714 16.4529 23.0714 16.8297 23.0714C17.2064 23.0714 17.5832 23.0714 17.96 23.0714C18.3367 23.0714 18.7135 23.0714 19.0903 23.0714C19.467 23.0714 19.8438 23.0714 20.2206 23.0714C20.5973 23.0714 20.9741 23.0714 21.3509 23.0714C21.7276 23.0714 22.1044 23.0714 22.4812 23.0714C22.8579 23.0714 23.2347 23.0714 23.6115 23.0714C23.9882 23.0714 24.365 23.0714 24.7418 23.0714C24.7418 22.6825 24.7418 22.2935 24.7418 21.9046C24.7418 21.5157 24.7418 21.1268 24.7418 20.7378C24.7418 20.3489 24.7418 19.96 24.7418 19.5711C24.7418 19.1822 24.7418 18.7932 24.7418 18.4043C24.7418 18.0154 24.7418 17.6265 24.7418 17.2375C24.7418 16.8486 24.7418 16.4597 24.7418 16.0708C24.7418 15.6818 24.7418 15.2929 24.7418 14.904C24.7418 14.5151 24.7418 14.1262 24.7418 13.7372C24.7418 13.3483 24.7418 12.9594 24.7418 12.5705C24.7418 12.1815 24.7418 11.7926 24.7418 11.4037C24.7418 11.0148 24.7418 10.6258 24.7418 10.2369C24.7418 9.848 24.7418 9.45908 24.7418 9.07015C24.7418 8.68123 24.7418 8.29231 24.7418 7.90338C24.7418 7.51446 24.7418 7.12554 24.7418 6.73662C24.7418 6.34769 24.7418 5.95877 24.7418 5.56985C24.7418 5.18092 24.7418 4.792 24.7418 4.40308C24.7418 4.01415 24.7418 3.62523 24.7418 3.23631C24.7418 2.84738 24.7418 2.45846 24.7418 2.06954C24.7418 1.68062 24.7418 1.29169 24.7418 0.902769C24.7418 0.513846 24.7418 0.124923 24.7418 -0.2632C24.365 -0.2632 23.9882 -0.2632 23.6115 -0.2632C23.2347 -0.2632 22.8579 -0.2632 22.4812 -0.2632C22.1044 -0.2632 21.7276 -0.2632 21.3509 -0.2632C20.9741 -0.2632 20.5973 -0.2632 20.2206 -0.2632C19.8438 -0.2632 19.467 -0.2632 19.0903 -0.2632C18.7135 -0.2632 18.3367 -0.2632 17.96 -0.2632C17.5832 -0.2632 17.2064 -0.2632 16.8297 -0.2632C16.4529 -0.2632 16.0761 -0.2632 15.6994 -0.2632C15.3226 -0.2632 14.9458 -0.2632 14.5691 -0.2632C14.1923 -0.2632 13.8155 -0.2632 13.4388 -0.2632C13.062 -0.2632 12.6852 -0.2632 12.3085 -0.2632C11.9317 -0.2632 11.5549 -0.2632 11.1782 -0.2632C10.8014 -0.2632 10.4246 -0.2632 10.0479 -0.2632C9.67109 -0.2632 9.29432 -0.2632 8.91755 -0.2632C8.54078 -0.2632 8.16401 -0.2632 7.78724 -0.2632C7.41047 -0.2632 7.0337 -0.2632 6.65693 -0.2632C6.28016 -0.2632 5.90339 -0.2632 5.52662 -0.2632C5.14985 -0.2632 4.77308 -0.2632 4.39631 -0.2632C4.01954 -0.2632 3.64277 -0.2632 3.266 -0.2632C2.88923 -0.2632 2.51246 -0.2632 2.13569 -0.2632C1.75892 -0.2632 1.38215 -0.2632 1.00538 -0.2632C0.628615 -0.2632 0.251846 -0.2632 -0.124923 -0.2632" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <div>Settings</div>
                 </div>
             </div>
@@ -1245,54 +1395,99 @@
     <!-- Bottom Navigation -->
     <nav class="bottom-nav">
         <div class="nav-item active" data-view="home">
-            <div class="nav-icon">🏠</div>
+            <div class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
             <div>Home</div>
         </div>
         <div class="nav-item" data-view="search">
-            <div class="nav-icon">🔍</div>
+            <div class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
             <div>Search</div>
         </div>
         <div class="nav-item" data-view="categories">
-            <div class="nav-icon">📂</div>
+            <div class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 6H21M8 12H21M8 18H21M3 6H3.01M3 12H3.01M3 18H3.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
             <div>Categories</div>
         </div>
         <div class="nav-item" data-view="profile">
-            <div class="nav-icon">👤</div>
+            <div class="nav-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
             <div>Profile</div>
         </div>
     </nav>
 
     <!-- Share Button (for app details) -->
-    <div class="share-btn hidden" id="share-btn">📤</div>
+    <div class="share-btn hidden" id="share-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 8C19.6569 8 21 6.65685 21 5C21 3.34315 19.6569 2 18 2C16.3431 2 15 3.34315 15 5C15 6.65685 16.3431 8 18 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 22C19.6569 22 21 20.6569 21 19C21 17.3431 19.6569 16 18 16C16.3431 16 15 17.3431 15 19C15 20.6569 16.3431 22 18 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M8.59 13.51L15.42 17.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
 
-    <!-- Login Modal -->
-    <div class="modal" id="login-modal">
+    <!-- Auth Modal -->
+    <div class="modal" id="auth-modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Welcome to LOOMA</h2>
             </div>
             <div class="modal-body">
-                <div class="login-options" id="login-options">
-                    <button class="login-btn google-btn" id="google-login">
-                        <div class="login-icon">🔍</div>
+                <div class="auth-options" id="auth-options">
+                    <button class="auth-btn google-btn" id="google-auth">
+                        <div class="auth-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21.8055 10.0415H21V10H12V14H17.6515C16.827 16.3285 14.6115 18 12 18C8.6865 18 6 15.3135 6 12C6 8.6865 8.6865 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C6.4775 2 2 6.4775 2 12C2 17.5225 6.4775 22 12 22C17.5225 22 22 17.5225 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#FFC107"/>
+                                <path d="M3.153 7.3455L6.4385 9.755C7.3275 7.554 9.4805 6 12 6C13.5295 6 14.921 6.577 15.9805 7.5195L18.809 4.691C17.023 3.0265 14.634 2 12 2C8.159 2 4.828 4.1685 3.153 7.3455Z" fill="#FF3D00"/>
+                                <path d="M12 22C14.583 22 16.93 21.0115 18.7045 19.404L15.6095 16.785C14.6055 17.5455 13.3575 18 12 18C9.399 18 7.1905 16.3415 6.3585 14.027L3.0975 16.5395C4.7525 19.778 8.1135 22 12 22Z" fill="#4CAF50"/>
+                                <path d="M21.8055 10.0415H21V10H12V14H17.6515C17.2555 15.1185 16.536 16.083 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#1976D2"/>
+                            </svg>
+                        </div>
                         <div>Continue with Google</div>
                     </button>
-                    <button class="login-btn email-btn" id="email-login">
-                        <div class="login-icon">✉️</div>
+                    <button class="auth-btn github-btn" id="github-auth">
+                        <div class="auth-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2C6.477 2 2 6.477 2 12C2 16.418 4.865 20.166 8.839 21.489C9.339 21.579 9.521 21.26 9.521 20.978C9.521 20.721 9.513 20.14 9.508 19.306C6.726 19.907 6.139 18.16 6.139 18.16C5.684 17.078 5.029 16.81 5.029 16.81C4.121 16.195 5.098 16.21 5.098 16.21C6.101 16.282 6.629 17.24 6.629 17.24C7.521 18.714 8.97 18.293 9.539 18.055C9.631 17.488 9.889 17.087 10.175 16.847C7.954 16.597 5.62 15.729 5.62 11.991C5.62 10.945 6.007 10.079 6.649 9.425C6.546 9.17 6.203 8.209 6.747 6.681C6.747 6.681 7.586 6.424 9.485 7.638C10.376 7.394 11.3 7.272 12.224 7.272C13.148 7.272 14.072 7.394 14.963 7.638C16.862 6.424 17.701 6.681 17.701 6.681C18.245 8.209 17.902 9.17 17.799 9.425C18.441 10.079 18.828 10.945 18.828 11.991C18.828 15.742 16.488 16.593 14.261 16.837C14.607 17.125 14.921 17.686 14.921 18.562C14.921 19.85 14.908 20.894 14.908 20.978C14.908 21.263 15.088 21.585 15.598 21.488C19.574 20.163 22.438 16.416 22.438 12C22 6.477 17.523 2 12 2Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <div>Continue with GitHub</div>
+                    </button>
+                    <button class="auth-btn email-btn" id="email-auth">
+                        <div class="auth-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <div>Continue with Email</div>
                     </button>
                 </div>
-                <div class="login-form" id="email-login-form">
+                <div class="auth-form" id="email-auth-form">
                     <div class="form-group">
                         <label class="form-label">Email</label>
-                        <input type="email" class="form-input" id="login-email" required>
+                        <input type="email" class="form-input" id="auth-email" required>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Password</label>
-                        <input type="password" class="form-input" id="login-password" required>
+                        <input type="password" class="form-input" id="auth-password" required>
                     </div>
-                    <button class="submit-btn" id="login-submit">Login</button>
-                    <div class="back-to-options" id="back-to-options">← Back to options</div>
+                    <button class="submit-btn" id="auth-submit">Login</button>
+                    <div class="auth-switch" id="auth-switch">Don't have an account? Sign up</div>
                 </div>
             </div>
         </div>
@@ -1302,7 +1497,13 @@
     <div class="modal install-modal" id="install-modal">
         <div class="modal-content">
             <div class="install-header">
-                <div class="install-icon" id="install-app-icon">📱</div>
+                <div class="install-icon" id="install-app-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 16L12 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 12L16 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <div class="install-info">
                     <h3 id="install-app-name">App Name</h3>
                     <p>Installing...</p>
@@ -1321,7 +1522,13 @@
     <div class="modal update-modal" id="update-modal">
         <div class="modal-content">
             <div class="update-header">
-                <div class="update-icon">🔄</div>
+                <div class="update-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M23 4V10H17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M1 20V14H7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.51 9C4.01717 7.56678 4.87913 6.2854 6.01547 5.27542C7.1518 4.26543 8.52547 3.55976 10.0083 3.22426C11.4911 2.88875 13.0348 2.93434 14.4952 3.35677C15.9556 3.77921 17.2853 4.56471 18.36 5.64L23 10M1 14L5.64 18.36C6.71475 19.4353 8.04437 20.2208 9.50481 20.6432C10.9652 21.0657 12.5089 21.1113 13.9917 20.7757C15.4745 20.4402 16.8482 19.7346 17.9845 18.7246C19.1209 17.7146 19.9828 16.4332 20.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
                 <h3>Update Available</h3>
             </div>
             <div class="update-body">
@@ -1333,6 +1540,64 @@
             </div>
         </div>
     </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        import { 
+            getAuth, 
+            signInWithPopup, 
+            GoogleAuthProvider, 
+            GithubAuthProvider,
+            createUserWithEmailAndPassword,
+            signInWithEmailAndPassword,
+            onAuthStateChanged,
+            signOut
+        } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyABmWKGHOihq-2A_oywlKke-H4l7Pq_UvM",
+            authDomain: "loomastore.firebaseapp.com",
+            databaseURL: "https://loomastore-default-rtdb.firebaseio.com",
+            projectId: "loomastore",
+            storageBucket: "loomastore.firebasestorage.app",
+            messagingSenderId: "480260251641",
+            appId: "1:480260251641:web:75b1fbea6dc8f33cc16728",
+            measurementId: "G-Z4QXNFLQEY"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+        const googleProvider = new GoogleAuthProvider();
+        const githubProvider = new GithubAuthProvider();
+
+        // Firebase Auth Functions
+        window.firebaseAuth = {
+            signInWithGoogle: () => {
+                return signInWithPopup(auth, googleProvider);
+            },
+            signInWithGithub: () => {
+                return signInWithPopup(auth, githubProvider);
+            },
+            signUpWithEmail: (email, password) => {
+                return createUserWithEmailAndPassword(auth, email, password);
+            },
+            signInWithEmail: (email, password) => {
+                return signInWithEmailAndPassword(auth, email, password);
+            },
+            signOut: () => {
+                return signOut(auth);
+            },
+            onAuthStateChanged: (callback) => {
+                return onAuthStateChanged(auth, callback);
+            }
+        };
+    </script>
 
     <script>
         // ===== APP DATA =====
@@ -1347,8 +1612,8 @@
                 downloads: '5B+',
                 category: 'social',
                 rating: 4.5,
-                icon: '💚',
-                screenshots: ['📱', '💬', '👥'],
+                icon: 'W',
+                screenshots: ['S1', 'S2', 'S3'],
                 description: 'WhatsApp from Facebook is a FREE messaging and video calling app. It\'s used by over 2B people in more than 180 countries.'
             },
             {
@@ -1361,8 +1626,8 @@
                 downloads: '1B+',
                 category: 'social',
                 rating: 4.3,
-                icon: '📸',
-                screenshots: ['📱', '❤️', '👥'],
+                icon: 'I',
+                screenshots: ['S1', 'S2', 'S3'],
                 description: 'Instagram is a free photo and video sharing app available on iPhone and Android.'
             },
             {
@@ -1375,8 +1640,8 @@
                 downloads: '5B+',
                 category: 'social',
                 rating: 4.0,
-                icon: '🔵',
-                screenshots: ['📱', '👥', '📰'],
+                icon: 'F',
+                screenshots: ['S1', 'S2', 'S3'],
                 description: 'Keeping up with friends is faster and easier than ever with the Facebook app.'
             },
             {
@@ -1389,8 +1654,8 @@
                 downloads: '1B+',
                 category: 'entertainment',
                 rating: 4.2,
-                icon: '🎵',
-                screenshots: ['📱', '🎬', '💃'],
+                icon: 'T',
+                screenshots: ['S1', 'S2', 'S3'],
                 description: 'TikTok is THE destination for mobile videos. On TikTok, short-form videos are exciting, spontaneous, and genuine.'
             },
             {
@@ -1403,8 +1668,8 @@
                 downloads: '500M+',
                 category: 'games',
                 rating: 4.6,
-                icon: '🎯',
-                screenshots: ['📱', '🔫', '🏆'],
+                icon: 'C',
+                screenshots: ['S1', 'S2', 'S3'],
                 description: 'Call of Duty: Mobile is the definitive first-person action game that brings together the unique flavor of Call of Duty.'
             },
             {
@@ -1417,26 +1682,12 @@
                 downloads: '1B+',
                 category: 'entertainment',
                 rating: 4.4,
-                icon: '🎬',
-                screenshots: ['📱', '🍿', '🎭'],
+                icon: 'N',
+                screenshots: ['S1', 'S2', 'S3'],
                 description: 'Looking for the most talked about TV shows and movies from around the world? They\'re all on Netflix.'
             },
             {
                 id: 7,
-                slug: 'genshin-impact',
-                name: 'Genshin Impact',
-                developer: 'COGNOSPHERE PTE. LTD.',
-                version: '3.2.0',
-                size: 3500,
-                downloads: '100M+',
-                category: 'games',
-                rating: 4.7,
-                icon: '⚔️',
-                screenshots: ['📱', '🗡️', '🌍'],
-                description: 'Step into Teyvat, a vast world teeming with life and flowing with elemental energy.'
-            },
-            {
-                id: 8,
                 slug: 'spotify',
                 name: 'Spotify: Music and Podcasts',
                 developer: 'Spotify Ltd.',
@@ -1445,12 +1696,12 @@
                 downloads: '500M+',
                 category: 'entertainment',
                 rating: 4.4,
-                icon: '🎵',
-                screenshots: ['📱', '🎧', '📻'],
+                icon: 'S',
+                screenshots: ['S1', 'S2', 'S3'],
                 description: 'With Spotify, you have access to a world of free music, curated playlists, artists, and podcasts you love.'
             },
             {
-                id: 9,
+                id: 8,
                 slug: 'snapchat',
                 name: 'Snapchat',
                 developer: 'Snap Inc',
@@ -1459,12 +1710,12 @@
                 downloads: '1B+',
                 category: 'social',
                 rating: 4.1,
-                icon: '👻',
-                screenshots: ['📱', '📸', '💛'],
+                icon: 'S',
+                screenshots: ['S1', 'S2', 'S3'],
                 description: 'Snapchat is a fast and fun way to share the moment with your friends and family.'
             },
             {
-                id: 10,
+                id: 9,
                 slug: 'telegram',
                 name: 'Telegram',
                 developer: 'Telegram FZ-LLC',
@@ -1473,9 +1724,23 @@
                 downloads: '500M+',
                 category: 'social',
                 rating: 4.5,
-                icon: '✈️',
-                screenshots: ['📱', '💬', '🔒'],
+                icon: 'T',
+                screenshots: ['S1', 'S2', 'S3'],
                 description: 'Telegram is a messaging app with a focus on speed and security, it\'s super-fast, simple and free.'
+            },
+            {
+                id: 10,
+                slug: 'youtube',
+                name: 'YouTube',
+                developer: 'Google LLC',
+                version: '18.05.36',
+                size: 55,
+                downloads: '5B+',
+                category: 'entertainment',
+                rating: 4.4,
+                icon: 'Y',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'Get the official YouTube app for Android phones and tablets. See what the world is watching.'
             }
         ];
 
@@ -1502,23 +1767,23 @@
                 downloads: (Math.floor(Math.random() * 900) + 100) + 'M+',
                 category: category,
                 rating: (Math.random() * 1.5 + 3.5).toFixed(1),
-                icon: '📱',
-                screenshots: ['📱', '🖼️', '🎨'],
+                icon: name.charAt(0),
+                screenshots: ['S1', 'S2', 'S3'],
                 description: `This is a description for ${name}. It's a great app in the ${category} category with amazing features.`
             });
         }
 
         // ===== CATEGORIES DATA =====
         const categories = [
-            { id: 'games', name: 'Games', icon: '🎮' },
-            { id: 'social', name: 'Social', icon: '👥' },
-            { id: 'tools', name: 'Tools', icon: '🛠️' },
-            { id: 'productivity', name: 'Productivity', icon: '📊' },
-            { id: 'entertainment', name: 'Entertainment', icon: '🎬' },
-            { id: 'education', name: 'Education', icon: '📚' },
-            { id: 'music', name: 'Music', icon: '🎵' },
-            { id: 'photo', name: 'Photo & Video', icon: '📸' },
-            { id: 'shopping', name: 'Shopping', icon: '🛒' }
+            { id: 'games', name: 'Games', icon: 'G' },
+            { id: 'social', name: 'Social', icon: 'S' },
+            { id: 'tools', name: 'Tools', icon: 'T' },
+            { id: 'productivity', name: 'Productivity', icon: 'P' },
+            { id: 'entertainment', name: 'Entertainment', icon: 'E' },
+            { id: 'education', name: 'Education', icon: 'E' },
+            { id: 'music', name: 'Music', icon: 'M' },
+            { id: 'photo', name: 'Photo & Video', icon: 'P' },
+            { id: 'shopping', name: 'Shopping', icon: 'S' }
         ];
 
         // ===== STATE MANAGEMENT =====
@@ -1529,6 +1794,7 @@
         let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         let downloadHistory = JSON.parse(localStorage.getItem('downloadHistory')) || [];
         let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+        let isSignUpMode = false;
 
         // ===== DOM ELEMENTS =====
         const views = document.querySelectorAll('.view');
@@ -1539,7 +1805,7 @@
         const searchResults = document.getElementById('search-results');
         const historyItems = document.getElementById('history-items');
         const shareBtn = document.getElementById('share-btn');
-        const loginModal = document.getElementById('login-modal');
+        const authModal = document.getElementById('auth-modal');
         const installModal = document.getElementById('install-modal');
         const updateModal = document.getElementById('update-modal');
 
@@ -1558,6 +1824,7 @@
             renderCategories();
             setupEventListeners();
             handleRouting();
+            setupFirebaseAuth();
 
             // Show update modal randomly (for demo)
             if (Math.random() > 0.7) {
@@ -1566,6 +1833,36 @@
                 }, 3000);
             }
         });
+
+        // ===== FIREBASE AUTH SETUP =====
+        function setupFirebaseAuth() {
+            if (window.firebaseAuth) {
+                window.firebaseAuth.onAuthStateChanged((user) => {
+                    if (user) {
+                        // User is signed in
+                        setUser(user);
+                    } else {
+                        // User is signed out
+                        setUser(null);
+                    }
+                });
+            }
+        }
+
+        function setUser(firebaseUser) {
+            if (firebaseUser) {
+                user = {
+                    uid: firebaseUser.uid,
+                    name: firebaseUser.displayName || firebaseUser.email.split('@')[0],
+                    email: firebaseUser.email,
+                    photoURL: firebaseUser.photoURL
+                };
+                updateProfile();
+            } else {
+                user = null;
+                updateProfile();
+            }
+        }
 
         // ===== RENDERING FUNCTIONS =====
         function renderHome() {
@@ -1628,6 +1925,8 @@
 
         function renderAppDetails(app) {
             const container = document.getElementById('app-details');
+            const isFavorite = favorites.includes(app.id);
+            
             container.innerHTML = `
                 <div class="app-header">
                     <div class="app-large-icon">${app.icon}</div>
@@ -1644,6 +1943,11 @@
                         </div>
                         <button class="install-btn" data-app-id="${app.id}">INSTALL</button>
                     </div>
+                    <button class="favorite-btn ${isFavorite ? 'active' : ''}" data-app-id="${app.id}">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="${isFavorite ? 'currentColor' : 'none'}" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.84 4.61C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.61C2.1283 5.64169 1.5487 7.04097 1.5487 8.5C1.5487 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.5C22.4518 7.77752 22.3095 7.06211 22.0329 6.39465C21.7563 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
                 </div>
                 <div class="app-screenshots">
                     <h3>Screenshots</h3>
@@ -1885,6 +2189,26 @@
             }, 200);
         }
 
+        function toggleFavorite(appId) {
+            const index = favorites.indexOf(appId);
+            if (index > -1) {
+                favorites.splice(index, 1);
+            } else {
+                favorites.push(appId);
+            }
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            
+            // Update favorite button if on app details page
+            if (currentView === 'app-details' && currentApp && currentApp.id === appId) {
+                const favoriteBtn = document.querySelector('.favorite-btn');
+                if (favoriteBtn) {
+                    favoriteBtn.classList.toggle('active');
+                    const svg = favoriteBtn.querySelector('svg');
+                    svg.setAttribute('fill', favorites.includes(appId) ? 'currentColor' : 'none');
+                }
+            }
+        }
+
         // ===== ROUTING =====
         function handleRouting() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -2018,6 +2342,13 @@
                     }
                 }
                 
+                // Favorite button click
+                if (e.target.classList.contains('favorite-btn') || e.target.closest('.favorite-btn')) {
+                    const favoriteBtn = e.target.classList.contains('favorite-btn') ? e.target : e.target.closest('.favorite-btn');
+                    const appId = favoriteBtn.getAttribute('data-app-id');
+                    toggleFavorite(parseInt(appId));
+                }
+                
                 // History item click
                 if (e.target.classList.contains('history-item')) {
                     const term = e.target.getAttribute('data-search-term');
@@ -2055,7 +2386,7 @@
 
             // Profile menu
             document.getElementById('login-menu').addEventListener('click', function() {
-                loginModal.classList.add('active');
+                authModal.classList.add('active');
             });
 
             document.getElementById('favorites-menu').addEventListener('click', function() {
@@ -2068,34 +2399,79 @@
                 showView('download-history');
             });
 
-            // Login modal
-            document.getElementById('google-login').addEventListener('click', function() {
-                alert('Google login would be implemented here');
-                loginModal.classList.remove('active');
-                // Simulate login
-                user = { name: 'Google User', email: 'user@gmail.com' };
-                updateProfile();
+            // Auth modal
+            document.getElementById('google-auth').addEventListener('click', function() {
+                if (window.firebaseAuth) {
+                    window.firebaseAuth.signInWithGoogle()
+                        .then((result) => {
+                            authModal.classList.remove('active');
+                        })
+                        .catch((error) => {
+                            console.error('Google sign in error:', error);
+                            alert('Failed to sign in with Google: ' + error.message);
+                        });
+                } else {
+                    alert('Firebase auth not available');
+                }
             });
 
-            document.getElementById('email-login').addEventListener('click', function() {
-                document.getElementById('login-options').style.display = 'none';
-                document.getElementById('email-login-form').style.display = 'flex';
+            document.getElementById('github-auth').addEventListener('click', function() {
+                if (window.firebaseAuth) {
+                    window.firebaseAuth.signInWithGithub()
+                        .then((result) => {
+                            authModal.classList.remove('active');
+                        })
+                        .catch((error) => {
+                            console.error('GitHub sign in error:', error);
+                            alert('Failed to sign in with GitHub: ' + error.message);
+                        });
+                } else {
+                    alert('Firebase auth not available');
+                }
             });
 
-            document.getElementById('back-to-options').addEventListener('click', function() {
-                document.getElementById('email-login-form').style.display = 'none';
-                document.getElementById('login-options').style.display = 'flex';
+            document.getElementById('email-auth').addEventListener('click', function() {
+                document.getElementById('auth-options').style.display = 'none';
+                document.getElementById('email-auth-form').style.display = 'flex';
             });
 
-            document.getElementById('login-submit').addEventListener('click', function() {
-                const email = document.getElementById('login-email').value;
-                const password = document.getElementById('login-password').value;
+            document.getElementById('auth-switch').addEventListener('click', function() {
+                isSignUpMode = !isSignUpMode;
+                const submitBtn = document.getElementById('auth-submit');
+                const switchText = document.getElementById('auth-switch');
+                
+                if (isSignUpMode) {
+                    submitBtn.textContent = 'Sign Up';
+                    switchText.textContent = 'Already have an account? Sign in';
+                } else {
+                    submitBtn.textContent = 'Login';
+                    switchText.textContent = 'Don\'t have an account? Sign up';
+                }
+            });
+
+            document.getElementById('auth-submit').addEventListener('click', function() {
+                const email = document.getElementById('auth-email').value;
+                const password = document.getElementById('auth-password').value;
                 
                 if (email && password) {
-                    loginModal.classList.remove('active');
-                    // Simulate login
-                    user = { name: 'Email User', email: email };
-                    updateProfile();
+                    if (window.firebaseAuth) {
+                        const authPromise = isSignUpMode ? 
+                            window.firebaseAuth.signUpWithEmail(email, password) :
+                            window.firebaseAuth.signInWithEmail(email, password);
+                            
+                        authPromise
+                            .then((result) => {
+                                authModal.classList.remove('active');
+                                document.getElementById('auth-email').value = '';
+                                document.getElementById('auth-password').value = '';
+                            })
+                            .catch((error) => {
+                                console.error('Email auth error:', error);
+                                alert('Authentication failed: ' + error.message);
+                            });
+                    } else {
+                        alert('Firebase auth not available');
+                    }
                 }
             });
 
@@ -2133,8 +2509,8 @@
                     downloads: '0',
                     category: category,
                     rating: parseFloat(rating),
-                    icon: '📱',
-                    screenshots: ['📱', '🖼️', '🎨'],
+                    icon: name.charAt(0),
+                    screenshots: ['S1', 'S2', 'S3'],
                     description: description
                 };
                 
@@ -2144,20 +2520,76 @@
             });
 
             // Modal backgrounds to close modals
-            [loginModal, installModal, updateModal].forEach(modal => {
+            [authModal, installModal, updateModal].forEach(modal => {
                 modal.addEventListener('click', function(e) {
                     if (e.target === this) {
                         this.classList.remove('active');
+                        // Reset auth form when closing
+                        if (this.id === 'auth-modal') {
+                            document.getElementById('auth-options').style.display = 'flex';
+                            document.getElementById('email-auth-form').style.display = 'none';
+                            document.getElementById('auth-email').value = '';
+                            document.getElementById('auth-password').value = '';
+                            isSignUpMode = false;
+                            document.getElementById('auth-submit').textContent = 'Login';
+                            document.getElementById('auth-switch').textContent = 'Don\'t have an account? Sign up';
+                        }
                     }
                 });
             });
         }
 
         function updateProfile() {
+            const profileName = document.querySelector('.profile-name');
+            const profileEmail = document.querySelector('.profile-email');
+            const profileAvatar = document.querySelector('.profile-avatar');
+            const loginMenu = document.getElementById('login-menu');
+            
             if (user) {
-                document.querySelector('.profile-name').textContent = user.name;
-                document.querySelector('.profile-email').textContent = user.email;
-                document.querySelector('.profile-avatar').textContent = '😊';
+                profileName.textContent = user.name;
+                profileEmail.textContent = user.email;
+                loginMenu.querySelector('div').textContent = 'Logout';
+                
+                // Update avatar if user has a photo
+                if (user.photoURL) {
+                    profileAvatar.innerHTML = `<img src="${user.photoURL}" alt="Profile" style="width: 100%; height: 100%; border-radius: 50%;">`;
+                } else {
+                    profileAvatar.innerHTML = user.name.charAt(0).toUpperCase();
+                }
+                
+                // Change login menu to logout
+                loginMenu.removeEventListener('click', openAuthModal);
+                loginMenu.addEventListener('click', logoutUser);
+            } else {
+                profileName.textContent = 'Guest User';
+                profileEmail.textContent = 'Tap to login';
+                profileAvatar.innerHTML = `
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                `;
+                loginMenu.querySelector('div').textContent = 'Login / Register';
+                
+                // Change logout menu back to login
+                loginMenu.removeEventListener('click', logoutUser);
+                loginMenu.addEventListener('click', openAuthModal);
+            }
+        }
+
+        function openAuthModal() {
+            authModal.classList.add('active');
+        }
+
+        function logoutUser() {
+            if (window.firebaseAuth) {
+                window.firebaseAuth.signOut()
+                    .then(() => {
+                        console.log('User signed out');
+                    })
+                    .catch((error) => {
+                        console.error('Sign out error:', error);
+                    });
             }
         }
 
