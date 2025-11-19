@@ -172,7 +172,7 @@
         .hero-banner {
             position: relative;
             height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('https://cdn.leonardo.ai/users/59cc19c6-be61-41ed-ab82-8485d4d58d54/generations/146d2d9f-a0d7-490e-974e-7b96af7d6356/Phoenix_10_Create_a_logo_for_Looma_APP_STORE_with_a_design_sim_1.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -285,6 +285,12 @@
             color: var(--white);
         }
 
+        .carousel-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .carousel-content {
             padding: 16px;
         }
@@ -340,6 +346,12 @@
             justify-content: center;
             font-size: 40px;
             color: var(--white);
+        }
+
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .app-info {
@@ -563,6 +575,13 @@
             font-size: 32px;
             flex-shrink: 0;
             color: var(--white);
+        }
+
+        .app-large-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
         }
 
         .app-header-info {
@@ -1612,7 +1631,7 @@
                 downloads: '5B+',
                 category: 'social',
                 rating: 4.5,
-                icon: 'W',
+                icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
                 screenshots: ['S1', 'S2', 'S3'],
                 description: 'WhatsApp from Facebook is a FREE messaging and video calling app. It\'s used by over 2B people in more than 180 countries.'
             },
@@ -1626,7 +1645,7 @@
                 downloads: '1B+',
                 category: 'social',
                 rating: 4.3,
-                icon: 'I',
+                icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/500px-Instagram_logo_2022.svg.png',
                 screenshots: ['S1', 'S2', 'S3'],
                 description: 'Instagram is a free photo and video sharing app available on iPhone and Android.'
             },
@@ -1640,7 +1659,7 @@
                 downloads: '5B+',
                 category: 'social',
                 rating: 4.0,
-                icon: 'F',
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ790NyZFwQ_bsMScnGHJKTG_xmdp8fvv-ufyL3XdN4HCsMI3Djplxy7ZA&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
                 description: 'Keeping up with friends is faster and easier than ever with the Facebook app.'
             },
@@ -1654,7 +1673,7 @@
                 downloads: '1B+',
                 category: 'entertainment',
                 rating: 4.2,
-                icon: 'T',
+                icon: 'https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/tiktok-logo-icon.png',
                 screenshots: ['S1', 'S2', 'S3'],
                 description: 'TikTok is THE destination for mobile videos. On TikTok, short-form videos are exciting, spontaneous, and genuine.'
             },
@@ -1668,7 +1687,7 @@
                 downloads: '500M+',
                 category: 'games',
                 rating: 4.6,
-                icon: 'C',
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrHrCg4FMwZjMbQIC5-FWxIvOVY6s3YvyJd8gCFuNo43hZC0vCfh2sRo6V&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
                 description: 'Call of Duty: Mobile is the definitive first-person action game that brings together the unique flavor of Call of Duty.'
             },
@@ -1682,7 +1701,7 @@
                 downloads: '1B+',
                 category: 'entertainment',
                 rating: 4.4,
-                icon: 'N',
+                icon: 'https://crystalpng.com/wp-content/uploads/2025/05/netflix-logo.png',
                 screenshots: ['S1', 'S2', 'S3'],
                 description: 'Looking for the most talked about TV shows and movies from around the world? They\'re all on Netflix.'
             },
@@ -1696,7 +1715,7 @@
                 downloads: '500M+',
                 category: 'entertainment',
                 rating: 4.4,
-                icon: 'S',
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa_RECC8adEaPc5ssrxaDwFYL02VeIDz2O4cNKj6T1Bg&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
                 description: 'With Spotify, you have access to a world of free music, curated playlists, artists, and podcasts you love.'
             },
@@ -1710,7 +1729,7 @@
                 downloads: '1B+',
                 category: 'social',
                 rating: 4.1,
-                icon: 'S',
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScSti0O4QyVry33dC4i3ZMuuo0lPStxS_EpqFuoduMWA&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
                 description: 'Snapchat is a fast and fun way to share the moment with your friends and family.'
             },
@@ -1724,7 +1743,7 @@
                 downloads: '500M+',
                 category: 'social',
                 rating: 4.5,
-                icon: 'T',
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS99MWHFEToaq2pSz1Ld0fec2Yxlfv88CYjPppHkBfHSw&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
                 description: 'Telegram is a messaging app with a focus on speed and security, it\'s super-fast, simple and free.'
             },
@@ -1738,19 +1757,174 @@
                 downloads: '5B+',
                 category: 'entertainment',
                 rating: 4.4,
-                icon: 'Y',
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBUBQfUCL7bvNw9BjFX-N6KLVB3WmvFPj0MYzxSC4Qjw&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
                 description: 'Get the official YouTube app for Android phones and tablets. See what the world is watching.'
+            },
+            {
+                id: 11,
+                slug: 'whatsapp-business',
+                name: 'WhatsApp Business',
+                developer: 'WhatsApp Inc.',
+                version: '2.22.25.77',
+                size: 45,
+                downloads: '500M+',
+                category: 'tools',
+                rating: 4.3,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFgzEZnuUEzWa40VkpJ1KhKXXT_hAIDS7Cs7nf4_Mcsg&s',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'WhatsApp Business enables you to have a business presence on WhatsApp, communicate more efficiently with your customers, and help you grow your business.'
+            },
+            {
+                id: 12,
+                slug: 'pdf-reader',
+                name: 'PDF Reader',
+                developer: 'PDF Solutions',
+                version: '5.2.1',
+                size: 28,
+                downloads: '100M+',
+                category: 'tools',
+                rating: 4.2,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7gn5mmTnMag9klqyU48kDA8X7JeqUn9FPRVJmT-Bkg&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'A powerful PDF reader with annotation tools, form filling, and cloud storage integration.'
+            },
+            {
+                id: 13,
+                slug: 'duolingo',
+                name: 'Duolingo: Language Learning',
+                developer: 'Duolingo',
+                version: '5.98.3',
+                size: 35,
+                downloads: '500M+',
+                category: 'education',
+                rating: 4.7,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg_t7YXIUovlg5994-Hr1KKxwE8-Gw6NB_hNQpMQ2v4g&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'Learn a new language with the world\'s most-downloaded education app! Duolingo is the fun, free app for learning 40+ languages through quick, bite-sized lessons.'
+            },
+            {
+                id: 14,
+                slug: 'calculator',
+                name: 'Calculator Pro',
+                developer: 'Calculator Inc.',
+                version: '3.2.1',
+                size: 12,
+                downloads: '50M+',
+                category: 'tools',
+                rating: 4.1,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfB6qPKJwQXhC93aVN6qG-YPFQT99KyrX_VuPfQfTPDQ&s',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'A powerful calculator with scientific functions, unit conversions, and history tracking.'
+            },
+            {
+                id: 15,
+                slug: 'fitness-tracker',
+                name: 'Fitness Tracker Pro',
+                developer: 'Health & Fitness Co.',
+                version: '2.5.7',
+                size: 45,
+                downloads: '10M+',
+                category: 'health',
+                rating: 4.4,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwEmV_WNXkA77oyu7TJS55oWNfQw8ItJE_L53K9E_kDQ&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'Track your workouts, monitor your health metrics, and achieve your fitness goals with our comprehensive fitness app.'
+            },
+            {
+                id: 16,
+                slug: 'music-player',
+                name: 'Music Player Pro',
+                developer: 'Audio Solutions',
+                version: '4.1.2',
+                size: 25,
+                downloads: '50M+',
+                category: 'entertainment',
+                rating: 4.3,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJkrFiM1-iPdkgGkshiFdFc2Gus-us4gK7a5IJBZNqw&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'A feature-rich music player with equalizer, playlist management, and support for all audio formats.'
+            },
+            {
+                id: 17,
+                slug: 'calendar',
+                name: 'Calendar Pro',
+                developer: 'Productivity Tools',
+                version: '6.2.1',
+                size: 18,
+                downloads: '100M+',
+                category: 'productivity',
+                rating: 4.2,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUoeVKm2RHKJl5WAN2S95-pcHWDE3SuqkskeBn0sWS_A&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'Stay organized with our smart calendar app featuring event reminders, task management, and calendar sync.'
+            },
+            {
+                id: 18,
+                slug: 'cleaner',
+                name: 'Phone Cleaner',
+                developer: 'System Tools',
+                version: '3.5.2',
+                size: 22,
+                downloads: '100M+',
+                category: 'tools',
+                rating: 4.0,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUoeVKm2RHKJl5WAN2S95-pcHWDE3SuqkskeBn0sWS_A&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'Clean junk files, boost performance, and optimize your device with our powerful cleaning app.'
+            },
+            {
+                id: 19,
+                slug: 'weather',
+                name: 'Weather Pro',
+                developer: 'Weather Solutions',
+                version: '5.1.3',
+                size: 15,
+                downloads: '50M+',
+                category: 'tools',
+                rating: 4.3,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeiQNUePWW2DP_rN9nviHZu0JNw8KtDzBNNddpoL1Tog&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'Accurate weather forecasts, severe weather alerts, and beautiful weather maps in one app.'
+            },
+            {
+                id: 20,
+                slug: 'antivirus',
+                name: 'Mobile Antivirus',
+                developer: 'Security Solutions',
+                version: '8.2.1',
+                size: 35,
+                downloads: '50M+',
+                category: 'tools',
+                rating: 4.5,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpEMwuG9AXMUIedwH6Fg6qn-cGRkH79_MrPi1qYNPXYw&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'Protect your device from viruses, malware, and online threats with our comprehensive security app.'
+            },
+            {
+                id: 21,
+                slug: 'photo-editor',
+                name: 'Photo Editor Pro',
+                developer: 'Creative Tools',
+                version: '7.3.2',
+                size: 65,
+                downloads: '100M+',
+                category: 'tools',
+                rating: 4.6,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvEht_GvouDJ2BBlKWLpVKBAY2trBWef-EXb7HGbyeyA&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'Professional photo editing tools, filters, and effects to enhance your photos and create stunning visuals.'
             }
         ];
 
         // Generate more apps
-        for (let i = 11; i <= 50; i++) {
+        for (let i = 22; i <= 50; i++) {
             const categories = ['games', 'social', 'tools', 'productivity', 'entertainment'];
             const names = [
-                'Photo Editor Pro', 'Music Player', 'Fitness Tracker', 'Language Learning', 
-                'PDF Reader', 'Video Editor', 'Calendar', 'Weather', 'Maps', 'Calculator',
-                'Browser', 'Email Client', 'File Manager', 'VPN', 'Antivirus', 'Cleaner'
+                'Video Editor Pro', 'File Manager', 'VPN Secure', 'Browser Pro', 
+                'Email Client', 'Notes App', 'Budget Tracker', 'Recipe Book',
+                'Meditation Guide', 'Sleep Tracker', 'News Reader', 'Podcast App',
+                'Shopping Assistant', 'Travel Planner', 'Language Translator'
             ];
             
             const category = categories[Math.floor(Math.random() * categories.length)];
@@ -1767,7 +1941,7 @@
                 downloads: (Math.floor(Math.random() * 900) + 100) + 'M+',
                 category: category,
                 rating: (Math.random() * 1.5 + 3.5).toFixed(1),
-                icon: name.charAt(0),
+                icon: 'https://via.placeholder.com/120x120/2F2F2F/FFFFFF?text=' + name.charAt(0),
                 screenshots: ['S1', 'S2', 'S3'],
                 description: `This is a description for ${name}. It's a great app in the ${category} category with amazing features.`
             });
@@ -1876,7 +2050,9 @@
             const container = document.getElementById(containerId);
             container.innerHTML = apps.map(app => `
                 <div class="carousel-item" data-app-id="${app.id}">
-                    <div class="carousel-image">${app.icon}</div>
+                    <div class="carousel-image">
+                        <img src="${app.icon}" alt="${app.name}" onerror="this.src='https://via.placeholder.com/280x160/2F2F2F/FFFFFF?text=${app.name.charAt(0)}'">
+                    </div>
                     <div class="carousel-content">
                         <h3>${app.name}</h3>
                         <p>${app.developer}</p>
@@ -1889,7 +2065,9 @@
             const container = document.getElementById(containerId);
             container.innerHTML = apps.map(app => `
                 <div class="app-card" data-app-id="${app.id}">
-                    <div class="app-icon">${app.icon}</div>
+                    <div class="app-icon">
+                        <img src="${app.icon}" alt="${app.name}" onerror="this.src='https://via.placeholder.com/120x120/2F2F2F/FFFFFF?text=${app.name.charAt(0)}'">
+                    </div>
                     <div class="app-info">
                         <div class="app-name">${app.name}</div>
                         <div class="app-developer">${app.developer}</div>
@@ -1929,7 +2107,9 @@
             
             container.innerHTML = `
                 <div class="app-header">
-                    <div class="app-large-icon">${app.icon}</div>
+                    <div class="app-large-icon">
+                        <img src="${app.icon}" alt="${app.name}" onerror="this.src='https://via.placeholder.com/80x80/2F2F2F/FFFFFF?text=${app.name.charAt(0)}'">
+                    </div>
                     <div class="app-header-info">
                         <div class="app-title">${app.name}</div>
                         <div class="app-developer-badge">
@@ -2028,7 +2208,9 @@
                     <div class="apps-grid">
                         ${filteredApps.map(app => `
                             <div class="app-card" data-app-id="${app.id}">
-                                <div class="app-icon">${app.icon}</div>
+                                <div class="app-icon">
+                                    <img src="${app.icon}" alt="${app.name}" onerror="this.src='https://via.placeholder.com/120x120/2F2F2F/FFFFFF?text=${app.name.charAt(0)}'">
+                                </div>
                                 <div class="app-info">
                                     <div class="app-name">${app.name}</div>
                                     <div class="app-developer">${app.developer}</div>
@@ -2159,7 +2341,7 @@
             const installAppIcon = document.getElementById('install-app-icon');
             const installAppName = document.getElementById('install-app-name');
             
-            installAppIcon.textContent = app.icon;
+            installAppIcon.innerHTML = `<img src="${app.icon}" alt="${app.name}" onerror="this.src='https://via.placeholder.com/40x40/2F2F2F/FFFFFF?text=${app.name.charAt(0)}'">`;
             installAppName.textContent = app.name;
             
             let progress = 0;
@@ -2509,7 +2691,7 @@
                     downloads: '0',
                     category: category,
                     rating: parseFloat(rating),
-                    icon: name.charAt(0),
+                    icon: 'https://via.placeholder.com/120x120/2F2F2F/FFFFFF?text=' + name.charAt(0),
                     screenshots: ['S1', 'S2', 'S3'],
                     description: description
                 };
