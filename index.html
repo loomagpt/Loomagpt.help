@@ -659,6 +659,13 @@
             color: var(--white);
         }
 
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
         .app-description {
             background: var(--dark-light);
             margin: 16px;
@@ -992,6 +999,13 @@
             color: var(--white);
         }
 
+        .install-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
         .install-info h3 {
             font-size: 16px;
             margin-bottom: 4px;
@@ -1159,6 +1173,44 @@
         .favorite-btn.active {
             color: var(--primary);
         }
+
+        /* ===== MODERN CATEGORY ICONS ===== */
+        .category-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+            color: var(--primary);
+        }
+
+        .category-icon svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* ===== NATIVE BANNER ===== */
+        .native-banner {
+            margin: 20px 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+
+        /* ===== DOWNLOAD BUTTON STYLES ===== */
+        .download-btn {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        .download-btn:hover {
+            background: var(--primary-dark);
+        }
     </style>
 </head>
 <body>
@@ -1200,6 +1252,12 @@
                         <button class="hero-btn secondary-btn">Learn More</button>
                     </div>
                 </div>
+            </div>
+
+            <!-- Native Banner -->
+            <div class="native-banner">
+                <script async="async" data-cfasync="false" src="//pl28100500.effectivegatecpm.com/d17717c0ed93bc1b98b0d0b50092f718/invoke.js"></script>
+                <div id="container-d17717c0ed93bc1b98b0d0b50092f718"></div>
             </div>
 
             <div class="section-title">
@@ -1623,62 +1681,101 @@
         const apps = [
             {
                 id: 1,
-                slug: 'whatsapp',
-                name: 'WhatsApp Messenger',
-                developer: 'WhatsApp Inc.',
-                version: '2.22.25.77',
+                slug: 'app-store',
+                name: 'App Store XAPK',
+                developer: 'Vau App Store',
+                version: 'Latest',
                 size: 42,
-                downloads: '5B+',
-                category: 'social',
-                rating: 4.5,
-                icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
-                screenshots: ['S1', 'S2', 'S3'],
-                description: 'WhatsApp from Facebook is a FREE messaging and video calling app. It\'s used by over 2B people in more than 180 countries.'
+                downloads: '1M+',
+                category: 'tools',
+                rating: 4.2,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1BK8qIwimxMQmsh13AzTlr9lJdYuSn6551aPpm9halA&s',
+                screenshots: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIkj_DOYsJz9QyCr-b4rqdx2Xzmabp0oawu01VokwY1g&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmHIpr4V0FqpxTQSNDRWeBi7MEGQh51q-przSfXwiKPA&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4IpVEHROsl7TqKppASk-po4tb4WgiyfO1fOofeREcNg&s=10'
+                ],
+                description: 'The ultimate app store for Android with thousands of apps and games. Download APK and XAPK files directly.',
+                apkUrl: 'https://d.apkpure.net/b/XAPK/com.vau.app_store?version=latest'
             },
             {
                 id: 2,
-                slug: 'instagram',
-                name: 'Instagram',
-                developer: 'Instagram',
-                version: '263.0.0.19.104',
-                size: 65,
-                downloads: '1B+',
-                category: 'social',
-                rating: 4.3,
-                icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/500px-Instagram_logo_2022.svg.png',
-                screenshots: ['S1', 'S2', 'S3'],
-                description: 'Instagram is a free photo and video sharing app available on iPhone and Android.'
+                slug: 'gmail',
+                name: 'Gmail',
+                developer: 'Google LLC',
+                version: '2024.11.15',
+                size: 35,
+                downloads: '5B+',
+                category: 'productivity',
+                rating: 4.4,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQBEEtotABWl1Tu6OBpC0ZIKyiepZH7dDEi_dzEfjW5Q&s=10',
+                screenshots: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSPRbSqHCZ4VjurVIr6wSh025ce8vMjJiaOj0EYuTWaw&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkFMWvlS0RzCqSIQ9VeuFCtVOicdxg9A9g8nqy8SMvUw&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGco_iPu7MrggtylM27oNX4Ib5qc-qz7fsEcT0egKZ5w&s=10'
+                ],
+                description: 'The official Gmail app brings the best of Gmail to your Android phone or tablet with robust security, real-time notifications, multiple account support, and search across your entire inbox.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.google.android.gm?version=latest'
             },
             {
                 id: 3,
                 slug: 'facebook',
                 name: 'Facebook',
                 developer: 'Facebook',
-                version: '398.0.0.32.120',
+                version: 'Latest',
                 size: 78,
                 downloads: '5B+',
                 category: 'social',
                 rating: 4.0,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZ790NyZFwQ_bsMScnGHJKTG_xmdp8fvv-ufyL3XdN4HCsMI3Djplxy7ZA&s=10',
-                screenshots: ['S1', 'S2', 'S3'],
-                description: 'Keeping up with friends is faster and easier than ever with the Facebook app.'
+                screenshots: [
+                    'https://about.fb.com/wp-content/uploads/2024/04/01_New-Player.gif?w=960&resize=960%2C836',
+                    'https://about.fb.com/wp-content/uploads/2024/04/03_Scrubber.gif?w=960&resize=960%2C836',
+                    'https://about.fb.com/wp-content/uploads/2024/04/02_Landscape-Mode.gif?w=960&resize=960%2C836'
+                ],
+                description: 'Keeping up with friends is faster and easier than ever with the Facebook app.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.facebook.katana?version=latest'
             },
             {
                 id: 4,
-                slug: 'tiktok',
-                name: 'TikTok',
-                developer: 'TikTok Ltd.',
-                version: '28.7.5',
-                size: 120,
-                downloads: '1B+',
-                category: 'entertainment',
-                rating: 4.2,
-                icon: 'https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/tiktok-logo-icon.png',
-                screenshots: ['S1', 'S2', 'S3'],
-                description: 'TikTok is THE destination for mobile videos. On TikTok, short-form videos are exciting, spontaneous, and genuine.'
+                slug: 'whatsapp-business',
+                name: 'WhatsApp Business',
+                developer: 'WhatsApp Inc.',
+                version: 'Latest',
+                size: 45,
+                downloads: '500M+',
+                category: 'tools',
+                rating: 4.3,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFgzEZnuUEzWa40VkpJ1KhKXXT_hAIDS7Cs7nf4_Mcsg&s',
+                screenshots: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq76pCxQGnUTvSQBP6pQ0wXF3yG_OF3IAltl471tVUCg&s=10',
+                    'https://imag.malavida.com/mvimgbig/download-fs/wapwhatsapp-20725-5.jpg',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYTK46IZWFO-3ATG6YWGEobTG3aGg1Y59STfbxlb6utg&s=10'
+                ],
+                description: 'WhatsApp Business enables you to have a business presence on WhatsApp, communicate more efficiently with your customers, and help you grow your business.',
+                apkUrl: 'https://d.apkpure.com/b/XAPK/com.whatsapp.w4b?version=latest'
             },
             {
                 id: 5,
+                slug: 'netflix',
+                name: 'Netflix',
+                developer: 'Netflix, Inc.',
+                version: 'Latest',
+                size: 35,
+                downloads: '1B+',
+                category: 'entertainment',
+                rating: 4.4,
+                icon: 'https://crystalpng.com/wp-content/uploads/2025/05/netflix-logo.png',
+                screenshots: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShOZDQkMY6EFgbewjQCA8e8NIhQGUk7ssRubwPDu7fvQ&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBh6tbnLfMFEtRbHn3TCO74JAX1Glj2I8Yf4N4GW8sOQ&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtqWjCKiwLYjprCBe7WkhPAowf-KSVR7qydbPET4O292OuSbjBLhSW5r4&s=10'
+                ],
+                description: 'Looking for the most talked about TV shows and movies from around the world? They\'re all on Netflix.',
+                apkUrl: 'https://d.apkpure.com/b/XAPK/com.netflix.mediaclient?version=latest'
+            },
+            {
+                id: 6,
                 slug: 'call-of-duty',
                 name: 'Call of Duty: Mobile',
                 developer: 'Activision Publishing, Inc.',
@@ -1688,95 +1785,137 @@
                 category: 'games',
                 rating: 4.6,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrHrCg4FMwZjMbQIC5-FWxIvOVY6s3YvyJd8gCFuNo43hZC0vCfh2sRo6V&s=10',
-                screenshots: ['S1', 'S2', 'S3'],
-                description: 'Call of Duty: Mobile is the definitive first-person action game that brings together the unique flavor of Call of Duty.'
-            },
-            {
-                id: 6,
-                slug: 'netflix',
-                name: 'Netflix',
-                developer: 'Netflix, Inc.',
-                version: '8.86.0',
-                size: 35,
-                downloads: '1B+',
-                category: 'entertainment',
-                rating: 4.4,
-                icon: 'https://crystalpng.com/wp-content/uploads/2025/05/netflix-logo.png',
-                screenshots: ['S1', 'S2', 'S3'],
-                description: 'Looking for the most talked about TV shows and movies from around the world? They\'re all on Netflix.'
+                screenshots: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlVTpMEWUFKbsLqv_zuW-HHkFbarUj5ZNxW0dgk0QO4w&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNkqTuy5QBIQ94ymrTEVlyttJmYBtz92V_ExhaJAVGRA&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyKuC7eWOlmyp04Dgb9CFJMgheUSclermW4CTc3jg9eA&s=10'
+                ],
+                description: 'Call of Duty: Mobile is the definitive first-person action game that brings together the unique flavor of Call of Duty.',
+                apkUrl: 'https://d.apkpure.com/b/XAPK/com.activision.callofduty.warzone?version=latest'
             },
             {
                 id: 7,
-                slug: 'spotify',
-                name: 'Spotify: Music and Podcasts',
-                developer: 'Spotify Ltd.',
-                version: '8.7.42.121',
-                size: 45,
-                downloads: '500M+',
-                category: 'entertainment',
-                rating: 4.4,
-                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa_RECC8adEaPc5ssrxaDwFYL02VeIDz2O4cNKj6T1Bg&s=10',
-                screenshots: ['S1', 'S2', 'S3'],
-                description: 'With Spotify, you have access to a world of free music, curated playlists, artists, and podcasts you love.'
+                slug: 'instagram',
+                name: 'Instagram',
+                developer: 'Instagram',
+                version: 'Latest',
+                size: 65,
+                downloads: '1B+',
+                category: 'social',
+                rating: 4.3,
+                icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/500px-Instagram_logo_2022.svg.png',
+                screenshots: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRy0fMD4VmphL2ll8krgqxAShHMWnyc8E2wsasDEKxp3weMxjAR6pj16sk&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_aZBVy-G8yOx_TSkh2hI13xx_b5A74PImcnVzBVyMNg&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_aZBVy-G8yOx_TSkh2hI13xx_b5A74PImcnVzBVyMNg&s=10'
+                ],
+                description: 'Instagram is a free photo and video sharing app available on iPhone and Android.',
+                apkUrl: 'https://d.apkpure.com/b/XAPK/com.instagram.android?version=latest'
             },
             {
                 id: 8,
-                slug: 'snapchat',
-                name: 'Snapchat',
-                developer: 'Snap Inc',
-                version: '12.20.0.37',
-                size: 85,
+                slug: 'tiktok',
+                name: 'TikTok',
+                developer: 'TikTok Ltd.',
+                version: 'Latest',
+                size: 120,
                 downloads: '1B+',
-                category: 'social',
-                rating: 4.1,
-                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScSti0O4QyVry33dC4i3ZMuuo0lPStxS_EpqFuoduMWA&s=10',
-                screenshots: ['S1', 'S2', 'S3'],
-                description: 'Snapchat is a fast and fun way to share the moment with your friends and family.'
+                category: 'entertainment',
+                rating: 4.2,
+                icon: 'https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/tiktok-logo-icon.png',
+                screenshots: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBVPCSPvOeTA20Ej7VF7I7hHVBToK8O3G0yKHz-iKAOkROWNn6xTjvNvs&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKyZl5llMszp3F-_gTg-8ye2ilz4G8yvrO5QTTfwr-fr-4a1K0DMOCauE&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0AyHUyrf1tCRWA4qEMVmdmglE-GUzuhwNiYmY9XFCzg&s=10'
+                ],
+                description: 'TikTok is THE destination for mobile videos. On TikTok, short-form videos are exciting, spontaneous, and genuine.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.zhiliaoapp.musically?version=latest'
             },
             {
                 id: 9,
                 slug: 'telegram',
                 name: 'Telegram',
                 developer: 'Telegram FZ-LLC',
-                version: '9.2.1',
+                version: 'Latest',
                 size: 38,
                 downloads: '500M+',
                 category: 'social',
                 rating: 4.5,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS99MWHFEToaq2pSz1Ld0fec2Yxlfv88CYjPppHkBfHSw&s=10',
-                screenshots: ['S1', 'S2', 'S3'],
-                description: 'Telegram is a messaging app with a focus on speed and security, it\'s super-fast, simple and free.'
+                screenshots: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSA9BVnE4YENEzucQ0GWEy8I4tXarG66d4YaWU5RV9VQuZTEArJlBZoHU8&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0tCqsXwrSnxfZPN383HM1idJjtccwH48n9Q7qUWwloJCuC9JHd-kil0M&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRabxJueUt_XUDjbYoevWj0gASciXakh6Vmay39Fy9KFw&s=10'
+                ],
+                description: 'Telegram is a messaging app with a focus on speed and security, it\'s super-fast, simple and free.',
+                apkUrl: 'https://d.apkpure.com/b/APK/org.telegram.messenger?version=latest'
             },
             {
                 id: 10,
                 slug: 'youtube',
                 name: 'YouTube',
                 developer: 'Google LLC',
-                version: '18.05.36',
+                version: 'Latest',
                 size: 55,
                 downloads: '5B+',
                 category: 'entertainment',
                 rating: 4.4,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBUBQfUCL7bvNw9BjFX-N6KLVB3WmvFPj0MYzxSC4Qjw&s=10',
-                screenshots: ['S1', 'S2', 'S3'],
-                description: 'Get the official YouTube app for Android phones and tablets. See what the world is watching.'
+                screenshots: [
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-i0Q7uNRB6iWW-1Mpv_HWjhQtaOzby6zTwr74zYItnA&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9F1hGdy94hQPAIaZ0iHEBV3l4L2ZlsnpKjkMHPnAHOw&s=10',
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4jgP0xL1oza4ABMHCSGFsVhQMYkxdiHrlRksrJLiUhacdjWGY3kA-Ayk&s=10'
+                ],
+                description: 'Get the official YouTube app for Android phones and tablets. See what the world is watching.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.google.android.youtube?version=latest'
             },
             {
                 id: 11,
-                slug: 'whatsapp-business',
-                name: 'WhatsApp Business',
+                slug: 'whatsapp',
+                name: 'WhatsApp Messenger',
                 developer: 'WhatsApp Inc.',
-                version: '2.22.25.77',
-                size: 45,
-                downloads: '500M+',
-                category: 'tools',
-                rating: 4.3,
-                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFgzEZnuUEzWa40VkpJ1KhKXXT_hAIDS7Cs7nf4_Mcsg&s',
+                version: 'Latest',
+                size: 42,
+                downloads: '5B+',
+                category: 'social',
+                rating: 4.5,
+                icon: 'https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'WhatsApp Business enables you to have a business presence on WhatsApp, communicate more efficiently with your customers, and help you grow your business.'
+                description: 'WhatsApp from Facebook is a FREE messaging and video calling app. It\'s used by over 2B people in more than 180 countries.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.whatsapp?version=latest'
             },
             {
                 id: 12,
+                slug: 'spotify',
+                name: 'Spotify: Music and Podcasts',
+                developer: 'Spotify Ltd.',
+                version: 'Latest',
+                size: 45,
+                downloads: '500M+',
+                category: 'entertainment',
+                rating: 4.4,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa_RECC8adEaPc5ssrxaDwFYL02VeIDz2O4cNKj6T1Bg&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'With Spotify, you have access to a world of free music, curated playlists, artists, and podcasts you love.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.spotify.music?version=latest'
+            },
+            {
+                id: 13,
+                slug: 'snapchat',
+                name: 'Snapchat',
+                developer: 'Snap Inc',
+                version: 'Latest',
+                size: 85,
+                downloads: '1B+',
+                category: 'social',
+                rating: 4.1,
+                icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScSti0O4QyVry33dC4i3ZMuuo0lPStxS_EpqFuoduMWA&s=10',
+                screenshots: ['S1', 'S2', 'S3'],
+                description: 'Snapchat is a fast and fun way to share the moment with your friends and family.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.snapchat.android?version=latest'
+            },
+            {
+                id: 14,
                 slug: 'pdf-reader',
                 name: 'PDF Reader',
                 developer: 'PDF Solutions',
@@ -1787,24 +1926,26 @@
                 rating: 4.2,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7gn5mmTnMag9klqyU48kDA8X7JeqUn9FPRVJmT-Bkg&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'A powerful PDF reader with annotation tools, form filling, and cloud storage integration.'
+                description: 'A powerful PDF reader with annotation tools, form filling, and cloud storage integration.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.adobe.reader?version=latest'
             },
             {
-                id: 13,
+                id: 15,
                 slug: 'duolingo',
                 name: 'Duolingo: Language Learning',
                 developer: 'Duolingo',
-                version: '5.98.3',
+                version: 'Latest',
                 size: 35,
                 downloads: '500M+',
                 category: 'education',
                 rating: 4.7,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg_t7YXIUovlg5994-Hr1KKxwE8-Gw6NB_hNQpMQ2v4g&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'Learn a new language with the world\'s most-downloaded education app! Duolingo is the fun, free app for learning 40+ languages through quick, bite-sized lessons.'
+                description: 'Learn a new language with the world\'s most-downloaded education app! Duolingo is the fun, free app for learning 40+ languages through quick, bite-sized lessons.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.duolingo?version=latest'
             },
             {
-                id: 14,
+                id: 16,
                 slug: 'calculator',
                 name: 'Calculator Pro',
                 developer: 'Calculator Inc.',
@@ -1815,10 +1956,11 @@
                 rating: 4.1,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfB6qPKJwQXhC93aVN6qG-YPFQT99KyrX_VuPfQfTPDQ&s',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'A powerful calculator with scientific functions, unit conversions, and history tracking.'
+                description: 'A powerful calculator with scientific functions, unit conversions, and history tracking.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.google.android.calculator?version=latest'
             },
             {
-                id: 15,
+                id: 17,
                 slug: 'fitness-tracker',
                 name: 'Fitness Tracker Pro',
                 developer: 'Health & Fitness Co.',
@@ -1829,10 +1971,11 @@
                 rating: 4.4,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwEmV_WNXkA77oyu7TJS55oWNfQw8ItJE_L53K9E_kDQ&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'Track your workouts, monitor your health metrics, and achieve your fitness goals with our comprehensive fitness app.'
+                description: 'Track your workouts, monitor your health metrics, and achieve your fitness goals with our comprehensive fitness app.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.google.android.apps.fitness?version=latest'
             },
             {
-                id: 16,
+                id: 18,
                 slug: 'music-player',
                 name: 'Music Player Pro',
                 developer: 'Audio Solutions',
@@ -1843,10 +1986,11 @@
                 rating: 4.3,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFJkrFiM1-iPdkgGkshiFdFc2Gus-us4gK7a5IJBZNqw&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'A feature-rich music player with equalizer, playlist management, and support for all audio formats.'
+                description: 'A feature-rich music player with equalizer, playlist management, and support for all audio formats.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.maxmpz.audioplayer?version=latest'
             },
             {
-                id: 17,
+                id: 19,
                 slug: 'calendar',
                 name: 'Calendar Pro',
                 developer: 'Productivity Tools',
@@ -1857,10 +2001,11 @@
                 rating: 4.2,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUoeVKm2RHKJl5WAN2S95-pcHWDE3SuqkskeBn0sWS_A&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'Stay organized with our smart calendar app featuring event reminders, task management, and calendar sync.'
+                description: 'Stay organized with our smart calendar app featuring event reminders, task management, and calendar sync.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.google.android.calendar?version=latest'
             },
             {
-                id: 18,
+                id: 20,
                 slug: 'cleaner',
                 name: 'Phone Cleaner',
                 developer: 'System Tools',
@@ -1871,10 +2016,11 @@
                 rating: 4.0,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUoeVKm2RHKJl5WAN2S95-pcHWDE3SuqkskeBn0sWS_A&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'Clean junk files, boost performance, and optimize your device with our powerful cleaning app.'
+                description: 'Clean junk files, boost performance, and optimize your device with our powerful cleaning app.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.cleanmaster.mguard?version=latest'
             },
             {
-                id: 19,
+                id: 21,
                 slug: 'weather',
                 name: 'Weather Pro',
                 developer: 'Weather Solutions',
@@ -1885,10 +2031,11 @@
                 rating: 4.3,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeiQNUePWW2DP_rN9nviHZu0JNw8KtDzBNNddpoL1Tog&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'Accurate weather forecasts, severe weather alerts, and beautiful weather maps in one app.'
+                description: 'Accurate weather forecasts, severe weather alerts, and beautiful weather maps in one app.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.accuweather.android?version=latest'
             },
             {
-                id: 20,
+                id: 22,
                 slug: 'antivirus',
                 name: 'Mobile Antivirus',
                 developer: 'Security Solutions',
@@ -1899,10 +2046,11 @@
                 rating: 4.5,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpEMwuG9AXMUIedwH6Fg6qn-cGRkH79_MrPi1qYNPXYw&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'Protect your device from viruses, malware, and online threats with our comprehensive security app.'
+                description: 'Protect your device from viruses, malware, and online threats with our comprehensive security app.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.antivirus?version=latest'
             },
             {
-                id: 21,
+                id: 23,
                 slug: 'photo-editor',
                 name: 'Photo Editor Pro',
                 developer: 'Creative Tools',
@@ -1913,12 +2061,13 @@
                 rating: 4.6,
                 icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvEht_GvouDJ2BBlKWLpVKBAY2trBWef-EXb7HGbyeyA&s=10',
                 screenshots: ['S1', 'S2', 'S3'],
-                description: 'Professional photo editing tools, filters, and effects to enhance your photos and create stunning visuals.'
+                description: 'Professional photo editing tools, filters, and effects to enhance your photos and create stunning visuals.',
+                apkUrl: 'https://d.apkpure.com/b/APK/com.polarr.photoeditor?version=latest'
             }
         ];
 
         // Generate more apps
-        for (let i = 22; i <= 50; i++) {
+        for (let i = 24; i <= 50; i++) {
             const categories = ['games', 'social', 'tools', 'productivity', 'entertainment'];
             const names = [
                 'Video Editor Pro', 'File Manager', 'VPN Secure', 'Browser Pro', 
@@ -1943,21 +2092,104 @@
                 rating: (Math.random() * 1.5 + 3.5).toFixed(1),
                 icon: 'https://via.placeholder.com/120x120/2F2F2F/FFFFFF?text=' + name.charAt(0),
                 screenshots: ['S1', 'S2', 'S3'],
-                description: `This is a description for ${name}. It's a great app in the ${category} category with amazing features.`
+                description: `This is a description for ${name}. It's a great app in the ${category} category with amazing features.`,
+                apkUrl: 'https://d.apkpure.com/b/APK/com.example.app?version=latest'
             });
         }
 
         // ===== CATEGORIES DATA =====
         const categories = [
-            { id: 'games', name: 'Games', icon: 'G' },
-            { id: 'social', name: 'Social', icon: 'S' },
-            { id: 'tools', name: 'Tools', icon: 'T' },
-            { id: 'productivity', name: 'Productivity', icon: 'P' },
-            { id: 'entertainment', name: 'Entertainment', icon: 'E' },
-            { id: 'education', name: 'Education', icon: 'E' },
-            { id: 'music', name: 'Music', icon: 'M' },
-            { id: 'photo', name: 'Photo & Video', icon: 'P' },
-            { id: 'shopping', name: 'Shopping', icon: 'S' }
+            { 
+                id: 'games', 
+                name: 'Games', 
+                icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 6H3C1.89543 6 1 6.89543 1 8V16C1 17.1046 1.89543 18 3 18H21C22.1046 18 23 17.1046 23 16V8C23 6.89543 22.1046 6 21 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 10H5.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M5 14H5.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 10H19.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 14H19.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'social', 
+                name: 'Social', 
+                icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'tools', 
+                name: 'Tools', 
+                icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M14.7 6.3C14.5168 6.48697 14.4141 6.73823 14.4141 7C14.4141 7.26177 14.5168 7.51303 14.7 7.7L16.3 9.3C16.486 9.48324 16.7372 9.58594 16.999 9.58594C17.2608 9.58594 17.512 9.48324 17.699 9.3L21.47 5.53C21.9728 6.6412 22.1251 7.87923 21.9065 9.07915C21.6879 10.2791 21.1087 11.3839 20.2463 12.2463C19.3839 13.1087 18.2791 13.6879 17.0792 13.9065C15.8792 14.1251 14.6412 13.9728 13.53 13.47L6.62 20.38C6.22226 20.7777 5.68261 21 5.12 21C4.55739 21 4.01774 20.7777 3.62 20.38C3.22226 19.9823 3 19.4426 3 18.88C3 18.3174 3.22226 17.7777 3.62 17.38L10.53 10.47C10.0272 9.3588 9.87488 8.12077 10.0935 6.92085C10.3121 5.72093 10.8913 4.61614 11.7537 3.75372C12.6161 2.8913 13.7209 2.31208 14.9209 2.09354C16.1208 1.875 17.3588 2.02723 18.47 2.53L14.71 6.29L14.7 6.3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'productivity', 
+                name: 'Productivity', 
+                icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5H7C6.46957 5 5.96086 5.21071 5.58579 5.58579C5.21071 5.96086 5 6.46957 5 7V19C5 19.5304 5.21071 20.0391 5.58579 20.4142C5.96086 20.7893 6.46957 21 7 21H17C17.5304 21 18.0391 20.7893 18.4142 20.4142C18.7893 20.0391 19 19.5304 19 19V7C19 6.46957 18.7893 5.96086 18.4142 5.58579C18.0391 5.21071 17.5304 5 17 5H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 5C9 4.46957 9.21071 3.96086 9.58579 3.58579C9.96086 3.21071 10.4696 3 11 3H13C13.5304 3 14.0391 3.21071 14.4142 3.58579C14.7893 3.21071 15.297 3 15.828 3C16.359 3 16.8678 3.21071 17.2429 3.58579C17.618 3.96086 17.8287 4.46957 17.8287 5C17.8287 5.53043 17.618 6.03914 17.2429 6.41421C16.8678 6.78929 16.359 7 15.828 7H13C12.4696 7 11.9609 6.78929 11.5858 6.41421C11.2107 6.03914 11 5.53043 11 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 12H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 16H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'entertainment', 
+                name: 'Entertainment', 
+                icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 4H5C3.89543 4 3 4.89543 3 6V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V6C21 4.89543 20.1046 4 19 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 10H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 14H8.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 14H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 14H16.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 18H8.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 18H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 18H16.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'education', 
+                name: 'Education', 
+                icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 14C14.2091 14 16 12.2091 16 10C16 7.79086 14.2091 6 12 6C9.79086 6 8 7.79086 8 10C8 12.2091 9.79086 14 12 14Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4 20V18C4 16.9391 4.42143 15.9217 5.17157 15.1716C5.92172 14.4214 6.93913 14 8 14H16C17.0609 14 18.0783 14.4214 18.8284 15.1716C19.5786 15.9217 20 16.9391 20 18V20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 14V18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 18V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'music', 
+                name: 'Music', 
+                icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18V5L21 3V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 21C7.65685 21 9 19.6569 9 18C9 16.3431 7.65685 15 6 15C4.34315 15 3 16.3431 3 18C3 19.6569 4.34315 21 6 21Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 19C19.6569 19 21 17.6569 21 16C21 14.3431 19.6569 13 18 13C16.3431 13 15 14.3431 15 16C15 17.6569 16.3431 19 18 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'photo', 
+                name: 'Photo & Video', 
+                icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M23 19C23 19.5304 22.7893 20.0391 22.4142 20.4142C22.0391 20.7893 21.5304 21 21 21H3C2.46957 21 1.96086 20.7893 1.58579 20.4142C1.21071 20.0391 1 19.5304 1 19V8C1 7.46957 1.21071 6.96086 1.58579 6.58579C1.96086 6.21071 2.46957 6 3 6H7L9 3H15L17 6H21C21.5304 6 22.0391 6.21071 22.4142 6.58579C22.7893 6.96086 23 7.46957 23 8V19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 17C14.2091 17 16 15.2091 16 13C16 10.7909 14.2091 9 12 9C9.79086 9 8 10.7909 8 13C8 15.2091 9.79086 17 12 17Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            },
+            { 
+                id: 'shopping', 
+                name: 'Shopping', 
+                icon: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6 2L3 6V20C3 20.5304 3.21071 21.0391 3.58579 21.4142C3.96086 21.7893 4.46957 22 5 22H19C19.5304 22 20.0391 21.7893 20.4142 21.4142C20.7893 21.0391 21 20.5304 21 20V6L18 2H6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16 10C16 11.0609 15.5786 12.0783 14.8284 12.8284C14.0783 13.5786 13.0609 14 12 14C10.9391 14 9.92172 13.5786 9.17157 12.8284C8.42143 12.0783 8 11.0609 8 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>`
+            }
         ];
 
         // ===== STATE MANAGEMENT =====
@@ -2133,7 +2365,9 @@
                     <h3>Screenshots</h3>
                     <div class="screenshots-scroll">
                         ${app.screenshots.map((screenshot, index) => `
-                            <div class="screenshot">${screenshot} Screenshot ${index + 1}</div>
+                            <div class="screenshot">
+                                <img src="${screenshot}" alt="Screenshot ${index + 1}" onerror="this.innerHTML='Screenshot ${index + 1}'">
+                            </div>
                         `).join('')}
                     </div>
                 </div>
@@ -2363,6 +2597,18 @@
                             }
                             localStorage.setItem('downloadHistory', JSON.stringify(downloadHistory));
                         }
+                        
+                        // For direct download, we'll create a blob and trigger download
+                        // In a real implementation, you would serve the actual APK files
+                        const blob = new Blob(['Simulated APK file content'], {type: 'application/vnd.android.package-archive'});
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = `${app.slug}.apk`;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
                     }, 1000);
                 } else {
                     installText.textContent = `Installing... ${Math.round(progress)}%`;
@@ -2693,7 +2939,8 @@
                     rating: parseFloat(rating),
                     icon: 'https://via.placeholder.com/120x120/2F2F2F/FFFFFF?text=' + name.charAt(0),
                     screenshots: ['S1', 'S2', 'S3'],
-                    description: description
+                    description: description,
+                    apkUrl: 'https://d.apkpure.com/b/APK/com.example.app?version=latest'
                 };
                 
                 apps.push(newApp);
