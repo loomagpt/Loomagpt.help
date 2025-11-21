@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="6a97888e-site-verification" content="d45bd746851e375cc8388325a7b2429d">
-    
     <title>LOOMA APP STORE</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>">
     <style>
@@ -1188,30 +1187,17 @@
             height: 32px;
         }
 
-        /* ===== NATIVE BANNER ===== */
-        .native-banner {
+        /* ===== AD PROVIDER STYLES ===== */
+        .ad-container {
             margin: 20px 16px;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
-        }
-
-        /* ===== DOWNLOAD BUTTON STYLES ===== */
-        .download-btn {
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            border-radius: 4px;
-            padding: 8px 16px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: background-color 0.2s;
-        }
-
-        .download-btn:hover {
-            background: var(--primary-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
+            background: var(--dark-light);
         }
     </style>
 </head>
@@ -1256,10 +1242,9 @@
                 </div>
             </div>
 
-            <!-- Native Banner -->
-            <div class="native-banner">
-                <script async="async" data-cfasync="false" src="//pl28100500.effectivegatecpm.com/d17717c0ed93bc1b98b0d0b50092f718/invoke.js"></script>
-                <div id="container-d17717c0ed93bc1b98b0d0b50092f718"></div>
+            <!-- Ad Container -->
+            <div class="ad-container">
+                <ins class="eas6a97888e37" data-zoneid="5776764"></ins>
             </div>
 
             <div class="section-title">
@@ -1619,6 +1604,12 @@
             </div>
         </div>
     </div>
+
+    <!-- Ad Provider Script -->
+    <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
+    <script>
+        (AdProvider = window.AdProvider || []).push({"serve": {}});
+    </script>
 
     <!-- Firebase SDK -->
     <script type="module">
