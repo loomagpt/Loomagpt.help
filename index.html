@@ -1,14 +1,3 @@
-<script type="text/javascript">
-	atOptions = {
-		'key' : '2f93664757f312a55d5aeeafd60dfee4',
-		'format' : 'iframe',
-		'height' : 60,
-		'width' : 468,
-		'params' : {}
-	};
-</script>
-<script type="text/javascript" src="//www.highperformanceformat.com/2f93664757f312a55d5aeeafd60dfee4/invoke.js"></script>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -686,6 +675,54 @@
             border-radius: 8px;
         }
 
+        .video-container {
+            width: 200px;
+            height: 350px;
+            background: var(--gray);
+            border-radius: 8px;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .video-container:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .play-button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
         .app-description {
             background: var(--dark-light);
             margin: 16px;
@@ -1218,6 +1255,30 @@
             min-height: 100px;
             background: var(--dark-light);
         }
+
+        .video-ad-container {
+            margin: 20px 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+            background: var(--dark-light);
+        }
+
+        .adsterra-banner {
+            margin: 20px 16px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60px;
+            background: var(--dark-light);
+        }
     </style>
 </head>
 <body>
@@ -1261,9 +1322,31 @@
                 </div>
             </div>
 
-            <!-- Ad Container -->
-            <div class="ad-container">
-                <ins class="eas6a97888e37" data-zoneid="5776764"></ins>
+            <!-- Video Banner Ad -->
+            <div class="video-ad-container">
+                <ins class="eas6a97888e" data-zoneid="5784000"></ins>
+            </div>
+
+            <!-- Adsterra Banner Ad -->
+            <div class="adsterra-banner">
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '2f93664757f312a55d5aeeafd60dfee4',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/2f93664757f312a55d5aeeafd60dfee4/invoke.js"></script>
+            </div>
+
+            <div class="section-title">
+                <span>Popular Apps in Last 24 Hours</span>
+                <a href="#" class="see-all">See all</a>
+            </div>
+            <div class="carousel" id="popular-24h-carousel">
+                <!-- Popular apps in last 24 hours carousel -->
             </div>
 
             <div class="section-title">
@@ -1803,7 +1886,10 @@
                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyKuC7eWOlmyp04Dgb9CFJMgheUSclermW4CTc3jg9eA&s=10'
                 ],
                 description: 'Call of Duty: Mobile is the definitive first-person action game that brings together the unique flavor of Call of Duty.',
-                apkUrl: 'https://d.apkpure.com/b/XAPK/com.activision.callofduty.warzone?version=latest'
+                apkUrl: 'https://d.apkpure.com/b/XAPK/com.activision.callofduty.warzone?version=latest',
+                videos: [
+                    'https://archive.org/download/ytdown.com-you-tube-haven-s-hallow-launch-trailer-call-of-du-media-9-hjtaimt-8hg-001-1080p/YTDown.com_YouTube_Haven-s-Hallow-Launch-Trailer-Call-of-Du_Media_9HJtaimt8hg_001_1080p.mp4'
+                ]
             },
             {
                 id: 7,
@@ -2120,7 +2206,10 @@
                     'https://play-lh.googleusercontent.com/b1QusV--cSxj8t_cvDXlFJpm3CXIFD1Ot8AfHNE4-7fAHum7QrQi8fPwh8vycaIsAmbX2T0GqYWynOtnrvHwrm8=w5120-h2880'
                 ],
                 description: 'Free Fire is the ultimate survival shooter game available on mobile. Each 10-minute game places you on a remote island where you are pit against 49 other players, all seeking survival. Players freely choose their starting point with their parachute, and aim to stay in the safe zone for as long as possible.',
-                apkUrl: 'https://d.apkpure.net/b/XAPK/com.dts.freefireth?version=latest'
+                apkUrl: 'https://d.apkpure.net/b/XAPK/com.dts.freefireth?version=latest',
+                videos: [
+                    'https://archive.org/download/d6f9e33d-c304-4a85-89ab-2083c3526b1c/d6f9e33d-c304-4a85-89ab-2083c3526b1c.mp4'
+                ]
             },
             {
                 id: 26,
@@ -2144,11 +2233,102 @@
                 ],
                 description: 'Mafia City is a strategy game where you build your criminal empire, recruit gangsters, and fight for control of the city. Expand your territory, train your crew, and become the ultimate crime lord in this immersive mafia experience.',
                 apkUrl: 'https://d.apkpure.com/b/XAPK/com.yottagames.mafiawar?version=latest'
+            },
+            // New apps from user request
+            {
+                id: 27,
+                slug: 'x-app',
+                name: 'X',
+                developer: 'X Corp.',
+                version: '11.42.0-release.2',
+                size: 85,
+                downloads: '1B+',
+                category: 'social',
+                rating: 4.2,
+                icon: 'https://image.winudf.com/v2/image1/Y29tLnR3aXR0ZXIuYW5kcm9pZF9pY29uXzE2OTA0NTMzNTBfMDAw/icon.png?w=280&fakeurl=1',
+                screenshots: [
+                    'https://image.winudf.com/v2/user/admin/YWRtaW5fSU1HXzIwMjUwMTA5XzEwMzQxOS5qcGdfMTczNjM5MTY4MjI2OQ/screen-0.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/user/admin/YWRtaW5fSU1HXzIwMjUwMTA5XzEwMzQwNS5qcGdfMTczNjM5MTY3OTA0OA/screen-1.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/user/admin/YWRtaW5fSU1HXzIwMjUwMTA5XzEwMzM1My5qcGdfMTczNjM5MTY4MzE3Ng/screen-2.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/user/admin/YWRtaW5fSU1HXzIwMjUwMTA5XzEwMzMzOS5qcGdfMTczNjM5MTY4NTU1OQ/screen-3.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/user/admin/YWRtaW5fSU1HXzIwMjUwMTA5XzEwMzMyMS5qcGdfMTczNjM5MTY4MzYwMg/screen-4.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/user/admin/YWRtaW5fSU1HXzIwMjUwMTA5XzEwMzMwNi5qcGdfMTczNjM5MTY4NDk0Mw/screen-5.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/user/admin/YWRtaW5fSU1HXzIwMjUwMTA5XzEwMzI1Mi5qcGdfMTczNjM5MTY4NTkzNg/screen-6.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/user/admin/YWRtaW5fSU1HXzIwMjUwMTA5XzEwMzIzNy5qcGdfMTczNjM5MTY4NjExNg/screen-7.jpg?fakeurl=1&type=.jpg'
+                ],
+                description: 'Discover everything happening around you! The X app, formerly known as Twitter, is your essential platform for real-time updates and engaging conversations. As the trusted global digital town square, X connects you with breaking news, entertainment, sports, and politics, all in one place.',
+                apkUrl: 'https://d.apkpure.com/b/XAPK/com.twitter.android?version=latest'
+            },
+            {
+                id: 28,
+                slug: 'vine-app',
+                name: 'Vine',
+                developer: 'Vine',
+                version: '7.0.0',
+                size: 25,
+                downloads: '100M+',
+                category: 'social',
+                rating: 4.0,
+                icon: 'https://image.winudf.com/v2/image/Y28udmluZS5hbmRyb2lkX2ljb25fMTUyODExMzY2NV8wMTk/icon.png?w=280&fakeurl=1',
+                screenshots: [
+                    'https://image.winudf.com/v2/image/Y28udmluZS5hbmRyb2lkX3NjcmVlbl8wXzE1MjgxMTM2NjZfMDQw/screen-0.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image/Y28udmluZS5hbmRyb2lkX3NjcmVlbl8xXzE1MjgxMTM2NjZfMDg0/screen-1.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image/Y28udmluZS5hbmRyb2lkX3NjcmVlbl8yXzE1MjgxMTM2NjdfMDc2/screen-2.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image/Y28udmluZS5hbmRyb2lkX3NjcmVlbl8zXzE1MjgxMTM2NjdfMDQ3/screen-3.jpg?fakeurl=1&type=.jpg'
+                ],
+                description: 'Vine has been placed in an archived state. Dear Vine Community - thank you for all the inspiration, laughs, and loops. We have now placed Vine in an archived state.',
+                apkUrl: 'https://d.apkpure.com/b/APK/co.vine.android?version=latest'
+            },
+            {
+                id: 29,
+                slug: 'ten-ten',
+                name: 'ten ten',
+                developer: 'ten ten',
+                version: '1.2.12',
+                size: 45,
+                downloads: '10M+',
+                category: 'social',
+                rating: 4.5,
+                icon: 'https://image.winudf.com/v2/image1/Y29tLnRlbnRlbi5hcHBfaWNvbl8xNzQwMTU2MDg2XzAxOQ/icon.png?w=280&fakeurl=1',
+                screenshots: [
+                    'https://image.winudf.com/v2/image1/Y29tLnRlbnRlbi5hcHBfc2NyZWVuXzBfMTc0MDE1NjA4N18wMjk/screen-0.jpg?h=300&fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLnRlbnRlbi5hcHBfc2NyZWVuXzFfMTc0MDE1NjA4N18wNzA/screen-1.jpg?h=300&fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLnRlbnRlbi5hcHBfc2NyZWVuXzJfMTc0MDE1NjA4OF8wMjE/screen-2.jpg?h=300&fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLnRlbnRlbi5hcHBfc2NyZWVuXzNfMTc0MDE1NjA4OF8wOTI/screen-3.jpg?h=300&fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLnRlbnRlbi5hcHBfc2NyZWVuXzRfMTc0MDE1NjA4OV8wNzc/screen-4.jpg?h=300&fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLnRlbnRlbi5hcHBfc2NyZWVuXzVfMTc0MDE1NjA4OV8wODI/screen-5.jpg?h=300&fakeurl=1&type=.jpg'
+                ],
+                description: 'Find Real Friendships on ten ten. ten ten - a great place to discover true friendships. Friendships are the bonds we choose and they are built on shared secrets, moments, tears, and laughter. With ten ten, your phone becomes a powerful live walkie-talkie, connecting you with your best friends anytime and anywhere.',
+                apkUrl: 'https://d.apkpure.com/b/XAPK/com.tenten.app?version=latest'
+            },
+            {
+                id: 30,
+                slug: 'netmirror',
+                name: 'NetMirror - Movies and Series',
+                developer: 'Grapes AI Apps',
+                version: '1.0.10',
+                size: 35,
+                downloads: '1M+',
+                category: 'entertainment',
+                rating: 4.3,
+                icon: 'https://image.winudf.com/v2/image1/Y29tLndhdGhjZXIubW92aWUubW92aWVfaWNvbl8xNzYwNDY3NjgzXzA0OQ/icon.png?w=280&fakeurl=1',
+                screenshots: [
+                    'https://image.winudf.com/v2/image1/Y29tLndhdGhjZXIubW92aWUubW92aWVfc2NyZWVuXzBfMTc1OTg0MjA0OV8wMTQ/screen-0.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLndhdGhjZXIubW92aWUubW92aWVfc2NyZWVuXzFfMTc1OTg0MjA1Ml8wNDg/screen-1.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLndhdGhjZXIubW92aWUubW92aWVfc2NyZWVuXzJfMTc1OTg0MjA1NF8wODU/screen-2.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLndhdGhjZXIubW92aWUubW92aWVfc2NyZWVuXzBfMTc1OTg0MjA0OV8wMTQ/screen-3.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLndhdGhjZXIubW92aWUubW92aWVfc2NyZWVuXzFfMTc1OTg0MjA1Ml8wNDg/screen-4.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLndhdGhjZXIubW92aWUubW92aWVfc2NyZWVuXzFfMTc1OTg0MjA1Ml8wNDg/screen-4.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLndhdGhjZXIubW92aWUubW92aWVfc2NyZWVuXzBfMTc1OTg0MjA0OV8wMTQ/screen-6.jpg?fakeurl=1&type=.jpg',
+                    'https://image.winudf.com/v2/image1/Y29tLndhdGhjZXIubW92aWUubW92aWVfc2NyZWVuXzFfMTc1OTg0MjA1Ml8wNDg/screen-7.jpg?fakeurl=1&type=.jpg'
+                ],
+                description: 'Find out where to watch your favorite movies & TV shows streaming online. NetMirror is your ultimate streaming guide for movies and TV shows. With NetMirror, you can instantly discover where to watch your favorite titles — streaming, renting, or buying — across all major platforms.',
+                apkUrl: 'https://d.apkpure.com/b/XAPK/com.wathcer.movie.movie?version=latest'
             }
         ];
 
         // Generate more apps
-        for (let i = 27; i <= 50; i++) {
+        for (let i = 31; i <= 50; i++) {
             const categories = ['games', 'social', 'tools', 'productivity', 'entertainment'];
             const names = [
                 'Video Editor Pro', 'File Manager', 'VPN Secure', 'Browser Pro', 
@@ -2353,6 +2533,8 @@
 
         // ===== RENDERING FUNCTIONS =====
         function renderHome() {
+            // Include new apps in the popular 24h carousel
+            renderCarousel('popular-24h-carousel', [apps[29], apps[27], apps[30], apps[28], apps[24]]);
             // Include new games in the popular carousel
             renderCarousel('popular-carousel', [apps[24], apps[25], apps[26], apps[0], apps[5]]);
             renderAppsGrid('recommended-apps', apps.slice(5, 13));
@@ -2419,6 +2601,26 @@
             const container = document.getElementById('app-details');
             const isFavorite = favorites.includes(app.id);
             
+            // Create video elements for apps that have videos
+            const videoElements = app.videos ? app.videos.map(video => `
+                <div class="video-container">
+                    <video controls controlsList="nodownload" disablePictureInPicture>
+                        <source src="${video}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay">
+                        <button class="play-button">▶</button>
+                    </div>
+                </div>
+            `).join('') : '';
+            
+            // Create screenshot elements
+            const screenshotElements = app.screenshots.map(screenshot => `
+                <div class="screenshot">
+                    <img src="${screenshot}" alt="Screenshot" onerror="this.innerHTML='Screenshot'">
+                </div>
+            `).join('');
+            
             container.innerHTML = `
                 <div class="app-header">
                     <div class="app-large-icon">
@@ -2446,11 +2648,8 @@
                 <div class="app-screenshots">
                     <h3>Screenshots</h3>
                     <div class="screenshots-scroll">
-                        ${app.screenshots.map((screenshot, index) => `
-                            <div class="screenshot">
-                                <img src="${screenshot}" alt="Screenshot ${index + 1}" onerror="this.innerHTML='Screenshot ${index + 1}'">
-                            </div>
-                        `).join('')}
+                        ${videoElements}
+                        ${screenshotElements}
                     </div>
                 </div>
                 <div class="app-description">
@@ -2496,6 +2695,33 @@
                 </div>
             `;
             shareBtn.classList.remove('hidden');
+            
+            // Setup video controls
+            setupVideoControls();
+        }
+
+        function setupVideoControls() {
+            const videoContainers = document.querySelectorAll('.video-container');
+            videoContainers.forEach(container => {
+                const video = container.querySelector('video');
+                const overlay = container.querySelector('.video-overlay');
+                const playButton = container.querySelector('.play-button');
+                
+                if (video && overlay && playButton) {
+                    playButton.addEventListener('click', () => {
+                        video.play();
+                        overlay.style.display = 'none';
+                    });
+                    
+                    video.addEventListener('pause', () => {
+                        overlay.style.display = 'flex';
+                    });
+                    
+                    video.addEventListener('ended', () => {
+                        overlay.style.display = 'flex';
+                    });
+                }
+            });
         }
 
         function renderCategoryApps(categoryId) {
@@ -2561,7 +2787,7 @@
         }
 
         function renderTopSearches() {
-            const topSearches = ['WhatsApp', 'Instagram', 'Games', 'Facebook', 'TikTok', 'Spotify', 'Free Fire', 'oneState', 'Mafia City'];
+            const topSearches = ['WhatsApp', 'Instagram', 'Games', 'Facebook', 'TikTok', 'Spotify', 'Free Fire', 'oneState', 'Mafia City', 'X', 'ten ten', 'NetMirror'];
             const container = document.getElementById('top-searches-list');
             
             container.innerHTML = topSearches.map((term, index) => `
