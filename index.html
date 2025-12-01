@@ -144,6 +144,73 @@
             background-color: var(--dark-light);
         }
 
+        /* ===== LANGUAGE SELECTOR ===== */
+        .language-selector {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .language-btn {
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .language-btn:hover {
+            background-color: var(--dark-light);
+        }
+
+        .language-flag {
+            width: 20px;
+            height: 15px;
+            border-radius: 2px;
+            object-fit: cover;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--dark-light);
+            border-radius: 8px;
+            padding: 8px;
+            box-shadow: var(--card-shadow);
+            display: none;
+            flex-direction: column;
+            min-width: 150px;
+            z-index: 101;
+        }
+
+        .language-dropdown.active {
+            display: flex;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .language-option:hover {
+            background-color: var(--dark);
+        }
+
+        .language-option.active {
+            color: var(--primary);
+        }
+
         /* ===== BOTTOM NAVIGATION ===== */
         .bottom-nav {
             position: fixed;
@@ -1294,6 +1361,35 @@
         <div class="header-container">
             <div class="logo">LOOMA</div>
             <div class="header-actions">
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <button class="language-btn" id="language-toggle">
+                        <img src="https://flagcdn.com/w40/fr.png" alt="French" class="language-flag">
+                        <span>FR</span>
+                    </button>
+                    <div class="language-dropdown" id="language-dropdown">
+                        <div class="language-option active" data-lang="fr">
+                            <img src="https://flagcdn.com/w40/fr.png" alt="French" class="language-flag">
+                            <span>Français</span>
+                        </div>
+                        <div class="language-option" data-lang="es">
+                            <img src="https://flagcdn.com/w40/es.png" alt="Spanish" class="language-flag">
+                            <span>Español</span>
+                        </div>
+                        <div class="language-option" data-lang="en">
+                            <img src="https://flagcdn.com/w40/us.png" alt="English" class="language-flag">
+                            <span>English</span>
+                        </div>
+                        <div class="language-option" data-lang="hi">
+                            <img src="https://flagcdn.com/w40/in.png" alt="Hindi" class="language-flag">
+                            <span>हिन्दी</span>
+                        </div>
+                        <div class="language-option" data-lang="zh">
+                            <img src="https://flagcdn.com/w40/cn.png" alt="Chinese" class="language-flag">
+                            <span>中文</span>
+                        </div>
+                    </div>
+                </div>
                 <button class="search-btn" id="search-toggle">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1314,11 +1410,11 @@
         <section id="home" class="view active">
             <div class="hero-banner">
                 <div class="hero-content">
-                    <h1 class="hero-title">Discover Amazing Apps</h1>
-                    <p class="hero-description">Explore millions of apps, games, and tools for every need. Download now and enhance your digital experience.</p>
+                    <h1 class="hero-title" data-i18n="hero_title">Découvrez des applications incroyables</h1>
+                    <p class="hero-description" data-i18n="hero_description">Explorez des millions d'applications, de jeux et d'outils pour tous les besoins. Téléchargez maintenant et améliorez votre expérience numérique.</p>
                     <div class="hero-actions">
-                        <button class="hero-btn primary-btn">Explore Now</button>
-                        <button class="hero-btn secondary-btn">Learn More</button>
+                        <button class="hero-btn primary-btn" data-i18n="explore_now">Explorer maintenant</button>
+                        <button class="hero-btn secondary-btn" data-i18n="learn_more">En savoir plus</button>
                     </div>
                 </div>
             </div>
@@ -1345,39 +1441,39 @@
         
 
             <div class="section-title">
-                <span>Popular Apps in Last 24 Hours</span>
-                <a href="#" class="see-all">See all</a>
+                <span data-i18n="popular_24h">Applications populaires des dernières 24 heures</span>
+                <a href="#" class="see-all" data-i18n="see_all">Voir tout</a>
             </div>
             <div class="carousel" id="popular-24h-carousel">
                 <!-- Popular apps in last 24 hours carousel -->
             </div>
 
             <div class="section-title">
-                <span>Popular Apps</span>
-                <a href="#" class="see-all">See all</a>
+                <span data-i18n="popular_apps">Applications populaires</span>
+                <a href="#" class="see-all" data-i18n="see_all">Voir tout</a>
             </div>
             <div class="carousel" id="popular-carousel">
                 <!-- Popular apps carousel -->
             </div>
 
             <div class="section-title">
-                <span>Recommended</span>
-                <a href="#" class="see-all">See all</a>
+                <span data-i18n="recommended">Recommandé</span>
+                <a href="#" class="see-all" data-i18n="see_all">Voir tout</a>
             </div>
             <div class="apps-grid" id="recommended-apps">
                 <!-- Recommended apps grid -->
             </div>
 
             <div class="section-title">
-                <span>Trending</span>
-                <a href="#" class="see-all">See all</a>
+                <span data-i18n="trending">Tendances</span>
+                <a href="#" class="see-all" data-i18n="see_all">Voir tout</a>
             </div>
             <div class="apps-grid" id="trending-apps">
                 <!-- Trending apps grid -->
             </div>
 
             <div class="section-title">
-                <span>Categories</span>
+                <span data-i18n="categories">Catégories</span>
             </div>
             <div class="categories-grid" id="home-categories">
                 <!-- Categories grid -->
@@ -1388,20 +1484,20 @@
         <section id="search" class="view">
             <div class="search-header">
                 <div class="search-input-container">
-                    <input type="text" class="search-input" id="search-input" placeholder="Search apps...">
+                    <input type="text" class="search-input" id="search-input" placeholder="Rechercher des applications..." data-i18n-placeholder="search_placeholder">
                 </div>
-                <div class="cancel-search" id="cancel-search">Cancel</div>
+                <div class="cancel-search" id="cancel-search" data-i18n="cancel">Annuler</div>
             </div>
 
             <div class="search-history" id="search-history">
-                <h3>Recent Searches</h3>
+                <h3 data-i18n="recent_searches">Recherches récentes</h3>
                 <div class="history-items" id="history-items">
                     <!-- History items -->
                 </div>
             </div>
 
             <div class="top-searches">
-                <h3>Top Searches</h3>
+                <h3 data-i18n="top_searches">Recherches populaires</h3>
                 <div id="top-searches-list">
                     <!-- Top searches -->
                 </div>
@@ -1415,7 +1511,7 @@
         <!-- Categories View -->
         <section id="categories" class="view">
             <div class="section-title">
-                <span>All Categories</span>
+                <span data-i18n="all_categories">Toutes les catégories</span>
             </div>
             <div class="categories-grid" id="all-categories">
                 <!-- All categories -->
@@ -1431,8 +1527,8 @@
                         <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <div class="profile-name">Guest User</div>
-                <div class="profile-email">Tap to login</div>
+                <div class="profile-name" data-i18n="guest_user">Utilisateur invité</div>
+                <div class="profile-email" data-i18n="tap_to_login">Appuyez pour vous connecter</div>
             </div>
 
             <div class="profile-menu">
@@ -1444,7 +1540,7 @@
                             <path d="M15 12H3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <div>Login / Register</div>
+                    <div data-i18n="login_register">Connexion / Inscription</div>
                 </div>
                 <div class="menu-item" id="favorites-menu">
                     <div class="menu-icon">
@@ -1452,7 +1548,7 @@
                             <path d="M20.84 4.61C20.3292 4.099 19.7228 3.69364 19.0554 3.41708C18.3879 3.14052 17.6725 2.99817 16.95 2.99817C16.2275 2.99817 15.5121 3.14052 14.8446 3.41708C14.1772 3.69364 13.5708 4.099 13.06 4.61L12 5.67L10.94 4.61C9.9083 3.5783 8.50903 2.9987 7.05 2.9987C5.59096 2.9987 4.19169 3.5783 3.16 4.61C2.1283 5.64169 1.5487 7.04097 1.5487 8.5C1.5487 9.95903 2.1283 11.3583 3.16 12.39L4.22 13.45L12 21.23L19.78 13.45L20.84 12.39C21.351 11.8792 21.7563 11.2728 22.0329 10.6053C22.3095 9.93789 22.4518 9.22248 22.4518 8.5C22.4518 7.77752 22.3095 7.06211 22.0329 6.39465C21.7563 5.72719 21.351 5.12076 20.84 4.61V4.61Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <div>My Favorites</div>
+                    <div data-i18n="my_favorites">Mes favoris</div>
                 </div>
                 <div class="menu-item" id="history-menu">
                     <div class="menu-icon">
@@ -1461,7 +1557,7 @@
                             <path d="M3.05 11C3.27151 9.18063 4.06052 7.4815 5.30078 6.15147C6.54104 4.82144 8.16366 3.93458 9.93211 3.625C11.7006 3.31542 13.5206 3.60026 15.126 4.4375C16.7314 5.27474 18.0334 6.61989 18.833 8.27007C19.6326 9.92025 19.888 11.7849 19.562 13.5901C19.236 15.3953 18.345 17.0434 17.025 18.2633C15.705 19.4832 14.031 20.2066 12.2631 20.3214C10.4952 20.4363 8.73378 19.9357 7.266 18.9L3.5 21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <div>Download History</div>
+                    <div data-i18n="download_history">Historique des téléchargements</div>
                 </div>
                 <div class="menu-item">
                     <div class="menu-icon">
@@ -1470,7 +1566,7 @@
                             <path d="M19.4 15C19.2669 15.3031 19.1341 15.6063 19.0012 15.9094C18.914 16.1053 18.8268 16.3012 18.7396 16.4971C18.6524 16.6929 18.5652 16.8888 18.478 17.0847C18.258 17.588 18.038 18.0913 17.818 18.5946C17.7255 18.8109 17.633 19.0272 17.5405 19.2435C17.448 19.4598 17.3555 19.6761 17.263 19.8924C17.0569 20.4107 16.8508 20.929 16.6447 21.4474C16.4386 21.9657 16.2325 22.484 16.0264 23C15.6716 23 15.3168 23 14.962 23C14.6072 23 14.2524 23 13.8976 23C13.7803 22.7128 13.663 22.4256 13.5457 22.1384C13.4284 21.8512 13.3111 21.564 13.1938 21.2768C13.0765 20.9896 12.9592 20.7024 12.8419 20.4152C12.7246 20.128 12.6073 19.8408 12.49 19.5536C12.3727 19.2664 12.2554 18.9792 12.1381 18.692C12.0208 18.4048 11.9035 18.1176 11.7862 17.8304C11.6689 17.5432 11.5516 17.256 11.4343 16.9688C11.317 16.6816 11.1997 16.3944 11.0824 16.1072C10.9651 15.82 10.8478 15.5328 10.7305 15.2456C10.6132 14.9584 10.4959 14.6712 10.3786 14.384C10.2613 14.0968 10.144 13.8096 10.0267 13.5224C9.90941 13.2352 9.79211 12.948 9.67481 12.6608C9.55751 12.3736 9.44021 12.0864 9.32291 11.7992C9.20561 11.512 9.08831 11.2248 8.97101 10.9376C8.85371 10.6504 8.73641 10.3632 8.61911 10.076C8.50181 9.7888 8.38451 9.5016 8.26721 9.2144C8.14991 8.9272 8.03261 8.64 7.91531 8.3528C7.79801 8.0656 7.68071 7.7784 7.56341 7.4912C7.44611 7.204 7.32881 6.9168 7.21151 6.6296C7.09421 6.3424 6.97691 6.0552 6.85961 5.768C6.74231 5.4808 6.62501 5.1936 6.50771 4.9064C6.39041 4.6192 6.27311 4.332 6.15581 4.0448C6.03851 3.7576 5.92121 3.4704 5.80391 3.1832C5.68661 2.896 5.56931 2.6088 5.45201 2.3216C5.33471 2.0344 5.21741 1.7472 5.10011 1.46C4.98281 1.1728 4.86551 0.8856 4.74821 0.5984C4.63091 0.3112 4.51361 0.024 4.39631 -0.2632C4.01954 -0.2632 3.64277 -0.2632 3.266 -0.2632C2.88923 -0.2632 2.51246 -0.2632 2.13569 -0.2632C1.75892 -0.2632 1.38215 -0.2632 1.00538 -0.2632C0.628615 -0.2632 0.251846 -0.2632 -0.124923 -0.2632C-0.124923 0.124923 -0.124923 0.513846 -0.124923 0.902769C-0.124923 1.29169 -0.124923 1.68062 -0.124923 2.06954C-0.124923 2.45846 -0.124923 2.84738 -0.124923 3.23631C-0.124923 3.62523 -0.124923 4.01415 -0.124923 4.40308C-0.124923 4.792 -0.124923 5.18092 -0.124923 5.56985C-0.124923 5.95877 -0.124923 6.34769 -0.124923 6.73662C-0.124923 7.12554 -0.124923 7.51446 -0.124923 7.90338C-0.124923 8.29231 -0.124923 8.68123 -0.124923 9.07015C-0.124923 9.45908 -0.124923 9.848 -0.124923 10.2369C-0.124923 10.6258 -0.124923 11.0148 -0.124923 11.4037C-0.124923 11.7926 -0.124923 12.1815 -0.124923 12.5705C-0.124923 12.9594 -0.124923 13.3483 -0.124923 13.7372C-0.124923 14.1262 -0.124923 14.5151 -0.124923 14.904C-0.124923 15.2929 -0.124923 15.6818 -0.124923 16.0708C-0.124923 16.4597 -0.124923 16.8486 -0.124923 17.2375C-0.124923 17.6265 -0.124923 18.0154 -0.124923 18.4043C-0.124923 18.7932 -0.124923 19.1822 -0.124923 19.5711C-0.124923 19.96 -0.124923 20.3489 -0.124923 20.7378C-0.124923 21.1268 -0.124923 21.5157 -0.124923 21.9046C-0.124923 22.2935 -0.124923 22.6825 -0.124923 23.0714C0.251846 23.0714 0.628615 23.0714 1.00538 23.0714C1.38215 23.0714 1.75892 23.0714 2.13569 23.0714C2.51246 23.0714 2.88923 23.0714 3.266 23.0714C3.64277 23.0714 4.01954 23.0714 4.39631 23.0714C4.77308 23.0714 5.14985 23.0714 5.52662 23.0714C5.90339 23.0714 6.28016 23.0714 6.65693 23.0714C7.0337 23.0714 7.41047 23.0714 7.78724 23.0714C8.16401 23.0714 8.54078 23.0714 8.91755 23.0714C9.29432 23.0714 9.67109 23.0714 10.0479 23.0714C10.4246 23.0714 10.8014 23.0714 11.1782 23.0714C11.5549 23.0714 11.9317 23.0714 12.3085 23.0714C12.6852 23.0714 13.062 23.0714 13.4388 23.0714C13.8155 23.0714 14.1923 23.0714 14.5691 23.0714C14.9458 23.0714 15.3226 23.0714 15.6994 23.0714C16.0761 23.0714 16.4529 23.0714 16.8297 23.0714C17.2064 23.0714 17.5832 23.0714 17.96 23.0714C18.3367 23.0714 18.7135 23.0714 19.0903 23.0714C19.467 23.0714 19.8438 23.0714 20.2206 23.0714C20.5973 23.0714 20.9741 23.0714 21.3509 23.0714C21.7276 23.0714 22.1044 23.0714 22.4812 23.0714C22.8579 23.0714 23.2347 23.0714 23.6115 23.0714C23.9882 23.0714 24.365 23.0714 24.7418 23.0714C24.7418 22.6825 24.7418 22.2935 24.7418 21.9046C24.7418 21.5157 24.7418 21.1268 24.7418 20.7378C24.7418 20.3489 24.7418 19.96 24.7418 19.5711C24.7418 19.1822 24.7418 18.7932 24.7418 18.4043C24.7418 18.0154 24.7418 17.6265 24.7418 17.2375C24.7418 16.8486 24.7418 16.4597 24.7418 16.0708C24.7418 15.6818 24.7418 15.2929 24.7418 14.904C24.7418 14.5151 24.7418 14.1262 24.7418 13.7372C24.7418 13.3483 24.7418 12.9594 24.7418 12.5705C24.7418 12.1815 24.7418 11.7926 24.7418 11.4037C24.7418 11.0148 24.7418 10.6258 24.7418 10.2369C24.7418 9.848 24.7418 9.45908 24.7418 9.07015C24.7418 8.68123 24.7418 8.29231 24.7418 7.90338C24.7418 7.51446 24.7418 7.12554 24.7418 6.73662C24.7418 6.34769 24.7418 5.95877 24.7418 5.56985C24.7418 5.18092 24.7418 4.792 24.7418 4.40308C24.7418 4.01415 24.7418 3.62523 24.7418 3.23631C24.7418 2.84738 24.7418 2.45846 24.7418 2.06954C24.7418 1.68062 24.7418 1.29169 24.7418 0.902769C24.7418 0.513846 24.7418 0.124923 24.7418 -0.2632C24.365 -0.2632 23.9882 -0.2632 23.6115 -0.2632C23.2347 -0.2632 22.8579 -0.2632 22.4812 -0.2632C22.1044 -0.2632 21.7276 -0.2632 21.3509 -0.2632C20.9741 -0.2632 20.5973 -0.2632 20.2206 -0.2632C19.8438 -0.2632 19.467 -0.2632 19.0903 -0.2632C18.7135 -0.2632 18.3367 -0.2632 17.96 -0.2632C17.5832 -0.2632 17.2064 -0.2632 16.8297 -0.2632C16.4529 -0.2632 16.0761 -0.2632 15.6994 -0.2632C15.3226 -0.2632 14.9458 -0.2632 14.5691 -0.2632C14.1923 -0.2632 13.8155 -0.2632 13.4388 -0.2632C13.062 -0.2632 12.6852 -0.2632 12.3085 -0.2632C11.9317 -0.2632 11.5549 -0.2632 11.1782 -0.2632C10.8014 -0.2632 10.4246 -0.2632 10.0479 -0.2632C9.67109 -0.2632 9.29432 -0.2632 8.91755 -0.2632C8.54078 -0.2632 8.16401 -0.2632 7.78724 -0.2632C7.41047 -0.2632 7.0337 -0.2632 6.65693 -0.2632C6.28016 -0.2632 5.90339 -0.2632 5.52662 -0.2632C5.14985 -0.2632 4.77308 -0.2632 4.39631 -0.2632C4.01954 -0.2632 3.64277 -0.2632 3.266 -0.2632C2.88923 -0.2632 2.51246 -0.2632 2.13569 -0.2632C1.75892 -0.2632 1.38215 -0.2632 1.00538 -0.2632C0.628615 -0.2632 0.251846 -0.2632 -0.124923 -0.2632" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
-                    <div>Settings</div>
+                    <div data-i18n="settings">Paramètres</div>
                 </div>
             </div>
         </section>
@@ -1483,7 +1579,7 @@
         <!-- Category Apps View -->
         <section id="category-apps" class="view">
             <div class="section-title" id="category-title">
-                <span>Category Apps</span>
+                <span data-i18n="category_apps">Applications de catégorie</span>
             </div>
             <div class="apps-grid" id="category-apps-grid">
                 <!-- Category apps grid -->
@@ -1493,7 +1589,7 @@
         <!-- Favorites View -->
         <section id="favorites" class="view">
             <div class="section-title">
-                <span>My Favorites</span>
+                <span data-i18n="my_favorites">Mes favoris</span>
             </div>
             <div class="apps-grid" id="favorites-grid">
                 <!-- Favorites grid -->
@@ -1503,7 +1599,7 @@
         <!-- Download History View -->
         <section id="download-history" class="view">
             <div class="section-title">
-                <span>Download History</span>
+                <span data-i18n="download_history">Historique des téléchargements</span>
             </div>
             <div class="apps-grid" id="history-grid">
                 <!-- History grid -->
@@ -1513,49 +1609,49 @@
         <!-- Admin Panel (Hidden) -->
         <section id="admin" class="view">
             <div class="admin-panel">
-                <h2>Admin Panel - Add New App</h2>
+                <h2 data-i18n="admin_panel">Panneau d'administration - Ajouter une nouvelle application</h2>
                 <form class="admin-form" id="admin-form">
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label">App Name</label>
+                            <label class="form-label" data-i18n="app_name">Nom de l'application</label>
                             <input type="text" class="form-input" id="admin-app-name" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Developer</label>
+                            <label class="form-label" data-i18n="developer">Développeur</label>
                             <input type="text" class="form-input" id="admin-developer" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Description</label>
+                        <label class="form-label" data-i18n="description">Description</label>
                         <textarea class="form-input" id="admin-description" rows="3" required></textarea>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label">Category</label>
+                            <label class="form-label" data-i18n="category">Catégorie</label>
                             <select class="form-input" id="admin-category" required>
-                                <option value="social">Social</option>
-                                <option value="games">Games</option>
-                                <option value="tools">Tools</option>
-                                <option value="productivity">Productivity</option>
-                                <option value="entertainment">Entertainment</option>
+                                <option value="social" data-i18n="social">Social</option>
+                                <option value="games" data-i18n="games">Jeux</option>
+                                <option value="tools" data-i18n="tools">Outils</option>
+                                <option value="productivity" data-i18n="productivity">Productivité</option>
+                                <option value="entertainment" data-i18n="entertainment">Divertissement</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Version</label>
+                            <label class="form-label" data-i18n="version">Version</label>
                             <input type="text" class="form-input" id="admin-version" required>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label">Size (MB)</label>
+                            <label class="form-label" data-i18n="size">Taille (MB)</label>
                             <input type="number" class="form-input" id="admin-size" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Rating</label>
+                            <label class="form-label" data-i18n="rating">Note</label>
                             <input type="number" class="form-input" id="admin-rating" min="1" max="5" step="0.1" required>
                         </div>
                     </div>
-                    <button type="submit" class="admin-submit">Add App</button>
+                    <button type="submit" class="admin-submit" data-i18n="add_app">Ajouter l'application</button>
                 </form>
             </div>
         </section>
@@ -1569,7 +1665,7 @@
                     <path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <div>Home</div>
+            <div data-i18n="home">Accueil</div>
         </div>
         <div class="nav-item" data-view="search">
             <div class="nav-icon">
@@ -1577,7 +1673,7 @@
                     <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <div>Search</div>
+            <div data-i18n="search">Recherche</div>
         </div>
         <div class="nav-item" data-view="categories">
             <div class="nav-icon">
@@ -1585,7 +1681,7 @@
                     <path d="M8 6H21M8 12H21M8 18H21M3 6H3.01M3 12H3.01M3 18H3.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <div>Categories</div>
+            <div data-i18n="categories">Catégories</div>
         </div>
         <div class="nav-item" data-view="profile">
             <div class="nav-icon">
@@ -1594,7 +1690,7 @@
                     <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
-            <div>Profile</div>
+            <div data-i18n="profile">Profil</div>
         </div>
     </nav>
 
@@ -1613,7 +1709,7 @@
     <div class="modal" id="auth-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2>Welcome to LOOMA</h2>
+                <h2 data-i18n="welcome_to_looma">Bienvenue sur LOOMA</h2>
             </div>
             <div class="modal-body">
                 <div class="auth-options" id="auth-options">
@@ -1626,7 +1722,7 @@
                                 <path d="M21.8055 10.0415H21V10H12V14H17.6515C17.2555 15.1185 16.536 16.083 15.608 16.7855L15.6095 16.7845L18.7045 19.4035C18.4855 19.6025 22 17 22 12C22 11.3295 21.931 10.675 21.8055 10.0415Z" fill="#1976D2"/>
                             </svg>
                         </div>
-                        <div>Continue with Google</div>
+                        <div data-i18n="continue_with_google">Continuer avec Google</div>
                     </button>
                     <button class="auth-btn github-btn" id="github-auth">
                         <div class="auth-icon">
@@ -1634,7 +1730,7 @@
                                 <path d="M12 2C6.477 2 2 6.477 2 12C2 16.418 4.865 20.166 8.839 21.489C9.339 21.579 9.521 21.26 9.521 20.978C9.521 20.721 9.513 20.14 9.508 19.306C6.726 19.907 6.139 18.16 6.139 18.16C5.684 17.078 5.029 16.81 5.029 16.81C4.121 16.195 5.098 16.21 5.098 16.21C6.101 16.282 6.629 17.24 6.629 17.24C7.521 18.714 8.97 18.293 9.539 18.055C9.631 17.488 9.889 17.087 10.175 16.847C7.954 16.597 5.62 15.729 5.62 11.991C5.62 10.945 6.007 10.079 6.649 9.425C6.546 9.17 6.203 8.209 6.747 6.681C6.747 6.681 7.586 6.424 9.485 7.638C10.376 7.394 11.3 7.272 12.224 7.272C13.148 7.272 14.072 7.394 14.963 7.638C16.862 6.424 17.701 6.681 17.701 6.681C18.245 8.209 17.902 9.17 17.799 9.425C18.441 10.079 18.828 10.945 18.828 11.991C18.828 15.742 16.488 16.593 14.261 16.837C14.607 17.125 14.921 17.686 14.921 18.562C14.921 19.85 14.908 20.894 14.908 20.978C14.908 21.263 15.088 21.585 15.598 21.488C19.574 20.163 22.438 16.416 22.438 12C22 6.477 17.523 2 12 2Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <div>Continue with GitHub</div>
+                        <div data-i18n="continue_with_github">Continuer avec GitHub</div>
                     </button>
                     <button class="auth-btn email-btn" id="email-auth">
                         <div class="auth-icon">
@@ -1643,20 +1739,20 @@
                                 <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <div>Continue with Email</div>
+                        <div data-i18n="continue_with_email">Continuer avec Email</div>
                     </button>
                 </div>
                 <div class="auth-form" id="email-auth-form">
                     <div class="form-group">
-                        <label class="form-label">Email</label>
+                        <label class="form-label" data-i18n="email">Email</label>
                         <input type="email" class="form-input" id="auth-email" required>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Password</label>
+                        <label class="form-label" data-i18n="password">Mot de passe</label>
                         <input type="password" class="form-input" id="auth-password" required>
                     </div>
-                    <button class="submit-btn" id="auth-submit">Login</button>
-                    <div class="auth-switch" id="auth-switch">Don't have an account? Sign up</div>
+                    <button class="submit-btn" id="auth-submit" data-i18n="login">Connexion</button>
+                    <div class="auth-switch" id="auth-switch" data-i18n="no_account">Vous n'avez pas de compte ? Inscrivez-vous</div>
                 </div>
             </div>
         </div>
@@ -1674,15 +1770,15 @@
                     </svg>
                 </div>
                 <div class="install-info">
-                    <h3 id="install-app-name">App Name</h3>
-                    <p>Installing...</p>
+                    <h3 id="install-app-name" data-i18n="app_name">Nom de l'application</h3>
+                    <p data-i18n="installing">Installation en cours...</p>
                 </div>
             </div>
             <div class="install-progress">
                 <div class="progress-bar">
                     <div class="progress-fill" id="install-progress"></div>
                 </div>
-                <div class="progress-text" id="install-text">Preparing...</div>
+                <div class="progress-text" id="install-text" data-i18n="preparing">Préparation...</div>
             </div>
         </div>
     </div>
@@ -1698,13 +1794,13 @@
                         <path d="M3.51 9C4.01717 7.56678 4.87913 6.2854 6.01547 5.27542C7.1518 4.26543 8.52547 3.55976 10.0083 3.22426C11.4911 2.88875 13.0348 2.93434 14.4952 3.35677C15.9556 3.77921 17.2853 4.56471 18.36 5.64L23 10M1 14L5.64 18.36C6.71475 19.4353 8.04437 20.2208 9.50481 20.6432C10.9652 21.0657 12.5089 21.1113 13.9917 20.7757C15.4745 20.4402 16.8482 19.7346 17.9845 18.7246C19.1209 17.7146 19.9828 16.4332 20.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </div>
-                <h3>Update Available</h3>
+                <h3 data-i18n="update_available">Mise à jour disponible</h3>
             </div>
             <div class="update-body">
-                <p>A new version of LOOMA is available. Update now for the best experience.</p>
+                <p data-i18n="update_description">Une nouvelle version de LOOMA est disponible. Mettez à jour maintenant pour la meilleure expérience.</p>
                 <div class="update-actions">
-                    <button class="update-btn update-later" id="update-later">Later</button>
-                    <button class="update-btn update-now" id="update-now">Update</button>
+                    <button class="update-btn update-later" id="update-later" data-i18n="later">Plus tard</button>
+                    <button class="update-btn update-now" id="update-now" data-i18n="update_now">Mettre à jour</button>
                 </div>
             </div>
         </div>
@@ -1775,6 +1871,405 @@
     </script>
 
     <script>
+        // ===== LANGUAGE SUPPORT =====
+        const translations = {
+            fr: {
+                // Home page
+                "hero_title": "Découvrez des applications incroyables",
+                "hero_description": "Explorez des millions d'applications, de jeux et d'outils pour tous les besoins. Téléchargez maintenant et améliorez votre expérience numérique.",
+                "explore_now": "Explorer maintenant",
+                "learn_more": "En savoir plus",
+                "popular_24h": "Applications populaires des dernières 24 heures",
+                "popular_apps": "Applications populaires",
+                "recommended": "Recommandé",
+                "trending": "Tendances",
+                "categories": "Catégories",
+                "see_all": "Voir tout",
+                
+                // Search page
+                "search_placeholder": "Rechercher des applications...",
+                "cancel": "Annuler",
+                "recent_searches": "Recherches récentes",
+                "top_searches": "Recherches populaires",
+                
+                // Categories page
+                "all_categories": "Toutes les catégories",
+                
+                // Profile page
+                "guest_user": "Utilisateur invité",
+                "tap_to_login": "Appuyez pour vous connecter",
+                "login_register": "Connexion / Inscription",
+                "my_favorites": "Mes favoris",
+                "download_history": "Historique des téléchargements",
+                "settings": "Paramètres",
+                
+                // App details
+                "category_apps": "Applications de catégorie",
+                "install": "INSTALLER",
+                "description": "Description",
+                "version": "Version",
+                "size": "Taille",
+                "updated": "Mis à jour",
+                "requires_android": "Nécessite Android",
+                "reviews": "Avis",
+                
+                // Auth modal
+                "welcome_to_looma": "Bienvenue sur LOOMA",
+                "continue_with_google": "Continuer avec Google",
+                "continue_with_github": "Continuer avec GitHub",
+                "continue_with_email": "Continuer avec Email",
+                "email": "Email",
+                "password": "Mot de passe",
+                "login": "Connexion",
+                "no_account": "Vous n'avez pas de compte ? Inscrivez-vous",
+                
+                // Installation modal
+                "app_name": "Nom de l'application",
+                "installing": "Installation en cours...",
+                "preparing": "Préparation...",
+                
+                // Update modal
+                "update_available": "Mise à jour disponible",
+                "update_description": "Une nouvelle version de LOOMA est disponible. Mettez à jour maintenant pour la meilleure expérience.",
+                "later": "Plus tard",
+                "update_now": "Mettre à jour",
+                
+                // Admin panel
+                "admin_panel": "Panneau d'administration - Ajouter une nouvelle application",
+                "developer": "Développeur",
+                "rating": "Note",
+                "add_app": "Ajouter l'application",
+                
+                // Navigation
+                "home": "Accueil",
+                "search": "Recherche",
+                "profile": "Profil",
+                
+                // Categories
+                "social": "Social",
+                "games": "Jeux",
+                "tools": "Outils",
+                "productivity": "Productivité",
+                "entertainment": "Divertissement"
+            },
+            es: {
+                // Home page
+                "hero_title": "Descubre aplicaciones increíbles",
+                "hero_description": "Explora millones de aplicaciones, juegos y herramientas para cada necesidad. Descarga ahora y mejora tu experiencia digital.",
+                "explore_now": "Explorar ahora",
+                "learn_more": "Aprender más",
+                "popular_24h": "Aplicaciones populares en las últimas 24 horas",
+                "popular_apps": "Aplicaciones populares",
+                "recommended": "Recomendado",
+                "trending": "Tendencias",
+                "categories": "Categorías",
+                "see_all": "Ver todo",
+                
+                // Search page
+                "search_placeholder": "Buscar aplicaciones...",
+                "cancel": "Cancelar",
+                "recent_searches": "Búsquedas recientes",
+                "top_searches": "Búsquedas populares",
+                
+                // Categories page
+                "all_categories": "Todas las categorías",
+                
+                // Profile page
+                "guest_user": "Usuario invitado",
+                "tap_to_login": "Toca para iniciar sesión",
+                "login_register": "Iniciar sesión / Registrarse",
+                "my_favorites": "Mis favoritos",
+                "download_history": "Historial de descargas",
+                "settings": "Configuración",
+                
+                // App details
+                "category_apps": "Aplicaciones de categoría",
+                "install": "INSTALAR",
+                "description": "Descripción",
+                "version": "Versión",
+                "size": "Tamaño",
+                "updated": "Actualizado",
+                "requires_android": "Requiere Android",
+                "reviews": "Reseñas",
+                
+                // Auth modal
+                "welcome_to_looma": "Bienvenido a LOOMA",
+                "continue_with_google": "Continuar con Google",
+                "continue_with_github": "Continuar con GitHub",
+                "continue_with_email": "Continuar con Email",
+                "email": "Email",
+                "password": "Contraseña",
+                "login": "Iniciar sesión",
+                "no_account": "¿No tienes una cuenta? Regístrate",
+                
+                // Installation modal
+                "app_name": "Nombre de la aplicación",
+                "installing": "Instalando...",
+                "preparing": "Preparando...",
+                
+                // Update modal
+                "update_available": "Actualización disponible",
+                "update_description": "Una nueva versión de LOOMA está disponible. Actualiza ahora para la mejor experiencia.",
+                "later": "Más tarde",
+                "update_now": "Actualizar ahora",
+                
+                // Admin panel
+                "admin_panel": "Panel de administración - Agregar nueva aplicación",
+                "developer": "Desarrollador",
+                "rating": "Calificación",
+                "add_app": "Agregar aplicación",
+                
+                // Navigation
+                "home": "Inicio",
+                "search": "Buscar",
+                "profile": "Perfil",
+                
+                // Categories
+                "social": "Social",
+                "games": "Juegos",
+                "tools": "Herramientas",
+                "productivity": "Productividad",
+                "entertainment": "Entretenimiento"
+            },
+            en: {
+                // Home page
+                "hero_title": "Discover Amazing Apps",
+                "hero_description": "Explore millions of apps, games, and tools for every need. Download now and enhance your digital experience.",
+                "explore_now": "Explore Now",
+                "learn_more": "Learn More",
+                "popular_24h": "Popular Apps in Last 24 Hours",
+                "popular_apps": "Popular Apps",
+                "recommended": "Recommended",
+                "trending": "Trending",
+                "categories": "Categories",
+                "see_all": "See all",
+                
+                // Search page
+                "search_placeholder": "Search apps...",
+                "cancel": "Cancel",
+                "recent_searches": "Recent Searches",
+                "top_searches": "Top Searches",
+                
+                // Categories page
+                "all_categories": "All Categories",
+                
+                // Profile page
+                "guest_user": "Guest User",
+                "tap_to_login": "Tap to login",
+                "login_register": "Login / Register",
+                "my_favorites": "My Favorites",
+                "download_history": "Download History",
+                "settings": "Settings",
+                
+                // App details
+                "category_apps": "Category Apps",
+                "install": "INSTALL",
+                "description": "Description",
+                "version": "Version",
+                "size": "Size",
+                "updated": "Updated",
+                "requires_android": "Requires Android",
+                "reviews": "Reviews",
+                
+                // Auth modal
+                "welcome_to_looma": "Welcome to LOOMA",
+                "continue_with_google": "Continue with Google",
+                "continue_with_github": "Continue with GitHub",
+                "continue_with_email": "Continue with Email",
+                "email": "Email",
+                "password": "Password",
+                "login": "Login",
+                "no_account": "Don't have an account? Sign up",
+                
+                // Installation modal
+                "app_name": "App Name",
+                "installing": "Installing...",
+                "preparing": "Preparing...",
+                
+                // Update modal
+                "update_available": "Update Available",
+                "update_description": "A new version of LOOMA is available. Update now for the best experience.",
+                "later": "Later",
+                "update_now": "Update Now",
+                
+                // Admin panel
+                "admin_panel": "Admin Panel - Add New App",
+                "developer": "Developer",
+                "rating": "Rating",
+                "add_app": "Add App",
+                
+                // Navigation
+                "home": "Home",
+                "search": "Search",
+                "profile": "Profile",
+                
+                // Categories
+                "social": "Social",
+                "games": "Games",
+                "tools": "Tools",
+                "productivity": "Productivity",
+                "entertainment": "Entertainment"
+            },
+            hi: {
+                // Home page
+                "hero_title": "अद्भुत ऐप्स खोजें",
+                "hero_description": "हर जरूरत के लिए लाखों ऐप्स, गेम्स और टूल्स एक्सप्लोर करें। अभी डाउनलोड करें और अपने डिजिटल अनुभव को बेहतर बनाएं।",
+                "explore_now": "अभी एक्सप्लोर करें",
+                "learn_more": "और जानें",
+                "popular_24h": "पिछले 24 घंटे में लोकप्रिय ऐप्स",
+                "popular_apps": "लोकप्रिय ऐप्स",
+                "recommended": "अनुशंसित",
+                "trending": "ट्रेंडिंग",
+                "categories": "श्रेणियाँ",
+                "see_all": "सभी देखें",
+                
+                // Search page
+                "search_placeholder": "ऐप्स खोजें...",
+                "cancel": "रद्द करें",
+                "recent_searches": "हाल की खोजें",
+                "top_searches": "शीर्ष खोजें",
+                
+                // Categories page
+                "all_categories": "सभी श्रेणियाँ",
+                
+                // Profile page
+                "guest_user": "अतिथि उपयोगकर्ता",
+                "tap_to_login": "लॉगिन करने के लिए टैप करें",
+                "login_register": "लॉगिन / रजिस्टर",
+                "my_favorites": "मेरे पसंदीदा",
+                "download_history": "डाउनलोड इतिहास",
+                "settings": "सेटिंग्स",
+                
+                // App details
+                "category_apps": "श्रेणी ऐप्स",
+                "install": "इंस्टॉल करें",
+                "description": "विवरण",
+                "version": "संस्करण",
+                "size": "आकार",
+                "updated": "अपडेट किया गया",
+                "requires_android": "Android आवश्यक",
+                "reviews": "समीक्षाएँ",
+                
+                // Auth modal
+                "welcome_to_looma": "LOOMA में आपका स्वागत है",
+                "continue_with_google": "Google के साथ जारी रखें",
+                "continue_with_github": "GitHub के साथ जारी रखें",
+                "continue_with_email": "ईमेल के साथ जारी रखें",
+                "email": "ईमेल",
+                "password": "पासवर्ड",
+                "login": "लॉगिन",
+                "no_account": "खाता नहीं है? साइन अप करें",
+                
+                // Installation modal
+                "app_name": "ऐप का नाम",
+                "installing": "इंस्टॉल हो रहा है...",
+                "preparing": "तैयार हो रहा है...",
+                
+                // Update modal
+                "update_available": "अपडेट उपलब्ध",
+                "update_description": "LOOMA का एक नया संस्करण उपलब्ध है। सर्वोत्तम अनुभव के लिए अभी अपडेट करें।",
+                "later": "बाद में",
+                "update_now": "अभी अपडेट करें",
+                
+                // Admin panel
+                "admin_panel": "एडमिन पैनल - नया ऐप जोड़ें",
+                "developer": "डेवलपर",
+                "rating": "रेटिंग",
+                "add_app": "ऐप जोड़ें",
+                
+                // Navigation
+                "home": "होम",
+                "search": "खोज",
+                "profile": "प्रोफाइल",
+                
+                // Categories
+                "social": "सोशल",
+                "games": "गेम्स",
+                "tools": "टूल्स",
+                "productivity": "प्रोडक्टिविटी",
+                "entertainment": "एंटरटेनमेंट"
+            },
+            zh: {
+                // Home page
+                "hero_title": "发现惊人的应用",
+                "hero_description": "探索数百万个应用程序、游戏和工具，满足各种需求。立即下载，提升您的数字体验。",
+                "explore_now": "立即探索",
+                "learn_more": "了解更多",
+                "popular_24h": "过去24小时热门应用",
+                "popular_apps": "热门应用",
+                "recommended": "推荐",
+                "trending": "趋势",
+                "categories": "分类",
+                "see_all": "查看全部",
+                
+                // Search page
+                "search_placeholder": "搜索应用...",
+                "cancel": "取消",
+                "recent_searches": "最近搜索",
+                "top_searches": "热门搜索",
+                
+                // Categories page
+                "all_categories": "所有分类",
+                
+                // Profile page
+                "guest_user": "访客用户",
+                "tap_to_login": "点击登录",
+                "login_register": "登录 / 注册",
+                "my_favorites": "我的收藏",
+                "download_history": "下载历史",
+                "settings": "设置",
+                
+                // App details
+                "category_apps": "分类应用",
+                "install": "安装",
+                "description": "描述",
+                "version": "版本",
+                "size": "大小",
+                "updated": "更新",
+                "requires_android": "需要Android",
+                "reviews": "评论",
+                
+                // Auth modal
+                "welcome_to_looma": "欢迎来到LOOMA",
+                "continue_with_google": "使用Google继续",
+                "continue_with_github": "使用GitHub继续",
+                "continue_with_email": "使用邮箱继续",
+                "email": "邮箱",
+                "password": "密码",
+                "login": "登录",
+                "no_account": "没有账户？注册",
+                
+                // Installation modal
+                "app_name": "应用名称",
+                "installing": "正在安装...",
+                "preparing": "准备中...",
+                
+                // Update modal
+                "update_available": "有可用更新",
+                "update_description": "LOOMA有新版本可用。立即更新以获得最佳体验。",
+                "later": "稍后",
+                "update_now": "立即更新",
+                
+                // Admin panel
+                "admin_panel": "管理面板 - 添加新应用",
+                "developer": "开发者",
+                "rating": "评分",
+                "add_app": "添加应用",
+                
+                // Navigation
+                "home": "首页",
+                "search": "搜索",
+                "profile": "个人资料",
+                
+                // Categories
+                "social": "社交",
+                "games": "游戏",
+                "tools": "工具",
+                "productivity": "效率",
+                "entertainment": "娱乐"
+            }
+        };
+
         // ===== APP DATA =====
         const apps = [
             {
@@ -2465,6 +2960,7 @@
         let downloadHistory = JSON.parse(localStorage.getItem('downloadHistory')) || [];
         let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
         let isSignUpMode = false;
+        let currentLanguage = localStorage.getItem('language') || 'fr';
 
         // ===== DOM ELEMENTS =====
         const views = document.querySelectorAll('.view');
@@ -2478,9 +2974,15 @@
         const authModal = document.getElementById('auth-modal');
         const installModal = document.getElementById('install-modal');
         const updateModal = document.getElementById('update-modal');
+        const languageToggle = document.getElementById('language-toggle');
+        const languageDropdown = document.getElementById('language-dropdown');
+        const languageOptions = document.querySelectorAll('.language-option');
 
         // ===== INITIALIZATION =====
         document.addEventListener('DOMContentLoaded', function() {
+            // Set initial language
+            setLanguage(currentLanguage);
+            
             // Hide splash screen after 2 seconds
             setTimeout(() => {
                 splashScreen.style.opacity = '0';
@@ -2503,6 +3005,80 @@
                 }, 3000);
             }
         });
+
+        // ===== LANGUAGE FUNCTIONS =====
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            localStorage.setItem('language', lang);
+            
+            // Update language button
+            const flagUrl = getFlagUrl(lang);
+            const langCode = getLangCode(lang);
+            languageToggle.innerHTML = `
+                <img src="${flagUrl}" alt="${lang}" class="language-flag">
+                <span>${langCode}</span>
+            `;
+            
+            // Update active language option
+            languageOptions.forEach(option => {
+                if (option.getAttribute('data-lang') === lang) {
+                    option.classList.add('active');
+                } else {
+                    option.classList.remove('active');
+                }
+            });
+            
+            // Update all translatable elements
+            updateTranslations();
+        }
+
+        function getFlagUrl(lang) {
+            const flagMap = {
+                'fr': 'https://flagcdn.com/w40/fr.png',
+                'es': 'https://flagcdn.com/w40/es.png',
+                'en': 'https://flagcdn.com/w40/us.png',
+                'hi': 'https://flagcdn.com/w40/in.png',
+                'zh': 'https://flagcdn.com/w40/cn.png'
+            };
+            return flagMap[lang] || flagMap['fr'];
+        }
+
+        function getLangCode(lang) {
+            const codeMap = {
+                'fr': 'FR',
+                'es': 'ES',
+                'en': 'EN',
+                'hi': 'HI',
+                'zh': '中文'
+            };
+            return codeMap[lang] || 'FR';
+        }
+
+        function updateTranslations() {
+            // Update all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                }
+            });
+            
+            // Update placeholder attributes
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                if (translations[currentLanguage] && translations[currentLanguage][key]) {
+                    element.setAttribute('placeholder', translations[currentLanguage][key]);
+                }
+            });
+            
+            // Update category names
+            document.querySelectorAll('.category-name').forEach(element => {
+                const categoryId = element.closest('.category-card').getAttribute('data-category');
+                if (translations[currentLanguage] && translations[currentLanguage][categoryId]) {
+                    element.textContent = translations[currentLanguage][categoryId];
+                }
+            });
+        }
 
         // ===== FIREBASE AUTH SETUP =====
         function setupFirebaseAuth() {
@@ -2574,7 +3150,7 @@
                             <span class="stars">${generateStars(app.rating)}</span>
                             <span class="rating-value">${app.rating}</span>
                         </div>
-                        <button class="download-btn" data-app-id="${app.id}">Download</button>
+                        <button class="download-btn" data-app-id="${app.id}">${translations[currentLanguage]['download'] || 'Download'}</button>
                     </div>
                 </div>
             `).join('');
@@ -2585,7 +3161,7 @@
             container.innerHTML = categories.slice(0, 6).map(category => `
                 <div class="category-card" data-category="${category.id}">
                     <div class="category-icon">${category.icon}</div>
-                    <div class="category-name">${category.name}</div>
+                    <div class="category-name">${translations[currentLanguage][category.id] || category.name}</div>
                 </div>
             `).join('');
         }
@@ -2595,7 +3171,7 @@
             container.innerHTML = categories.map(category => `
                 <div class="category-card" data-category="${category.id}">
                     <div class="category-icon">${category.icon}</div>
-                    <div class="category-name">${category.name}</div>
+                    <div class="category-name">${translations[currentLanguage][category.id] || category.name}</div>
                 </div>
             `).join('');
         }
@@ -2638,9 +3214,9 @@
                         <div class="app-meta">
                             <span>⭐ ${app.rating}</span>
                             <span>📥 ${app.downloads}</span>
-                            <span>${app.category}</span>
+                            <span>${translations[currentLanguage][app.category] || app.category}</span>
                         </div>
-                        <button class="install-btn" data-app-id="${app.id}">INSTALL</button>
+                        <button class="install-btn" data-app-id="${app.id}">${translations[currentLanguage]['install'] || 'INSTALL'}</button>
                     </div>
                     <button class="favorite-btn ${isFavorite ? 'active' : ''}" data-app-id="${app.id}">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="${isFavorite ? 'currentColor' : 'none'}" xmlns="http://www.w3.org/2000/svg">
@@ -2649,36 +3225,36 @@
                     </button>
                 </div>
                 <div class="app-screenshots">
-                    <h3>Screenshots</h3>
+                    <h3>${translations[currentLanguage]['screenshots'] || 'Screenshots'}</h3>
                     <div class="screenshots-scroll">
                         ${videoElements}
                         ${screenshotElements}
                     </div>
                 </div>
                 <div class="app-description">
-                    <h3>Description</h3>
+                    <h3>${translations[currentLanguage]['description'] || 'Description'}</h3>
                     <p>${app.description}</p>
                 </div>
                 <div class="app-info-details">
                     <div class="info-row">
-                        <span class="info-label">Version</span>
+                        <span class="info-label">${translations[currentLanguage]['version'] || 'Version'}</span>
                         <span>${app.version}</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Size</span>
+                        <span class="info-label">${translations[currentLanguage]['size'] || 'Size'}</span>
                         <span>${app.size} MB</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Updated</span>
+                        <span class="info-label">${translations[currentLanguage]['updated'] || 'Updated'}</span>
                         <span>${new Date().toLocaleDateString()}</span>
                     </div>
                     <div class="info-row">
-                        <span class="info-label">Requires Android</span>
+                        <span class="info-label">${translations[currentLanguage]['requires_android'] || 'Requires Android'}</span>
                         <span>5.0 and up</span>
                     </div>
                 </div>
                 <div class="app-reviews">
-                    <h3>Reviews</h3>
+                    <h3>${translations[currentLanguage]['reviews'] || 'Reviews'}</h3>
                     <div class="review">
                         <div class="review-header">
                             <span class="reviewer">John Doe</span>
@@ -2733,7 +3309,7 @@
             const title = document.getElementById('category-title');
             
             const category = categories.find(c => c.id === categoryId);
-            title.innerHTML = `<span>${category.name}</span>`;
+            title.innerHTML = `<span>${translations[currentLanguage][categoryId] || category.name}</span>`;
             
             renderAppsGrid('category-apps-grid', categoryApps);
         }
@@ -2748,7 +3324,7 @@
             if (filteredApps.length > 0) {
                 searchResults.innerHTML = `
                     <div class="section-title">
-                        <span>Search Results for "${query}"</span>
+                        <span>${translations[currentLanguage]['search_results'] || 'Search Results'} "${query}"</span>
                     </div>
                     <div class="apps-grid">
                         ${filteredApps.map(app => `
@@ -2763,7 +3339,7 @@
                                         <span class="stars">${generateStars(app.rating)}</span>
                                         <span class="rating-value">${app.rating}</span>
                                     </div>
-                                    <button class="download-btn" data-app-id="${app.id}">Download</button>
+                                    <button class="download-btn" data-app-id="${app.id}">${translations[currentLanguage]['download'] || 'Download'}</button>
                                 </div>
                             </div>
                         `).join('')}
@@ -2772,8 +3348,8 @@
             } else {
                 searchResults.innerHTML = `
                     <div class="text-center mt-16">
-                        <h3>No results found for "${query}"</h3>
-                        <p>Try different keywords</p>
+                        <h3>${translations[currentLanguage]['no_results'] || 'No results found'} "${query}"</h3>
+                        <p>${translations[currentLanguage]['try_different_keywords'] || 'Try different keywords'}</p>
                     </div>
                 `;
             }
@@ -2811,8 +3387,8 @@
             } else {
                 container.innerHTML = `
                     <div class="text-center mt-16">
-                        <h3>No favorites yet</h3>
-                        <p>Start adding apps to your favorites!</p>
+                        <h3>${translations[currentLanguage]['no_favorites'] || 'No favorites yet'}</h3>
+                        <p>${translations[currentLanguage]['start_adding_apps'] || 'Start adding apps to your favorites!'}</p>
                     </div>
                 `;
             }
@@ -2827,8 +3403,8 @@
             } else {
                 container.innerHTML = `
                     <div class="text-center mt-16">
-                        <h3>No download history</h3>
-                        <p>Apps you download will appear here</p>
+                        <h3>${translations[currentLanguage]['no_download_history'] || 'No download history'}</h3>
+                        <p>${translations[currentLanguage]['apps_will_appear_here'] || 'Apps you download will appear here'}</p>
                     </div>
                 `;
             }
@@ -2895,7 +3471,7 @@
                 if (progress >= 100) {
                     progress = 100;
                     clearInterval(interval);
-                    installText.textContent = 'Installation complete!';
+                    installText.textContent = translations[currentLanguage]['installation_complete'] || 'Installation complete!';
                     
                     setTimeout(() => {
                         installModal.classList.remove('active');
@@ -2922,7 +3498,7 @@
                         URL.revokeObjectURL(url);
                     }, 1000);
                 } else {
-                    installText.textContent = `Installing... ${Math.round(progress)}%`;
+                    installText.textContent = `${translations[currentLanguage]['installing'] || 'Installing'}... ${Math.round(progress)}%`;
                 }
                 installProgress.style.width = `${progress}%`;
             }, 200);
@@ -2995,6 +3571,41 @@
 
         // ===== EVENT LISTENERS =====
         function setupEventListeners() {
+            // Language selector
+            languageToggle.addEventListener('click', function() {
+                languageDropdown.classList.toggle('active');
+            });
+
+            languageOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    setLanguage(lang);
+                    languageDropdown.classList.remove('active');
+                    
+                    // Re-render current view with new language
+                    if (currentView === 'home') {
+                        renderHome();
+                    } else if (currentView === 'categories') {
+                        renderCategories();
+                    } else if (currentView === 'app-details' && currentApp) {
+                        renderAppDetails(currentApp);
+                    } else if (currentView === 'category-apps' && currentCategory) {
+                        renderCategoryApps(currentCategory);
+                    } else if (currentView === 'favorites') {
+                        renderFavorites();
+                    } else if (currentView === 'download-history') {
+                        renderDownloadHistory();
+                    }
+                });
+            });
+
+            // Close language dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!languageToggle.contains(e.target) && !languageDropdown.contains(e.target)) {
+                    languageDropdown.classList.remove('active');
+                }
+            });
+
             // Navigation
             navItems.forEach(item => {
                 item.addEventListener('click', function() {
@@ -3180,11 +3791,11 @@
                 const switchText = document.getElementById('auth-switch');
                 
                 if (isSignUpMode) {
-                    submitBtn.textContent = 'Sign Up';
-                    switchText.textContent = 'Already have an account? Sign in';
+                    submitBtn.textContent = translations[currentLanguage]['sign_up'] || 'Sign Up';
+                    switchText.textContent = translations[currentLanguage]['have_account'] || 'Already have an account? Sign in';
                 } else {
-                    submitBtn.textContent = 'Login';
-                    switchText.textContent = 'Don\'t have an account? Sign up';
+                    submitBtn.textContent = translations[currentLanguage]['login'] || 'Login';
+                    switchText.textContent = translations[currentLanguage]['no_account'] || 'Don\'t have an account? Sign up';
                 }
             });
 
@@ -3271,8 +3882,8 @@
                             document.getElementById('auth-email').value = '';
                             document.getElementById('auth-password').value = '';
                             isSignUpMode = false;
-                            document.getElementById('auth-submit').textContent = 'Login';
-                            document.getElementById('auth-switch').textContent = 'Don\'t have an account? Sign up';
+                            document.getElementById('auth-submit').textContent = translations[currentLanguage]['login'] || 'Login';
+                            document.getElementById('auth-switch').textContent = translations[currentLanguage]['no_account'] || 'Don\'t have an account? Sign up';
                         }
                     }
                 });
@@ -3288,7 +3899,7 @@
             if (user) {
                 profileName.textContent = user.name;
                 profileEmail.textContent = user.email;
-                loginMenu.querySelector('div').textContent = 'Logout';
+                loginMenu.querySelector('div').textContent = translations[currentLanguage]['logout'] || 'Logout';
                 
                 // Update avatar if user has a photo
                 if (user.photoURL) {
@@ -3301,15 +3912,15 @@
                 loginMenu.removeEventListener('click', openAuthModal);
                 loginMenu.addEventListener('click', logoutUser);
             } else {
-                profileName.textContent = 'Guest User';
-                profileEmail.textContent = 'Tap to login';
+                profileName.textContent = translations[currentLanguage]['guest_user'] || 'Guest User';
+                profileEmail.textContent = translations[currentLanguage]['tap_to_login'] || 'Tap to login';
                 profileAvatar.innerHTML = `
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 `;
-                loginMenu.querySelector('div').textContent = 'Login / Register';
+                loginMenu.querySelector('div').textContent = translations[currentLanguage]['login_register'] || 'Login / Register';
                 
                 // Change logout menu back to login
                 loginMenu.removeEventListener('click', logoutUser);
