@@ -1347,6 +1347,31 @@
             min-height: 60px;
             background: var(--dark-light);
         }
+
+        /* ===== MULTITAG AD STYLES ===== */
+        .multitag-banner {
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100px;
+            width: 300px;
+            max-width: 100%;
+        }
+
+        .multitag-video-slider {
+            margin: 20px auto;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 250px;
+            width: 100%;
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -1419,6 +1444,16 @@
                 </div>
             </div>
 
+            <!-- MultiTag Video Slider Ad -->
+            <div class="multitag-video-slider" id="multitag-video-slider">
+                <!-- MultiTag Video Slider Ad will be loaded here -->
+            </div>
+
+            <!-- MultiTag Banner Ad -->
+            <div class="multitag-banner" id="multitag-banner">
+                <!-- MultiTag Banner Ad will be loaded here -->
+            </div>
+
             <!-- Video Banner Ad -->
             <div class="video-ad-container">
                 <ins class="eas6a97888e" data-zoneid="5784000"></ins>
@@ -1460,6 +1495,11 @@
                 <!-- Popular apps carousel -->
             </div>
 
+            <!-- MultiTag Banner Ad (Middle) -->
+            <div class="multitag-banner mt-16" id="multitag-banner-middle">
+                <!-- MultiTag Banner Ad will be loaded here -->
+            </div>
+
             <div class="section-title">
                 <span data-i18n="recommended">Recommandé</span>
                 <a href="#" class="see-all" data-i18n="see_all">Voir tout</a>
@@ -1474,6 +1514,11 @@
             </div>
             <div class="apps-grid" id="trending-apps">
                 <!-- Trending apps grid -->
+            </div>
+
+            <!-- MultiTag Banner Ad (Bottom) -->
+            <div class="multitag-banner mt-16" id="multitag-banner-bottom">
+                <!-- MultiTag Banner Ad will be loaded here -->
             </div>
 
             <div class="section-title">
@@ -1491,6 +1536,11 @@
                     <input type="text" class="search-input" id="search-input" placeholder="Rechercher des applications..." data-i18n-placeholder="search_placeholder">
                 </div>
                 <div class="cancel-search" id="cancel-search" data-i18n="cancel">Annuler</div>
+            </div>
+
+            <!-- MultiTag Banner Ad in Search -->
+            <div class="multitag-banner" id="multitag-search-banner">
+                <!-- MultiTag Banner Ad will be loaded here -->
             </div>
 
             <div class="search-history" id="search-history">
@@ -1520,6 +1570,11 @@
             <div class="categories-grid" id="all-categories">
                 <!-- All categories -->
             </div>
+
+            <!-- MultiTag Banner Ad in Categories -->
+            <div class="multitag-banner mt-16" id="multitag-categories-banner">
+                <!-- MultiTag Banner Ad will be loaded here -->
+            </div>
         </section>
 
         <!-- Profile View -->
@@ -1533,6 +1588,11 @@
                 </div>
                 <div class="profile-name" data-i18n="guest_user">Utilisateur invité</div>
                 <div class="profile-email" data-i18n="tap_to_login">Appuyez pour vous connecter</div>
+            </div>
+
+            <!-- MultiTag Banner Ad in Profile -->
+            <div class="multitag-banner mt-16" id="multitag-profile-banner">
+                <!-- MultiTag Banner Ad will be loaded here -->
             </div>
 
             <div class="profile-menu">
@@ -1809,6 +1869,33 @@
             </div>
         </div>
     </div>
+
+    <!-- MultiTag Banner Ad Script -->
+    <script>
+        (function(ftxif){
+            var d = document,
+                s = d.createElement('script'),
+                l = d.scripts[d.scripts.length - 1];
+            s.settings = ftxif || {};
+            s.src = "\/\/grotesquephilosophy.com\/b.XSVWsKdQG\/lB0AYNWbch\/Zeamx9Pu\/ZEUZl\/kHPqTYY\/3\/MljcEs5XNNj_gzt\/NejbcgyWM\/ThkU2ZOnQF";
+            s.async = true;
+            s.referrerPolicy = 'no-referrer-when-downgrade';
+            l.parentNode.insertBefore(s, l);
+        })({})
+    </script>
+
+    <!-- MultiTag Video Slider Ad Script -->
+    <script>
+        (function() {
+            var d = document,
+                s = d.createElement('script'),
+                l = d.scripts[d.scripts.length - 1];
+            s.src = "https://homelybottle.com/b.3/Vt0JP/3npsvvbqmEVlJsZBD_0C2/NZzsIlwjOiDIkyy/L/TWY/3IMbjGA/4eOcTlM-";
+            s.async = true;
+            s.referrerPolicy = 'no-referrer-when-downgrade';
+            l.parentNode.insertBefore(s, l);
+        })();
+    </script>
 
     <!-- Ad Provider Script -->
     <script async type="application/javascript" src="https://a.magsrv.com/ad-provider.js"></script>
@@ -2952,11 +3039,34 @@
                 ],
                 description: 'CapCut APK - An Advanced AI-Powered Video Editing Tool',
                 apkUrl: 'https://d.apkpure.com/b/XAPK/com.lemon.lvoverseas?version=latest'
+            },
+            // Streamflix App
+            {
+                id: 37,
+                slug: 'streamflix',
+                name: 'Streamflix',
+                developer: 'Streamflix App',
+                version: '2.1.5',
+                size: 86,
+                downloads: '1M+',
+                category: 'entertainment',
+                rating: 4.4,
+                icon: 'https://cdn.leonardo.ai/users/59cc19c6-be61-41ed-ab82-8485d4d58d54/generations/807f5487-c3b8-4ccd-9ab8-dabab318a67d/Phoenix_10_Create_a_clean_bold_modern_logo_for_an_app_named_St_0.jpg',
+                screenshots: [
+                    'https://ia601706.us.archive.org/28/items/5149a-084-0548-4cbb-ad-1c-b-0a-44188b-697/5149a084-0548-4cbb-ad1c-b0a44188b697.jpeg',
+                    'https://ia601808.us.archive.org/15/items/fc703582-d360-459d-9491-be0725877c0d/fc703582-d360-459d-9491-be0725877c0d.jpeg',
+                    'https://ia902308.us.archive.org/11/items/b0691505-8662-4f1f-b45b-a98a833d0252/b0691505-8662-4f1f-b45b-a98a833d0252.jpeg'
+                ],
+                videos: [
+                    'https://archive.org/download/385dfda-0-540b-41d-5-86c-5-7766fa-2c-015d/385dfda0-540b-41d5-86c5-7766fa2c015d.mp4'
+                ],
+                description: 'Streamflix - Your ultimate streaming destination. Watch movies, TV shows, and exclusive content in HD quality. With personalized recommendations and offline viewing, enjoy entertainment anywhere, anytime.',
+                apkUrl: 'https://apk.e-droid.net/apk/app3840922-4qfxag.apk?v=2'
             }
         ];
 
         // Generate more apps
-        for (let i = 37; i <= 50; i++) {
+        for (let i = 38; i <= 50; i++) {
             const categories = ['games', 'social', 'tools', 'productivity', 'entertainment'];
             const names = [
                 'Video Editor Pro', 'File Manager', 'VPN Secure', 'Browser Pro', 
@@ -3128,6 +3238,9 @@
             handleRouting();
             setupFirebaseAuth();
 
+            // Initialize MultiTag ads
+            initializeMultiTagAds();
+
             // Show update modal randomly (for demo)
             if (Math.random() > 0.7) {
                 setTimeout(() => {
@@ -3135,6 +3248,15 @@
                 }, 3000);
             }
         });
+
+        // ===== MULTITAG ADS INITIALIZATION =====
+        function initializeMultiTagAds() {
+            // The MultiTag scripts are already loaded in the head section
+            // They will automatically render ads in the designated containers
+            
+            // You can add additional MultiTag ad placements here if needed
+            // For now, the scripts will handle the ad rendering automatically
+        }
 
         // ===== LANGUAGE FUNCTIONS =====
         function setLanguage(lang) {
@@ -3242,9 +3364,9 @@
 
         // ===== RENDERING FUNCTIONS =====
         function renderHome() {
-            // Include new apps in the popular 24h carousel
-            renderCarousel('popular-24h-carousel', [apps[29], apps[27], apps[30], apps[28], apps[24]]);
-            // Include new apps in the popular carousel
+            // Include new apps in the popular 24h carousel - add Streamflix
+            renderCarousel('popular-24h-carousel', [apps[29], apps[27], apps[30], apps[28], apps[24], apps[36]]);
+            // Include new apps in the popular carousel - add Streamflix
             renderCarousel('popular-carousel', [apps[31], apps[32], apps[33], apps[34], apps[35], apps[36]]);
             renderAppsGrid('recommended-apps', apps.slice(5, 13));
             renderAppsGrid('trending-apps', apps.slice(13, 21));
@@ -3339,7 +3461,9 @@
                         <div class="app-title">${app.name}</div>
                         <div class="app-developer-badge">
                             <span>${app.developer}</span>
-                            <span class="verified-badge">✓</span>
+                            ${app.developer === 'Facebook' || app.developer === 'Streamflix App' ? 
+                                '<span class="verified-badge" style="color: #1877F2;">✓</span>' : 
+                                '<span class="verified-badge">✓</span>'}
                         </div>
                         <div class="app-meta">
                             <span>⭐ ${app.rating}</span>
@@ -3496,7 +3620,7 @@
         }
 
         function renderTopSearches() {
-            const topSearches = ['WhatsApp', 'Instagram', 'Games', 'Facebook', 'TikTok', 'Spotify', 'Free Fire', 'oneState', 'Mafia City', 'X', 'ten ten', 'NetMirror', 'ChatGPT', 'Cash App', 'Sora AI', 'MyDigicel', 'Alight Motion', 'CapCut'];
+            const topSearches = ['WhatsApp', 'Instagram', 'Games', 'Facebook', 'TikTok', 'Spotify', 'Free Fire', 'oneState', 'Mafia City', 'X', 'ten ten', 'NetMirror', 'ChatGPT', 'Cash App', 'Sora AI', 'MyDigicel', 'Alight Motion', 'CapCut', 'Streamflix'];
             const container = document.getElementById('top-searches-list');
             
             container.innerHTML = topSearches.map((term, index) => `
