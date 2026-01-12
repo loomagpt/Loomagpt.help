@@ -1,11 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="ht">
 <head>
   <meta charset="UTF-8">
-  <title>Admin Test</title>
+  <title>LoomaGPT – Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+
+    header {
+      background: #020617;
+      padding: 15px 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: #020617;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #38bdf8;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #38bdf8;
+      color: #020617;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #94a3b8;
+    }
+  </style>
 </head>
+
 <body>
-  <h1>ADMIN LOOMAGPT MACHE ✅</h1>
-  <p>Si ou wè mesaj sa, paj la bon.</p>
+
+<header>
+  LoomaGPT – Admin Panel
+</header>
+
+<div class="container">
+  <p>Byenvini 👋<br>
+  Sa se panel admin LoomaGPT. Isit la ou ka jere kontni site la.</p>
+
+  <div class="cards">
+    <div class="card">
+      <h3>📦 Aplikasyon</h3>
+      <p>Ajoute, modifye oswa efase aplikasyon.</p>
+      <a class="btn" href="#">Manage Apps</a>
+    </div>
+
+    <div class="card">
+      <h3>🤖 AI Tools</h3>
+      <p>Jere zouti AI yo.</p>
+      <a class="btn" href="#">Manage Tools</a>
+    </div>
+
+    <div class="card">
+      <h3>👥 Itilizatè</h3>
+      <p>Wè aktivite itilizatè yo.</p>
+      <a class="btn" href="#">Users</a>
+    </div>
+
+    <div class="card">
+      <h3>⚙️ Paramèt</h3>
+      <p>Konfigirasyon site la.</p>
+      <a class="btn" href="#">Settings</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  © 2026 LoomaGPT • Admin Panel
+</footer>
+
 </body>
 </html>
