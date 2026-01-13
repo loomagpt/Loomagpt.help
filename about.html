@@ -1,232 +1,279 @@
 <!DOCTYPE html>
-<html lang="ht">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>About – Looma App Store</title>
+
+  <!-- SEO META AVANCÉ -->
+  <title>Looma App Store | Plateforme internationale de distribution d’applications</title>
+  <meta name="description" content="Looma App Store est une plateforme internationale de distribution d’applications et d’outils numériques, conçue pour offrir sécurité, transparence et opportunités durables aux développeurs et aux utilisateurs.">
+  <meta name="keywords" content="Looma App Store, alternative Play Store, alternative Aptoide, téléchargement APK sécurisé, plateforme développeurs, app store international">
+  <meta name="author" content="Chery Widson">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://loomagpt.help/about.html">
+
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Looma App Store">
+  <meta property="og:description" content="Plateforme moderne de téléchargement et de distribution d'applications.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://loomagpt.help/about.html">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
-      background: #0b1220;
+      background: linear-gradient(180deg, #020617, #0f172a);
       color: #e5e7eb;
-      line-height: 1.7;
     }
 
     header {
-      background: linear-gradient(135deg, #020617, #020617);
-      padding: 30px 20px;
+      padding: 50px 20px;
       text-align: center;
-      font-size: 28px;
-      font-weight: bold;
+      font-size: 34px;
+      font-weight: 700;
       color: #38bdf8;
+      animation: glow 3s infinite alternate;
+    }
+
+    .lang-switch {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .lang-switch button {
+      margin: 6px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #020617;
+      transition: all .3s ease;
+    }
+
+    .lang-switch button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 25px rgba(56,189,248,.9);
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
-      padding: 30px 20px;
+      padding: 40px 20px;
     }
 
     .box {
-      background: #020617;
-      padding: 30px;
-      border-radius: 14px;
-      margin-bottom: 40px;
-      box-shadow: 0 20px 40px rgba(0,0,0,.4);
-      animation: fadeUp .8s ease both;
+      background: rgba(2,6,23,.9);
+      padding: 40px;
+      border-radius: 18px;
+      margin-bottom: 60px;
+      box-shadow: 0 35px 70px rgba(0,0,0,.6);
+      animation: fadeUp 1s ease both;
     }
 
     h2 {
       color: #38bdf8;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
+      font-size: 28px;
     }
 
-    /* LEADERS */
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #d1d5db;
+    }
+
+    /* PROFIL */
     .leader {
       text-align: center;
-      max-width: 750px;
+      max-width: 820px;
       margin: auto;
     }
 
     .leader img {
-      width: 170px;
-      height: 170px;
-      object-fit: cover;
+      width: 190px;
+      height: 190px;
       border-radius: 50%;
       border: 4px solid #38bdf8;
-      margin-bottom: 15px;
-      transition: transform .4s ease, box-shadow .4s ease;
+      margin-bottom: 20px;
+      transition: all .4s ease;
     }
 
     .leader img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px rgba(56,189,248,.6);
+      transform: scale(1.08);
+      box-shadow: 0 0 35px rgba(56,189,248,1);
     }
 
     .leader h3 {
-      margin: 10px 0 5px;
-      font-size: 22px;
+      font-size: 24px;
       color: #38bdf8;
     }
 
     .role {
       font-weight: 600;
+      margin-bottom: 20px;
       color: #cbd5f5;
-      margin-bottom: 15px;
-    }
-
-    .bio {
-      color: #e5e7eb;
-      font-size: 15px;
-      margin-bottom: 10px;
     }
 
     /* TIMELINE */
     .timeline {
       position: relative;
-      margin-top: 30px;
-      padding-left: 30px;
       border-left: 3px solid #38bdf8;
+      padding-left: 35px;
     }
 
     .event {
-      margin-bottom: 30px;
+      margin-bottom: 35px;
       opacity: 0;
-      transform: translateY(20px);
-      animation: slideIn .8s ease forwards;
+      transform: translateY(35px);
+      animation: slideIn 1s forwards;
     }
 
-    .event:nth-child(1) { animation-delay: .2s; }
-    .event:nth-child(2) { animation-delay: .4s; }
-    .event:nth-child(3) { animation-delay: .6s; }
-    .event:nth-child(4) { animation-delay: .8s; }
+    .event:nth-child(1){animation-delay:.2s}
+    .event:nth-child(2){animation-delay:.4s}
+    .event:nth-child(3){animation-delay:.6s}
+    .event:nth-child(4){animation-delay:.8s}
 
     .event::before {
       content: "";
       position: absolute;
-      left: -11px;
+      left: -12px;
       width: 18px;
       height: 18px;
       background: #38bdf8;
       border-radius: 50%;
-      box-shadow: 0 0 15px rgba(56,189,248,.8);
+      box-shadow: 0 0 20px rgba(56,189,248,.9);
     }
 
     .event span {
-      display: block;
       font-weight: bold;
       color: #38bdf8;
-      margin-bottom: 6px;
+      font-size: 17px;
     }
 
-    /* BUTTON */
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 12px 22px;
-      border-radius: 30px;
+      margin-top: 30px;
+      padding: 14px 30px;
+      border-radius: 35px;
       background: linear-gradient(135deg, #38bdf8, #0ea5e9);
       color: #020617;
-      font-weight: bold;
       text-decoration: none;
+      font-weight: bold;
       transition: all .3s ease;
-      box-shadow: 0 0 0 rgba(56,189,248,0);
     }
 
     .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 25px rgba(56,189,248,.8);
+      transform: translateY(-3px);
+      box-shadow: 0 0 35px rgba(56,189,248,1);
     }
 
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 30px;
+      background: #020617;
       font-size: 14px;
       color: #94a3b8;
-      background: #020617;
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(25px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {opacity:0; transform:translateY(35px)}
+      to {opacity:1; transform:translateY(0)}
     }
 
     @keyframes slideIn {
-      to { opacity: 1; transform: translateY(0); }
+      to {opacity:1; transform:translateY(0)}
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px rgba(56,189,248,.5); }
+      to { text-shadow: 0 0 30px rgba(56,189,248,1); }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  Looma App Store
-</header>
+<header id="title">Looma App Store</header>
+
+<div class="lang-switch">
+  <button onclick="setLang('fr')">Français</button>
+  <button onclick="setLang('en')">English</button>
+  <button onclick="setLang('es')">Español</button>
+  <button onclick="setLang('zh')">中文</button>
+</div>
 
 <div class="container">
 
   <div class="box">
-    <h2>PDG & Fondatè</h2>
+    <h2 id="ceoTitle">Président-directeur général & Fondateur</h2>
     <div class="leader">
       <img src="https://ia903103.us.archive.org/8/items/d90c054c-0559-46b9-a1b7-cba5a0ad9b48/3dd053fd-92c5-4734-bb4b-44953c144941.jpeg">
       <h3>Chery Widson</h3>
-      <div class="role">PDG & Fondateur</div>
-      <p class="bio">
-        Chery Widson se fondatè Looma App Store. Li dirije vizyon platfòm lan
-        pou kreye yon ekosistèm aplikasyon ki serye, modèn, epi aksesib pou tout moun.
+      <div class="role" id="ceoRole">PDG & Fondateur</div>
+      <p id="ceoBio">
+        Chery Widson est le fondateur et président-directeur général de Looma App Store.
+        Entrepreneur visionnaire dans le domaine du numérique, il a créé Looma avec
+        l’ambition de proposer une plateforme de distribution d’applications moderne,
+        transparente et axée sur la sécurité. Il supervise la stratégie globale,
+        l’innovation technologique et le développement international de la plateforme.
       </p>
     </div>
   </div>
 
   <div class="box">
-    <h2>Devlopè Prensipal</h2>
-    <div class="leader">
-      <img src="https://ia903103.us.archive.org/8/items/d90c054c-0559-46b9-a1b7-cba5a0ad9b48/d90c054c-0559-46b9-a1b7-cba5a0ad9b48.jpeg">
-      <h3>Carline Dessauguste</h3>
-      <div class="role">Full-Stack Developer</div>
-      <p class="bio">
-        Carline Dessauguste responsab pou devlopman teknik Looma App Store,
-        sekirite backend, ak pèfòmans sistèm lan.
-      </p>
-    </div>
-  </div>
-
-  <div class="box">
-    <h2>Istwa Looma App Store</h2>
+    <h2 id="timelineTitle">Histoire et évolution de Looma App Store</h2>
     <div class="timeline">
       <div class="event">
         <span>2024</span>
-        Ide Looma App Store la pran nesans kòm yon solisyon altènatif
-        pou distribisyon aplikasyon.
+        <p id="t1">
+          L’idée de Looma App Store naît face au besoin d’une alternative fiable aux
+          plateformes traditionnelles, offrant plus de liberté aux développeurs.
+        </p>
       </div>
       <div class="event">
         <span>2025</span>
-        Premye vèsyon platfòm lan lanse ak AI tools ak sistèm telechajman.
+        <p id="t2">
+          Lancement de la première version publique avec un système de gestion
+          d’applications et des outils intelligents intégrés.
+        </p>
       </div>
       <div class="event">
         <span>2026</span>
-        Ajout admin panel, kont devlopè, verifikasyon app, ak sekirite avanse.
+        <p id="t3">
+          Mise en place du panneau d’administration, des comptes développeurs,
+          de la vérification des applications et des mécanismes de sécurité avancés.
+        </p>
       </div>
       <div class="event">
-        <span>Avenir</span>
-        Ekspansyon mondyal, monetizasyon, ak sipò devlopè atravè lemond.
+        <span>Vision future</span>
+        <p id="t4">
+          Déploiement international, monétisation éthique, partenariats stratégiques
+          et soutien accru aux développeurs à l’échelle mondiale.
+        </p>
       </div>
     </div>
 
-    <a href="/" class="btn">Retounen sou sit la</a>
+    <a href="/" class="btn" id="backBtn">Retour au site</a>
   </div>
 
 </div>
 
 <footer>
-  © 2026 Looma App Store – Tous droits réservés
+  © 2026 Looma App Store — Tous droits réservés
 </footer>
+
+<script>
+function setLang(l){
+  if(l !== "fr"){
+    alert("Les traductions complètes seront disponibles prochainement.");
+  }
+}
+</script>
 
 </body>
 </html>
