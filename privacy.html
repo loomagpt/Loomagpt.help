@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Politique de confidentialité | Looma App Store</title>
+    <meta name="description" content="Politique de confidentialité détaillée de Looma App Store expliquant la collecte, l'utilisation, la protection et la gestion de vos données personnelles conformément au RGPD.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://loomagpt.help/privacy.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #020617;
+            --secondary-dark: #0f172a;
+            --accent-blue: #38bdf8;
+            --accent-light: #7dd3fc;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 50%, #38bdf8 100%);
+            --shadow-glow: 0 0 20px rgba(56, 189, 248, 0.3);
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--primary-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 0;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 85% 30%, rgba(30, 58, 138, 0.05) 0%, transparent 20%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: var(--shadow-glow); }
+            50% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.5); }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: var(--gradient-primary);
+            border-radius: var(--border-radius);
+            position: relative;
+            overflow: hidden;
+            animation: pulse 4s infinite ease-in-out;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: float 20s infinite linear;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.5px;
+        }
+        
+        .date-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 10px 25px;
+            border-radius: 50px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .section {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 35px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent-blue);
+        }
+        
+        h2 {
+            color: var(--accent-light);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        h2 i {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+        }
+        
+        p {
+            margin-bottom: 18px;
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+        
+        ul {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+            position: relative;
+        }
+        
+        li::before {
+            content: '▸';
+            color: var(--accent-blue);
+            position: absolute;
+            left: -18px;
+            font-weight: bold;
+        }
+        
+        .highlight {
+            background: rgba(56, 189, 248, 0.1);
+            border-left: 3px solid var(--accent-blue);
+            padding: 20px;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin: 25px 0;
+        }
+        
+        .contact-box {
+            text-align: center;
+            padding: 40px;
+            background: var(--gradient-primary);
+            border-radius: var(--border-radius);
+            margin-top: 40px;
+            animation: pulse 5s infinite ease-in-out;
+        }
+        
+        .contact-box h2 {
+            color: white;
+            justify-content: center;
+        }
+        
+        .contact-email {
+            display: inline-block;
+            background: white;
+            color: var(--primary-dark);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .contact-email:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(56, 189, 248, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-glow);
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 1000;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+        }
+        
+        .scroll-top:hover {
+            transform: scale(1.1);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section {
+                padding: 25px 20px;
+            }
+            
+            .header {
+                padding: 30px 15px;
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="date-badge">
+                    <i class="fas fa-calendar-alt"></i> Dernière mise à jour : 15 janvier 2026
+                </div>
+                <h1>Politique de Confidentialité</h1>
+                <p class="intro">Chez <strong>Looma App Store</strong>, la protection de votre vie privée et la sécurité de vos données personnelles constituent des engagements fondamentaux qui guident chacune de nos actions. Cette politique de confidentialité exhaustive détaille avec transparence les modalités selon lesquelles nous collectons, utilisons, stockons, protégeons et, le cas échéant, partageons les informations que vous nous confiez dans le cadre de votre utilisation de notre plateforme. Nous nous conformons strictement au Règlement Général sur la Protection des Données (RGPD) et à toutes les législations applicables en matière de protection des données.</p>
+            </div>
+        </header>
+        
+        <section class="section" id="informations-collectees">
+            <h2><i class="fas fa-database"></i> 1. Informations Collectées</h2>
+            <p>Dans le cadre de l'utilisation de la Looma App Store, nous pouvons être amenés à collecter et traiter différentes catégories de données personnelles, que vous nous fournissez directement ou que nous recueillons automatiquement via votre interaction avec nos services. Ces informations incluent, sans s'y limiter :</p>
+            <ul>
+                <li><strong>Données d'identification et de compte :</strong> Cela comprend votre adresse e-mail, votre nom d'utilisateur, votre mot de passe (stocké de manière sécurisée et haché), votre photo de profil si vous en fournissez une, ainsi que toute information supplémentaire que vous choisissez d'ajouter à votre profil utilisateur ou développeur.</li>
+                <li><strong>Données techniques et de connexion :</strong> Nous collectons automatiquement votre adresse IP, le type et la version de votre navigateur, votre système d'exploitation, votre fuseau horaire, les types et versions des plugins de votre navigateur, ainsi que des informations sur votre appareil (modèle, identifiants uniques, paramètres).</li>
+                <li><strong>Données de navigation et d'utilisation :</strong> Nous enregistrons des informations sur votre interaction avec notre plateforme, notamment les pages consultées, les applications téléchargées ou achetées, les recherches effectuées, le temps passé sur différentes sections, ainsi que les dates et heures de vos visites.</li>
+                <li><strong>Données de contenu et de communication :</strong> Toutes les informations que vous publiez, téléchargez ou transmettez via notre plateforme, y compris les commentaires, les avis, les messages de support, les soumissions d'applications (pour les développeurs), et toute autre forme de communication.</li>
+                <li><strong>Données de paiement :</strong> Pour les transactions financières, nous travaillons avec des processeurs de paiement tiers sécurisés. Nous ne stockons pas directement les données sensibles de carte de crédit, mais nous pouvons conserver des informations sur votre historique d'achat et vos abonnements.</li>
+            </ul>
+            <div class="highlight">
+                <p><strong>Principe de minimisation :</strong> Nous adhérons au principe de minimisation des données, ne collectant que les informations strictement nécessaires aux finalités pour lesquelles elles sont traitées. Vous avez toujours le contrôle sur les données que vous partagez et pouvez gérer vos préférences via les paramètres de votre compte.</p>
+            </div>
+        </section>
+        
+        <section class="section" id="utilisation-donnees">
+            <h2><i class="fas fa-cogs"></i> 2. Utilisation des Données</h2>
+            <p>Les données personnelles que nous collectons sont traitées de manière légitime, licite et transparente, exclusivement pour des finalités déterminées, explicites et légitimes. Les principales utilisations de vos informations sont les suivantes :</p>
+            <ul>
+                <li><strong>Fourniture et exécution de nos services :</strong> Vos données nous permettent de créer et gérer votre compte utilisateur, de vous fournir un accès personnalisé à la Looma App Store, de traiter vos téléchargements et achats, de gérer vos abonnements, et d'assurer le bon fonctionnement technique de la plateforme. Cette utilisation est nécessaire à l'exécution du contrat qui nous lie.</li>
+                <li><strong>Amélioration continue et développement :</strong> Nous analysons de manière agrégée et anonymisée les données d'utilisation pour comprendre comment nos services sont utilisés, identifier les tendances, mesurer l'efficacité de nos fonctionnalités, et ainsi améliorer constamment l'expérience utilisateur, développer de nouvelles fonctionnalités pertinentes et optimiser les performances de la plateforme.</li>
+                <li><strong>Sécurité et intégrité :</strong> La protection de nos utilisateurs et de notre plateforme est primordiale. Nous utilisons vos données pour détecter, prévenir et investiguer toute activité frauduleuse, tout accès non autorisé, tout abus de nos services, ainsi que pour assurer la sécurité technique de nos systèmes et protéger nos droits et ceux de nos utilisateurs.</li>
+                <li><strong>Communication et support :</strong> Nous utilisons vos coordonnées pour répondre à vos demandes d'assistance, vous envoyer des notifications importantes concernant votre compte ou nos services (mises à jour de sécurité, modifications des conditions, confirmations de transactions), et, si vous y avez consenti, vous informer des nouveautés, promotions ou fonctionnalités susceptibles de vous intéresser.</li>
+                <li><strong>Conformité légale et réglementaire :</strong> Nous pouvons être amenés à traiter vos données pour nous conformer à nos obligations légales, répondre à des requêtes des autorités compétentes, appliquer nos Conditions Générales d'Utilisation, ou régler des litiges.</li>
+            </ul>
+        </section>
+        
+        <section class="section" id="cookies">
+            <h2><i class="fas fa-cookie-bite"></i> 3. Cookies et Technologies Similaires</h2>
+            <p>La Looma App Store utilise des cookies et d'autres technologies de suivi similaires (tels que les pixels, balises web et stockage local) pour améliorer votre expérience de navigation, analyser le trafic sur notre plateforme, personnaliser le contenu et les publicités, et fournir des fonctionnalités de médias sociaux. Un cookie est un petit fichier texte déposé sur votre appareil lorsque vous visitez un site web.</p>
+            <p>Nous utilisons différentes catégories de cookies :</p>
+            <ul>
+                <li><strong>Cookies strictement nécessaires :</strong> Essentiels au fonctionnement de base de la plateforme, ils permettent la navigation et l'accès aux zones sécurisées. Sans ces cookies, certains services ne peuvent être fournis.</li>
+                <li><strong>Cookies de performance et d'analyse :</strong> Ces cookies collectent des informations sur la façon dont les visiteurs utilisent notre plateforme (pages les plus visitées, messages d'erreur). Ils nous aident à améliorer son fonctionnement. Toutes les informations collectées par ces cookies sont agrégées et donc anonymes.</li>
+                <li><strong>Cookies de fonctionnalité :</strong> Ils permettent à la plateforme de mémoriser les choix que vous faites (comme votre nom d'utilisateur, votre langue ou votre région) et de fournir des fonctionnalités améliorées et plus personnalisées.</li>
+                <li><strong>Cookies de ciblage/publicité :</strong> Ces cookies sont utilisés pour diffuser des publicités plus pertinentes pour vous et vos centres d'intérêt. Ils sont également utilisés pour limiter le nombre de fois où vous voyez une publicité et pour aider à mesurer l'efficacité des campagnes publicitaires.</li>
+            </ul>
+            <p>Vous disposez d'un contrôle complet sur l'utilisation des cookies. Lors de votre première visite, un bandeau d'information vous permet de paramétrer vos préférences. Vous pouvez également modifier vos choix à tout moment via les paramètres de votre navigateur. Veuillez noter que la désactivation de certains cookies, notamment ceux strictement nécessaires, peut affecter le fonctionnement de certaines parties de notre plateforme.</p>
+        </section>
+        
+        <section class="section" id="partage-informations">
+            <h2><i class="fas fa-share-alt"></i> 4. Partage des Informations</h2>
+            <p>Looma App Store s'engage à ne jamais vendre, louer ou échanger vos données personnelles à des fins commerciales avec des tiers non affiliés. Cependant, dans le cadre strict de l'exécution de nos services et conformément à la loi, nous pouvons partager vos informations avec les catégories de destinataires suivantes :</p>
+            <ul>
+                <li><strong>Prestataires de services et sous-traitants :</strong> Nous collaborons avec des partenaires techniques de confiance qui nous aident à faire fonctionner notre plateforme (hébergement, maintenance, analyse de données, traitement des paiements, service client, envoi d'emails). Ces entités n'ont accès à vos données que dans la mesure nécessaire pour exécuter les services qui nous sont fournis et sont contractuellement tenues de les protéger et de ne pas les utiliser à d'autres fins.</li>
+                <li><strong>Développeurs d'applications :</strong> Lorsque vous téléchargez ou achetez une application sur notre store, certaines informations non-identifiantes (comme le pays, la langue) ou relatives à l'achat peuvent être partagées avec le développeur concerné pour lui permettre d'assurer le support et les mises à jour de son application, dans le respect de notre politique.</li>
+                <li><strong>Autorités légales :</strong> Nous pouvons être contraints de divulguer vos informations si la loi l'exige ou en réponse à des demandes valides des autorités publiques (par exemple, un tribunal ou une agence gouvernementale).</li>
+                <li><strong>Transactions commerciales :</strong> Dans le cas d'une fusion, acquisition, vente d'actifs ou transition de service vers une autre société, vos données personnelles pourraient faire partie des actifs transférés. Nous vous informerons avant que vos données ne soient transférées et ne deviennent soumises à une politique de confidentialité différente.</li>
+            </ul>
+            <div class="highlight">
+                <p><strong>Transparence des sous-traitants :</strong> Nous maintenons une liste à jour de nos principaux sous-traitants qui traitent des données pour notre compte. Cette liste, précisant leur rôle et leur localisation, est disponible sur demande à l'adresse <a href="mailto:privacy@loomagpt.help" style="color: var(--accent-blue);">privacy@loomagpt.help</a>.</p>
+            </div>
+        </section>
+        
+        <section class="section" id="securite">
+            <h2><i class="fas fa-shield-alt"></i> 5. Sécurité des Données</h2>
+            <p>La sécurité de vos données personnelles est notre priorité absolue. Nous mettons en œuvre un ensemble rigoureux de mesures techniques, physiques et organisationnelles conçues pour protéger vos informations contre tout accès, divulgation, altération ou destruction non autorisés, qu'elle soit accidentelle ou illicite. Notre approche de sécurité repose sur plusieurs piliers :</p>
+            <ul>
+                <li><strong>Chiffrement :</strong> Nous utilisons un chiffrement de bout en bout et des protocoles sécurisés (comme TLS/SSL) pour protéger la transmission de vos données entre votre appareil et nos serveurs. Les données sensibles au repos sont également chiffrées.</li>
+                <li><strong>Sécurité des infrastructures :</strong> Nos serveurs sont hébergés dans des centres de données de niveau tiers, sécurisés physiquement et surveillés 24h/24 et 7j/7, avec des protections contre les incendies, les inondations et les accès non autorisés.</li>
+                <li><strong>Contrôles d'accès stricts :</strong> L'accès à vos données personnelles est strictement limité aux employés et sous-traitants qui en ont besoin pour effectuer leurs tâches professionelles. Ces personnes sont soumises à des obligations contractuelles de confidentialité.</li>
+                <li><strong>Surveillance et détection des menaces :</strong> Nous surveillons activement nos systèmes pour détecter toute activité suspecte ou tentative d'intrusion, et nous disposons de procédures de réponse aux incidents pour réagir rapidement en cas de violation de données présumée.</li>
+                <li><strong>Évaluation régulière :</strong> Nous procédons régulièrement à des audits de sécurité et des tests de pénétration pour évaluer et améliorer l'efficacité de nos mesures de protection.</li>
+            </ul>
+            <p>Malgré tous nos efforts, aucune méthode de transmission sur Internet ou de stockage électronique n'est totalement infaillible à 100%. Nous nous engageons à vous informer dans les meilleurs délais, conformément aux obligations légales, en cas de violation de données personnelles susceptible d'engendrer un risque élevé pour vos droits et libertés.</p>
+        </section>
+        
+        <section class="section" id="droits">
+            <h2><i class="fas fa-user-check"></i> 6. Vos Droits</h2>
+            <p>En vertu du RGPD et des lois applicables en matière de protection des données, vous disposez de droits importants sur vos données personnelles. Looma App Store s'engage à faciliter l'exercice de ces droits. Vous pouvez, sous réserve de certaines conditions légales, exercer les droits suivants :</p>
+            <ul>
+                <li><strong>Droit d'accès :</strong> Vous avez le droit d'obtenir la confirmation que nous traitons vos données personnelles et, le cas échéant, d'accéder à ces données ainsi qu'à des informations concernant leur traitement.</li>
+                <li><strong>Droit de rectification :</strong> Vous pouvez demander la correction de données inexactes les concernant ou leur complétement si elles sont incomplètes.</li>
+                <li><strong>Droit à l'effacement (« droit à l'oubli ») :</strong> Vous pouvez demander la suppression de vos données personnelles, notamment lorsque celles-ci ne sont plus nécessaires au regard des finalités pour lesquelles elles ont été collectées, ou si vous retirez votre consentement.</li>
+                <li><strong>Droit à la limitation du traitement :</strong> Vous pouvez demander la limitation du traitement de vos données dans certains cas spécifiques (par exemple, pendant la période de vérification de l'exactitude des données).</li>
+                <li><strong>Droit à la portabilité des données :</strong> Vous avez le droit de recevoir les données personnelles que vous nous avez fournies, dans un format structuré, couramment utilisé et lisible par machine, et de les transmettre à un autre responsable du traitement, lorsque le traitement est basé sur votre consentement ou l'exécution d'un contrat.</li>
+                <li><strong>Droit d'opposition :</strong> Vous pouvez vous opposer, pour des motifs tenant à votre situation particulière, au traitement de vos données fondé sur l'intérêt légitime. Vous pouvez vous opposer à tout moment au traitement de vos données à des fins de marketing direct.</li>
+                <li><strong>Droit de retirer votre consentement :</strong> Lorsque le traitement est fondé sur votre consentement, vous avez le droit de le retirer à tout moment, sans affecter la licéité du traitement fondé sur le consentement effectué avant son retrait.</li>
+            </ul>
+            <p>Pour exercer l'un de ces droits, ou pour toute question relative à l'exercice de vos droits, vous pouvez nous contacter à l'adresse dédiée <a href="mailto:privacy@loomagpt.help" style="color: var(--accent-blue);">privacy@loomagpt.help</a>. Nous nous engageons à répondre à toute demande dans un délai maximal d'un mois à compter de sa réception. Si votre demande est complexe ou si nous recevons un volume important de demandes, ce délai pourra être prolongé de deux mois supplémentaires, ce dont nous vous informerons. Avant de donner suite à votre demande, nous pourrons vous demander de vérifier votre identité pour des raisons de sécurité.</p>
+            <p>Vous avez également le droit d'introduire une réclamation auprès de l'autorité de contrôle compétente en matière de protection des données, en particulier dans l'État membre de votre résidence habituelle, de votre lieu de travail ou du lieu de l'infraction alléguée. En France, cette autorité est la Commission Nationale de l'Informatique et des Libertés (CNIL).</p>
+        </section>
+        
+        <section class="section" id="modifications">
+            <h2><i class="fas fa-sync-alt"></i> 7. Modifications de la Politique</h2>
+            <p>La présente politique de confidentialité peut être amenée à évoluer pour tenir compte des développements de nos services, des changements technologiques, des évolutions législatives et réglementaires, ou des bonnes pratiques en matière de protection des données. Nous nous réservons donc le droit de la modifier à tout moment.</p>
+            <p>Toute modification substantielle de cette politique (changements affectant la nature des données collectées, les finalités du traitement, ou la manière dont vos droits peuvent être exercés) fera l'objet d'une communication proactive. Nous vous informerons de ces changements importants par un message visible sur notre plateforme lors de votre prochaine connexion, et/ou par une notification par email envoyée à l'adresse associée à votre compte, au moins 30 jours avant leur entrée en vigueur, lorsque la loi l'exige.</p>
+            <p>Les modifications non substantielles (corrections typographiques, clarifications rédactionnelles, changements organisationnels mineurs) seront effectives dès leur publication. Nous vous encourageons à consulter régulièrement cette page pour rester informé de notre politique de confidentialité. La date de la « Dernière mise à jour » en haut de cette page indique la dernière révision.</p>
+            <p>Votre utilisation continue de la Looma App Store après l'entrée en vigueur de toute modification constitue votre acceptation de la politique de confidentialité révisée. Si vous n'acceptez pas les modifications apportées, vous devez cesser d'utiliser nos services et pouvez nous contacter pour demander la suppression de votre compte et de vos données.</p>
+        </section>
+        
+        <div class="contact-box">
+            <h2><i class="fas fa-envelope"></i> Contact & Délégué à la Protection des Données</h2>
+            <p>Pour toute question, préoccupation ou demande relative à cette politique de confidentialité, à l'exercice de vos droits, ou pour toute question concernant nos pratiques en matière de protection des données, vous pouvez contacter notre Délégué à la Protection des Données (DPO) :</p>
+            <a href="mailto:contact@loomagpt.help" class="contact-email">
+                <i class="fas fa-paper-plane"></i> contact@loomagpt.help
+            </a>
+            <p style="margin-top: 20px; color: rgba(255,255,255,0.9);">Nous nous engageons à traiter votre demande avec la plus grande attention et dans les meilleurs délais, conformément à la réglementation applicable.</p>
+        </div>
+        
+        <footer class="footer">
+            <p>© 2026 Looma App Store. Tous droits réservés. | <a href="https://loomagpt.help" style="color: var(--accent-light);">Retour à l'accueil</a></p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Cette politique de confidentialité est régie par le droit applicable et toute contestation relative à son interprétation ou à son exécution relèvera de la compétence des tribunaux compétents.</p>
+        </footer>
+        
+        <a href="#" class="scroll-top" id="scrollTopBtn" title="Retour en haut">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+    </div>
+
+    <script>
+        // Animation du bouton de retour en haut
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animation au défilement pour les sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Appliquer l'observation à toutes les sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(section);
+        });
+        
+        // Effet de soulignement pour les liens internes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 20,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
