@@ -4378,3 +4378,85 @@
     </script>
 </body>
 </html>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-container">
+
+    <!-- Legal Links -->
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/dmca.html">DMCA</a>
+    </div>
+
+    <!-- Social Links -->
+    <div class="footer-social">
+      <a href="https://youtube.com/@dark.vibesh3?si=btTRAKlZ6JfZETSi" target="_blank">YouTube</a>
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copy">
+      &copy; 2026 LOOMA App Store  - Tous droits réservés
+    </div>
+
+    <!-- Lang code -->
+    <small id="lang-code">FR</small>
+  </div>
+</footer>
+
+<!-- FOOTER CSS -->
+<style>
+footer {
+  background-color: #111;
+  color: #fff;
+  padding: 25px 20px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container a {
+  color: #fff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.footer-container a:hover {
+  color: #00f; /* klere ble lè hover */
+}
+
+.footer-copy {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #aaa;
+}
+
+#lang-code {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.footer-links {
+  margin-bottom: 10px;
+}
+
+.footer-social {
+  margin-bottom: 10px;
+}
+</style>
+
+<!-- FOOTER JS -->
+<script>
+const langCode = document.getElementById('lang-code');
+
+function setLang(lang) {
+  langCode.textContent = lang; // FR / EN / ES / 中文
+}
+
+// Egzanp mete lang EN
+setLang('EN');
+</script>
