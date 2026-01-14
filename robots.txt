@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loomagpt.help/sitemap.xml
